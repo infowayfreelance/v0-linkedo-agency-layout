@@ -15,6 +15,16 @@ const categories = ["All", "SEO", "Web Development", "Google Ads", "Marketing", 
 
 const blogPosts = [
   {
+    slug: "what-is-ai-seo",
+    title: "What Is AI SEO: A Practical Guide for UK Small Businesses in 2026",
+    excerpt: "A beginner-friendly guide to improving visibility in Google and AI search tools.",
+    category: "SEO",
+    date: "2026-01-15",
+    readTime: "12 min read",
+    image: "/content-optimization-editor-showing-seo-improvemen.jpg",
+    featured: true,
+  },
+  {
     slug: "seo-trends-2025",
     title: "Top SEO Trends to Watch in 2025",
     excerpt: "Stay ahead of the curve with these emerging SEO strategies that are reshaping search rankings.",
@@ -22,7 +32,6 @@ const blogPosts = [
     date: "2025-01-15",
     readTime: "5 min read",
     image: "/seo-analytics-dashboard.png",
-    featured: true,
   },
   {
     slug: "web-development-best-practices",
