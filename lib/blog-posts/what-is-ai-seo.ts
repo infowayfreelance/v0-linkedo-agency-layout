@@ -434,13 +434,13 @@ export const aiSeoPost = {
   title: "What Is AI SEO: A Practical Guide for UK Small Businesses in 2026",
   excerpt: "A beginner-friendly guide to improving visibility in Google and AI search tools.",
   category: "SEO",
-  date: "2026-01-15",
+  date: "2026-09-20",
   readTime: "12 min read",
   image: "/blog/what-is-ai-seo/ai-seo-hero.png",
   author: {
-    name: "Sarah Johnson",
+    name: "Junaid Mazhar",
     role: "SEO Director",
-    avatar: "/professional-woman-diverse.png",
+    avatar: "/professional-man-headshot-suit.jpg",
   },
   content: aiSeoContent,
 }
