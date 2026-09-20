@@ -440,7 +440,7 @@ export const aiSeoPost = {
   author: {
     name: "Junaid Mazhar",
     role: "SEO Director",
-    avatar: "/professional-man-headshot-suit.jpg",
+    avatar: "/blog/what-is-ai-seo/junaid-mazhar.png",
   },
   content: aiSeoContent,
 }
