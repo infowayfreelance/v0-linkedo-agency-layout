@@ -62,6 +62,12 @@ export function renderContentBlocks(blocks: ContentBlock[]) {
             </table>
           </div>
         )
+      case "image":
+        return (
+          <div key={index} className="rounded-xl overflow-hidden mb-6 border border-border bg-muted">
+            <img src={block.src || "/placeholder.svg"} alt={block.alt} className="w-full h-auto" />
+          </div>
+        )
       case "source":
         return (
           <p key={index} className="text-sm text-muted-foreground/70 italic mb-6">

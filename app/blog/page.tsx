@@ -21,7 +21,7 @@ const blogPosts = [
     category: "SEO",
     date: "2026-01-15",
     readTime: "12 min read",
-    image: "/content-optimization-editor-showing-seo-improvemen.jpg",
+    image: "/blog/what-is-ai-seo/ai-seo-hero.png",
     featured: true,
   },
   {

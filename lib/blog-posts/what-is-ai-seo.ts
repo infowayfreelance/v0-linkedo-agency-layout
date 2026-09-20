@@ -43,6 +43,7 @@ const aiSeoContent: ContentBlock[] = [
     text: "AI SEO simply adds more focus to clear answers, reliable information, real experience, and consistent business details.",
   },
   { type: "source", text: "Source: Google Search Central – AI features and your website" },
+  { type: "image", src: "/blog/what-is-ai-seo/what-is-ai-seo-diagram.png", alt: "Diagram showing how clear business information helps AI search tools understand and mention a website" },
 
   { type: "h2", text: "Why AI SEO Matters in 2026" },
   { type: "p", text: "People can now ask detailed questions in Google or an AI tool and receive a direct answer." },
@@ -97,6 +98,7 @@ const aiSeoContent: ContentBlock[] = [
     text: "Both need crawlable pages, useful content, relevant links, good performance, and trusted information.",
   },
   { type: "p", text: "The main difference is where the content may appear and how it may be used." },
+  { type: "image", src: "/blog/what-is-ai-seo/traditional-seo-vs-ai-seo.png", alt: "Comparison graphic showing Traditional SEO versus AI SEO and their shared foundations" },
   {
     type: "table",
     headers: ["Area", "Traditional SEO", "AI SEO"],
@@ -114,6 +116,7 @@ const aiSeoContent: ContentBlock[] = [
 
   { type: "h2", text: "What GEO, AEO, and LLMO Mean" },
   { type: "p", text: "You may see several terms used when people discuss AI SEO:" },
+  { type: "image", src: "/blog/what-is-ai-seo/geo-aeo-llmo.png", alt: "GEO, AEO, and LLMO explained side by side, showing their shared foundations" },
   {
     type: "ul",
     items: [
@@ -169,6 +172,7 @@ const aiSeoContent: ContentBlock[] = [
   },
 
   { type: "h2", text: "How a UK Small Business Can Improve AI Visibility" },
+  { type: "image", src: "/blog/what-is-ai-seo/improve-ai-visibility-steps.png", alt: "Seven-step process for improving AI visibility, from technical SEO to schema markup" },
   {
     type: "p",
     text: "Start with basic SEO. Important pages should be crawlable, indexed, mobile-friendly, secure, fast, and easy to navigate.",
@@ -213,6 +217,7 @@ const aiSeoContent: ContentBlock[] = [
 
   { type: "h2", text: "Practical AI SEO Checklist for UK Small Businesses" },
   { type: "p", text: "Use this checklist to review your website and online presence." },
+  { type: "image", src: "/blog/what-is-ai-seo/ai-seo-checklist.png", alt: "AI SEO checklist covering technical, content, business trust, and measurement checks" },
   { type: "h3", text: "Technical checks" },
   {
     type: "ul",
@@ -302,6 +307,7 @@ const aiSeoContent: ContentBlock[] = [
   { type: "source", text: "Source: Google Search Central AI features and Search Console reporting" },
 
   { type: "h2", text: "Common AI SEO Myths and False Promises" },
+  { type: "image", src: "/blog/what-is-ai-seo/ai-seo-myths-vs-facts.png", alt: "AI SEO myths versus facts board, plus a warning to avoid false promises" },
   { type: "h3", text: "AI SEO replaces normal SEO" },
   {
     type: "p",
@@ -430,7 +436,7 @@ export const aiSeoPost = {
   category: "SEO",
   date: "2026-01-15",
   readTime: "12 min read",
-  image: "/content-optimization-editor-showing-seo-improvemen.jpg",
+  image: "/blog/what-is-ai-seo/ai-seo-hero.png",
   author: {
     name: "Sarah Johnson",
     role: "SEO Director",
