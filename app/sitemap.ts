@@ -61,6 +61,7 @@ const londonNestedRoutes = ["/london/seo"]
 const caseStudySlugs = ["techflow"]
 
 const blogSlugs = [
+  "what-is-ai-seo",
   "seo-trends-2025",
   "web-development-best-practices",
   "google-ads-roi-optimization",

@@ -5,6 +5,11 @@ const postMetadata: Record<string, { title: string; description: string }> = {
     title: "Modern Web Development: Best Practices for 2025 | Linkedo",
     description: "Learn the essential techniques and frameworks that define modern web development.",
   },
+  "what-is-ai-seo": {
+    title: "What Is AI SEO UK Small Business Guide for 2026 | Linkedo",
+    description:
+      "Learn what AI SEO means, how AI search works, and the practical steps UK small businesses can take to improve visibility in Google and AI tools.",
+  },
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -23,36 +28,41 @@ import { Chip } from "@/components/ui/chip"
 import { AnimatedButton } from "@/components/ui/animated-button"
 import Link from "next/link"
 import { Calendar, Clock, ArrowLeft, ArrowRight } from "lucide-react"
+import { aiSeoPost } from "@/lib/blog-posts/what-is-ai-seo"
+import { renderContentBlocks } from "@/lib/blog-posts/render-blocks"
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = {
-    title: "Top SEO Trends to Watch in 2025",
-    excerpt: "Stay ahead of the curve with these emerging SEO strategies that are reshaping search rankings.",
+const defaultPost = {
+  title: "Top SEO Trends to Watch in 2025",
+  excerpt: "Stay ahead of the curve with these emerging SEO strategies that are reshaping search rankings.",
+  category: "SEO",
+  date: "2025-01-15",
+  readTime: "5 min read",
+  image: "/seo-analytics-dashboard.png",
+  author: {
+    name: "Sarah Johnson",
+    role: "SEO Director",
+    avatar: "/professional-woman-diverse.png",
+  },
+}
+
+const relatedPosts = [
+  {
+    slug: "local-seo-strategies",
+    title: "Local SEO: Complete Guide for 2025",
     category: "SEO",
-    date: "2025-01-15",
-    readTime: "5 min read",
-    image: "/seo-analytics-dashboard.png",
-    author: {
-      name: "Sarah Johnson",
-      role: "SEO Director",
-      avatar: "/professional-woman-diverse.png",
-    },
-  }
+    image: "/local-business-map.png",
+  },
+  {
+    slug: "technical-seo-checklist",
+    title: "Technical SEO Checklist",
+    category: "SEO",
+    image: "/website-code.png",
+  },
+]
 
-  const relatedPosts = [
-    {
-      slug: "local-seo-strategies",
-      title: "Local SEO: Complete Guide for 2025",
-      category: "SEO",
-      image: "/local-business-map.png",
-    },
-    {
-      slug: "technical-seo-checklist",
-      title: "Technical SEO Checklist",
-      category: "SEO",
-      image: "/website-code.png",
-    },
-  ]
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const post = slug === "what-is-ai-seo" ? aiSeoPost : defaultPost
 
   return (
     <MainShell>
@@ -96,38 +106,48 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
           {/* Content */}
           <div className="prose prose-invert max-w-none mb-10 md:mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 mt-8">Introduction</h2>
-            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6">
-              SEO continues to evolve at a rapid pace, with search engines becoming increasingly sophisticated in
-              understanding user intent and content quality. In 2025, staying ahead means adapting to new technologies,
-              user behaviors, and algorithm updates.
-            </p>
+            {slug === "what-is-ai-seo" ? (
+              renderContentBlocks(aiSeoPost.content)
+            ) : (
+              <>
+                <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 mt-8">Introduction</h2>
+                <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6">
+                  SEO continues to evolve at a rapid pace, with search engines becoming increasingly sophisticated in
+                  understanding user intent and content quality. In 2025, staying ahead means adapting to new
+                  technologies, user behaviors, and algorithm updates.
+                </p>
 
-            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 mt-8">Key Trends</h2>
-            <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-3 mt-6">1. AI-Powered Search</h3>
-            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6">
-              Artificial intelligence is transforming how search engines interpret queries and rank content.
-              Understanding AI-driven search features and optimizing for them is crucial for maintaining visibility.
-            </p>
+                <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 mt-8">Key Trends</h2>
+                <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-3 mt-6">1. AI-Powered Search</h3>
+                <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6">
+                  Artificial intelligence is transforming how search engines interpret queries and rank content.
+                  Understanding AI-driven search features and optimizing for them is crucial for maintaining
+                  visibility.
+                </p>
 
-            <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-3 mt-6">2. E-E-A-T Emphasis</h3>
-            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6">
-              Experience, Expertise, Authoritativeness, and Trustworthiness (E-E-A-T) have become central to Google's
-              ranking algorithms. Building genuine authority and demonstrating expertise is more important than ever.
-            </p>
+                <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-3 mt-6">2. E-E-A-T Emphasis</h3>
+                <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6">
+                  Experience, Expertise, Authoritativeness, and Trustworthiness (E-E-A-T) have become central to
+                  Google's ranking algorithms. Building genuine authority and demonstrating expertise is more
+                  important than ever.
+                </p>
 
-            <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-3 mt-6">3. Voice & Visual Search</h3>
-            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6">
-              Voice search and visual search technologies are reshaping how users discover content. Optimizing for
-              natural language queries and image recognition is becoming essential.
-            </p>
+                <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-3 mt-6">
+                  3. Voice & Visual Search
+                </h3>
+                <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6">
+                  Voice search and visual search technologies are reshaping how users discover content. Optimizing
+                  for natural language queries and image recognition is becoming essential.
+                </p>
 
-            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 mt-8">Conclusion</h2>
-            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6">
-              The SEO landscape of 2025 demands a holistic approach that combines technical excellence, quality content,
-              and user experience. By staying informed and adapting to these trends, businesses can maintain their
-              competitive edge in search rankings.
-            </p>
+                <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 mt-8">Conclusion</h2>
+                <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6">
+                  The SEO landscape of 2025 demands a holistic approach that combines technical excellence, quality
+                  content, and user experience. By staying informed and adapting to these trends, businesses can
+                  maintain their competitive edge in search rankings.
+                </p>
+              </>
+            )}
           </div>
 
           {/* Author */}
