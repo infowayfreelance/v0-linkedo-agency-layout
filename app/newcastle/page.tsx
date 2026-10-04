@@ -64,74 +64,21 @@ export const metadata: Metadata = {
   },
 }
 
-const newcastleLocalBusinessSchema = {
+const newcastleServiceSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://linkedo.co.uk/newcastle#localbusiness",
-  name: "Linkedo",
-  url: "https://linkedo.co.uk/newcastle",
-  logo: "https://linkedo.co.uk/favicon.png",
+  "@type": "Service",
+  "@id": "https://linkedo.co.uk/newcastle#service",
+  name: "Newcastle Digital Marketing Services",
+  serviceType: "Digital Marketing",
   description:
     "UK-registered digital marketing agency serving Newcastle and Tyne and Wear businesses with SEO, Google Ads, Meta Ads, and web development.",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "483 Green Lanes",
-    addressLocality: "London",
-    postalCode: "N13 4BS",
-    addressCountry: "GB",
-  },
+  url: "https://linkedo.co.uk/newcastle",
+  provider: { "@id": "https://linkedo.co.uk/#organization" },
   areaServed: [
     { "@type": "City", name: "Newcastle upon Tyne" },
     { "@type": "AdministrativeArea", name: "Tyne and Wear" },
     { "@type": "AdministrativeArea", name: "North East England" },
     { "@type": "Country", name: "United Kingdom" },
-  ],
-  telephone: "+44 7927 969991",
-  email: "info@linkedo.co.uk",
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "customer service",
-    telephone: "+44 7927 969991",
-    email: "info@linkedo.co.uk",
-    areaServed: "GB",
-    availableLanguage: "English",
-    url: "https://linkedo.co.uk/contact",
-  },
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-    opens: "09:00",
-    closes: "18:00",
-  },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    reviewCount: "30",
-    bestRating: "5",
-    worstRating: "1",
-  },
-  review: [
-    {
-      "@type": "Review",
-      author: { "@type": "Person", name: "James Hargreaves" },
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      reviewBody:
-        "Linkedo transformed our online presence completely. Our enquiries doubled within three months of launching our new SEO strategy.",
-    },
-    {
-      "@type": "Review",
-      author: { "@type": "Person", name: "Sarah Mitchell" },
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      reviewBody:
-        "Professional, transparent, and results-driven. Our Google Ads campaigns have delivered the best ROI we've ever seen.",
-    },
-    {
-      "@type": "Review",
-      author: { "@type": "Person", name: "David Thornton" },
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      reviewBody:
-        "Linkedo understood our Newcastle market instantly. Our website traffic and leads have grown consistently month on month.",
-    },
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -143,10 +90,7 @@ const newcastleLocalBusinessSchema = {
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Meta Ads", url: "https://linkedo.co.uk/meta-ads" } },
     ],
   },
-  priceRange: "££",
-  currenciesAccepted: "GBP",
-  paymentAccepted: "Bank Transfer, Credit Card",
-  parentOrganization: { "@id": "https://linkedo.co.uk/#organization" },
+  logo: "https://linkedo.co.uk/favicon.png",
 }
 
 const newcastleBreadcrumbSchema = {
@@ -390,7 +334,7 @@ const testimonials = [
 export default function NewcastlePage() {
   return (
     <div className="min-h-screen bg-background">
-      <SchemaMarkup schema={newcastleLocalBusinessSchema} />
+      <SchemaMarkup schema={newcastleServiceSchema} />
       <SchemaMarkup schema={newcastleBreadcrumbSchema} />
       <SchemaMarkup schema={faqSchema} />
       <main className="pt-24">

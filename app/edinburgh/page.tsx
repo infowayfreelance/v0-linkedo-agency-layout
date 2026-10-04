@@ -65,74 +65,21 @@ export const metadata: Metadata = {
   },
 }
 
-const edinburghLocalBusinessSchema = {
+const edinburghServiceSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://linkedo.co.uk/edinburgh#localbusiness",
-  name: "Linkedo",
-  url: "https://linkedo.co.uk/edinburgh",
-  logo: "https://linkedo.co.uk/favicon.png",
+  "@type": "Service",
+  "@id": "https://linkedo.co.uk/edinburgh#service",
+  name: "Edinburgh Digital Marketing Services",
+  serviceType: "Digital Marketing",
   description:
     "UK-registered digital marketing agency serving Edinburgh and Scottish businesses with SEO, Google Ads, Meta Ads, and web development.",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "483 Green Lanes",
-    addressLocality: "London",
-    postalCode: "N13 4BS",
-    addressCountry: "GB",
-  },
+  url: "https://linkedo.co.uk/edinburgh",
+  provider: { "@id": "https://linkedo.co.uk/#organization" },
   areaServed: [
     { "@type": "City", name: "Edinburgh" },
     { "@type": "AdministrativeArea", name: "Scotland" },
     { "@type": "AdministrativeArea", name: "Lothian" },
     { "@type": "Country", name: "United Kingdom" },
-  ],
-  telephone: "+44 7927 969991",
-  email: "info@linkedo.co.uk",
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "customer service",
-    telephone: "+44 7927 969991",
-    email: "info@linkedo.co.uk",
-    areaServed: "GB",
-    availableLanguage: "English",
-    url: "https://linkedo.co.uk/contact",
-  },
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-    opens: "09:00",
-    closes: "18:00",
-  },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    reviewCount: "15",
-    bestRating: "5",
-    worstRating: "1",
-  },
-  review: [
-    {
-      "@type": "Review",
-      author: { "@type": "Person", name: "James Mitchell" },
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      reviewBody:
-        "Linkedo transformed our online visibility in Edinburgh. We're now ranking on page one for our most competitive keywords — the leads have been outstanding.",
-    },
-    {
-      "@type": "Review",
-      author: { "@type": "Person", name: "Sarah Reid" },
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      reviewBody:
-        "Our direct bookings doubled after Linkedo took over our Google Ads. They really understand the Edinburgh tourism market and peak season demand.",
-    },
-    {
-      "@type": "Review",
-      author: { "@type": "Person", name: "Alistair Cairns" },
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      reviewBody:
-        "Professional, transparent, and results-driven. Our new website and SEO strategy has brought in more qualified enquiries than anything we've tried before.",
-    },
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -144,10 +91,7 @@ const edinburghLocalBusinessSchema = {
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Meta Ads", url: "https://linkedo.co.uk/meta-ads" } },
     ],
   },
-  priceRange: "££",
-  currenciesAccepted: "GBP",
-  paymentAccepted: "Bank Transfer, Credit Card",
-  parentOrganization: { "@id": "https://linkedo.co.uk/#organization" },
+  logo: "https://linkedo.co.uk/favicon.png",
 }
 
 const edinburghBreadcrumbSchema = {
@@ -393,7 +337,7 @@ const testimonials = [
 export default function EdinburghPage() {
   return (
     <div className="min-h-screen bg-background">
-      <SchemaMarkup schema={edinburghLocalBusinessSchema} />
+      <SchemaMarkup schema={edinburghServiceSchema} />
       <SchemaMarkup schema={edinburghBreadcrumbSchema} />
       <SchemaMarkup schema={faqSchema} />
       <main className="pt-24">

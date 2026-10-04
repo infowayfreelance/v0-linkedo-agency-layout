@@ -64,74 +64,21 @@ export const metadata: Metadata = {
   },
 }
 
-const liverpoolLocalBusinessSchema = {
+const liverpoolServiceSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://linkedo.co.uk/liverpool#localbusiness",
-  name: "Linkedo",
-  url: "https://linkedo.co.uk/liverpool",
-  logo: "https://linkedo.co.uk/favicon.png",
+  "@type": "Service",
+  "@id": "https://linkedo.co.uk/liverpool#service",
+  name: "Liverpool Digital Marketing Services",
+  serviceType: "Digital Marketing",
   description:
     "UK-registered digital marketing agency serving Liverpool and Merseyside businesses with SEO, Google Ads, Meta Ads, and web development.",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "483 Green Lanes",
-    addressLocality: "London",
-    postalCode: "N13 4BS",
-    addressCountry: "GB",
-  },
+  url: "https://linkedo.co.uk/liverpool",
+  provider: { "@id": "https://linkedo.co.uk/#organization" },
   areaServed: [
     { "@type": "City", name: "Liverpool" },
     { "@type": "AdministrativeArea", name: "Merseyside" },
     { "@type": "AdministrativeArea", name: "North West England" },
     { "@type": "Country", name: "United Kingdom" },
-  ],
-  telephone: "+44 7927 969991",
-  email: "info@linkedo.co.uk",
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "customer service",
-    telephone: "+44 7927 969991",
-    email: "info@linkedo.co.uk",
-    areaServed: "GB",
-    availableLanguage: "English",
-    url: "https://linkedo.co.uk/contact",
-  },
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-    opens: "09:00",
-    closes: "18:00",
-  },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    reviewCount: "15",
-    bestRating: "5",
-    worstRating: "1",
-  },
-  review: [
-    {
-      "@type": "Review",
-      author: { "@type": "Person", name: "James Hartley" },
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      reviewBody:
-        "Linkedo transformed our online presence within just a few months. Our enquiries have doubled and we're now ranking on page one for our key Liverpool search terms.",
-    },
-    {
-      "@type": "Review",
-      author: { "@type": "Person", name: "Sarah Malone" },
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      reviewBody:
-        "We'd tried other agencies before but Linkedo actually delivered. Our Google Ads are now profitable and our website finally converts. Brilliant team to work with.",
-    },
-    {
-      "@type": "Review",
-      author: { "@type": "Person", name: "Daniel Owens" },
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      reviewBody:
-        "From day one, Linkedo were transparent, responsive, and results-focused. Our Baltic Triangle studio has seen a 40% increase in leads since working with them.",
-    },
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -143,10 +90,7 @@ const liverpoolLocalBusinessSchema = {
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Meta Ads", url: "https://linkedo.co.uk/meta-ads" } },
     ],
   },
-  priceRange: "££",
-  currenciesAccepted: "GBP",
-  paymentAccepted: "Bank Transfer, Credit Card",
-  parentOrganization: { "@id": "https://linkedo.co.uk/#organization" },
+  logo: "https://linkedo.co.uk/favicon.png",
 }
 
 const liverpoolBreadcrumbSchema = {
@@ -389,7 +333,7 @@ const testimonials = [
 export default function LiverpoolPage() {
   return (
     <div className="min-h-screen bg-background">
-      <SchemaMarkup schema={liverpoolLocalBusinessSchema} />
+      <SchemaMarkup schema={liverpoolServiceSchema} />
       <SchemaMarkup schema={liverpoolBreadcrumbSchema} />
       <SchemaMarkup schema={faqSchema} />
       <main className="pt-24">

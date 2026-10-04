@@ -64,74 +64,21 @@ export const metadata: Metadata = {
   },
 }
 
-const nottinghamLocalBusinessSchema = {
+const nottinghamServiceSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://linkedo.co.uk/nottingham#localbusiness",
-  name: "Linkedo",
-  url: "https://linkedo.co.uk/nottingham",
-  logo: "https://linkedo.co.uk/favicon.png",
+  "@type": "Service",
+  "@id": "https://linkedo.co.uk/nottingham#service",
+  name: "Nottingham Digital Marketing Services",
+  serviceType: "Digital Marketing",
   description:
     "UK-registered digital marketing agency serving Nottingham and East Midlands businesses with SEO, Google Ads, Meta Ads, and web development.",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "483 Green Lanes",
-    addressLocality: "London",
-    postalCode: "N13 4BS",
-    addressCountry: "GB",
-  },
+  url: "https://linkedo.co.uk/nottingham",
+  provider: { "@id": "https://linkedo.co.uk/#organization" },
   areaServed: [
     { "@type": "City", name: "Nottingham" },
     { "@type": "AdministrativeArea", name: "Nottinghamshire" },
     { "@type": "AdministrativeArea", name: "East Midlands" },
     { "@type": "Country", name: "United Kingdom" },
-  ],
-  telephone: "+44 7927 969991",
-  email: "info@linkedo.co.uk",
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "customer service",
-    telephone: "+44 7927 969991",
-    email: "info@linkedo.co.uk",
-    areaServed: "GB",
-    availableLanguage: "English",
-    url: "https://linkedo.co.uk/contact",
-  },
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-    opens: "09:00",
-    closes: "18:00",
-  },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    reviewCount: "30",
-    bestRating: "5",
-    worstRating: "1",
-  },
-  review: [
-    {
-      "@type": "Review",
-      author: { "@type": "Person", name: "James Hartley" },
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      reviewBody:
-        "Linkedo transformed our online presence completely. Since working with them, our organic traffic has doubled and we're consistently generating quality leads through Google. Highly recommend to any Nottingham business serious about growth.",
-    },
-    {
-      "@type": "Review",
-      author: { "@type": "Person", name: "Sarah Whitmore" },
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      reviewBody:
-        "We approached Linkedo for a full website rebuild and SEO strategy. The results have been outstanding — we're now ranking on page one for our key local search terms and our enquiries have increased significantly.",
-    },
-    {
-      "@type": "Review",
-      author: { "@type": "Person", name: "Daniel Okafor" },
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      reviewBody:
-        "The team at Linkedo are professional, transparent, and genuinely invested in our success. Our Google Ads campaigns have delivered a consistent return on investment and we've seen real business growth since partnering with them.",
-    },
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -143,10 +90,7 @@ const nottinghamLocalBusinessSchema = {
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Meta Ads", url: "https://linkedo.co.uk/meta-ads" } },
     ],
   },
-  priceRange: "££",
-  currenciesAccepted: "GBP",
-  paymentAccepted: "Bank Transfer, Credit Card",
-  parentOrganization: { "@id": "https://linkedo.co.uk/#organization" },
+  logo: "https://linkedo.co.uk/favicon.png",
 }
 
 const nottinghamBreadcrumbSchema = {
@@ -390,7 +334,7 @@ const testimonials = [
 export default function NottinghamPage() {
   return (
     <div className="min-h-screen bg-background">
-      <SchemaMarkup schema={nottinghamLocalBusinessSchema} />
+      <SchemaMarkup schema={nottinghamServiceSchema} />
       <SchemaMarkup schema={nottinghamBreadcrumbSchema} />
       <SchemaMarkup schema={faqSchema} />
       <main className="pt-24">

@@ -26,11 +26,6 @@ const organizationSchema = {
     postalCode: "N13 4BS",
     addressCountry: "GB",
   },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: 51.623267,
-    longitude: -0.108382,
-  },
   areaServed: [
     { "@type": "Country", name: "United Kingdom" },
     { "@type": "City", name: "London" },
@@ -58,12 +53,6 @@ const organizationSchema = {
   sameAs: [
     "https://www.linkedin.com/company/linkedo",
   ],
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-    opens: "09:00",
-    closes: "18:00",
-  },
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "customer service",

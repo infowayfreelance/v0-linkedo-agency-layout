@@ -328,54 +328,21 @@ const faqs = [
   },
 ]
 
-const londonLocalBusinessSchema = {
+const londonServiceSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://linkedo.co.uk/london#localbusiness",
-  name: "Linkedo",
-  url: "https://linkedo.co.uk/london",
-  logo: "https://linkedo.co.uk/favicon.png",
-  image: "https://linkedo.co.uk/tower-bridge-sunset-london.webp",
+  "@type": "Service",
+  "@id": "https://linkedo.co.uk/london#service",
+  name: "London Digital Marketing Services",
+  serviceType: "Digital Marketing",
   description:
     "UK-registered digital marketing agency serving London businesses with web development, SEO, Google Ads, and Meta Ads strategies that deliver measurable results.",
-  telephone: "+44 7927 969991",
-  email: "info@linkedo.co.uk",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "483 Green Lanes",
-    addressLocality: "London",
-    postalCode: "N13 4BS",
-    addressCountry: "GB",
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: 51.623267,
-    longitude: -0.108382,
-  },
-  hasMap: "https://maps.google.com/?cid=e56bfd29ae92d60b",
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-    opens: "09:00",
-    closes: "18:00",
-  },
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "customer service",
-    areaServed: "GB",
-    availableLanguage: "English",
-    telephone: "+44 7927 969991",
-    email: "info@linkedo.co.uk",
-    url: "https://linkedo.co.uk/contact",
-  },
+  url: "https://linkedo.co.uk/london",
+  provider: { "@id": "https://linkedo.co.uk/#organization" },
   areaServed: [
     { "@type": "City", name: "London" },
     { "@type": "AdministrativeArea", name: "Greater London" },
     { "@type": "Country", name: "United Kingdom" },
   ],
-  priceRange: "££",
-  currenciesAccepted: "GBP",
-  paymentAccepted: "Bank Transfer, Credit Card",
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "London Digital Marketing Services",
@@ -388,20 +355,8 @@ const londonLocalBusinessSchema = {
       },
     })),
   },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: aggregateRating.rating,
-    reviewCount: aggregateRating.count,
-    bestRating: 5,
-    worstRating: 1,
-  },
-  review: testimonials.map((t) => ({
-    "@type": "Review",
-    reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
-    author: { "@type": "Person", name: t.name },
-    reviewBody: t.quote,
-  })),
-  parentOrganization: { "@id": "https://linkedo.co.uk/#organization" },
+  logo: "https://linkedo.co.uk/favicon.png",
+  image: "https://linkedo.co.uk/tower-bridge-sunset-london.webp",
 }
 
 const londonBreadcrumbSchema = {
@@ -426,7 +381,7 @@ const londonFaqSchema = {
 export default function LondonPage() {
   return (
     <div className="min-h-screen bg-background">
-      <SchemaMarkup schema={londonLocalBusinessSchema} />
+      <SchemaMarkup schema={londonServiceSchema} />
       <SchemaMarkup schema={londonBreadcrumbSchema} />
       <SchemaMarkup schema={londonFaqSchema} />
 

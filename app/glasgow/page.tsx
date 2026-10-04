@@ -64,74 +64,21 @@ export const metadata: Metadata = {
   },
 }
 
-const glasgowLocalBusinessSchema = {
+const glasgowServiceSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://linkedo.co.uk/glasgow#localbusiness",
-  name: "Linkedo",
-  url: "https://linkedo.co.uk/glasgow",
-  logo: "https://linkedo.co.uk/favicon.png",
+  "@type": "Service",
+  "@id": "https://linkedo.co.uk/glasgow#service",
+  name: "Glasgow Digital Marketing Services",
+  serviceType: "Digital Marketing",
   description:
     "UK-registered digital marketing agency serving Glasgow and Central Scotland businesses with SEO, Google Ads, Meta Ads, and web development.",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "483 Green Lanes",
-    addressLocality: "London",
-    postalCode: "N13 4BS",
-    addressCountry: "GB",
-  },
+  url: "https://linkedo.co.uk/glasgow",
+  provider: { "@id": "https://linkedo.co.uk/#organization" },
   areaServed: [
     { "@type": "City", name: "Glasgow" },
     { "@type": "AdministrativeArea", name: "Scotland" },
     { "@type": "AdministrativeArea", name: "Central Scotland" },
     { "@type": "Country", name: "United Kingdom" },
-  ],
-  telephone: "+44 7927 969991",
-  email: "info@linkedo.co.uk",
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "customer service",
-    telephone: "+44 7927 969991",
-    email: "info@linkedo.co.uk",
-    areaServed: "GB",
-    availableLanguage: "English",
-    url: "https://linkedo.co.uk/contact",
-  },
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-    opens: "09:00",
-    closes: "18:00",
-  },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    reviewCount: "30",
-    bestRating: "5",
-    worstRating: "1",
-  },
-  review: [
-    {
-      "@type": "Review",
-      author: { "@type": "Person", name: "Sarah Mitchell" },
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      reviewBody:
-        "Linkedo transformed our online presence completely. Within three months our Glasgow clinic was ranking on page one for every key search term that matters to us.",
-    },
-    {
-      "@type": "Review",
-      author: { "@type": "Person", name: "James Donaldson" },
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      reviewBody:
-        "Their Google Ads management cut our cost per lead in half. The team genuinely understands the Glasgow market and it shows in the results every single month.",
-    },
-    {
-      "@type": "Review",
-      author: { "@type": "Person", name: "Fiona Campbell" },
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      reviewBody:
-        "Professional, transparent, and results-driven. Linkedo delivered a website and SEO strategy that has consistently grown our enquiries across the Glasgow Southside area.",
-    },
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -143,10 +90,7 @@ const glasgowLocalBusinessSchema = {
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Meta Ads", url: "https://linkedo.co.uk/meta-ads" } },
     ],
   },
-  priceRange: "££",
-  currenciesAccepted: "GBP",
-  paymentAccepted: "Bank Transfer, Credit Card",
-  parentOrganization: { "@id": "https://linkedo.co.uk/#organization" },
+  logo: "https://linkedo.co.uk/favicon.png",
 }
 
 const glasgowBreadcrumbSchema = {
@@ -388,7 +332,7 @@ const testimonials = [
 export default function GlasgowPage() {
   return (
     <div className="min-h-screen bg-background">
-      <SchemaMarkup schema={glasgowLocalBusinessSchema} />
+      <SchemaMarkup schema={glasgowServiceSchema} />
       <SchemaMarkup schema={glasgowBreadcrumbSchema} />
       <SchemaMarkup schema={faqSchema} />
       <main className="pt-24">
