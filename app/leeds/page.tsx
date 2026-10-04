@@ -65,73 +65,20 @@ export const metadata: Metadata = {
   },
 }
 
-const leedsLocalBusinessSchema = {
+const leedsServiceSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://linkedo.co.uk/leeds#localbusiness",
-  name: "Linkedo",
-  url: "https://linkedo.co.uk/leeds",
-  logo: "https://linkedo.co.uk/favicon.png",
+  "@type": "Service",
+  "@id": "https://linkedo.co.uk/leeds#service",
+  name: "Leeds Digital Marketing Services",
+  serviceType: "Digital Marketing",
   description:
     "UK-registered digital marketing agency serving Leeds and West Yorkshire businesses with SEO, Google Ads, Meta Ads, and web development.",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "483 Green Lanes",
-    addressLocality: "London",
-    postalCode: "N13 4BS",
-    addressCountry: "GB",
-  },
+  url: "https://linkedo.co.uk/leeds",
+  provider: { "@id": "https://linkedo.co.uk/#organization" },
   areaServed: [
     { "@type": "City", name: "Leeds" },
     { "@type": "AdministrativeArea", name: "West Yorkshire" },
     { "@type": "Country", name: "United Kingdom" },
-  ],
-  telephone: "+44 7927 969991",
-  email: "info@linkedo.co.uk",
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "customer service",
-    telephone: "+44 7927 969991",
-    email: "info@linkedo.co.uk",
-    areaServed: "GB",
-    availableLanguage: "English",
-    url: "https://linkedo.co.uk/contact",
-  },
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-    opens: "09:00",
-    closes: "18:00",
-  },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    reviewCount: "30",
-    bestRating: "5",
-    worstRating: "1",
-  },
-  review: [
-    {
-      "@type": "Review",
-      author: { "@type": "Person", name: "James Richardson" },
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      reviewBody:
-        "Linkedo transformed our online presence completely. Our Google rankings improved within weeks and enquiries have more than doubled since we started working with them.",
-    },
-    {
-      "@type": "Review",
-      author: { "@type": "Person", name: "Sarah Thornton" },
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      reviewBody:
-        "The team at Linkedo really understands the Leeds market. Their Google Ads campaigns delivered a strong ROI from the very first month with complete transparency throughout.",
-    },
-    {
-      "@type": "Review",
-      author: { "@type": "Person", name: "Daniel Marsden" },
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      reviewBody:
-        "Professional, reliable, and results-driven. Linkedo built our new website and handled our SEO — we've seen a significant increase in local Leeds traffic and leads.",
-    },
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -143,10 +90,7 @@ const leedsLocalBusinessSchema = {
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Meta Ads", url: "https://linkedo.co.uk/meta-ads" } },
     ],
   },
-  priceRange: "££",
-  currenciesAccepted: "GBP",
-  paymentAccepted: "Bank Transfer, Credit Card",
-  parentOrganization: { "@id": "https://linkedo.co.uk/#organization" },
+  logo: "https://linkedo.co.uk/favicon.png",
 }
 
 const leedsBreadcrumbSchema = {
@@ -372,7 +316,7 @@ const testimonials = [
 export default function LeedsPage() {
   return (
     <div className="min-h-screen bg-background">
-      <SchemaMarkup schema={leedsLocalBusinessSchema} />
+      <SchemaMarkup schema={leedsServiceSchema} />
       <SchemaMarkup schema={leedsBreadcrumbSchema} />
       <SchemaMarkup schema={faqSchema} />
       <main className="pt-24">

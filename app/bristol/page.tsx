@@ -65,73 +65,20 @@ export const metadata: Metadata = {
   },
 }
 
-const bristolLocalBusinessSchema = {
+const bristolServiceSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://linkedo.co.uk/bristol#localbusiness",
-  name: "Linkedo",
-  url: "https://linkedo.co.uk/bristol",
-  logo: "https://linkedo.co.uk/favicon.png",
+  "@type": "Service",
+  "@id": "https://linkedo.co.uk/bristol#service",
+  name: "Bristol Digital Marketing Services",
+  serviceType: "Digital Marketing",
   description:
     "UK-registered digital marketing agency serving Bristol businesses with SEO, Google Ads, Meta Ads, and web development strategies that deliver measurable results.",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "483 Green Lanes",
-    addressLocality: "London",
-    postalCode: "N13 4BS",
-    addressCountry: "GB",
-  },
+  url: "https://linkedo.co.uk/bristol",
+  provider: { "@id": "https://linkedo.co.uk/#organization" },
   areaServed: [
     { "@type": "City", name: "Bristol" },
     { "@type": "AdministrativeArea", name: "South West England" },
     { "@type": "Country", name: "United Kingdom" },
-  ],
-  telephone: "+44 7927 969991",
-  email: "info@linkedo.co.uk",
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "customer service",
-    telephone: "+44 7927 969991",
-    email: "info@linkedo.co.uk",
-    areaServed: "GB",
-    availableLanguage: "English",
-    url: "https://linkedo.co.uk/contact",
-  },
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-    opens: "09:00",
-    closes: "18:00",
-  },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    reviewCount: "15",
-    bestRating: "5",
-    worstRating: "1",
-  },
-  review: [
-    {
-      "@type": "Review",
-      author: { "@type": "Person", name: "James Hartley" },
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      reviewBody:
-        "Linkedo transformed our online presence completely. Within three months of launching our new website and SEO campaign, our enquiries doubled. They truly understand the Bristol market.",
-    },
-    {
-      "@type": "Review",
-      author: { "@type": "Person", name: "Sarah Okafor" },
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      reviewBody:
-        "We'd tried other agencies before but none delivered like Linkedo. Our Google Ads campaigns are now generating consistent, qualified leads every week at a fraction of our previous cost.",
-    },
-    {
-      "@type": "Review",
-      author: { "@type": "Person", name: "Daniel Marsh" },
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      reviewBody:
-        "From website development to Meta Ads, Linkedo handles everything for us. Their transparency, reporting, and results speak for themselves. Highly recommended for any Bristol business.",
-    },
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -143,10 +90,7 @@ const bristolLocalBusinessSchema = {
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Meta Ads", url: "https://linkedo.co.uk/meta-ads" } },
     ],
   },
-  priceRange: "££",
-  currenciesAccepted: "GBP",
-  paymentAccepted: "Bank Transfer, Credit Card",
-  parentOrganization: { "@id": "https://linkedo.co.uk/#organization" },
+  logo: "https://linkedo.co.uk/favicon.png",
 }
 
 const bristolBreadcrumbSchema = {
@@ -385,7 +329,7 @@ const testimonials = [
 export default function BristolPage() {
   return (
     <div className="min-h-screen bg-background">
-      <SchemaMarkup schema={bristolLocalBusinessSchema} />
+      <SchemaMarkup schema={bristolServiceSchema} />
       <SchemaMarkup schema={bristolBreadcrumbSchema} />
       <SchemaMarkup schema={faqSchema} />
       <main className="pt-24">

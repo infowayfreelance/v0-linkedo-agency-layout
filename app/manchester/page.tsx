@@ -330,46 +330,21 @@ const faqs = [
   },
 ]
 
-const manchesterLocalBusinessSchema = {
+const manchesterServiceSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://linkedo.co.uk/manchester#localbusiness",
-  name: "Linkedo",
-  url: "https://linkedo.co.uk/manchester",
-  logo: "https://linkedo.co.uk/favicon.png",
+  "@type": "Service",
+  "@id": "https://linkedo.co.uk/manchester#service",
+  name: "Manchester Digital Marketing Services",
+  serviceType: "Digital Marketing",
   description:
     "UK-registered digital marketing agency serving Manchester and Greater Manchester businesses with SEO, Google Ads, Meta Ads, web development, and security services.",
-  telephone: "+44 7927 969991",
-  email: "info@linkedo.co.uk",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Manchester",
-    addressRegion: "Greater Manchester",
-    addressCountry: "GB",
-  },
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-    opens: "09:00",
-    closes: "18:00",
-  },
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "customer service",
-    areaServed: "GB",
-    availableLanguage: "English",
-    telephone: "+44 7927 969991",
-    email: "info@linkedo.co.uk",
-    url: "https://linkedo.co.uk/contact",
-  },
+  url: "https://linkedo.co.uk/manchester",
+  provider: { "@id": "https://linkedo.co.uk/#organization" },
   areaServed: [
     { "@type": "City", name: "Manchester" },
     { "@type": "AdministrativeArea", name: "Greater Manchester" },
     { "@type": "Country", name: "United Kingdom" },
   ],
-  priceRange: "££",
-  currenciesAccepted: "GBP",
-  paymentAccepted: "Bank Transfer, Credit Card",
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Manchester Digital Marketing Services",
@@ -382,20 +357,7 @@ const manchesterLocalBusinessSchema = {
       },
     })),
   },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: aggregateRating.rating,
-    reviewCount: aggregateRating.count,
-    bestRating: 5,
-    worstRating: 1,
-  },
-  review: testimonials.map((t) => ({
-    "@type": "Review",
-    reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
-    author: { "@type": "Person", name: t.name },
-    reviewBody: t.quote,
-  })),
-  parentOrganization: { "@id": "https://linkedo.co.uk/#organization" },
+  logo: "https://linkedo.co.uk/favicon.png",
 }
 
 const manchesterBreadcrumbSchema = {
@@ -420,7 +382,7 @@ const manchesterFaqSchema = {
 export default function ManchesterPage() {
   return (
     <div className="min-h-screen bg-background">
-      <SchemaMarkup schema={manchesterLocalBusinessSchema} />
+      <SchemaMarkup schema={manchesterServiceSchema} />
       <SchemaMarkup schema={manchesterBreadcrumbSchema} />
       <SchemaMarkup schema={manchesterFaqSchema} />
 

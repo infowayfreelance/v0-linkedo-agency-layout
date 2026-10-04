@@ -65,73 +65,20 @@ export const metadata: Metadata = {
   },
 }
 
-const birminghamLocalBusinessSchema = {
+const birminghamServiceSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://linkedo.co.uk/birmingham#localbusiness",
-  name: "Linkedo",
-  url: "https://linkedo.co.uk/birmingham",
-  logo: "https://linkedo.co.uk/favicon.png",
+  "@type": "Service",
+  "@id": "https://linkedo.co.uk/birmingham#service",
+  name: "Birmingham Digital Marketing Services",
+  serviceType: "Digital Marketing",
   description:
     "UK-registered digital marketing agency serving Birmingham businesses with web development, SEO, Google Ads, and Meta Ads strategies that deliver measurable results.",
-  telephone: "+44 7927 969991",
-  email: "info@linkedo.co.uk",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "483 Green Lanes",
-    addressLocality: "London",
-    postalCode: "N13 4BS",
-    addressCountry: "GB",
-  },
+  url: "https://linkedo.co.uk/birmingham",
+  provider: { "@id": "https://linkedo.co.uk/#organization" },
   areaServed: [
     { "@type": "City", name: "Birmingham" },
     { "@type": "AdministrativeArea", name: "West Midlands" },
     { "@type": "Country", name: "United Kingdom" },
-  ],
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "customer service",
-    telephone: "+44 7927 969991",
-    email: "info@linkedo.co.uk",
-    areaServed: "GB",
-    availableLanguage: "English",
-    url: "https://linkedo.co.uk/contact",
-  },
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-    opens: "09:00",
-    closes: "18:00",
-  },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    reviewCount: "38",
-    bestRating: "5",
-    worstRating: "1",
-  },
-  review: [
-    {
-      "@type": "Review",
-      author: { "@type": "Person", name: "James Hartley" },
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      reviewBody:
-        "Linkedo completely transformed our digital presence in the Colmore Business District. Our leads tripled within 5 months.",
-    },
-    {
-      "@type": "Review",
-      author: { "@type": "Person", name: "Sarah Mitchell" },
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      reviewBody:
-        "Exceptional SEO and Google Ads work for our Edgbaston-based business. ROI exceeded all expectations.",
-    },
-    {
-      "@type": "Review",
-      author: { "@type": "Person", name: "Tariq Rahman" },
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      reviewBody:
-        "Our Jewellery Quarter e-commerce store saw a 280% increase in organic traffic after working with Linkedo.",
-    },
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -143,10 +90,7 @@ const birminghamLocalBusinessSchema = {
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Meta Ads", url: "https://linkedo.co.uk/meta-ads" } },
     ],
   },
-  priceRange: "££",
-  currenciesAccepted: "GBP",
-  paymentAccepted: "Bank Transfer, Credit Card",
-  parentOrganization: { "@id": "https://linkedo.co.uk/#organization" },
+  logo: "https://linkedo.co.uk/favicon.png",
 }
 
 const birminghamBreadcrumbSchema = {
@@ -413,7 +357,7 @@ const ukBenefits = [
 export default function BirminghamPage() {
   return (
     <div className="min-h-screen bg-background">
-      <SchemaMarkup schema={birminghamLocalBusinessSchema} />
+      <SchemaMarkup schema={birminghamServiceSchema} />
       <SchemaMarkup schema={birminghamBreadcrumbSchema} />
       <SchemaMarkup schema={faqSchema} />
       <main className="pt-24">
