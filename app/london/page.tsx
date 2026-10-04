@@ -330,7 +330,7 @@ const faqs = [
 
 const londonLocalBusinessSchema = {
   "@context": "https://schema.org",
-  "@type": "MarketingAgency",
+  "@type": "Organization",
   "@id": "https://linkedo.co.uk/london#localbusiness",
   name: "Linkedo",
   url: "https://linkedo.co.uk/london",

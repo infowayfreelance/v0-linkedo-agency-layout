@@ -66,7 +66,7 @@ export const metadata: Metadata = {
 
 const leicesterLocalBusinessSchema = {
   "@context": "https://schema.org",
-  "@type": "MarketingAgency",
+  "@type": "Organization",
   "@id": "https://linkedo.co.uk/leicester#localbusiness",
   name: "Linkedo",
   url: "https://linkedo.co.uk/leicester",
