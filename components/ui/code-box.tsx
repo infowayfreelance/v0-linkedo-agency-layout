@@ -25,7 +25,7 @@ export function CodeBox({ children, label, className }: CodeBoxProps) {
         <span className="absolute -top-2.5 left-3 px-2 text-xs font-medium text-primary bg-background">{label}</span>
       )}
       <div className="relative p-4 rounded-lg bg-background border border-border/50 group-hover:border-primary/30 transition-colors">
-        <code className="block text-sm font-mono text-foreground whitespace-pre-wrap">{children}</code>
+        <code className="block text-sm font-mono text-foreground whitespace-pre-wrap break-all">{children}</code>
         <button
           onClick={handleCopy}
           className="absolute top-2 right-2 p-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-colors opacity-0 group-hover:opacity-100"
