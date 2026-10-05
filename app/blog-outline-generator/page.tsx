@@ -2,16 +2,32 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { ListTree, FileText, FileSearch, ArrowRight, Lightbulb, Check } from "lucide-react"
+import { motion } from "framer-motion"
+import { ListTree, FileText, FileSearch, ArrowRight, Lightbulb, Check, Sparkles, Trash2 } from "lucide-react"
 import { MainShell } from "@/components/layout/main-shell"
 import { Section } from "@/components/ui/section"
-import { AIToolPanel } from "@/components/ui/ai-tool-panel"
 import { AIToolCard } from "@/components/ui/ai-tool-card"
 import { AnimatedButton } from "@/components/ui/animated-button"
 import { ParticleBackground } from "@/components/ui/particle-background"
 import { FormInput } from "@/components/ui/form-input"
 import { FormSelect } from "@/components/ui/form-select"
-import { FormTextarea } from "@/components/ui/form-textarea"
+import { BlogOutlineResult } from "@/components/ui/blog-outline-result"
+import type { GeneratedOutline, OutlineFormState, RegenerateTarget } from "@/lib/blog-outline-generator/types"
+import {
+  generateFullOutline,
+  regenerateFaqs,
+  regenerateH1,
+  regenerateMetaDescription,
+  regenerateMetaTitle,
+} from "@/lib/blog-outline-generator/generator"
+
+const searchIntentOptions = [
+  { value: "auto", label: "Auto Detect" },
+  { value: "informational", label: "Informational" },
+  { value: "commercial", label: "Commercial" },
+  { value: "transactional", label: "Transactional" },
+  { value: "navigational", label: "Navigational" },
+]
 
 const contentTypeOptions = [
   { value: "how-to", label: "How-To Guide" },
@@ -19,6 +35,24 @@ const contentTypeOptions = [
   { value: "comparison", label: "Comparison" },
   { value: "ultimate-guide", label: "Ultimate Guide" },
   { value: "case-study", label: "Case Study" },
+  { value: "tutorial", label: "Tutorial" },
+  { value: "beginner-guide", label: "Beginner Guide" },
+]
+
+const wordCountOptions = [
+  { value: "800", label: "800 words" },
+  { value: "1200", label: "1,200 words" },
+  { value: "1500", label: "1,500 words" },
+  { value: "2000", label: "2,000 words" },
+  { value: "2500+", label: "2,500+ words" },
+]
+
+const toneOptions = [
+  { value: "professional", label: "Professional" },
+  { value: "simple", label: "Simple" },
+  { value: "friendly", label: "Friendly" },
+  { value: "expert", label: "Expert" },
+  { value: "conversational", label: "Conversational" },
 ]
 
 const relatedTools = [
@@ -53,25 +87,109 @@ const bestPractices = [
   "Consider adding FAQs for featured snippet opportunities",
 ]
 
-export default function BlogOutlineGeneratorPage() {
-  const [topic, setTopic] = useState("")
-  const [keywords, setKeywords] = useState("")
-  const [contentType, setContentType] = useState("how-to")
-  const [results, setResults] = useState<string[]>([])
+const DEFAULT_FORM: OutlineFormState = {
+  topic: "",
+  primaryKeyword: "",
+  secondaryKeywords: "",
+  searchIntent: "auto",
+  contentType: "how-to",
+  targetAudience: "",
+  wordCount: "1200",
+  tone: "professional",
+}
 
-  const handleGenerate = () => {
-    const mockResults = [
-      `H1: ${topic}\n\nIntroduction\n- Hook the reader with a problem/question\n- Explain what they'll learn\n- Brief overview of key points\n\nH2: What is ${topic}?\n- Definition and context\n- Why it matters\n\nH2: Key Benefits of ${topic}\n- Benefit 1 with explanation\n- Benefit 2 with explanation\n- Benefit 3 with explanation\n\nH2: How to Get Started with ${topic}\n- Step 1: [Action]\n- Step 2: [Action]\n- Step 3: [Action]\n\nH2: Common Mistakes to Avoid\n- Mistake 1 and how to prevent it\n- Mistake 2 and how to prevent it\n\nH2: FAQs About ${topic}\n- Q1: [Common question]\n- Q2: [Common question]\n\nConclusion\n- Summarize key points\n- Call-to-action`,
-      `H1: The Ultimate Guide to ${topic}\n\nIntro: Why ${topic} Matters in 2024\n\nH2: Understanding the Basics\nH3: Core Concepts\nH3: Key Terminology\n\nH2: Step-by-Step Implementation\nH3: Planning Phase\nH3: Execution Phase\nH3: Optimization Phase\n\nH2: Expert Tips and Best Practices\n\nH2: Real-World Examples\n\nH2: Measuring Success\n\nConclusion + Next Steps`,
-    ]
-    setResults(topic ? mockResults : [])
+interface SeedState {
+  full: number
+  h1: number
+  metaTitle: number
+  metaDescription: number
+  faqs: number
+}
+
+const DEFAULT_SEEDS: SeedState = { full: 0, h1: 0, metaTitle: 0, metaDescription: 0, faqs: 0 }
+
+export default function BlogOutlineGeneratorPage() {
+  const [form, setForm] = useState<OutlineFormState>(DEFAULT_FORM)
+  const [outline, setOutline] = useState<GeneratedOutline | null>(null)
+  const [seeds, setSeeds] = useState<SeedState>(DEFAULT_SEEDS)
+  const [isGenerating, setIsGenerating] = useState(false)
+  const [regeneratingTarget, setRegeneratingTarget] = useState<RegenerateTarget | null>(null)
+  const [error, setError] = useState<string | null>(null)
+
+  const updateField = <K extends keyof OutlineFormState>(key: K, value: OutlineFormState[K]) => {
+    setForm((prev) => ({ ...prev, [key]: value }))
+  }
+
+  const validate = (): boolean => {
+    if (!form.topic.trim() || !form.primaryKeyword.trim()) {
+      setError("Please enter both a blog topic and a primary keyword to generate an outline.")
+      return false
+    }
+    setError(null)
+    return true
+  }
+
+  const handleGenerate = async () => {
+    if (!validate()) return
+    setIsGenerating(true)
+    await new Promise((resolve) => setTimeout(resolve, 650))
+    const result = generateFullOutline(form, 0)
+    setSeeds(DEFAULT_SEEDS)
+    setOutline(result)
+    setIsGenerating(false)
+  }
+
+  const handleRegenerate = async (target: RegenerateTarget) => {
+    if (!outline || !validate()) return
+    setRegeneratingTarget(target)
+    await new Promise((resolve) => setTimeout(resolve, 400))
+
+    const nextSeeds: SeedState = { ...seeds }
+    let result: GeneratedOutline
+
+    switch (target) {
+      case "full": {
+        const n = seeds.full + 1
+        nextSeeds.full = n
+        nextSeeds.h1 = n
+        nextSeeds.metaTitle = n
+        nextSeeds.metaDescription = n
+        nextSeeds.faqs = n
+        result = generateFullOutline(form, n)
+        break
+      }
+      case "h1": {
+        nextSeeds.h1 = seeds.h1 + 1
+        result = regenerateH1(form, outline, nextSeeds.h1)
+        break
+      }
+      case "metaTitle": {
+        nextSeeds.metaTitle = seeds.metaTitle + 1
+        result = regenerateMetaTitle(form, outline, nextSeeds.metaTitle)
+        break
+      }
+      case "metaDescription": {
+        nextSeeds.metaDescription = seeds.metaDescription + 1
+        result = regenerateMetaDescription(form, outline, nextSeeds.metaDescription)
+        break
+      }
+      case "faqs": {
+        nextSeeds.faqs = seeds.faqs + 1
+        result = regenerateFaqs(form, outline, nextSeeds.faqs)
+        break
+      }
+    }
+
+    setSeeds(nextSeeds)
+    setOutline(result)
+    setRegeneratingTarget(null)
   }
 
   const handleClear = () => {
-    setTopic("")
-    setKeywords("")
-    setContentType("how-to")
-    setResults([])
+    setForm(DEFAULT_FORM)
+    setOutline(null)
+    setSeeds(DEFAULT_SEEDS)
+    setError(null)
   }
 
   return (
@@ -93,8 +211,8 @@ export default function BlogOutlineGeneratorPage() {
               Free Blog Outline <span className="text-gradient-primary">Generator</span>
             </h1>
             <p className="text-lg text-muted-foreground">
-              Structure your blog posts with AI-generated outlines optimized for readability, SEO, and reader
-              engagement.
+              Structure your blog posts with SEO-focused outlines built around your real topic, keyword, and search
+              intent — not generic placeholders.
             </p>
           </div>
         </MainShell>
@@ -102,32 +220,126 @@ export default function BlogOutlineGeneratorPage() {
 
       {/* Tool Panel */}
       <Section className="pt-8">
-        <AIToolPanel results={results} onRegenerate={handleGenerate} onClear={handleClear}>
-          <div className="space-y-5">
-            <FormInput
-              label="Blog Topic"
-              placeholder="e.g., How to Improve Website SEO"
-              value={topic}
-              onChange={(e) => setTopic(e.target.value)}
-            />
-            <FormTextarea
-              label="Target Keywords (optional)"
-              placeholder="Enter keywords separated by commas..."
-              value={keywords}
-              onChange={(e) => setKeywords(e.target.value)}
-              rows={2}
-            />
-            <FormSelect
-              label="Content Type"
-              options={contentTypeOptions}
-              value={contentType}
-              onChange={(e) => setContentType(e.target.value)}
-            />
-            <AnimatedButton onClick={handleGenerate} className="w-full mt-2">
-              Generate Outline
-            </AnimatedButton>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="relative rounded-2xl overflow-hidden bg-card/60 backdrop-blur-xl"
+        >
+          {/* Glowing border */}
+          <div className="absolute inset-0 rounded-2xl">
+            <div className="absolute inset-[-1px] rounded-2xl bg-gradient-to-r from-primary/40 via-cyan-400/40 to-primary/40" />
+            <div className="absolute inset-[1px] rounded-xl bg-card" />
           </div>
-        </AIToolPanel>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+
+          <div className="relative z-10 grid lg:grid-cols-2 gap-0">
+            {/* Input Side */}
+            <div className="p-6 lg:p-8 border-b lg:border-b-0 lg:border-r border-border/50">
+              <div className="flex items-center gap-2 mb-6">
+                <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
+                  <Sparkles className="w-4 h-4 text-primary" />
+                </div>
+                <h3 className="text-lg font-semibold text-foreground">Input</h3>
+              </div>
+
+              <div className="space-y-5">
+                <FormInput
+                  label="Blog Topic"
+                  placeholder="e.g., How to Improve Website SEO"
+                  value={form.topic}
+                  onChange={(e) => updateField("topic", e.target.value)}
+                />
+                <FormInput
+                  label="Primary Keyword"
+                  placeholder="e.g., improve website SEO"
+                  value={form.primaryKeyword}
+                  onChange={(e) => updateField("primaryKeyword", e.target.value)}
+                />
+                <FormInput
+                  label="Secondary Keywords (optional)"
+                  placeholder="e.g., SEO audit, on-page SEO, backlinks"
+                  value={form.secondaryKeywords}
+                  onChange={(e) => updateField("secondaryKeywords", e.target.value)}
+                />
+
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <FormSelect
+                    label="Search Intent (optional)"
+                    options={searchIntentOptions}
+                    value={form.searchIntent}
+                    onChange={(e) => updateField("searchIntent", e.target.value as OutlineFormState["searchIntent"])}
+                  />
+                  <FormSelect
+                    label="Content Type"
+                    options={contentTypeOptions}
+                    value={form.contentType}
+                    onChange={(e) => updateField("contentType", e.target.value as OutlineFormState["contentType"])}
+                  />
+                </div>
+
+                <FormInput
+                  label="Target Audience (optional)"
+                  placeholder="e.g., small business owners, SEO beginners"
+                  value={form.targetAudience}
+                  onChange={(e) => updateField("targetAudience", e.target.value)}
+                />
+
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <FormSelect
+                    label="Desired Word Count"
+                    options={wordCountOptions}
+                    value={form.wordCount}
+                    onChange={(e) => updateField("wordCount", e.target.value as OutlineFormState["wordCount"])}
+                  />
+                  <FormSelect
+                    label="Tone"
+                    options={toneOptions}
+                    value={form.tone}
+                    onChange={(e) => updateField("tone", e.target.value as OutlineFormState["tone"])}
+                  />
+                </div>
+
+                {error && <p className="text-sm text-destructive">{error}</p>}
+
+                <AnimatedButton
+                  onClick={handleGenerate}
+                  loading={isGenerating}
+                  disabled={isGenerating}
+                  className="w-full mt-2"
+                >
+                  {isGenerating ? "Building your SEO-focused outline..." : "Generate Outline"}
+                </AnimatedButton>
+              </div>
+            </div>
+
+            {/* Results Side */}
+            <div className="p-6 lg:p-8 bg-surface/50">
+              <div className="flex items-center justify-between mb-6">
+                <h3 className="text-lg font-semibold text-foreground">Generated Results</h3>
+                {outline && (
+                  <button
+                    onClick={handleClear}
+                    className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-colors"
+                    title="Clear"
+                  >
+                    <Trash2 className="w-4 h-4" />
+                  </button>
+                )}
+              </div>
+
+              {outline ? (
+                <BlogOutlineResult outline={outline} onRegenerate={handleRegenerate} regeneratingTarget={regeneratingTarget} />
+              ) : (
+                <div className="flex flex-col items-center justify-center h-48 text-center">
+                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                    <Sparkles className="w-8 h-8 text-primary/50" />
+                  </div>
+                  <p className="text-muted-foreground">Your generated outline will appear here</p>
+                </div>
+              )}
+            </div>
+          </div>
+        </motion.div>
       </Section>
 
       {/* Best Practices Section */}
