@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import { createPortal } from "react-dom"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, ChevronRight, Sparkles, MapPin, ChevronDown } from "lucide-react"
+import { Menu, X, ChevronRight, Sparkles, MapPin, ChevronDown, Wand2 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { MainShell } from "./main-shell"
 import { Button } from "@/components/ui/button"
@@ -31,6 +31,14 @@ const locationCities = [
   { label: "Newcastle", href: "/newcastle" },
 ]
 
+const aiTools = [
+  { label: "Blog Outline Generator", href: "/blog-outline-generator" },
+  { label: "Meta Description Generator", href: "/meta-description-generator" },
+  { label: "Meta Title Generator", href: "/meta-title-generator" },
+  { label: "UTM Builder", href: "/utm-builder" },
+  { label: "Free AI Tools Online", href: "/free-ai-tools-online" },
+]
+
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -38,6 +46,8 @@ export function Header() {
   const [isAuditModalOpen, setIsAuditModalOpen] = useState(false)
   const [isLocationsMegaOpen, setIsLocationsMegaOpen] = useState(false)
   const [isMobileLocationsOpen, setIsMobileLocationsOpen] = useState(false)
+  const [isAiToolsMegaOpen, setIsAiToolsMegaOpen] = useState(false)
+  const [isMobileAiToolsOpen, setIsMobileAiToolsOpen] = useState(false)
   const megaMenuRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -48,6 +58,7 @@ export function Header() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
       setIsLocationsMegaOpen(false)
+      setIsAiToolsMegaOpen(false)
     }
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
@@ -57,6 +68,7 @@ export function Header() {
     const handleClickOutside = (e: MouseEvent) => {
       if (megaMenuRef.current && !megaMenuRef.current.contains(e.target as Node)) {
         setIsLocationsMegaOpen(false)
+        setIsAiToolsMegaOpen(false)
       }
     }
     document.addEventListener("mousedown", handleClickOutside)
@@ -169,6 +181,46 @@ export function Header() {
                           </Link>
                         ))}
                       </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* AI Tools dropdown trigger */}
+              <div className="relative">
+                <button
+                  onClick={() => setIsAiToolsMegaOpen((prev) => !prev)}
+                  className={cn(
+                    "flex items-center gap-1 px-3 py-2 text-sm transition-colors rounded-md hover:bg-secondary/50",
+                    isAiToolsMegaOpen ? "text-primary" : "text-muted-foreground hover:text-foreground",
+                  )}
+                >
+                  AI Tools
+                  <ChevronDown
+                    className={cn("w-3.5 h-3.5 transition-transform duration-200", isAiToolsMegaOpen && "rotate-180")}
+                  />
+                </button>
+
+                <AnimatePresence>
+                  {isAiToolsMegaOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 8 }}
+                      transition={{ duration: 0.18, ease: "easeOut" }}
+                      className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-72 rounded-2xl border border-border/60 bg-card/95 backdrop-blur-xl shadow-2xl shadow-black/30 z-[200] p-3"
+                    >
+                      {aiTools.map((tool) => (
+                        <Link
+                          key={tool.href}
+                          href={tool.href}
+                          onClick={() => setIsAiToolsMegaOpen(false)}
+                          className="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/60 border border-transparent hover:border-border/50 transition-all duration-150 group"
+                        >
+                          <Wand2 className="w-3.5 h-3.5 text-primary shrink-0 opacity-70 group-hover:opacity-100" />
+                          {tool.label}
+                        </Link>
+                      ))}
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -362,6 +414,57 @@ export function Header() {
                                   View all locations
                                   <ChevronRight className="w-3.5 h-3.5" />
                                 </Link>
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </motion.div>
+
+                      {/* AI Tools accordion */}
+                      <motion.div
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.2, duration: 0.3, ease: "easeOut" }}
+                      >
+                        <button
+                          onClick={() => setIsMobileAiToolsOpen((prev) => !prev)}
+                          className="w-full group flex items-center justify-between px-5 py-4 rounded-xl bg-secondary/30 hover:bg-secondary/60 border border-border/30 hover:border-primary/50 transition-all duration-300"
+                        >
+                          <div className="flex items-center gap-2">
+                            <Wand2 className="w-4 h-4 text-primary" />
+                            <span className="text-foreground font-medium group-hover:text-primary transition-colors">
+                              AI Tools
+                            </span>
+                          </div>
+                          <ChevronDown
+                            className={cn(
+                              "w-5 h-5 text-muted-foreground transition-transform duration-200",
+                              isMobileAiToolsOpen && "rotate-180 text-primary",
+                            )}
+                          />
+                        </button>
+
+                        <AnimatePresence>
+                          {isMobileAiToolsOpen && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.25, ease: "easeInOut" }}
+                              className="overflow-hidden"
+                            >
+                              <div className="mt-2 p-3 rounded-xl bg-secondary/20 border border-border/30 flex flex-col gap-1.5">
+                                {aiTools.map((tool) => (
+                                  <Link
+                                    key={tool.href}
+                                    href={tool.href}
+                                    onClick={handleLinkClick}
+                                    className="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm text-muted-foreground hover:text-primary hover:bg-secondary/60 transition-all"
+                                  >
+                                    <Wand2 className="w-3.5 h-3.5 text-primary shrink-0" />
+                                    {tool.label}
+                                  </Link>
+                                ))}
                               </div>
                             </motion.div>
                           )}
