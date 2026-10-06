@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { MainShell } from "./main-shell"
 import { MapPin, Mail, Phone } from "lucide-react"
 
@@ -32,11 +33,12 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="inline-block mb-4 hover:opacity-80 transition-opacity">
-              <img
+              <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Linkedo%20Logo-2ktZ7qcYVdGvooWw3nwry3bnN2kV5C.png"
                 alt="Linkedo - Connect, Grow, Succeed"
-                width={200}
-                height={48}
+                width={768}
+                height={215}
+                sizes="200px"
                 className="h-8 sm:h-10 w-auto"
               />
             </Link>
