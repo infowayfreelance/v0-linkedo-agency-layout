@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { motion } from "framer-motion"
 import { FileSearch, FileText, ListTree, ArrowRight, Lightbulb, Check, Sparkles, Trash2, Copy } from "lucide-react"
 import { MainShell } from "@/components/layout/main-shell"
@@ -218,20 +219,46 @@ export default function MetaDescriptionGeneratorPage() {
         <ParticleBackground className="opacity-40" />
 
         <MainShell className="relative z-10">
-          <div className="max-w-3xl">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-cyan-400/10 border border-primary/30 flex items-center justify-center">
-                <FileSearch className="w-6 h-6 text-primary" />
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-cyan-400/10 border border-primary/30 flex items-center justify-center">
+                  <FileSearch className="w-6 h-6 text-primary" />
+                </div>
+                <span className="text-xs font-semibold uppercase tracking-widest text-primary">Free Tool</span>
               </div>
-              <span className="text-xs font-semibold uppercase tracking-widest text-primary">Free Tool</span>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+                Free Meta Description <span className="text-gradient-primary">Generator</span>
+              </h1>
+              <p className="text-lg text-muted-foreground">
+                Generate three SEO-focused, CTR-focused, and balanced meta descriptions tailored to your page type
+                and search intent — built from what you actually tell us, never invented claims.
+              </p>
             </div>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-              Free Meta Description <span className="text-gradient-primary">Generator</span>
-            </h1>
-            <p className="text-lg text-muted-foreground">
-              Generate three SEO-focused, CTR-focused, and balanced meta descriptions tailored to your page type and
-              search intent — built from what you actually tell us, never invented claims.
-            </p>
+
+            <motion.figure
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              className="m-0"
+            >
+              <div className="relative aspect-[16/9] rounded-2xl overflow-hidden border border-border/50">
+                <Image
+                  src="/meta-description-generator-preview.webp"
+                  alt="Laptop screen showing the Linkedo Meta Description Generator with a page topic entered and four generated meta descriptions with character counts"
+                  title="Meta Description Generator — SEO description example"
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+              </div>
+              <figcaption className="mt-3 text-sm text-muted-foreground">
+                <span className="font-medium text-foreground">Create SEO-friendly descriptions in seconds.</span>{" "}
+                Enter a page topic and summary to get descriptions with live character counts and length status.
+              </figcaption>
+            </motion.figure>
           </div>
         </MainShell>
       </section>
@@ -257,7 +284,7 @@ export default function MetaDescriptionGeneratorPage() {
                 <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
                   <Sparkles className="w-4 h-4 text-primary" />
                 </div>
-                <h3 className="text-lg font-semibold text-foreground">Input</h3>
+                <h2 className="text-lg font-semibold text-foreground">Input</h2>
               </div>
 
               <div className="space-y-5">
@@ -351,7 +378,7 @@ export default function MetaDescriptionGeneratorPage() {
             {/* Results Side */}
             <div className="p-6 lg:p-8 bg-surface/50">
               <div className="flex items-center justify-between mb-6 flex-wrap gap-2">
-                <h3 className="text-lg font-semibold text-foreground">Generated Results</h3>
+                <h2 className="text-lg font-semibold text-foreground">Generated Results</h2>
                 {descriptions && (
                   <div className="flex items-center gap-2">
                     <button

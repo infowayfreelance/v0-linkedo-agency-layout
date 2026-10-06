@@ -35,6 +35,8 @@ export function Footer() {
               <img
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Linkedo%20Logo-2ktZ7qcYVdGvooWw3nwry3bnN2kV5C.png"
                 alt="Linkedo - Connect, Grow, Succeed"
+                width={200}
+                height={48}
                 className="h-8 sm:h-10 w-auto"
               />
             </Link>

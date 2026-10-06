@@ -12,13 +12,18 @@ interface FormSelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> 
 }
 
 export const FormSelect = React.forwardRef<HTMLSelectElement, FormSelectProps>(
-  ({ label, error, options, placeholder, className, ...props }, ref) => {
+  ({ label, error, options, placeholder, className, id, ...props }, ref) => {
+    const generatedId = React.useId()
+    const selectId = id || generatedId
     return (
       <div className="space-y-2">
-        <label className="text-sm font-medium text-foreground">{label}</label>
+        <label htmlFor={selectId} className="text-sm font-medium text-foreground">
+          {label}
+        </label>
         <div className="relative">
           <select
             ref={ref}
+            id={selectId}
             className={cn(
               "w-full h-11 px-4 pr-10 rounded-lg appearance-none",
               "bg-input border border-border",
