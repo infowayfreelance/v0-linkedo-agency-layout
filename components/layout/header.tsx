@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import { createPortal } from "react-dom"
 import Link from "next/link"
+import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X, ChevronRight, Sparkles, MapPin, ChevronDown, Wand2 } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -109,11 +110,13 @@ export function Header() {
           <nav className="flex items-center justify-between h-16 sm:h-18 lg:h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center group">
-              <img
+              <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Linkedo%20Logo-2ktZ7qcYVdGvooWw3nwry3bnN2kV5C.png"
                 alt="Linkedo - Connect, Grow, Succeed"
-                width={200}
-                height={48}
+                width={768}
+                height={215}
+                loading="eager"
+                sizes="200px"
                 className="h-8 sm:h-10 lg:h-12 w-auto transition-opacity group-hover:opacity-80"
               />
             </Link>

@@ -231,6 +231,7 @@ export default function BlogOutlineGeneratorPage() {
                   title="Blog Outline Generator — SEO content outline example"
                   fill
                   priority
+                  fetchPriority="high"
                   sizes="(min-width: 1024px) 50vw, 100vw"
                   className="object-cover"
                 />
