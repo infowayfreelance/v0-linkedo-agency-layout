@@ -3,6 +3,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
+import Image from "next/image"
 import { ListTree, FileText, FileSearch, ArrowRight, Lightbulb, Check, Sparkles, Trash2 } from "lucide-react"
 import { MainShell } from "@/components/layout/main-shell"
 import { Section } from "@/components/ui/section"
@@ -200,20 +201,46 @@ export default function BlogOutlineGeneratorPage() {
         <ParticleBackground className="opacity-40" />
 
         <MainShell className="relative z-10">
-          <div className="max-w-3xl">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-cyan-400/10 border border-primary/30 flex items-center justify-center">
-                <ListTree className="w-6 h-6 text-primary" />
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-cyan-400/10 border border-primary/30 flex items-center justify-center">
+                  <ListTree className="w-6 h-6 text-primary" />
+                </div>
+                <span className="text-xs font-semibold uppercase tracking-widest text-primary">Free Tool</span>
               </div>
-              <span className="text-xs font-semibold uppercase tracking-widest text-primary">Free Tool</span>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+                Free Blog Outline <span className="text-gradient-primary">Generator</span>
+              </h1>
+              <p className="text-lg text-muted-foreground">
+                Structure your blog posts with SEO-focused outlines built around your real topic, keyword, and search
+                intent — not generic placeholders.
+              </p>
             </div>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-              Free Blog Outline <span className="text-gradient-primary">Generator</span>
-            </h1>
-            <p className="text-lg text-muted-foreground">
-              Structure your blog posts with SEO-focused outlines built around your real topic, keyword, and search
-              intent — not generic placeholders.
-            </p>
+
+            <motion.figure
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              className="m-0"
+            >
+              <div className="relative aspect-[3/2] rounded-2xl overflow-hidden border border-border/50">
+                <Image
+                  src="/blog-outline-generator-interface-preview.webp"
+                  alt="Laptop screen showing the Linkedo Blog Outline Generator creating an SEO-structured blog outline with H1, H2 and H3 headings"
+                  title="Blog Outline Generator — SEO content outline example"
+                  fill
+                  priority
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+              </div>
+              <figcaption className="mt-3 text-sm text-muted-foreground">
+                <span className="font-medium text-foreground">Generate a structured outline in seconds.</span>{" "}
+                Enter a topic and keywords to get a ready-to-use outline with clear headings, subheadings, and SEO
+                guidance.
+              </figcaption>
+            </motion.figure>
           </div>
         </MainShell>
       </section>
@@ -360,16 +387,33 @@ export default function BlogOutlineGeneratorPage() {
             ))}
           </div>
 
-          <div className="p-6 rounded-xl bg-card/50 border border-border/50">
-            <div className="flex items-center gap-2 mb-4">
-              <Lightbulb className="w-5 h-5 text-accent" />
-              <h3 className="font-semibold text-foreground">Pro Tip</h3>
+          <div className="rounded-xl bg-card/50 border border-border/50 overflow-hidden">
+            <figure className="m-0">
+              <div className="relative aspect-video">
+                <Image
+                  src="/blog-outline-generator-workspace.webp"
+                  alt="Content writer using the Linkedo Blog Outline Generator on a laptop beside a notebook with a handwritten blog planning checklist"
+                  title="Plan and structure blog content with the Blog Outline Generator"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <figcaption className="px-6 pt-4 text-sm text-muted-foreground">
+                <span className="font-medium text-foreground">From blank page to structured outline.</span> Turn a
+                topic and target keywords into a clear, SEO-ready blog structure before you start writing.
+              </figcaption>
+            </figure>
+            <div className="p-6 pt-4">
+              <div className="flex items-center gap-2 mb-4">
+                <Lightbulb className="w-5 h-5 text-accent" />
+                <h3 className="font-semibold text-foreground">Pro Tip</h3>
+              </div>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                Use your generated outline as a starting point, then customize it based on your unique expertise and
+                audience needs. Add personal anecdotes, case studies, and data points to make your content stand out
+                from competitors.
+              </p>
             </div>
-            <p className="text-muted-foreground text-sm leading-relaxed">
-              Use your generated outline as a starting point, then customize it based on your unique expertise and
-              audience needs. Add personal anecdotes, case studies, and data points to make your content stand out from
-              competitors.
-            </p>
           </div>
         </div>
       </Section>
