@@ -9,12 +9,17 @@ interface FormTextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaEle
 }
 
 export const FormTextarea = React.forwardRef<HTMLTextAreaElement, FormTextareaProps>(
-  ({ label, error, className, ...props }, ref) => {
+  ({ label, error, className, id, ...props }, ref) => {
+    const generatedId = React.useId()
+    const textareaId = id || generatedId
     return (
       <div className="space-y-2">
-        <label className="text-sm font-medium text-foreground">{label}</label>
+        <label htmlFor={textareaId} className="text-sm font-medium text-foreground">
+          {label}
+        </label>
         <textarea
           ref={ref}
+          id={textareaId}
           className={cn(
             "w-full min-h-[120px] px-4 py-3 rounded-lg resize-none",
             "bg-input border border-border",

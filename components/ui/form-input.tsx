@@ -9,12 +9,17 @@ interface FormInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 }
 
 export const FormInput = React.forwardRef<HTMLInputElement, FormInputProps>(
-  ({ label, error, className, ...props }, ref) => {
+  ({ label, error, className, id, ...props }, ref) => {
+    const generatedId = React.useId()
+    const inputId = id || generatedId
     return (
       <div className="space-y-2">
-        <label className="text-sm font-medium text-foreground">{label}</label>
+        <label htmlFor={inputId} className="text-sm font-medium text-foreground">
+          {label}
+        </label>
         <input
           ref={ref}
+          id={inputId}
           className={cn(
             "w-full h-11 px-4 rounded-lg",
             "bg-input border border-border",

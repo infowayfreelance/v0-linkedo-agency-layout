@@ -39,6 +39,7 @@ export function FloatingQuoteButton() {
           onClick={() => setIsModalOpen(true)}
           onMouseEnter={() => setIsOpen(true)}
           onMouseLeave={() => setIsOpen(false)}
+          aria-label="Get a free quote"
           className="relative group w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-primary to-cyan-500 text-primary-foreground shadow-lg hover:shadow-xl transition-shadow"
         >
           {/* Glow effect */}

@@ -231,6 +231,7 @@ export default function BlogOutlineGeneratorPage() {
                   title="Blog Outline Generator — SEO content outline example"
                   fill
                   priority
+                  sizes="(min-width: 1024px) 50vw, 100vw"
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
@@ -395,6 +396,7 @@ export default function BlogOutlineGeneratorPage() {
                   alt="Content writer using the Linkedo Blog Outline Generator on a laptop beside a notebook with a handwritten blog planning checklist"
                   title="Plan and structure blog content with the Blog Outline Generator"
                   fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
                   className="object-cover"
                 />
               </div>

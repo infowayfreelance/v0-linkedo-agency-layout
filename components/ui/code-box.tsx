@@ -28,6 +28,7 @@ export function CodeBox({ children, label, className }: CodeBoxProps) {
         <code className="block text-sm font-mono text-foreground whitespace-pre-wrap break-all">{children}</code>
         <button
           onClick={handleCopy}
+          aria-label={copied ? "Copied" : "Copy to clipboard"}
           className="absolute top-2 right-2 p-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-colors opacity-0 group-hover:opacity-100"
         >
           {copied ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4" />}
