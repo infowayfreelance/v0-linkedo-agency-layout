@@ -17,7 +17,7 @@ export function renderContentBlocks(blocks: ContentBlock[]) {
         )
       case "p":
         return (
-          <p key={index} className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6">
+          <p key={index} className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6 break-words">
             {block.text}
           </p>
         )
@@ -64,13 +64,24 @@ export function renderContentBlocks(blocks: ContentBlock[]) {
         )
       case "image":
         return (
-          <div key={index} className="rounded-xl overflow-hidden mb-6 border border-border bg-muted">
-            <img src={block.src || "/placeholder.svg"} alt={block.alt} className="w-full h-auto" />
-          </div>
+          <figure key={index} className="mb-6">
+            <div className="rounded-xl overflow-hidden border border-border bg-muted">
+              <img
+                src={block.src || "/placeholder.svg"}
+                alt={block.alt}
+                title={block.title}
+                loading="lazy"
+                className="w-full h-auto"
+              />
+            </div>
+            {block.caption && (
+              <figcaption className="text-sm text-muted-foreground/70 mt-2 text-center">{block.caption}</figcaption>
+            )}
+          </figure>
         )
       case "source":
         return (
-          <p key={index} className="text-sm text-muted-foreground/70 italic mb-6">
+          <p key={index} className="text-sm text-muted-foreground/70 italic mb-6 break-words">
             {block.text}
           </p>
         )

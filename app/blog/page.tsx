@@ -25,6 +25,16 @@ const blogPosts = [
     featured: true,
   },
   {
+    slug: "why-not-ranking-on-google-2026",
+    title: "Why Your Business Is Not Ranking on Google in 2026 (And How to Fix It Fast)",
+    excerpt:
+      "Google's most volatile core update ever reshuffled 80% of top-3 rankings. Here are the seven specific, fixable reasons businesses lose visibility in 2026.",
+    category: "SEO",
+    date: "2026-10-10",
+    readTime: "9 min read",
+    image: "/blog/why-not-ranking-on-google-2026/hero.webp",
+  },
+  {
     slug: "seo-trends-2025",
     title: "Top SEO Trends to Watch in 2025",
     excerpt: "Stay ahead of the curve with these emerging SEO strategies that are reshaping search rankings.",

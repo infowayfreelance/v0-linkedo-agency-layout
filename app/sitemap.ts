@@ -62,6 +62,7 @@ const caseStudySlugs = ["techflow"]
 
 const blogSlugs = [
   "what-is-ai-seo",
+  "why-not-ranking-on-google-2026",
   "seo-trends-2025",
   "web-development-best-practices",
   "google-ads-roi-optimization",
