@@ -10,6 +10,11 @@ const postMetadata: Record<string, { title: string; description: string }> = {
     description:
       "Learn what AI SEO means, how AI search works, and the practical steps UK small businesses can take to improve visibility in Google and AI tools.",
   },
+  "why-not-ranking-on-google-2026": {
+    title: "Why Your Business Is Not Ranking on Google in 2026 | Linkedo",
+    description:
+      "Seven specific, fixable reasons businesses lose Google rankings in 2026, plus an 8-step action plan to recover traffic after a core update.",
+  },
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -29,7 +34,13 @@ import { AnimatedButton } from "@/components/ui/animated-button"
 import Link from "next/link"
 import { Calendar, Clock, ArrowLeft, ArrowRight } from "lucide-react"
 import { aiSeoPost } from "@/lib/blog-posts/what-is-ai-seo"
+import { notRankingPost } from "@/lib/blog-posts/why-not-ranking-on-google-2026"
 import { renderContentBlocks } from "@/lib/blog-posts/render-blocks"
+
+const publishedPosts = {
+  "what-is-ai-seo": aiSeoPost,
+  "why-not-ranking-on-google-2026": notRankingPost,
+} as const
 
 const defaultPost = {
   title: "Top SEO Trends to Watch in 2025",
@@ -62,7 +73,8 @@ const relatedPosts = [
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const post = slug === "what-is-ai-seo" ? aiSeoPost : defaultPost
+  const publishedPost = publishedPosts[slug as keyof typeof publishedPosts]
+  const post = publishedPost ?? defaultPost
 
   return (
     <MainShell>
@@ -106,8 +118,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
           {/* Content */}
           <div className="prose prose-invert max-w-none mb-10 md:mb-12">
-            {slug === "what-is-ai-seo" ? (
-              renderContentBlocks(aiSeoPost.content)
+            {publishedPost ? (
+              renderContentBlocks(publishedPost.content)
             ) : (
               <>
                 <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 mt-8">Introduction</h2>

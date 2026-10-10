@@ -5,4 +5,4 @@ export type ContentBlock =
   | { type: "ul"; items: string[] }
   | { type: "table"; headers: string[]; rows: string[][] }
   | { type: "source"; text: string }
-  | { type: "image"; src: string; alt: string }
+  | { type: "image"; src: string; alt: string; title?: string; caption?: string }
