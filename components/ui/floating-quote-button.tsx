@@ -1,13 +1,21 @@
 "use client"
 
 import { useState } from "react"
+import dynamic from "next/dynamic"
 import { motion, AnimatePresence } from "framer-motion"
 import { MessageSquare } from "lucide-react"
-import { QuotationModal } from "@/components/ui/quotation-modal"
+
+// Loaded on demand — the form it wraps is never needed until the button is
+// clicked, so keeping it out of every page's initial JS trims unused JS.
+const QuotationModal = dynamic(
+  () => import("@/components/ui/quotation-modal").then((mod) => mod.QuotationModal),
+  { ssr: false },
+)
 
 export function FloatingQuoteButton() {
   const [isOpen, setIsOpen] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [hasOpenedModal, setHasOpenedModal] = useState(false)
 
   return (
     <>
@@ -36,7 +44,10 @@ export function FloatingQuoteButton() {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          onClick={() => setIsModalOpen(true)}
+          onClick={() => {
+            setHasOpenedModal(true)
+            setIsModalOpen(true)
+          }}
           onMouseEnter={() => setIsOpen(true)}
           onMouseLeave={() => setIsOpen(false)}
           aria-label="Get a free quote"
@@ -55,8 +66,8 @@ export function FloatingQuoteButton() {
         </motion.button>
       </motion.div>
 
-      {/* Quotation modal */}
-      <QuotationModal open={isModalOpen} onOpenChange={setIsModalOpen} />
+      {/* Quotation modal — only mounted (and its JS fetched) after first open */}
+      {hasOpenedModal && <QuotationModal open={isModalOpen} onOpenChange={setIsModalOpen} />}
     </>
   )
 }
