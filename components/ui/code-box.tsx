@@ -22,7 +22,9 @@ export function CodeBox({ children, label, className }: CodeBoxProps) {
   return (
     <div className={cn("relative group", className)}>
       {label && (
-        <span className="absolute -top-2.5 left-3 px-2 text-xs font-medium text-primary bg-background">{label}</span>
+        <span className="absolute -top-2.5 left-3 z-10 px-2 text-xs font-medium text-primary bg-background">
+          {label}
+        </span>
       )}
       <div className="relative p-4 rounded-lg bg-background border border-border/50 group-hover:border-primary/30 transition-colors">
         <code className="block text-sm font-mono text-foreground whitespace-pre-wrap break-all">{children}</code>
