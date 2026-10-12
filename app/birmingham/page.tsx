@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import { Section } from "@/components/ui/section"
 import { ServiceCard } from "@/components/ui/service-card"
 import { AnimatedButton } from "@/components/ui/animated-button"
@@ -363,49 +364,66 @@ export default function BirminghamPage() {
       <main className="pt-24">
         {/* Hero */}
         <Section className="pt-12">
-          <div className="max-w-5xl mx-auto">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="text-4xl">🇬🇧</span>
-              <span className="text-sm font-medium text-primary uppercase tracking-wider">West Midlands, United Kingdom</span>
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center max-w-6xl mx-auto">
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <span className="text-4xl">🇬🇧</span>
+                <span className="text-sm font-medium text-primary uppercase tracking-wider">West Midlands, United Kingdom</span>
+              </div>
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-6">
+                Birmingham&apos;s <span className="text-gradient-primary">Digital Marketing Agency</span> | Linkedo
+              </h1>
+              <p className="text-lg text-muted-foreground mb-4 max-w-3xl">
+                Linkedo is a UK-registered digital marketing agency helping Birmingham businesses generate more leads,
+                improve search rankings, and grow revenue through proven SEO, Google Ads, Meta Ads, and web development
+                strategies.
+              </p>
+              <p className="text-base text-muted-foreground mb-8 max-w-3xl">
+                We work with businesses across the West Midlands — from the Colmore Business District and Brindleyplace
+                to Jewellery Quarter, Digbeth, and Edgbaston — delivering measurable digital results with no lock-in
+                contracts.
+              </p>
+              {/* Trust badges */}
+              <div className="flex flex-wrap gap-2 mb-8">
+                {trustBadges.map((badge) => (
+                  <span
+                    key={badge}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-card/70 border border-border/50 text-xs text-foreground"
+                  >
+                    <Check className="w-3.5 h-3.5 text-primary" />
+                    {badge}
+                  </span>
+                ))}
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/contact">
+                  <AnimatedButton size="lg">
+                    Book a Free Strategy Call
+                    <ArrowRight className="w-4 h-4" />
+                  </AnimatedButton>
+                </Link>
+                <Link href="#services">
+                  <AnimatedButton variant="secondary" size="lg">
+                    View Birmingham Services
+                  </AnimatedButton>
+                </Link>
+              </div>
             </div>
-            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-6">
-              Birmingham&apos;s <span className="text-gradient-primary">Digital Marketing Agency</span> | Linkedo
-            </h1>
-            <p className="text-lg text-muted-foreground mb-4 max-w-3xl">
-              Linkedo is a UK-registered digital marketing agency helping Birmingham businesses generate more leads,
-              improve search rankings, and grow revenue through proven SEO, Google Ads, Meta Ads, and web development
-              strategies.
-            </p>
-            <p className="text-base text-muted-foreground mb-8 max-w-3xl">
-              We work with businesses across the West Midlands — from the Colmore Business District and Brindleyplace
-              to Jewellery Quarter, Digbeth, and Edgbaston — delivering measurable digital results with no lock-in
-              contracts.
-            </p>
-            {/* Trust badges */}
-            <div className="flex flex-wrap gap-2 mb-8">
-              {trustBadges.map((badge) => (
-                <span
-                  key={badge}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-card/70 border border-border/50 text-xs text-foreground"
-                >
-                  <Check className="w-3.5 h-3.5 text-primary" />
-                  {badge}
-                </span>
-              ))}
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/contact">
-                <AnimatedButton size="lg">
-                  Book a Free Strategy Call
-                  <ArrowRight className="w-4 h-4" />
-                </AnimatedButton>
-              </Link>
-              <Link href="#services">
-                <AnimatedButton variant="secondary" size="lg">
-                  View Birmingham Services
-                </AnimatedButton>
-              </Link>
-            </div>
+
+            <figure className="m-0">
+              <div className="relative aspect-[16/9] rounded-2xl overflow-hidden border border-border/50">
+                <Image
+                  src="/birmingham-canal-cityscape-hero.webp"
+                  alt="Birmingham canal waterfront and city skyline at dusk, representing the West Midlands business district Linkedo serves"
+                  fill
+                  priority
+                  fetchPriority="high"
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+              </div>
+            </figure>
           </div>
         </Section>
 
@@ -467,9 +485,23 @@ export default function BirminghamPage() {
               </ul>
             </div>
 
-            <div className="bg-card/50 border border-border/50 rounded-2xl p-8">
-              <h3 className="text-xl font-semibold text-foreground mb-6">Our Birmingham Service Area</h3>
-              <div className="space-y-6">
+            <div>
+              <figure className="m-0 mb-6">
+                <div className="relative aspect-[16/9] rounded-2xl overflow-hidden border border-border/50">
+                  <Image
+                    src="/birmingham-web-design-services.webp"
+                    alt="Web designer building a responsive website layout on desktop with a mobile preview alongside"
+                    fill
+                    loading="lazy"
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+              </figure>
+
+              <div className="bg-card/50 border border-border/50 rounded-2xl p-8">
+                <h3 className="text-xl font-semibold text-foreground mb-6">Our Birmingham Service Area</h3>
+                <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
                     <MapPin className="w-5 h-5 text-primary" />
@@ -505,6 +537,7 @@ export default function BirminghamPage() {
                     <p className="font-medium text-foreground">Compliance</p>
                     <p className="text-sm text-muted-foreground">Fully GDPR Compliant</p>
                   </div>
+                </div>
                 </div>
               </div>
             </div>
@@ -566,7 +599,7 @@ export default function BirminghamPage() {
                 Local Insight
               </span>
               <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
-                Why Birmingham Businesses Are Investing in Digital Marketing in 2025
+                Why Birmingham Businesses Are Investing in Digital Marketing in 2026
               </h2>
               <div className="space-y-6 text-muted-foreground">
                 <p>
@@ -590,6 +623,18 @@ export default function BirminghamPage() {
             </div>
 
             <div className="space-y-6">
+              <figure className="m-0">
+                <div className="relative aspect-[16/9] rounded-2xl overflow-hidden border border-border/50">
+                  <Image
+                    src="/birmingham-team-reviewing-analytics.webp"
+                    alt="Marketing professionals reviewing campaign analytics and performance charts at a table"
+                    fill
+                    loading="lazy"
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+              </figure>
               <div className="p-6 rounded-xl bg-card/50 border border-border/50">
                 <h3 className="font-semibold text-foreground mb-2">🏙️ Colmore Business District</h3>
                 <p className="text-sm text-muted-foreground">
