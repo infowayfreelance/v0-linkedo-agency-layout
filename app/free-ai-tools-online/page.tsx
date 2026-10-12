@@ -335,7 +335,7 @@ export default function FreeAIToolsPage() {
         <div className="max-w-2xl mx-auto space-y-4 text-muted-foreground leading-relaxed">
           <p>
             Start with the{" "}
-            <Link href="/blog-outline-generator" className="text-primary hover:underline">
+            <Link href="/blog-outline-generator" className="text-primary underline underline-offset-2 hover:opacity-80">
               Blog Outline Generator
             </Link>{" "}
             to organise your topic.
@@ -343,18 +343,18 @@ export default function FreeAIToolsPage() {
           <p>Write the article using your own knowledge. Include real examples and answers that help your readers.</p>
           <p>
             Next, try the{" "}
-            <Link href="/meta-title-generator" className="text-primary hover:underline">
+            <Link href="/meta-title-generator" className="text-primary underline underline-offset-2 hover:opacity-80">
               Meta Title Generator
             </Link>{" "}
             and{" "}
-            <Link href="/meta-description-generator" className="text-primary hover:underline">
+            <Link href="/meta-description-generator" className="text-primary underline underline-offset-2 hover:opacity-80">
               Meta Description Generator
             </Link>{" "}
             to describe the finished page.
           </p>
           <p>
             When you share the article in an email or social campaign, use the{" "}
-            <Link href="/utm-builder" className="text-primary hover:underline">
+            <Link href="/utm-builder" className="text-primary underline underline-offset-2 hover:opacity-80">
               UTM Builder
             </Link>{" "}
             to create a tracking link.
@@ -389,15 +389,15 @@ export default function FreeAIToolsPage() {
         <div className="max-w-2xl mx-auto space-y-4 text-muted-foreground leading-relaxed mb-12">
           <p>
             Linkedo offers{" "}
-            <Link href="/seo" className="text-primary hover:underline">
+            <Link href="/seo" className="text-primary underline underline-offset-2 hover:opacity-80">
               SEO services
             </Link>
             ,{" "}
-            <Link href="/web-development" className="text-primary hover:underline">
+            <Link href="/web-development" className="text-primary underline underline-offset-2 hover:opacity-80">
               web development
             </Link>
             , and{" "}
-            <Link href="/google-ads" className="text-primary hover:underline">
+            <Link href="/google-ads" className="text-primary underline underline-offset-2 hover:opacity-80">
               Google Ads management
             </Link>
             .
@@ -405,11 +405,11 @@ export default function FreeAIToolsPage() {
           <p>This tools page brings together help for common content and campaign tasks.</p>
           <p>
             Learn more{" "}
-            <Link href="/about" className="text-primary hover:underline">
+            <Link href="/about" className="text-primary underline underline-offset-2 hover:opacity-80">
               about Linkedo
             </Link>
             , or{" "}
-            <Link href="/contact" className="text-primary hover:underline">
+            <Link href="/contact" className="text-primary underline underline-offset-2 hover:opacity-80">
               contact our team
             </Link>{" "}
             if you have a question or spot a problem.
@@ -464,7 +464,7 @@ export default function FreeAIToolsPage() {
           </p>
           <p className="text-muted-foreground leading-relaxed">
             For help with the wider picture, explore our{" "}
-            <Link href="/seo" className="text-primary hover:underline">
+            <Link href="/seo" className="text-primary underline underline-offset-2 hover:opacity-80">
               SEO services
             </Link>
             .
