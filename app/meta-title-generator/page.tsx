@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { motion } from "framer-motion"
 import {
   FileText,
@@ -323,20 +324,47 @@ export default function MetaTitleGeneratorPage() {
         <ParticleBackground className="opacity-40" />
 
         <MainShell className="relative z-10">
-          <div className="max-w-3xl">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-cyan-400/10 border border-primary/30 flex items-center justify-center">
-                <FileText className="w-6 h-6 text-primary" />
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-cyan-400/10 border border-primary/30 flex items-center justify-center">
+                  <FileText className="w-6 h-6 text-primary" />
+                </div>
+                <span className="text-xs font-semibold uppercase tracking-widest text-primary">Free Tool</span>
               </div>
-              <span className="text-xs font-semibold uppercase tracking-widest text-primary">Free Tool</span>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+                Free Meta Title <span className="text-gradient-primary">Generator</span>
+              </h1>
+              <p className="text-lg text-muted-foreground">
+                Create clear SEO title ideas for your website pages, blog posts and products. Enter your main keyword
+                and a short page summary, then compare, edit and copy your preferred title.
+              </p>
             </div>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-              Free Meta Title <span className="text-gradient-primary">Generator</span>
-            </h1>
-            <p className="text-lg text-muted-foreground">
-              Create clear SEO title ideas for your website pages, blog posts and products. Enter your main keyword
-              and a short page summary, then compare, edit and copy your preferred title.
-            </p>
+
+            <motion.figure
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              className="m-0"
+            >
+              <div className="relative aspect-[16/9] rounded-2xl overflow-hidden border border-border/50">
+                <Image
+                  src="/meta-title-generator-preview.webp"
+                  alt="Laptop screen showing the Linkedo Meta Title Generator with a keyword entered, a Generate Titles button, and a generated SEO title with a search result preview"
+                  title="Meta Title Generator — create SEO title ideas"
+                  fill
+                  priority
+                  fetchPriority="high"
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+              </div>
+              <figcaption className="mt-3 text-sm text-muted-foreground">
+                <span className="font-medium text-foreground">From keyword to ready-to-use title.</span> Enter your
+                details and get five editable title ideas with live length and search previews.
+              </figcaption>
+            </motion.figure>
           </div>
         </MainShell>
       </section>
@@ -536,16 +564,36 @@ export default function MetaTitleGeneratorPage() {
 
       {/* What Is a Meta Title */}
       <Section eyebrow="SEO Basics" title="What Is a Meta Title?">
-        <div className="max-w-3xl mx-auto space-y-4 text-center">
-          <p className="text-muted-foreground leading-relaxed">
-            A meta title is the clickable headline shown in search results, browser tabs and when a page is shared on
-            social media. It's defined in a page's HTML title tag and is one of the first things people see before
-            deciding whether to click through to your site.
-          </p>
-          <p className="text-muted-foreground leading-relaxed">
-            A good meta title describes the page accurately, includes the keyword it targets, and gives visitors a
-            clear reason to click — without resorting to keyword stuffing or claims the page can't back up.
-          </p>
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center max-w-5xl mx-auto">
+          <div className="space-y-4">
+            <p className="text-muted-foreground leading-relaxed">
+              A meta title is the clickable headline shown in search results, browser tabs and when a page is shared
+              on social media. It's defined in a page's HTML title tag and is one of the first things people see
+              before deciding whether to click through to your site.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              A good meta title describes the page accurately, includes the keyword it targets, and gives visitors a
+              clear reason to click — without resorting to keyword stuffing or claims the page can't back up.
+            </p>
+          </div>
+
+          <figure className="m-0">
+            <div className="relative aspect-[16/9] rounded-2xl overflow-hidden border border-border/50">
+              <Image
+                src="/meta-title-generator-comparison.webp"
+                alt="Two people comparing generated SEO title options on a monitor, with a search result preview showing the selected title and description"
+                title="Compare and choose the title that fits your page"
+                fill
+                loading="lazy"
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <figcaption className="mt-3 text-sm text-muted-foreground">
+              <span className="font-medium text-foreground">Compare before you commit.</span> Review each option side
+              by side and pick the title that best represents the page.
+            </figcaption>
+          </figure>
         </div>
       </Section>
 
