@@ -1,36 +1,37 @@
 export type PageType = "home" | "service" | "location" | "blog" | "product" | "category" | "landing"
 
-export type SearchIntent = "auto" | "informational" | "commercial" | "transactional" | "local"
+export type Tone = "clear" | "professional" | "friendly" | "persuasive"
 
-export type Tone = "professional" | "friendly" | "bold" | "urgent" | "informative"
-
-export type OptionId = "seo" | "ctr" | "balanced"
+export type OptionId = "keyword" | "benefit" | "question" | "brand" | "balanced"
 
 export type LengthStatus = "Short" | "Acceptable" | "Ideal" | "Slightly Long" | "Too Long"
 
 export interface MetaTitleFormState {
   primaryKeyword: string
-  secondaryKeyword: string
+  pageSummary: string
   brand: string
+  location: string
   tone: Tone
   pageType: PageType
-  searchIntent: SearchIntent
-  location: string
+  currentTitle: string
 }
 
 export interface GeneratedTitle {
   id: OptionId
   label: string
+  description: string
   text: string
   length: number
   lengthStatus: LengthStatus
+  pixelWidth: number
+  overflowsDesktop: boolean
   keywordIncluded: boolean
   brandIncluded: boolean
-  resolvedIntentLabel: string
 }
 
-export interface GeneratedTitleSet {
-  seo: GeneratedTitle
-  ctr: GeneratedTitle
-  balanced: GeneratedTitle
+export type GeneratedTitleSet = GeneratedTitle[]
+
+export interface FormFieldErrors {
+  primaryKeyword?: string
+  pageSummary?: string
 }
