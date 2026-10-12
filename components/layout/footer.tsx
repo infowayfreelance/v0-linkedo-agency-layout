@@ -9,6 +9,7 @@ const quickLinks = [
   { href: "/", label: "Home" },
   { href: "/locations", label: "Locations" },
   { href: "/blog", label: "Blog" },
+  { href: "/free-ai-tools-online", label: "Free Tools" },
   { href: "/contact", label: "Contact" },
 ]
 

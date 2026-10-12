@@ -33,11 +33,11 @@ const locationCities = [
 ]
 
 const aiTools = [
+  { label: "Free Tools", href: "/free-ai-tools-online" },
   { label: "Blog Outline Generator", href: "/blog-outline-generator" },
   { label: "Meta Description Generator", href: "/meta-description-generator" },
   { label: "Meta Title Generator", href: "/meta-title-generator" },
   { label: "UTM Builder", href: "/utm-builder" },
-  { label: "Free AI Tools Online", href: "/free-ai-tools-online" },
 ]
 
 export function Header() {
