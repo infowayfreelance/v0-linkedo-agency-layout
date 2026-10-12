@@ -4,12 +4,19 @@ import { useState, useEffect, useRef } from "react"
 import { createPortal } from "react-dom"
 import Link from "next/link"
 import Image from "next/image"
+import dynamic from "next/dynamic"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X, ChevronRight, Sparkles, MapPin, ChevronDown, Wand2 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { MainShell } from "./main-shell"
 import { Button } from "@/components/ui/button"
-import { WebsiteAuditModal } from "@/components/ui/website-audit-modal"
+
+// Loaded on demand — not needed until "Free Website Audit" is clicked, so
+// keeping it out of every page's initial JS trims unused JS.
+const WebsiteAuditModal = dynamic(
+  () => import("@/components/ui/website-audit-modal").then((mod) => mod.WebsiteAuditModal),
+  { ssr: false },
+)
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -45,6 +52,7 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
   const [isAuditModalOpen, setIsAuditModalOpen] = useState(false)
+  const [hasOpenedAuditModal, setHasOpenedAuditModal] = useState(false)
   const [isLocationsMegaOpen, setIsLocationsMegaOpen] = useState(false)
   const [isMobileLocationsOpen, setIsMobileLocationsOpen] = useState(false)
   const [isAiToolsMegaOpen, setIsAiToolsMegaOpen] = useState(false)
@@ -245,7 +253,10 @@ export function Header() {
             {/* CTA Button */}
             <div className="hidden lg:flex items-center gap-4">
               <Button
-                onClick={() => setIsAuditModalOpen(true)}
+                onClick={() => {
+                  setHasOpenedAuditModal(true)
+                  setIsAuditModalOpen(true)
+                }}
                 className="relative overflow-hidden bg-gradient-to-r from-primary to-cyan-400 text-primary-foreground font-medium px-6 hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
               >
                 <span className="relative z-10">Free Website Audit</span>
@@ -506,6 +517,7 @@ export function Header() {
                     >
                       <Button
                         onClick={() => {
+                          setHasOpenedAuditModal(true)
                           setIsAuditModalOpen(true)
                           handleLinkClick()
                         }}
@@ -528,7 +540,9 @@ export function Header() {
         )}
 
       {/* Website Audit Modal */}
-      <WebsiteAuditModal isOpen={isAuditModalOpen} onClose={() => setIsAuditModalOpen(false)} />
+      {hasOpenedAuditModal && (
+        <WebsiteAuditModal isOpen={isAuditModalOpen} onClose={() => setIsAuditModalOpen(false)} />
+      )}
     </>
   )
 }

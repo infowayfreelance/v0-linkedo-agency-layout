@@ -14,8 +14,6 @@ export function ConditionalLayout({ children }: { children: React.ReactNode }) {
   const isTeamPage = pathname?.startsWith("/team")
   const isOfferPage = pathname?.startsWith("/offer")
 
-  console.log("[v0] ConditionalLayout render:", { pathname, isTeamPage })
-
   if (isTeamPage || isOfferPage) {
     return <>{children}</>
   }
