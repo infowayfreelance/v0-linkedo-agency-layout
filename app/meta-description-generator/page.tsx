@@ -462,10 +462,19 @@ export default function MetaDescriptionGeneratorPage() {
 
       {/* Related Tools */}
       <Section eyebrow="Related Tools" title="Continue Optimizing" gradient>
-        <div className="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+        <div className="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto mb-8">
           {relatedTools.map((tool) => (
             <AIToolCard key={tool.href} {...tool} />
           ))}
+        </div>
+        <div className="text-center">
+          <Link
+            href="/free-ai-tools-online"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:gap-2.5 transition-all"
+          >
+            View All Tools
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </Section>
 
