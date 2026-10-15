@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import { Section } from "@/components/ui/section"
 import { ServiceCard } from "@/components/ui/service-card"
 import { AnimatedButton } from "@/components/ui/animated-button"
@@ -41,6 +42,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://linkedo.co.uk/bristol",
   },
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     title,
     description,
@@ -48,9 +53,9 @@ export const metadata: Metadata = {
     siteName: "Linkedo",
     images: [
       {
-        url: "https://linkedo.co.uk/og-bristol.webp",
-        width: 1200,
-        height: 630,
+        url: "https://linkedo.co.uk/og-image.jpg",
+        width: 1024,
+        height: 1024,
         alt: "Bristol Digital Marketing Agency – Linkedo",
       },
     ],
@@ -61,7 +66,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["https://linkedo.co.uk/og-bristol.webp"],
+    images: ["https://linkedo.co.uk/og-image.jpg"],
   },
 }
 
@@ -335,59 +340,91 @@ export default function BristolPage() {
       <main className="pt-24">
         {/* Hero */}
         <Section className="pt-12">
-          <div className="max-w-5xl mx-auto">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="text-4xl">🇬🇧</span>
-              <span className="text-sm font-medium text-primary uppercase tracking-wider">Bristol, South West England</span>
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center max-w-6xl mx-auto">
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <span className="text-4xl">🇬🇧</span>
+                <span className="text-sm font-medium text-primary uppercase tracking-wider">Bristol, South West England</span>
+              </div>
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-6">
+                Bristol&apos;s <span className="text-gradient-primary">Digital Marketing Agency</span> — SEO, Ads &amp; Web Design for Growing Businesses
+              </h1>
+              <p className="text-lg text-muted-foreground mb-8 max-w-3xl">
+                Helping Bristol businesses get found online, generate leads, and grow — with transparent strategies, no
+                lock-in contracts, and a UK-registered team you can trust.
+              </p>
+              <div className="flex flex-wrap gap-2 mb-8">
+                {trustBadges.map((badge) => (
+                  <span
+                    key={badge}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-card/70 border border-border/50 text-xs text-foreground"
+                  >
+                    <Check className="w-3.5 h-3.5 text-primary" />
+                    {badge}
+                  </span>
+                ))}
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/contact">
+                  <AnimatedButton size="lg">
+                    <Phone className="w-4 h-4" />
+                    Book a Free Strategy Call
+                    <ArrowRight className="w-4 h-4" />
+                  </AnimatedButton>
+                </Link>
+                <Link href="#services">
+                  <AnimatedButton variant="secondary" size="lg">
+                    View Bristol Services
+                  </AnimatedButton>
+                </Link>
+              </div>
             </div>
-            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-6">
-              Bristol&apos;s <span className="text-gradient-primary">Digital Marketing Agency</span> — SEO, Ads &amp; Web Design for Growing Businesses
-            </h1>
-            <p className="text-lg text-muted-foreground mb-8 max-w-3xl">
-              Helping Bristol businesses get found online, generate leads, and grow — with transparent strategies, no
-              lock-in contracts, and a UK-registered team you can trust.
-            </p>
-            <div className="flex flex-wrap gap-2 mb-8">
-              {trustBadges.map((badge) => (
-                <span
-                  key={badge}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-card/70 border border-border/50 text-xs text-foreground"
-                >
-                  <Check className="w-3.5 h-3.5 text-primary" />
-                  {badge}
-                </span>
-              ))}
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/contact">
-                <AnimatedButton size="lg">
-                  <Phone className="w-4 h-4" />
-                  Book a Free Strategy Call
-                  <ArrowRight className="w-4 h-4" />
-                </AnimatedButton>
-              </Link>
-              <Link href="#services">
-                <AnimatedButton variant="secondary" size="lg">
-                  View Bristol Services
-                </AnimatedButton>
-              </Link>
-            </div>
+
+            <figure className="m-0">
+              <div className="relative aspect-[16/9] rounded-2xl overflow-hidden border border-border/50">
+                <Image
+                  src="/bristol-harbourside-hero.webp"
+                  alt="Bristol Harbourside waterfront at dusk with boats moored along the quay, representing the city Linkedo serves"
+                  fill
+                  priority
+                  fetchPriority="high"
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+              </div>
+            </figure>
           </div>
         </Section>
 
         {/* About + Stats */}
         <Section eyebrow="About Linkedo in Bristol" title="A Digital Marketing Agency Built for Bristol Businesses">
-          <div className="max-w-4xl mx-auto space-y-6 text-muted-foreground mb-12">
-            <p>
-              Linkedo is a UK-registered digital marketing agency helping Bristol businesses grow online. From Temple
-              Quarter to Clifton, we deliver SEO, Google Ads, Meta Ads, Web Development, and Website Security — all
-              tailored to the Bristol market.
-            </p>
-            <p>
-              We operate with full transparency, GBP billing, and no lock-in contracts. As a Companies House
-              registered agency, every strategy is built around your goals — giving Bristol businesses the
-              accountability and results they deserve.
-            </p>
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center max-w-5xl mx-auto mb-12">
+            <div className="space-y-6 text-muted-foreground">
+              <p>
+                Linkedo is a UK-registered digital marketing agency helping Bristol businesses grow online. From Temple
+                Quarter to Clifton, we deliver SEO, Google Ads, Meta Ads, Web Development, and Website Security — all
+                tailored to the Bristol market.
+              </p>
+              <p>
+                We operate with full transparency, GBP billing, and no lock-in contracts. As a Companies House
+                registered agency, every strategy is built around your goals — giving Bristol businesses the
+                accountability and results they deserve.
+              </p>
+            </div>
+
+            <figure className="m-0">
+              <div className="relative aspect-[16/9] rounded-2xl overflow-hidden border border-border/50">
+                <Image
+                  src="/bristol-web-design-services.webp"
+                  alt="Web designer working on a website layout with analytics charts visible on a desktop monitor"
+                  fill
+                  loading="lazy"
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+            </figure>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {stats.map((stat) => (
@@ -441,6 +478,19 @@ export default function BristolPage() {
           </div>
 
           {/* Bristol Presence card */}
+          <figure className="max-w-4xl mx-auto m-0 mb-6">
+            <div className="relative aspect-[21/9] rounded-2xl overflow-hidden border border-border/50">
+              <Image
+                src="/bristol-team-strategy-meeting.webp"
+                alt="Two colleagues reviewing campaign analytics and strategy documents together at a table"
+                fill
+                loading="lazy"
+                sizes="(min-width: 1024px) 896px, 100vw"
+                className="object-cover"
+              />
+            </div>
+          </figure>
+
           <div className="max-w-4xl mx-auto bg-card/50 border border-border/50 rounded-2xl p-8">
             <h3 className="text-xl font-semibold text-foreground mb-6 text-center">Our Bristol Presence</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -552,19 +602,33 @@ export default function BristolPage() {
                   real, measurable growth.
                 </p>
               </div>
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  { icon: "🏛", label: "Temple Quarter", desc: "Bristol's emerging digital & finance hub" },
-                  { icon: "🌊", label: "Harbourside", desc: "Tech startups & creative agencies" },
-                  { icon: "🏘", label: "Clifton", desc: "Professional services & premium businesses" },
-                  { icon: "🎨", label: "Stokes Croft", desc: "Independent retailers & creative businesses" },
-                ].map((district) => (
-                  <div key={district.label} className="p-4 rounded-xl bg-card/50 border border-border/50">
-                    <div className="text-2xl mb-2">{district.icon}</div>
-                    <p className="font-semibold text-foreground text-sm mb-1">{district.label}</p>
-                    <p className="text-xs text-muted-foreground">{district.desc}</p>
+              <div>
+                <figure className="m-0 mb-4">
+                  <div className="relative aspect-[3/2] rounded-xl overflow-hidden border border-border/50">
+                    <Image
+                      src="/bristol-local-high-street.webp"
+                      alt="A charming local high street with independent shopfronts, representing Bristol's neighbourhood businesses"
+                      fill
+                      loading="lazy"
+                      sizes="(min-width: 1024px) 50vw, 100vw"
+                      className="object-cover"
+                    />
                   </div>
-                ))}
+                </figure>
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    { icon: "🏛", label: "Temple Quarter", desc: "Bristol's emerging digital & finance hub" },
+                    { icon: "🌊", label: "Harbourside", desc: "Tech startups & creative agencies" },
+                    { icon: "🏘", label: "Clifton", desc: "Professional services & premium businesses" },
+                    { icon: "🎨", label: "Stokes Croft", desc: "Independent retailers & creative businesses" },
+                  ].map((district) => (
+                    <div key={district.label} className="p-4 rounded-xl bg-card/50 border border-border/50">
+                      <div className="text-2xl mb-2">{district.icon}</div>
+                      <p className="font-semibold text-foreground text-sm mb-1">{district.label}</p>
+                      <p className="text-xs text-muted-foreground">{district.desc}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
