@@ -3,6 +3,9 @@ const nextConfig = {
   // Keep metadata in <head> for SEO audits and crawlers instead of streaming it
   // into the page body after the initial HTML has been sent.
   htmlLimitedBots: /.*/,
+  experimental: {
+    optimizePackageImports: ["lucide-react"],
+  },
   images: {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [

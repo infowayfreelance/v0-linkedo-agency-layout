@@ -4,8 +4,83 @@ import type React from "react"
 
 import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
-import * as Icons from "lucide-react"
-import type { LucideIcon } from "lucide-react"
+import {
+  BarChart,
+  BarChart3,
+  Bug,
+  Building2,
+  Circle,
+  Code,
+  DollarSign,
+  FileSearch,
+  FileText,
+  Globe,
+  Layout,
+  Lightbulb,
+  Link,
+  Lock,
+  MapPin,
+  Megaphone,
+  MessageSquare,
+  MousePointer,
+  Package,
+  Palette,
+  PenTool,
+  RefreshCw,
+  Rocket,
+  Search,
+  Settings,
+  Shield,
+  ShoppingCart,
+  Smartphone,
+  Sparkles,
+  Star,
+  Target,
+  TestTube,
+  TrendingUp,
+  Users,
+  Zap,
+  type LucideIcon,
+} from "lucide-react"
+
+// Explicit map instead of `import * as Icons` — a namespace import pulls the
+// entire lucide-react icon set into every bundle that uses this component.
+const ICONS: Record<string, LucideIcon> = {
+  BarChart,
+  BarChart3,
+  Bug,
+  Building2,
+  Code,
+  DollarSign,
+  FileSearch,
+  FileText,
+  Globe,
+  Layout,
+  Lightbulb,
+  Link,
+  Lock,
+  MapPin,
+  Megaphone,
+  MessageSquare,
+  MousePointer,
+  Package,
+  Palette,
+  PenTool,
+  RefreshCw,
+  Rocket,
+  Search,
+  Settings,
+  Shield,
+  ShoppingCart,
+  Smartphone,
+  Sparkles,
+  Star,
+  Target,
+  TestTube,
+  TrendingUp,
+  Users,
+  Zap,
+}
 
 interface ServiceCardProps {
   iconName?: string
@@ -21,8 +96,8 @@ export function ServiceCard({ iconName, icon, title, description, href, classNam
   const iconKey = iconName || (typeof icon === "string" ? icon : undefined)
   const Icon =
     (typeof icon === "function" ? icon : undefined) ||
-    (iconKey ? (Icons as unknown as Record<string, LucideIcon>)[iconKey] : undefined) ||
-    Icons.Circle
+    (iconKey ? ICONS[iconKey] : undefined) ||
+    Circle
 
   return (
     <Component

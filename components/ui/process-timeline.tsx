@@ -4,7 +4,65 @@ import type React from "react"
 
 import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
-import * as Icons from "lucide-react"
+import {
+  BarChart,
+  BarChart3,
+  Building2,
+  Circle,
+  Code,
+  DollarSign,
+  FileSearch,
+  FileText,
+  Layout,
+  Link,
+  MapPin,
+  MessageSquare,
+  MousePointer,
+  Palette,
+  PenTool,
+  RefreshCw,
+  Rocket,
+  Search,
+  Settings,
+  Shield,
+  Smartphone,
+  Star,
+  Target,
+  TestTube,
+  TrendingUp,
+  Zap,
+  type LucideIcon,
+} from "lucide-react"
+
+// Explicit map instead of `import * as Icons` — a namespace import pulls the
+// entire lucide-react icon set into every bundle that uses this component.
+const ICONS: Record<string, LucideIcon> = {
+  BarChart,
+  BarChart3,
+  Building2,
+  Code,
+  DollarSign,
+  FileSearch,
+  FileText,
+  Layout,
+  Link,
+  MapPin,
+  MessageSquare,
+  MousePointer,
+  Palette,
+  PenTool,
+  RefreshCw,
+  Rocket,
+  Search,
+  Settings,
+  Shield,
+  Smartphone,
+  Star,
+  Target,
+  TestTube,
+  TrendingUp,
+  Zap,
+}
 
 interface ProcessStep {
   iconName: string
@@ -25,8 +83,7 @@ export function ProcessTimeline({ steps, className }: ProcessTimelineProps) {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {steps.map((step, index) => {
-          const Icon =
-            (Icons as unknown as Record<string, React.ComponentType<{ className?: string }>>)[step.iconName] || Icons.Circle
+          const Icon = ICONS[step.iconName] || Circle
           return (
             <motion.div
               key={index}
