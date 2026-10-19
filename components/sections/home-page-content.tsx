@@ -41,7 +41,7 @@ const caseStudies = [
       "Launching high-converting Google Ads campaigns that helped a manufacturing business expand into competitive UK markets with profitable ROI.",
     image: "/manufacturing-industrial-modern.jpg",
     tags: ["Google Ads", "Lead Generation"],
-    href: "/case-studies/manufacturing-co",
+    // No dedicated case-study page exists yet — card is intentionally non-clickable.
   },
   {
     title: "Complete Digital Transformation",
@@ -50,7 +50,7 @@ const caseStudies = [
       "Redesigning a law firm's digital presence with SEO, web development, and paid advertising to generate 200+ qualified leads every month.",
     image: "/legal-office-professional-modern.jpg",
     tags: ["Web Development", "SEO", "Paid Ads"],
-    href: "/case-studies/legal-partners",
+    // No dedicated case-study page exists yet — card is intentionally non-clickable.
   },
 ]
 
