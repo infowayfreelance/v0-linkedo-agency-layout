@@ -33,6 +33,8 @@ import { Section } from "@/components/ui/section"
 import { ServiceCard } from "@/components/ui/service-card"
 import { AnimatedButton } from "@/components/ui/animated-button"
 import { FAQAccordion } from "@/components/ui/faq-accordion"
+import { Breadcrumbs } from "@/components/ui/breadcrumbs"
+import { RelatedLinks } from "@/components/ui/related-links"
 import { SchemaMarkup } from "@/components/seo/schema-markup"
 
 const title = "Digital Marketing Agency in London | Linkedo"
@@ -107,7 +109,7 @@ const services = [
     title: "Website Development in London",
     description:
       "Custom, conversion-focused websites built to perform in London's competitive digital landscape.",
-    href: "/website-development",
+    href: "/web-development",
   },
   {
     iconName: "Search",
@@ -364,7 +366,8 @@ const londonBreadcrumbSchema = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: "https://linkedo.co.uk" },
-    { "@type": "ListItem", position: 2, name: "London", item: "https://linkedo.co.uk/london" },
+    { "@type": "ListItem", position: 2, name: "Locations", item: "https://linkedo.co.uk/locations" },
+    { "@type": "ListItem", position: 3, name: "London", item: "https://linkedo.co.uk/london" },
   ],
 }
 
@@ -394,6 +397,10 @@ export default function LondonPage() {
           <div className="absolute inset-0 bg-background/75" />
 
           <Section className="pt-8 relative">
+            <Breadcrumbs
+              items={[{ label: "Locations", href: "/locations" }, { label: "London" }]}
+              className="mb-6"
+            />
             <div className="max-w-4xl relative z-10">
               <div className="flex items-center gap-3 mb-6">
                 <span className="text-4xl">🇬🇧</span>
@@ -731,6 +738,19 @@ export default function LondonPage() {
                 <span className="text-sm font-medium">+44 7927 969991</span>
               </a>
             </div>
+          </div>
+        </Section>
+
+        <Section>
+          <div className="max-w-4xl mx-auto">
+            <RelatedLinks
+              title="Our Services in London"
+              links={[
+                { label: "SEO Services", href: "/seo" },
+                { label: "Google Ads / PPC", href: "/google-ads" },
+                { label: "Web Development", href: "/web-development" },
+              ]}
+            />
           </div>
         </Section>
       </main>

@@ -7,9 +7,13 @@ import { MapPin, Mail, Phone } from "lucide-react"
 
 const quickLinks = [
   { href: "/", label: "Home" },
+  { href: "/about", label: "About Us" },
+  { href: "/case-studies", label: "Case Studies" },
+  { href: "/portfolio", label: "Portfolio" },
   { href: "/locations", label: "Locations" },
   { href: "/blog", label: "Blog" },
   { href: "/free-ai-tools-online", label: "Free Tools" },
+  { href: "/pricing", label: "Pricing" },
   { href: "/contact", label: "Contact" },
 ]
 

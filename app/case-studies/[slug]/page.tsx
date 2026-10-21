@@ -3,6 +3,9 @@ import { StatCard } from "@/components/ui/stat-card"
 import { TestimonialCard } from "@/components/ui/testimonial-card"
 import { AnimatedButton } from "@/components/ui/animated-button"
 import { Badge } from "@/components/ui/badge"
+import { Breadcrumbs } from "@/components/ui/breadcrumbs"
+import { RelatedLinks } from "@/components/ui/related-links"
+import { SchemaMarkup } from "@/components/seo/schema-markup"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, MapPin, Building2, Calendar } from "lucide-react"
@@ -81,10 +84,48 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
 
   if (!study) notFound()
 
+  const caseStudyBreadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://linkedo.co.uk" },
+      { "@type": "ListItem", position: 2, name: "Case Studies", item: "https://linkedo.co.uk/case-studies" },
+      { "@type": "ListItem", position: 3, name: study.client, item: `https://linkedo.co.uk/case-studies/${slug}` },
+    ],
+  }
+
+  const serviceHrefMap: Record<string, string> = {
+    SEO: "/seo",
+    "Technical SEO": "/seo",
+    "SEO Optimisation": "/seo",
+    "Content Marketing": "/consulting",
+    "Google Ads": "/google-ads",
+    PPC: "/google-ads",
+    "Meta Ads": "/meta-ads",
+    "Web Development": "/web-development",
+    "Website Development": "/web-development",
+    Branding: "/branding",
+  }
+
+  const relatedServiceLinks: { label: string; href: string }[] = []
+  const seenHrefs = new Set<string>()
+  for (const service of study.services) {
+    const href = serviceHrefMap[service]
+    if (href && !seenHrefs.has(href)) {
+      seenHrefs.add(href)
+      relatedServiceLinks.push({ label: service, href })
+    }
+  }
+
   return (
     <div className="min-h-screen bg-background">
+      <SchemaMarkup schema={caseStudyBreadcrumbSchema} />
       {/* Hero */}
       <Section className="pt-8">
+        <Breadcrumbs
+          items={[{ label: "Case Studies", href: "/case-studies" }, { label: study.client }]}
+          className="mb-6"
+        />
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <div className="flex items-center gap-2 mb-4 flex-wrap">
@@ -202,6 +243,8 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             </Link>
           </div>
         </div>
+
+        <RelatedLinks title="Related Services" links={relatedServiceLinks} />
       </Section>
     </div>
   )

@@ -15,6 +15,7 @@ interface PricingCardProps {
   highlighted?: boolean
   badge?: string
   ctaText?: string
+  ctaHref?: string
   onCtaClick?: () => void
   className?: string
 }
@@ -28,6 +29,7 @@ export function PricingCard({
   highlighted = false,
   badge,
   ctaText = "Get Started",
+  ctaHref,
   onCtaClick,
   className,
 }: PricingCardProps) {
@@ -77,7 +79,12 @@ export function PricingCard({
         </ul>
 
         {/* CTA */}
-        <AnimatedButton variant={highlighted ? "primary" : "secondary"} className="w-full" onClick={onCtaClick}>
+        <AnimatedButton
+          variant={highlighted ? "primary" : "secondary"}
+          className="w-full"
+          href={ctaHref}
+          onClick={onCtaClick}
+        >
           {ctaText}
         </AnimatedButton>
       </div>

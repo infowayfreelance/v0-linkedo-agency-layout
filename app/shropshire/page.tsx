@@ -4,6 +4,8 @@ import { ServiceCard } from "@/components/ui/service-card"
 import { AnimatedButton } from "@/components/ui/animated-button"
 import { SchemaMarkup } from "@/components/seo/schema-markup"
 import { FAQAccordion } from "@/components/ui/faq-accordion"
+import { Breadcrumbs } from "@/components/ui/breadcrumbs"
+import { RelatedLinks } from "@/components/ui/related-links"
 import Link from "next/link"
 import {
   ArrowRight,
@@ -339,6 +341,10 @@ export default function ShropshirePage() {
       <main className="pt-24">
         {/* Hero */}
         <Section className="pt-12">
+          <Breadcrumbs
+            items={[{ label: "Locations", href: "/locations" }, { label: "Shropshire" }]}
+            className="mb-6"
+          />
           <div className="max-w-5xl mx-auto">
             <div className="flex items-center gap-3 mb-6">
               <span className="text-4xl">🇬🇧</span>
@@ -693,6 +699,19 @@ export default function ShropshirePage() {
                 </AnimatedButton>
               </Link>
             </div>
+          </div>
+        </Section>
+
+        <Section>
+          <div className="max-w-4xl mx-auto">
+            <RelatedLinks
+              title="Our Services in Shropshire"
+              links={[
+                { label: "SEO Services", href: "/seo" },
+                { label: "Google Ads / PPC", href: "/google-ads" },
+                { label: "Web Development", href: "/web-development" },
+              ]}
+            />
           </div>
         </Section>
       </main>

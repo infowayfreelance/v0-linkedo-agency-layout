@@ -10,6 +10,8 @@ import { FAQAccordion } from "@/components/ui/faq-accordion"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { SchemaMarkup } from "@/components/seo/schema-markup"
+import { Breadcrumbs } from "@/components/ui/breadcrumbs"
+import { RelatedLinks } from "@/components/ui/related-links"
 
 const webDevServiceSchema = {
   "@context": "https://schema.org",
@@ -87,7 +89,8 @@ const webDevBreadcrumbSchema = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: "https://linkedo.co.uk" },
-    { "@type": "ListItem", position: 2, name: "Web Development", item: "https://linkedo.co.uk/web-development" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://linkedo.co.uk/services" },
+    { "@type": "ListItem", position: 3, name: "Web Development", item: "https://linkedo.co.uk/web-development" },
   ],
 }
 
@@ -207,6 +210,10 @@ export default function WebDevelopmentPage() {
       <SchemaMarkup schema={webDevBreadcrumbSchema} />
       {/* Hero Image Section */}
       <Section className="mb-16">
+        <Breadcrumbs
+          items={[{ label: "Services", href: "/services" }, { label: "Web Development" }]}
+          className="mb-6"
+        />
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary mb-4">
@@ -378,6 +385,22 @@ export default function WebDevelopmentPage() {
           <AnimatedButton href="/contact" variant="primary" size="lg">
             Get a Free Quote
           </AnimatedButton>
+        </div>
+      </Section>
+
+      {/* Related Locations */}
+      <Section>
+        <div className="max-w-4xl mx-auto">
+          <RelatedLinks
+            title="Available in These UK Locations"
+            links={[
+              { label: "London", href: "/london" },
+              { label: "Manchester", href: "/manchester" },
+              { label: "Birmingham", href: "/birmingham" },
+              { label: "Bristol", href: "/bristol" },
+              { label: "View All Locations", href: "/locations" },
+            ]}
+          />
         </div>
       </Section>
     </MainShell>

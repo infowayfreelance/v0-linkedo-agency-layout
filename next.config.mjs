@@ -6,6 +6,15 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ["lucide-react"],
   },
+  async redirects() {
+    return [
+      {
+        source: "/website-development",
+        destination: "/web-development",
+        permanent: true,
+      },
+    ]
+  },
   images: {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [

@@ -5,6 +5,8 @@ import { ServiceCard } from "@/components/ui/service-card"
 import { AnimatedButton } from "@/components/ui/animated-button"
 import { SchemaMarkup } from "@/components/seo/schema-markup"
 import { FAQAccordion } from "@/components/ui/faq-accordion"
+import { Breadcrumbs } from "@/components/ui/breadcrumbs"
+import { RelatedLinks } from "@/components/ui/related-links"
 import Link from "next/link"
 import {
   ArrowRight,
@@ -103,7 +105,8 @@ const bristolBreadcrumbSchema = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: "https://linkedo.co.uk" },
-    { "@type": "ListItem", position: 2, name: "Bristol", item: "https://linkedo.co.uk/bristol" },
+    { "@type": "ListItem", position: 2, name: "Locations", item: "https://linkedo.co.uk/locations" },
+    { "@type": "ListItem", position: 3, name: "Bristol", item: "https://linkedo.co.uk/bristol" },
   ],
 }
 
@@ -340,6 +343,10 @@ export default function BristolPage() {
       <main className="pt-24">
         {/* Hero */}
         <Section className="pt-12">
+          <Breadcrumbs
+            items={[{ label: "Locations", href: "/locations" }, { label: "Bristol" }]}
+            className="mb-6"
+          />
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center max-w-6xl mx-auto">
             <div>
               <div className="flex items-center gap-3 mb-6">
@@ -758,6 +765,19 @@ export default function BristolPage() {
                 </AnimatedButton>
               </a>
             </div>
+          </div>
+        </Section>
+
+        <Section>
+          <div className="max-w-4xl mx-auto">
+            <RelatedLinks
+              title="Our Services in Bristol"
+              links={[
+                { label: "SEO Services", href: "/seo" },
+                { label: "Google Ads / PPC", href: "/google-ads" },
+                { label: "Web Development", href: "/web-development" },
+              ]}
+            />
           </div>
         </Section>
       </main>
