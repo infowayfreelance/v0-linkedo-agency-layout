@@ -31,6 +31,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 import { MainShell } from "@/components/layout/main-shell"
 import { Chip } from "@/components/ui/chip"
 import { AnimatedButton } from "@/components/ui/animated-button"
+import { Breadcrumbs } from "@/components/ui/breadcrumbs"
+import { RelatedLinks } from "@/components/ui/related-links"
+import { SchemaMarkup } from "@/components/seo/schema-markup"
 import Link from "next/link"
 import { Calendar, Clock, ArrowLeft, ArrowRight } from "lucide-react"
 import { aiSeoPost } from "@/lib/blog-posts/what-is-ai-seo"
@@ -76,10 +79,22 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const publishedPost = publishedPosts[slug as keyof typeof publishedPosts]
   const post = publishedPost ?? defaultPost
 
+  const blogPostBreadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://linkedo.co.uk" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: "https://linkedo.co.uk/blog" },
+      { "@type": "ListItem", position: 3, name: post.title, item: `https://linkedo.co.uk/blog/${slug}` },
+    ],
+  }
+
   return (
     <MainShell>
+      <SchemaMarkup schema={blogPostBreadcrumbSchema} />
       <div className="pt-20 pb-12 md:pt-24 md:pb-16">
         <article className="max-w-4xl mx-auto">
+          <Breadcrumbs items={[{ label: "Blog", href: "/blog" }, { label: post.title }]} className="mb-6" />
           {/* Header */}
           <div className="mb-8 md:mb-12">
             <Link
@@ -186,6 +201,18 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               Book a Free Consultation
             </AnimatedButton>
           </div>
+
+          {publishedPost && (
+            <RelatedLinks
+              title="Related Services"
+              links={[
+                { label: "SEO Services", href: "/seo" },
+                { label: "Web Development", href: "/web-development" },
+                { label: "Free AI Tools", href: "/free-ai-tools-online" },
+              ]}
+              className="mb-12"
+            />
+          )}
 
           {/* Related Posts */}
           <div>

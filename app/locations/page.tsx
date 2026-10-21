@@ -31,6 +31,7 @@ import {
 } from "lucide-react"
 
 import { Section } from "@/components/ui/section"
+import { Breadcrumbs } from "@/components/ui/breadcrumbs"
 import { LocationCard } from "@/components/ui/location-card"
 import { FAQAccordion } from "@/components/ui/faq-accordion"
 import { AnimatedButton } from "@/components/ui/animated-button"
@@ -542,6 +543,7 @@ export default function LocationsPage() {
       <main className="pt-24">
         {/* Hero */}
         <Section className="pt-12">
+          <Breadcrumbs items={[{ label: "Locations" }]} className="mb-6 justify-center" />
           <div className="max-w-3xl mx-auto text-center">
             <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary mb-4">
               UK Coverage

@@ -6,7 +6,7 @@ import Link from "next/link"
 import Image from "next/image"
 import dynamic from "next/dynamic"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, ChevronRight, Sparkles, MapPin, ChevronDown, Wand2 } from "lucide-react"
+import { Menu, X, ChevronRight, Sparkles, MapPin, ChevronDown, Wand2, Globe, Briefcase } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { MainShell } from "./main-shell"
 import { Button } from "@/components/ui/button"
@@ -18,29 +18,46 @@ const WebsiteAuditModal = dynamic(
   { ssr: false },
 )
 
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
-  { href: "/contact", label: "Contact" },
+const homeLink = { href: "/", label: "Home" }
+const contactLink = { href: "/contact", label: "Contact" }
+
+// Rendered between the Locations and Free AI Tools dropdowns.
+const midNavLinks = [{ href: "/case-studies", label: "Case Studies" }]
+
+// Rendered after the Free AI Tools dropdown, before Contact.
+const endNavLinks = [{ href: "/blog", label: "Blog" }]
+
+const serviceLinks = [
+  { label: "SEO Services", href: "/seo" },
+  { label: "Google Ads / PPC", href: "/google-ads" },
+  { label: "Web Development", href: "/web-development" },
+  { label: "Web Design", href: "/website-development" },
+  { label: "Meta Ads", href: "/meta-ads" },
+  { label: "Branding", href: "/branding" },
+  { label: "Consulting", href: "/consulting" },
 ]
 
 const locationCities = [
+  { label: "UK", href: "/uk" },
+  { label: "Birmingham", href: "/birmingham" },
+  { label: "Bristol", href: "/bristol" },
+  { label: "Leicester", href: "/leicester" },
+  { label: "Sheffield", href: "/sheffield" },
   { label: "London", href: "/london" },
   { label: "Manchester", href: "/manchester" },
-  { label: "Birmingham", href: "/birmingham" },
   { label: "Leeds", href: "/leeds" },
-  { label: "Bristol", href: "/bristol" },
   { label: "Edinburgh", href: "/edinburgh" },
   { label: "Glasgow", href: "/glasgow" },
   { label: "Liverpool", href: "/liverpool" },
-  { label: "Sheffield", href: "/sheffield" },
   { label: "Nottingham", href: "/nottingham" },
-  { label: "Leicester", href: "/leicester" },
   { label: "Newcastle", href: "/newcastle" },
+  { label: "Shropshire", href: "/shropshire" },
+  { label: "Devon", href: "/devon" },
+  { label: "Midlands", href: "/midland" },
 ]
 
 const aiTools = [
-  { label: "Free Tools", href: "/free-ai-tools-online" },
+  { label: "All Free Tools", href: "/free-ai-tools-online" },
   { label: "Blog Outline Generator", href: "/blog-outline-generator" },
   { label: "Meta Description Generator", href: "/meta-description-generator" },
   { label: "Meta Title Generator", href: "/meta-title-generator" },
@@ -53,6 +70,8 @@ export function Header() {
   const [isMounted, setIsMounted] = useState(false)
   const [isAuditModalOpen, setIsAuditModalOpen] = useState(false)
   const [hasOpenedAuditModal, setHasOpenedAuditModal] = useState(false)
+  const [isServicesMegaOpen, setIsServicesMegaOpen] = useState(false)
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false)
   const [isLocationsMegaOpen, setIsLocationsMegaOpen] = useState(false)
   const [isMobileLocationsOpen, setIsMobileLocationsOpen] = useState(false)
   const [isAiToolsMegaOpen, setIsAiToolsMegaOpen] = useState(false)
@@ -66,6 +85,7 @@ export function Header() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
+      setIsServicesMegaOpen(false)
       setIsLocationsMegaOpen(false)
       setIsAiToolsMegaOpen(false)
     }
@@ -76,6 +96,7 @@ export function Header() {
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (megaMenuRef.current && !megaMenuRef.current.contains(e.target as Node)) {
+        setIsServicesMegaOpen(false)
         setIsLocationsMegaOpen(false)
         setIsAiToolsMegaOpen(false)
       }
@@ -131,15 +152,60 @@ export function Header() {
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-1" ref={megaMenuRef}>
-              {navLinks.slice(0, 2).map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-secondary/50"
+              <Link
+                href={homeLink.href}
+                className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-secondary/50"
+              >
+                {homeLink.label}
+              </Link>
+
+              {/* Services mega menu trigger */}
+              <div className="relative">
+                <button
+                  onClick={() => setIsServicesMegaOpen((prev) => !prev)}
+                  className={cn(
+                    "flex items-center gap-1 px-3 py-2 text-sm transition-colors rounded-md hover:bg-secondary/50",
+                    isServicesMegaOpen ? "text-primary" : "text-muted-foreground hover:text-foreground",
+                  )}
                 >
-                  {link.label}
-                </Link>
-              ))}
+                  Services
+                  <ChevronDown
+                    className={cn("w-3.5 h-3.5 transition-transform duration-200", isServicesMegaOpen && "rotate-180")}
+                  />
+                </button>
+
+                <AnimatePresence>
+                  {isServicesMegaOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 8 }}
+                      transition={{ duration: 0.18, ease: "easeOut" }}
+                      className="absolute top-full left-0 mt-2 w-64 rounded-2xl border border-border/60 bg-card/95 backdrop-blur-xl shadow-2xl shadow-black/30 z-[200] p-3"
+                    >
+                      {serviceLinks.map((service) => (
+                        <Link
+                          key={service.href}
+                          href={service.href}
+                          onClick={() => setIsServicesMegaOpen(false)}
+                          className="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/60 border border-transparent hover:border-border/50 transition-all duration-150 group"
+                        >
+                          <Briefcase className="w-3.5 h-3.5 text-primary shrink-0 opacity-70 group-hover:opacity-100" />
+                          {service.label}
+                        </Link>
+                      ))}
+                      <Link
+                        href="/services"
+                        onClick={() => setIsServicesMegaOpen(false)}
+                        className="mt-1 flex items-center justify-center gap-1 px-3 py-2 rounded-lg text-xs font-semibold text-primary border border-primary/30 hover:bg-primary/10 transition-all"
+                      >
+                        View all services
+                        <ChevronRight className="w-3.5 h-3.5" />
+                      </Link>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
 
               {/* Locations mega menu trigger */}
               <div className="relative">
@@ -182,22 +248,35 @@ export function Header() {
 
                       {/* City grid */}
                       <div className="grid grid-cols-3 gap-1.5">
-                        {locationCities.map((city) => (
-                          <Link
-                            key={city.href}
-                            href={city.href}
-                            onClick={() => setIsLocationsMegaOpen(false)}
-                            className="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/60 border border-transparent hover:border-border/50 transition-all duration-150 group"
-                          >
-                            <MapPin className="w-3 h-3 text-primary shrink-0 opacity-70 group-hover:opacity-100" />
-                            {city.label}
-                          </Link>
-                        ))}
+                        {locationCities.map((city) => {
+                          const Icon = city.label === "UK" ? Globe : MapPin
+                          return (
+                            <Link
+                              key={city.href}
+                              href={city.href}
+                              onClick={() => setIsLocationsMegaOpen(false)}
+                              className="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/60 border border-transparent hover:border-border/50 transition-all duration-150 group"
+                            >
+                              <Icon className="w-3 h-3 text-primary shrink-0 opacity-70 group-hover:opacity-100" />
+                              {city.label}
+                            </Link>
+                          )
+                        })}
                       </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
               </div>
+
+              {midNavLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-secondary/50"
+                >
+                  {link.label}
+                </Link>
+              ))}
 
               {/* AI Tools dropdown trigger */}
               <div className="relative">
@@ -208,7 +287,7 @@ export function Header() {
                     isAiToolsMegaOpen ? "text-primary" : "text-muted-foreground hover:text-foreground",
                   )}
                 >
-                  AI Tools
+                  Free AI Tools
                   <ChevronDown
                     className={cn("w-3.5 h-3.5 transition-transform duration-200", isAiToolsMegaOpen && "rotate-180")}
                   />
@@ -239,7 +318,7 @@ export function Header() {
                 </AnimatePresence>
               </div>
 
-              {navLinks.slice(2).map((link) => (
+              {[...endNavLinks, contactLink].map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
@@ -357,25 +436,81 @@ export function Header() {
 
                     {/* Navigation Links */}
                     <nav className="flex-1 space-y-2">
-                      {navLinks.slice(0, 2).map((link, index) => (
-                        <motion.div
-                          key={link.href}
-                          initial={{ opacity: 0, x: 20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.1 + index * 0.04, duration: 0.3, ease: "easeOut" }}
+                      <motion.div
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.1, duration: 0.3, ease: "easeOut" }}
+                      >
+                        <Link
+                          href={homeLink.href}
+                          onClick={handleLinkClick}
+                          className="group flex items-center justify-between px-5 py-4 rounded-xl bg-secondary/30 hover:bg-secondary/60 border border-border/30 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10"
                         >
-                          <Link
-                            href={link.href}
-                            onClick={handleLinkClick}
-                            className="group flex items-center justify-between px-5 py-4 rounded-xl bg-secondary/30 hover:bg-secondary/60 border border-border/30 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10"
-                          >
+                          <span className="text-foreground font-medium group-hover:text-primary transition-colors">
+                            {homeLink.label}
+                          </span>
+                          <ChevronRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                        </Link>
+                      </motion.div>
+
+                      {/* Services accordion */}
+                      <motion.div
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.14, duration: 0.3, ease: "easeOut" }}
+                      >
+                        <button
+                          onClick={() => setIsMobileServicesOpen((prev) => !prev)}
+                          className="w-full group flex items-center justify-between px-5 py-4 rounded-xl bg-secondary/30 hover:bg-secondary/60 border border-border/30 hover:border-primary/50 transition-all duration-300"
+                        >
+                          <div className="flex items-center gap-2">
+                            <Briefcase className="w-4 h-4 text-primary" />
                             <span className="text-foreground font-medium group-hover:text-primary transition-colors">
-                              {link.label}
+                              Services
                             </span>
-                            <ChevronRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
-                          </Link>
-                        </motion.div>
-                      ))}
+                          </div>
+                          <ChevronDown
+                            className={cn(
+                              "w-5 h-5 text-muted-foreground transition-transform duration-200",
+                              isMobileServicesOpen && "rotate-180 text-primary",
+                            )}
+                          />
+                        </button>
+
+                        <AnimatePresence>
+                          {isMobileServicesOpen && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.25, ease: "easeInOut" }}
+                              className="overflow-hidden"
+                            >
+                              <div className="mt-2 p-3 rounded-xl bg-secondary/20 border border-border/30 flex flex-col gap-1.5">
+                                {serviceLinks.map((service) => (
+                                  <Link
+                                    key={service.href}
+                                    href={service.href}
+                                    onClick={handleLinkClick}
+                                    className="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm text-muted-foreground hover:text-primary hover:bg-secondary/60 transition-all"
+                                  >
+                                    <Briefcase className="w-3.5 h-3.5 text-primary shrink-0" />
+                                    {service.label}
+                                  </Link>
+                                ))}
+                                <Link
+                                  href="/services"
+                                  onClick={handleLinkClick}
+                                  className="flex items-center justify-center gap-1 px-3 py-2 rounded-lg text-xs font-semibold text-primary border border-primary/30 hover:bg-primary/10 transition-all mt-1"
+                                >
+                                  View all services
+                                  <ChevronRight className="w-3.5 h-3.5" />
+                                </Link>
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </motion.div>
 
                       {/* Locations accordion */}
                       <motion.div
@@ -411,17 +546,20 @@ export function Header() {
                               className="overflow-hidden"
                             >
                               <div className="mt-2 p-3 rounded-xl bg-secondary/20 border border-border/30 grid grid-cols-2 gap-1.5">
-                                {locationCities.map((city) => (
-                                  <Link
-                                    key={city.href}
-                                    href={city.href}
-                                    onClick={handleLinkClick}
-                                    className="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm text-muted-foreground hover:text-primary hover:bg-secondary/60 transition-all"
-                                  >
-                                    <MapPin className="w-3 h-3 text-primary shrink-0" />
-                                    {city.label}
-                                  </Link>
-                                ))}
+                                {locationCities.map((city) => {
+                                  const Icon = city.label === "UK" ? Globe : MapPin
+                                  return (
+                                    <Link
+                                      key={city.href}
+                                      href={city.href}
+                                      onClick={handleLinkClick}
+                                      className="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm text-muted-foreground hover:text-primary hover:bg-secondary/60 transition-all"
+                                    >
+                                      <Icon className="w-3 h-3 text-primary shrink-0" />
+                                      {city.label}
+                                    </Link>
+                                  )
+                                })}
                                 <Link
                                   href="/locations"
                                   onClick={handleLinkClick}
@@ -436,6 +574,26 @@ export function Header() {
                         </AnimatePresence>
                       </motion.div>
 
+                      {midNavLinks.map((link, index) => (
+                        <motion.div
+                          key={link.href}
+                          initial={{ opacity: 0, x: 20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.22 + index * 0.04, duration: 0.3, ease: "easeOut" }}
+                        >
+                          <Link
+                            href={link.href}
+                            onClick={handleLinkClick}
+                            className="group flex items-center justify-between px-5 py-4 rounded-xl bg-secondary/30 hover:bg-secondary/60 border border-border/30 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10"
+                          >
+                            <span className="text-foreground font-medium group-hover:text-primary transition-colors">
+                              {link.label}
+                            </span>
+                            <ChevronRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                          </Link>
+                        </motion.div>
+                      ))}
+
                       {/* AI Tools accordion */}
                       <motion.div
                         initial={{ opacity: 0, x: 20 }}
@@ -449,7 +607,7 @@ export function Header() {
                           <div className="flex items-center gap-2">
                             <Wand2 className="w-4 h-4 text-primary" />
                             <span className="text-foreground font-medium group-hover:text-primary transition-colors">
-                              AI Tools
+                              Free AI Tools
                             </span>
                           </div>
                           <ChevronDown
@@ -487,7 +645,7 @@ export function Header() {
                         </AnimatePresence>
                       </motion.div>
 
-                      {navLinks.slice(2).map((link, index) => (
+                      {[...endNavLinks, contactLink].map((link, index) => (
                         <motion.div
                           key={link.href}
                           initial={{ opacity: 0, x: 20 }}

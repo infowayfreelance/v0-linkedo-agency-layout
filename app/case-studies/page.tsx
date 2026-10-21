@@ -5,8 +5,19 @@ import { Section } from "@/components/ui/section"
 import { CaseStudyCard } from "@/components/ui/case-study-card"
 import { FilterBar } from "@/components/ui/filter-bar"
 import { AnimatedButton } from "@/components/ui/animated-button"
+import { Breadcrumbs } from "@/components/ui/breadcrumbs"
+import { SchemaMarkup } from "@/components/seo/schema-markup"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
+
+const caseStudiesBreadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://linkedo.co.uk" },
+    { "@type": "ListItem", position: 2, name: "Case Studies", item: "https://linkedo.co.uk/case-studies" },
+  ],
+}
 
 const filters = ["All", "SEO", "Ads", "Web", "Security"]
 
@@ -79,9 +90,11 @@ export default function CaseStudiesPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SchemaMarkup schema={caseStudiesBreadcrumbSchema} />
       <main className="pt-24">
         {/* Hero */}
         <Section className="pt-12">
+          <Breadcrumbs items={[{ label: "Case Studies" }]} className="mb-6" />
           <div className="max-w-3xl mx-auto text-center">
             <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary mb-4">
               Case Studies

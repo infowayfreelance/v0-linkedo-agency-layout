@@ -8,8 +8,19 @@ export const metadata = {
 import { MainShell } from "@/components/layout/main-shell"
 import { Section } from "@/components/ui/section"
 import { Chip } from "@/components/ui/chip"
+import { Breadcrumbs } from "@/components/ui/breadcrumbs"
+import { SchemaMarkup } from "@/components/seo/schema-markup"
 import Link from "next/link"
 import { Calendar, Clock, ArrowRight } from "lucide-react"
+
+const blogBreadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://linkedo.co.uk" },
+    { "@type": "ListItem", position: 2, name: "Blog", item: "https://linkedo.co.uk/blog" },
+  ],
+}
 
 const categories = ["All", "SEO", "Web Development", "Google Ads", "Marketing", "Case Studies", "Industry News"]
 
@@ -93,7 +104,11 @@ const blogPosts = [
 export default function BlogPage() {
   return (
     <MainShell>
+      <SchemaMarkup schema={blogBreadcrumbSchema} />
       <div className="pt-20 pb-12 md:pt-24 md:pb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs items={[{ label: "Blog" }]} className="mb-6" />
+        </div>
         <Section
           eyebrow="Blog"
           title="Insights & Strategies"

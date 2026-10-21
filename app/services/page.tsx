@@ -7,6 +7,7 @@ import { ServiceCard } from "@/components/ui/service-card"
 import { FAQAccordion } from "@/components/ui/faq-accordion"
 import { AnimatedButton } from "@/components/ui/animated-button"
 import { SchemaMarkup } from "@/components/seo/schema-markup"
+import { Breadcrumbs } from "@/components/ui/breadcrumbs"
 
 const title = "UK Digital Agency Services — Websites, SEO & Paid Ads"
 const description =
@@ -324,6 +325,7 @@ export default function ServicesPage() {
       <main className="pt-24">
         {/* Hero */}
         <Section className="pt-12">
+          <Breadcrumbs items={[{ label: "Services" }]} className="mb-6" />
           <div className="max-w-3xl mx-auto text-center">
             <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary mb-4">
               Our Services

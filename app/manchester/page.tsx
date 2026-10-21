@@ -28,6 +28,8 @@ import { Section } from "@/components/ui/section"
 import { ServiceCard } from "@/components/ui/service-card"
 import { AnimatedButton } from "@/components/ui/animated-button"
 import { FAQAccordion } from "@/components/ui/faq-accordion"
+import { Breadcrumbs } from "@/components/ui/breadcrumbs"
+import { RelatedLinks } from "@/components/ui/related-links"
 import { SchemaMarkup } from "@/components/seo/schema-markup"
 
 const title = "Manchester Digital Marketing Agency | Linkedo"
@@ -365,7 +367,8 @@ const manchesterBreadcrumbSchema = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: "https://linkedo.co.uk" },
-    { "@type": "ListItem", position: 2, name: "Manchester", item: "https://linkedo.co.uk/manchester" },
+    { "@type": "ListItem", position: 2, name: "Locations", item: "https://linkedo.co.uk/locations" },
+    { "@type": "ListItem", position: 3, name: "Manchester", item: "https://linkedo.co.uk/manchester" },
   ],
 }
 
@@ -394,6 +397,10 @@ export default function ManchesterPage() {
           <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[140px]" />
 
           <Section className="pt-8 relative">
+            <Breadcrumbs
+              items={[{ label: "Locations", href: "/locations" }, { label: "Manchester" }]}
+              className="mb-6"
+            />
             <div className="max-w-4xl relative z-10">
               <div className="flex items-center gap-3 mb-6">
                 <span className="text-4xl">🇬🇧</span>
@@ -769,6 +776,20 @@ export default function ManchesterPage() {
                 <span className="text-sm font-medium">+44 7927 969991</span>
               </a>
             </div>
+          </div>
+        </Section>
+
+        <Section>
+          <div className="max-w-4xl mx-auto">
+            <RelatedLinks
+              title="Our Services in Manchester"
+              links={[
+                { label: "SEO Services", href: "/seo" },
+                { label: "Google Ads / PPC", href: "/google-ads" },
+                { label: "Web Development", href: "/web-development" },
+                { label: "Web Design", href: "/website-development" },
+              ]}
+            />
           </div>
         </Section>
       </main>

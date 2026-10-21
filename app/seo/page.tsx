@@ -12,6 +12,8 @@ import Link from "next/link"
 import { ArrowRight, Check } from "lucide-react"
 import Image from "next/image"
 import { SchemaMarkup } from "@/components/seo/schema-markup"
+import { Breadcrumbs } from "@/components/ui/breadcrumbs"
+import { RelatedLinks } from "@/components/ui/related-links"
 
 const seoPageSchema = {
   "@context": "https://schema.org",
@@ -83,7 +85,8 @@ const seoBreadcrumbSchema = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: "https://linkedo.co.uk" },
-    { "@type": "ListItem", position: 2, name: "SEO Services", item: "https://linkedo.co.uk/seo" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://linkedo.co.uk/services" },
+    { "@type": "ListItem", position: 3, name: "SEO Services", item: "https://linkedo.co.uk/seo" },
   ],
 }
 
@@ -207,6 +210,10 @@ export default function SEOServicePage() {
       <SchemaMarkup schema={seoBreadcrumbSchema} />
       {/* Hero */}
       <Section className="pt-8">
+        <Breadcrumbs
+          items={[{ label: "Services", href: "/services" }, { label: "SEO Services" }]}
+          className="mb-6"
+        />
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary mb-4">
@@ -475,6 +482,22 @@ export default function SEOServicePage() {
               <ArrowRight className="w-4 h-4" />
             </AnimatedButton>
           </Link>
+        </div>
+      </Section>
+
+      {/* Related Locations */}
+      <Section>
+        <div className="max-w-4xl mx-auto">
+          <RelatedLinks
+            title="Available in These UK Locations"
+            links={[
+              { label: "London", href: "/london" },
+              { label: "Manchester", href: "/manchester" },
+              { label: "Birmingham", href: "/birmingham" },
+              { label: "Bristol", href: "/bristol" },
+              { label: "View All Locations", href: "/locations" },
+            ]}
+          />
         </div>
       </Section>
     </div>

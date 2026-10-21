@@ -1,9 +1,9 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Digital Marketing Agency UK | Linkedo",
+  title: "Nationwide Digital Marketing Coverage Across the UK | Linkedo",
   description:
-    "Linkedo serves businesses across the United Kingdom with expert web development, SEO, Google Ads, and Meta Ads services.",
+    "Linkedo delivers web development, SEO, Google Ads, and Meta Ads for businesses in every major UK city and region — see our full nationwide coverage.",
   alternates: { canonical: "/uk" },
 }
 

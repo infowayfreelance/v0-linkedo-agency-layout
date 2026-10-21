@@ -4,6 +4,8 @@ import { ServiceCard } from "@/components/ui/service-card"
 import { AnimatedButton } from "@/components/ui/animated-button"
 import { SchemaMarkup } from "@/components/seo/schema-markup"
 import { FAQAccordion } from "@/components/ui/faq-accordion"
+import { Breadcrumbs } from "@/components/ui/breadcrumbs"
+import { RelatedLinks } from "@/components/ui/related-links"
 import Link from "next/link"
 import {
   ArrowRight,
@@ -98,7 +100,8 @@ const liverpoolBreadcrumbSchema = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: "https://linkedo.co.uk" },
-    { "@type": "ListItem", position: 2, name: "Liverpool", item: "https://linkedo.co.uk/liverpool" },
+    { "@type": "ListItem", position: 2, name: "Locations", item: "https://linkedo.co.uk/locations" },
+    { "@type": "ListItem", position: 3, name: "Liverpool", item: "https://linkedo.co.uk/liverpool" },
   ],
 }
 
@@ -339,6 +342,10 @@ export default function LiverpoolPage() {
       <main className="pt-24">
         {/* Hero */}
         <Section className="pt-12">
+          <Breadcrumbs
+            items={[{ label: "Locations", href: "/locations" }, { label: "Liverpool" }]}
+            className="mb-6"
+          />
           <div className="max-w-5xl mx-auto">
             <div className="flex items-center gap-3 mb-6">
               <span className="text-4xl">🇬🇧</span>
@@ -687,6 +694,20 @@ export default function LiverpoolPage() {
                 </AnimatedButton>
               </Link>
             </div>
+          </div>
+        </Section>
+
+        <Section>
+          <div className="max-w-4xl mx-auto">
+            <RelatedLinks
+              title="Our Services in Liverpool"
+              links={[
+                { label: "SEO Services", href: "/seo" },
+                { label: "Google Ads / PPC", href: "/google-ads" },
+                { label: "Web Development", href: "/web-development" },
+                { label: "Web Design", href: "/website-development" },
+              ]}
+            />
           </div>
         </Section>
       </main>
