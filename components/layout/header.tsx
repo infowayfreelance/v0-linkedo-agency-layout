@@ -29,21 +29,21 @@ const midNavLinks = [{ href: "/case-studies", label: "Case Studies" }]
 const endNavLinks = [{ href: "/blog", label: "Blog" }]
 
 const serviceLinks = [
-  { label: "SEO Services", href: "/seo" },
-  { label: "Google Ads / PPC", href: "/google-ads" },
   { label: "Web Development", href: "/web-development" },
+  { label: "SEO", href: "/seo" },
+  { label: "Google Ads / PPC", href: "/google-ads" },
   { label: "Meta Ads", href: "/meta-ads" },
   { label: "Branding", href: "/branding" },
   { label: "Consulting", href: "/consulting" },
 ]
 
 const locationCities = [
+  { label: "London", href: "/london" },
   { label: "UK", href: "/uk" },
   { label: "Birmingham", href: "/birmingham" },
   { label: "Bristol", href: "/bristol" },
   { label: "Leicester", href: "/leicester" },
   { label: "Sheffield", href: "/sheffield" },
-  { label: "London", href: "/london" },
   { label: "Manchester", href: "/manchester" },
   { label: "Leeds", href: "/leeds" },
   { label: "Edinburgh", href: "/edinburgh" },
@@ -76,7 +76,51 @@ export function Header() {
   const [isMobileLocationsOpen, setIsMobileLocationsOpen] = useState(false)
   const [isAiToolsMegaOpen, setIsAiToolsMegaOpen] = useState(false)
   const [isMobileAiToolsOpen, setIsMobileAiToolsOpen] = useState(false)
-  const megaMenuRef = useRef<HTMLDivElement>(null)
+  const servicesRef = useRef<HTMLDivElement>(null)
+  const locationsRef = useRef<HTMLDivElement>(null)
+  const aiToolsRef = useRef<HTMLDivElement>(null)
+
+  const closeAllMegaMenus = () => {
+    setIsServicesMegaOpen(false)
+    setIsLocationsMegaOpen(false)
+    setIsAiToolsMegaOpen(false)
+  }
+
+  const toggleServicesMega = () => {
+    setIsServicesMegaOpen((prev) => !prev)
+    setIsLocationsMegaOpen(false)
+    setIsAiToolsMegaOpen(false)
+  }
+
+  const toggleLocationsMega = () => {
+    setIsLocationsMegaOpen((prev) => !prev)
+    setIsServicesMegaOpen(false)
+    setIsAiToolsMegaOpen(false)
+  }
+
+  const toggleAiToolsMega = () => {
+    setIsAiToolsMegaOpen((prev) => !prev)
+    setIsServicesMegaOpen(false)
+    setIsLocationsMegaOpen(false)
+  }
+
+  const toggleMobileServices = () => {
+    setIsMobileServicesOpen((prev) => !prev)
+    setIsMobileLocationsOpen(false)
+    setIsMobileAiToolsOpen(false)
+  }
+
+  const toggleMobileLocations = () => {
+    setIsMobileLocationsOpen((prev) => !prev)
+    setIsMobileServicesOpen(false)
+    setIsMobileAiToolsOpen(false)
+  }
+
+  const toggleMobileAiTools = () => {
+    setIsMobileAiToolsOpen((prev) => !prev)
+    setIsMobileServicesOpen(false)
+    setIsMobileLocationsOpen(false)
+  }
 
   useEffect(() => {
     setIsMounted(true)
@@ -85,9 +129,7 @@ export function Header() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
-      setIsServicesMegaOpen(false)
-      setIsLocationsMegaOpen(false)
-      setIsAiToolsMegaOpen(false)
+      closeAllMegaMenus()
     }
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
@@ -95,14 +137,31 @@ export function Header() {
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (megaMenuRef.current && !megaMenuRef.current.contains(e.target as Node)) {
+      const target = e.target as Node
+      if (servicesRef.current && !servicesRef.current.contains(target)) {
         setIsServicesMegaOpen(false)
+      }
+      if (locationsRef.current && !locationsRef.current.contains(target)) {
         setIsLocationsMegaOpen(false)
+      }
+      if (aiToolsRef.current && !aiToolsRef.current.contains(target)) {
         setIsAiToolsMegaOpen(false)
       }
     }
     document.addEventListener("mousedown", handleClickOutside)
     return () => document.removeEventListener("mousedown", handleClickOutside)
+  }, [])
+
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return
+      closeAllMegaMenus()
+      setIsMobileServicesOpen(false)
+      setIsMobileLocationsOpen(false)
+      setIsMobileAiToolsOpen(false)
+    }
+    document.addEventListener("keydown", handleEscape)
+    return () => document.removeEventListener("keydown", handleEscape)
   }, [])
 
   useEffect(() => {
@@ -151,7 +210,7 @@ export function Header() {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-1" ref={megaMenuRef}>
+            <div className="hidden lg:flex items-center gap-1">
               <Link
                 href={homeLink.href}
                 className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-secondary/50"
@@ -167,19 +226,36 @@ export function Header() {
               </Link>
 
               {/* Services mega menu trigger */}
-              <div className="relative">
-                <button
-                  onClick={() => setIsServicesMegaOpen((prev) => !prev)}
+              <div className="relative" ref={servicesRef}>
+                <div
                   className={cn(
-                    "flex items-center gap-1 px-3 py-2 text-sm transition-colors rounded-md hover:bg-secondary/50",
-                    isServicesMegaOpen ? "text-primary" : "text-muted-foreground hover:text-foreground",
+                    "flex items-center rounded-md hover:bg-secondary/50 transition-colors",
+                    isServicesMegaOpen && "bg-secondary/50",
                   )}
                 >
-                  Services
-                  <ChevronDown
-                    className={cn("w-3.5 h-3.5 transition-transform duration-200", isServicesMegaOpen && "rotate-180")}
-                  />
-                </button>
+                  <Link
+                    href="/services"
+                    className={cn(
+                      "pl-3 pr-1.5 py-2 text-sm transition-colors",
+                      isServicesMegaOpen ? "text-primary" : "text-muted-foreground hover:text-foreground",
+                    )}
+                  >
+                    Services
+                  </Link>
+                  <button
+                    onClick={toggleServicesMega}
+                    aria-label="Toggle Services menu"
+                    aria-expanded={isServicesMegaOpen}
+                    className={cn(
+                      "pr-3 pl-1 py-2 transition-colors",
+                      isServicesMegaOpen ? "text-primary" : "text-muted-foreground hover:text-foreground",
+                    )}
+                  >
+                    <ChevronDown
+                      className={cn("w-3.5 h-3.5 transition-transform duration-200", isServicesMegaOpen && "rotate-180")}
+                    />
+                  </button>
+                </div>
 
                 <AnimatePresence>
                   {isServicesMegaOpen && (
@@ -215,19 +291,36 @@ export function Header() {
               </div>
 
               {/* Locations mega menu trigger */}
-              <div className="relative">
-                <button
-                  onClick={() => setIsLocationsMegaOpen((prev) => !prev)}
+              <div className="relative" ref={locationsRef}>
+                <div
                   className={cn(
-                    "flex items-center gap-1 px-3 py-2 text-sm transition-colors rounded-md hover:bg-secondary/50",
-                    isLocationsMegaOpen ? "text-primary" : "text-muted-foreground hover:text-foreground",
+                    "flex items-center rounded-md hover:bg-secondary/50 transition-colors",
+                    isLocationsMegaOpen && "bg-secondary/50",
                   )}
                 >
-                  Locations
-                  <ChevronDown
-                    className={cn("w-3.5 h-3.5 transition-transform duration-200", isLocationsMegaOpen && "rotate-180")}
-                  />
-                </button>
+                  <Link
+                    href="/locations"
+                    className={cn(
+                      "pl-3 pr-1.5 py-2 text-sm transition-colors",
+                      isLocationsMegaOpen ? "text-primary" : "text-muted-foreground hover:text-foreground",
+                    )}
+                  >
+                    Locations
+                  </Link>
+                  <button
+                    onClick={toggleLocationsMega}
+                    aria-label="Toggle Locations menu"
+                    aria-expanded={isLocationsMegaOpen}
+                    className={cn(
+                      "pr-3 pl-1 py-2 transition-colors",
+                      isLocationsMegaOpen ? "text-primary" : "text-muted-foreground hover:text-foreground",
+                    )}
+                  >
+                    <ChevronDown
+                      className={cn("w-3.5 h-3.5 transition-transform duration-200", isLocationsMegaOpen && "rotate-180")}
+                    />
+                  </button>
+                </div>
 
                 <AnimatePresence>
                   {isLocationsMegaOpen && (
@@ -286,9 +379,10 @@ export function Header() {
               ))}
 
               {/* AI Tools dropdown trigger */}
-              <div className="relative">
+              <div className="relative" ref={aiToolsRef}>
                 <button
-                  onClick={() => setIsAiToolsMegaOpen((prev) => !prev)}
+                  onClick={toggleAiToolsMega}
+                  aria-expanded={isAiToolsMegaOpen}
                   className={cn(
                     "flex items-center gap-1 px-3 py-2 text-sm transition-colors rounded-md hover:bg-secondary/50",
                     isAiToolsMegaOpen ? "text-primary" : "text-muted-foreground hover:text-foreground",
@@ -484,7 +578,7 @@ export function Header() {
                         transition={{ delay: 0.14, duration: 0.3, ease: "easeOut" }}
                       >
                         <button
-                          onClick={() => setIsMobileServicesOpen((prev) => !prev)}
+                          onClick={toggleMobileServices}
                           className="w-full group flex items-center justify-between px-5 py-4 rounded-xl bg-secondary/30 hover:bg-secondary/60 border border-border/30 hover:border-primary/50 transition-all duration-300"
                         >
                           <div className="flex items-center gap-2">
@@ -543,7 +637,7 @@ export function Header() {
                         transition={{ delay: 0.18, duration: 0.3, ease: "easeOut" }}
                       >
                         <button
-                          onClick={() => setIsMobileLocationsOpen((prev) => !prev)}
+                          onClick={toggleMobileLocations}
                           className="w-full group flex items-center justify-between px-5 py-4 rounded-xl bg-secondary/30 hover:bg-secondary/60 border border-border/30 hover:border-primary/50 transition-all duration-300"
                         >
                           <div className="flex items-center gap-2">
@@ -625,7 +719,7 @@ export function Header() {
                         transition={{ delay: 0.2, duration: 0.3, ease: "easeOut" }}
                       >
                         <button
-                          onClick={() => setIsMobileAiToolsOpen((prev) => !prev)}
+                          onClick={toggleMobileAiTools}
                           className="w-full group flex items-center justify-between px-5 py-4 rounded-xl bg-secondary/30 hover:bg-secondary/60 border border-border/30 hover:border-primary/50 transition-all duration-300"
                         >
                           <div className="flex items-center gap-2">
