@@ -15,7 +15,6 @@ const topLevelRoutes: { path: string; lastModified: string }[] = [
   { path: "/pricing", lastModified: "2026-05-20" },
   { path: "/contact", lastModified: "2026-05-20" },
   { path: "/locations", lastModified: "2026-09-10" },
-  { path: "/uk", lastModified: "2026-05-20" },
   { path: "/free-ai-tools-online", lastModified: "2026-10-12" },
   { path: "/meta-title-generator", lastModified: "2026-10-12" },
   { path: "/meta-description-generator", lastModified: "2026-10-12" },

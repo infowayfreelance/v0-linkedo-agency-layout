@@ -6,7 +6,7 @@ import Link from "next/link"
 import Image from "next/image"
 import dynamic from "next/dynamic"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, ChevronRight, Sparkles, MapPin, ChevronDown, Wand2, Globe, Briefcase } from "lucide-react"
+import { Menu, X, ChevronRight, Sparkles, MapPin, ChevronDown, Wand2, Briefcase } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { MainShell } from "./main-shell"
 import { Button } from "@/components/ui/button"
@@ -39,7 +39,6 @@ const serviceLinks = [
 
 const locationCities = [
   { label: "London", href: "/london" },
-  { label: "UK", href: "/uk" },
   { label: "Birmingham", href: "/birmingham" },
   { label: "Bristol", href: "/bristol" },
   { label: "Leicester", href: "/leicester" },
@@ -349,7 +348,7 @@ export function Header() {
                       {/* City grid */}
                       <div className="grid grid-cols-3 gap-1.5">
                         {locationCities.map((city) => {
-                          const Icon = city.label === "UK" ? Globe : MapPin
+                          const Icon = MapPin
                           return (
                             <Link
                               key={city.href}
@@ -665,7 +664,7 @@ export function Header() {
                             >
                               <div className="mt-2 p-3 rounded-xl bg-secondary/20 border border-border/30 grid grid-cols-2 gap-1.5">
                                 {locationCities.map((city) => {
-                                  const Icon = city.label === "UK" ? Globe : MapPin
+                                  const Icon = MapPin
                                   return (
                                     <Link
                                       key={city.href}
