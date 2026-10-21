@@ -109,7 +109,7 @@ const services = [
     title: "Website Development in London",
     description:
       "Custom, conversion-focused websites built to perform in London's competitive digital landscape.",
-    href: "/website-development",
+    href: "/web-development",
   },
   {
     iconName: "Search",
@@ -749,7 +749,6 @@ export default function LondonPage() {
                 { label: "SEO Services", href: "/seo" },
                 { label: "Google Ads / PPC", href: "/google-ads" },
                 { label: "Web Development", href: "/web-development" },
-                { label: "Web Design", href: "/website-development" },
               ]}
             />
           </div>

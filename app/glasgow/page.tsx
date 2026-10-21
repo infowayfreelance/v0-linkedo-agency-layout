@@ -699,7 +699,6 @@ export default function GlasgowPage() {
                 { label: "SEO Services", href: "/seo" },
                 { label: "Google Ads / PPC", href: "/google-ads" },
                 { label: "Web Development", href: "/web-development" },
-                { label: "Web Design", href: "/website-development" },
               ]}
             />
           </div>

@@ -51,7 +51,6 @@ const serviceRoutes: { path: string; lastModified: string }[] = [
   { path: "/google-ads", lastModified: "2026-05-20" },
   { path: "/meta-ads", lastModified: "2026-05-20" },
   { path: "/web-development", lastModified: "2026-08-21" },
-  { path: "/website-development", lastModified: "2026-08-21" },
   { path: "/branding", lastModified: "2026-05-20" },
   { path: "/consulting", lastModified: "2026-05-20" },
 ]

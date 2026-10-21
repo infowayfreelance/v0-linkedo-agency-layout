@@ -19,7 +19,6 @@ const quickLinks = [
 
 const serviceLinks = [
   { href: "/web-development", label: "Web Development" },
-  { href: "/website-development", label: "Web Design" },
   { href: "/seo", label: "SEO Optimization" },
   { href: "/google-ads", label: "Google Ads" },
   { href: "/meta-ads", label: "Meta Ads" },

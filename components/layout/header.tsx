@@ -19,6 +19,7 @@ const WebsiteAuditModal = dynamic(
 )
 
 const homeLink = { href: "/", label: "Home" }
+const aboutLink = { href: "/about", label: "About" }
 const contactLink = { href: "/contact", label: "Contact" }
 
 // Rendered between the Locations and Free AI Tools dropdowns.
@@ -31,7 +32,6 @@ const serviceLinks = [
   { label: "SEO Services", href: "/seo" },
   { label: "Google Ads / PPC", href: "/google-ads" },
   { label: "Web Development", href: "/web-development" },
-  { label: "Web Design", href: "/website-development" },
   { label: "Meta Ads", href: "/meta-ads" },
   { label: "Branding", href: "/branding" },
   { label: "Consulting", href: "/consulting" },
@@ -157,6 +157,13 @@ export function Header() {
                 className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-secondary/50"
               >
                 {homeLink.label}
+              </Link>
+
+              <Link
+                href={aboutLink.href}
+                className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-secondary/50"
+              >
+                {aboutLink.label}
               </Link>
 
               {/* Services mega menu trigger */}
@@ -448,6 +455,23 @@ export function Header() {
                         >
                           <span className="text-foreground font-medium group-hover:text-primary transition-colors">
                             {homeLink.label}
+                          </span>
+                          <ChevronRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                        </Link>
+                      </motion.div>
+
+                      <motion.div
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.12, duration: 0.3, ease: "easeOut" }}
+                      >
+                        <Link
+                          href={aboutLink.href}
+                          onClick={handleLinkClick}
+                          className="group flex items-center justify-between px-5 py-4 rounded-xl bg-secondary/30 hover:bg-secondary/60 border border-border/30 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10"
+                        >
+                          <span className="text-foreground font-medium group-hover:text-primary transition-colors">
+                            {aboutLink.label}
                           </span>
                           <ChevronRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
                         </Link>

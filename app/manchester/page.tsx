@@ -104,7 +104,7 @@ const services = [
     title: "Website Development in Manchester",
     description:
       "We build fast, conversion-focused websites tailored to Manchester businesses and their customers.",
-    href: "/website-development",
+    href: "/web-development",
   },
   {
     iconName: "Search",
@@ -787,7 +787,6 @@ export default function ManchesterPage() {
                 { label: "SEO Services", href: "/seo" },
                 { label: "Google Ads / PPC", href: "/google-ads" },
                 { label: "Web Development", href: "/web-development" },
-                { label: "Web Design", href: "/website-development" },
               ]}
             />
           </div>
