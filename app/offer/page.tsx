@@ -97,9 +97,9 @@ const reasons = [
     desc: "Most agencies take 6–12 weeks. We deliver a professional, conversion-ready website in 10 business days.",
   },
   {
-    icon: Star,
+    icon: Globe,
     title: "London-based agency",
-    desc: "Linkedo is a London-based company with a proven track record across dozens of industries.",
+    desc: "Linkedo is a London-based digital marketing agency serving businesses across the UK remotely.",
   },
   {
     icon: Clock,
