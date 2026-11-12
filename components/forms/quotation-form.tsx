@@ -282,7 +282,7 @@ export function QuotationForm({ onClose }: QuotationFormProps) {
                 />
                 <FormInput
                   label="Company Name"
-                  placeholder="Acme Ltd"
+                  placeholder="Acme"
                   value={formData.company}
                   onChange={(e) => updateFormData("company", e.target.value)}
                 />
