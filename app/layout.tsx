@@ -61,7 +61,7 @@ const organizationSchema = {
     "Digital Consulting",
   ],
   sameAs: [
-    "https://www.linkedin.com/company/linkedo",
+    "https://www.linkedin.com/company/linkedo-agency",
   ],
   contactPoint: {
     "@type": "ContactPoint",
