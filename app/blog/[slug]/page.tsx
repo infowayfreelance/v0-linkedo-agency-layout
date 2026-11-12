@@ -1,10 +1,7 @@
 import type { Metadata } from "next"
+import { notFound } from "next/navigation"
 
 const postMetadata: Record<string, { title: string; description: string }> = {
-  "web-development-best-practices": {
-    title: "Modern Web Development: Best Practices for 2025 | Linkedo",
-    description: "Learn the essential techniques and frameworks that define modern web development.",
-  },
   "what-is-ai-seo": {
     title: "What Is AI SEO UK Small Business Guide for 2026 | Linkedo",
     description:
@@ -20,6 +17,7 @@ const postMetadata: Record<string, { title: string; description: string }> = {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
   const post = postMetadata[slug]
+  if (!post) notFound()
 
   return {
     title: post?.title,
@@ -45,39 +43,27 @@ const publishedPosts = {
   "why-not-ranking-on-google-2026": notRankingPost,
 } as const
 
-const defaultPost = {
-  title: "Top SEO Trends to Watch in 2025",
-  excerpt: "Stay ahead of the curve with these emerging SEO strategies that are reshaping search rankings.",
-  category: "SEO",
-  date: "2025-01-15",
-  readTime: "5 min read",
-  image: "/seo-analytics-dashboard.png",
-  author: {
-    name: "Sarah Johnson",
-    role: "SEO Director",
-    avatar: "/professional-woman-diverse.png",
-  },
-}
-
 const relatedPosts = [
   {
-    slug: "local-seo-strategies",
-    title: "Local SEO: Complete Guide for 2025",
+    slug: "what-is-ai-seo",
+    title: "What Is AI SEO: A Practical Guide for UK Small Businesses in 2026",
     category: "SEO",
-    image: "/local-business-map.png",
+    image: "/blog/what-is-ai-seo/ai-seo-hero.png",
   },
   {
-    slug: "technical-seo-checklist",
-    title: "Technical SEO Checklist",
+    slug: "how-to-choose-an-seo-agency-in-birmingham",
+    title: "How to Choose an SEO Agency in Birmingham: A Practical UK Checklist",
     category: "SEO",
-    image: "/website-code.png",
+    image: "/seo-analytics-dashboard.png",
   },
 ]
+
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const publishedPost = publishedPosts[slug as keyof typeof publishedPosts]
-  const post = publishedPost ?? defaultPost
+  if (!publishedPost) notFound()
+  const post = publishedPost
 
   const blogPostBreadcrumbSchema = {
     "@context": "https://schema.org",
@@ -133,48 +119,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
           {/* Content */}
           <div className="prose prose-invert max-w-none mb-10 md:mb-12">
-            {publishedPost ? (
-              renderContentBlocks(publishedPost.content)
-            ) : (
-              <>
-                <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 mt-8">Introduction</h2>
-                <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6">
-                  SEO continues to evolve at a rapid pace, with search engines becoming increasingly sophisticated in
-                  understanding user intent and content quality. In 2025, staying ahead means adapting to new
-                  technologies, user behaviors, and algorithm updates.
-                </p>
-
-                <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 mt-8">Key Trends</h2>
-                <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-3 mt-6">1. AI-Powered Search</h3>
-                <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6">
-                  Artificial intelligence is transforming how search engines interpret queries and rank content.
-                  Understanding AI-driven search features and optimizing for them is crucial for maintaining
-                  visibility.
-                </p>
-
-                <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-3 mt-6">2. E-E-A-T Emphasis</h3>
-                <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6">
-                  Experience, Expertise, Authoritativeness, and Trustworthiness (E-E-A-T) have become central to
-                  Google's ranking algorithms. Building genuine authority and demonstrating expertise is more
-                  important than ever.
-                </p>
-
-                <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-3 mt-6">
-                  3. Voice & Visual Search
-                </h3>
-                <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6">
-                  Voice search and visual search technologies are reshaping how users discover content. Optimizing
-                  for natural language queries and image recognition is becoming essential.
-                </p>
-
-                <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 mt-8">Conclusion</h2>
-                <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6">
-                  The SEO landscape of 2025 demands a holistic approach that combines technical excellence, quality
-                  content, and user experience. By staying informed and adapting to these trends, businesses can
-                  maintain their competitive edge in search rankings.
-                </p>
-              </>
-            )}
+            {renderContentBlocks(publishedPost.content)}
           </div>
 
           {/* Author */}
@@ -218,7 +163,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <div>
             <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-6">Related Articles</h3>
             <div className="grid sm:grid-cols-2 gap-6">
-              {relatedPosts.map((relatedPost) => (
+              {relatedPosts.filter((relatedPost) => relatedPost.slug !== slug).map((relatedPost) => (
                 <Link
                   key={relatedPost.slug}
                   href={`/blog/${relatedPost.slug}`}

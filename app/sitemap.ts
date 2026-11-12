@@ -66,13 +66,11 @@ const caseStudySlugs: { slug: string; lastModified: string }[] = [
   { slug: "techflow", lastModified: "2026-08-21" },
 ]
 
-// Blog slugs — must match the keys of `publishedPosts` in
-// app/blog/[slug]/page.tsx. Only list slugs with real, unique published
-// content; any other slug falls back to generic placeholder content on
-// that route and must not be listed here (duplicate/thin content).
+// Blog slugs — list only real, unique published articles. Unknown slugs return 404.
 const blogSlugs: { slug: string; lastModified: string }[] = [
   { slug: "what-is-ai-seo", lastModified: "2026-09-20" },
   { slug: "why-not-ranking-on-google-2026", lastModified: "2026-10-10" },
+  { slug: "how-to-choose-an-seo-agency-in-birmingham", lastModified: "2026-11-12" },
 ]
 
 // Team member slugs — must match `generateStaticParams` in

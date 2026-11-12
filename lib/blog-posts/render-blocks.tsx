@@ -1,24 +1,52 @@
 import type { ContentBlock } from "./types"
 
+function renderInline(text: string) {
+  const parts = text.split(/(\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\))/g)
+
+  return parts.map((part, index) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return <strong key={index}>{part.slice(2, -2)}</strong>
+    }
+
+    const link = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/)
+    if (link) {
+      const external = link[2].startsWith("http")
+      return (
+        <a
+          key={index}
+          href={link[2]}
+          className="text-primary underline underline-offset-4 hover:opacity-80"
+          {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        >
+          {link[1]}
+        </a>
+      )
+    }
+
+    return part
+  })
+}
+
+
 export function renderContentBlocks(blocks: ContentBlock[]) {
   return blocks.map((block, index) => {
     switch (block.type) {
       case "h2":
         return (
           <h2 key={index} className="text-2xl sm:text-3xl font-bold text-foreground mb-4 mt-8">
-            {block.text}
+            {renderInline(block.text)}
           </h2>
         )
       case "h3":
         return (
           <h3 key={index} className="text-xl sm:text-2xl font-semibold text-foreground mb-3 mt-6">
-            {block.text}
+            {renderInline(block.text)}
           </h3>
         )
       case "p":
         return (
           <p key={index} className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6 break-words">
-            {block.text}
+            {renderInline(block.text)}
           </p>
         )
       case "ul":
@@ -28,7 +56,7 @@ export function renderContentBlocks(blocks: ContentBlock[]) {
             className="list-disc pl-6 space-y-2 text-base sm:text-lg text-muted-foreground leading-relaxed mb-6"
           >
             {block.items.map((item, itemIndex) => (
-              <li key={itemIndex}>{item}</li>
+              <li key={itemIndex}>{renderInline(item)}</li>
             ))}
           </ul>
         )
@@ -53,7 +81,7 @@ export function renderContentBlocks(blocks: ContentBlock[]) {
                   <tr key={rowIndex} className="border-b border-border last:border-0">
                     {row.map((cell, cellIndex) => (
                       <td key={cellIndex} className="p-3 sm:p-4 text-muted-foreground align-top">
-                        {cell}
+                        {renderInline(cell)}
                       </td>
                     ))}
                   </tr>
@@ -82,7 +110,7 @@ export function renderContentBlocks(blocks: ContentBlock[]) {
       case "source":
         return (
           <p key={index} className="text-sm text-muted-foreground/70 italic mb-6 break-words">
-            {block.text}
+            {renderInline(block.text)}
           </p>
         )
       default:
