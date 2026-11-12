@@ -81,34 +81,33 @@ const processSteps = [
 
 const blogPosts = [
   {
-    title: "Top SEO Trends to Watch in 2025",
+    title: "How to Choose an SEO Agency in Birmingham: A Practical UK Checklist",
     description:
-      "Learn how modern SEO strategies help UK businesses increase rankings, traffic, and qualified lead generation.",
+      "This guide explains how to choose an SEO agency in Birmingham. It covers the checks to run, the questions to ask, the red flags to avoid and what honest pricing looks like.",
     category: "SEO",
     categoryColor: "text-primary",
-    readTime: "6 min read",
-    image: "/seo-analytics-growth-chart.jpg",
-    href: "/blog/seo-trends-2025",
-  },
-  {
-    title: "Maximizing ROI with Google Ads: A Complete Guide",
-    description:
-      "Discover proven Google Ads optimisation techniques that improve campaign performance and lower acquisition costs.",
-    category: "Google Ads",
-    categoryColor: "text-accent",
-    readTime: "8 min read",
-    image: "/google-ads-dashboard-with-campaign-metrics-and-per.jpg",
-    href: "/blog/google-ads-roi-optimization",
-  },
-  {
-    title: "Modern Web Development: Best Practices for 2025",
-    description:
-      "Improve website performance, search rankings, and conversion rates with this complete web development guide.",
-    category: "Development",
-    categoryColor: "text-cyan-400",
     readTime: "7 min read",
-    image: "/code-editor-showing-react-and-next-js-development-.jpg",
-    href: "/blog/web-development-best-practices",
+    image: "/seo-analytics-dashboard.png",
+    href: "/blog/how-to-choose-an-seo-agency-in-birmingham",
+  },
+  {
+    title: "What Is AI SEO: A Practical Guide for UK Small Businesses in 2026",
+    description: "A beginner-friendly guide to improving visibility in Google and AI search tools.",
+    category: "SEO",
+    categoryColor: "text-primary",
+    readTime: "12 min read",
+    image: "/blog/what-is-ai-seo/ai-seo-hero.png",
+    href: "/blog/what-is-ai-seo",
+  },
+  {
+    title: "Why Your Business Is Not Ranking on Google in 2026 (And How to Fix It Fast)",
+    description:
+      "Google's most volatile core update ever reshuffled 80% of top-3 rankings. Here are the seven specific, fixable reasons businesses lose visibility in 2026.",
+    category: "SEO",
+    categoryColor: "text-primary",
+    readTime: "9 min read",
+    image: "/blog/why-not-ranking-on-google-2026/hero.webp",
+    href: "/blog/why-not-ranking-on-google-2026",
   },
 ]
 
