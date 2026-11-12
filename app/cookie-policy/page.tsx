@@ -71,7 +71,7 @@ export default function CookiePolicyPage() {
           {/* Intro */}
           <div className="rounded-xl border border-border/50 bg-card/40 p-5 sm:p-6 mb-8 not-prose">
             <p className="text-sm text-muted-foreground leading-relaxed">
-              This Cookie Policy explains how <strong className="text-foreground">Linkedo LTD</strong> (&ldquo;Linkedo&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;) uses cookies and similar tracking technologies when you visit{" "}
+              This Cookie Policy explains how <strong className="text-foreground">Linkedo</strong> (&ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;) uses cookies and similar tracking technologies when you visit{" "}
               <strong className="text-foreground">linkedo.co.uk</strong>. It should be read alongside our{" "}
               <Link href="/privacy" className="text-primary underline underline-offset-2 hover:opacity-80">
                 Privacy Policy
