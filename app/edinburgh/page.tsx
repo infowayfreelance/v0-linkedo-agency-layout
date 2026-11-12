@@ -208,7 +208,7 @@ const benefits = [
   {
     icon: "🏛",
     title: "UK-based",
-    text: "London-based at Companies House — accountable and compliant.",
+    text: "Based in London and working remotely with businesses across the UK.",
   },
   {
     icon: "🔒",

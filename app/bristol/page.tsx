@@ -386,9 +386,7 @@ export default function BristolPage() {
                 tailored to the Bristol market.
               </p>
               <p>
-                We operate with full transparency, GBP billing, and no lock-in contracts. As a Companies House
-                registered agency, every strategy is built around your goals — giving Bristol businesses the
-                accountability and results they deserve.
+                We operate with full transparency, GBP billing, and no lock-in contracts. As a London-based digital marketing agency serving businesses remotely across the UK, we build every strategy around your goals — with clear communication and a focus on results.
               </p>
             </div>
 
