@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
-import { Section } from "@/components/ui/section"
+import {
+  Section } from "@/components/ui/section"
 import { ServiceCard } from "@/components/ui/service-card"
 import { AnimatedButton } from "@/components/ui/animated-button"
 import { SchemaMarkup } from "@/components/seo/schema-markup"
@@ -13,7 +14,6 @@ import {
   Clock,
   Building2,
   Check,
-  Star,
   Phone,
   Mail,
   Users,
@@ -22,7 +22,7 @@ import {
 
 const title = "Leicester Digital Marketing Agency | Linkedo"
 const description =
-  "Linkedo is a UK-registered digital marketing agency serving Leicester. Expert SEO, Google Ads, Meta Ads & web development. Book a free strategy call today."
+  "Linkedo is a London-based digital marketing agency serving Leicester. Expert SEO, Google Ads, Meta Ads & web development. Book a free strategy call today."
 
 export const metadata: Metadata = {
   title,
@@ -73,7 +73,7 @@ const leicesterServiceSchema = {
   name: "Leicester Digital Marketing Services",
   serviceType: "Digital Marketing",
   description:
-    "UK-registered digital marketing agency serving Leicester and Leicestershire businesses with SEO, Google Ads, Meta Ads, and web development.",
+    "London-based digital marketing agency serving Leicester and Leicestershire businesses with SEO, Google Ads, Meta Ads, and web development.",
   url: "https://linkedo.co.uk/leicester",
   provider: { "@id": "https://linkedo.co.uk/#organization" },
   areaServed: [
@@ -159,7 +159,7 @@ const faqSchema = {
 }
 
 const trustBadges = [
-  "UK Companies House Registered",
+  "London-Based Agency",
   "GDPR Compliant",
   "GBP Billing",
   "Leicester-Based Support",
@@ -168,9 +168,7 @@ const trustBadges = [
 
 const stats = [
   { icon: Users, value: "150+", label: "Campaigns delivered across SEO, Ads & Web Projects" },
-  { icon: Star, value: "4.9/5", label: "Client satisfaction — based on 30+ UK client reviews" },
-  { icon: MapPin, value: "Leicester", label: "City centre to surrounding Leicestershire districts" },
-]
+  { icon: MapPin, value: "Leicester", label: "City centre to surrounding Leicestershire districts" }]
 
 const services = [
   {
@@ -228,8 +226,8 @@ const benefits = [
   },
   {
     icon: "🏛️",
-    title: "UK Companies House Registered",
-    text: "Linkedo is fully registered with UK Companies House, giving Leicester clients complete confidence in our legitimacy and accountability.",
+    title: "London-Based Agency",
+    text: "Linkedo is fully based in London, giving Leicester clients complete confidence in our legitimacy and accountability.",
   },
   {
     icon: "📞",
@@ -306,32 +304,6 @@ const processSteps = [
   },
 ]
 
-const testimonials = [
-  {
-    name: "James Thornton",
-    role: "Managing Director",
-    company: "Thornton Legal Services",
-    location: "Leicester City Centre",
-    rating: 5,
-    text: "Linkedo transformed our online presence completely. Our enquiries have doubled since they took over our SEO and Google Ads, and the results just keep improving month after month.",
-  },
-  {
-    name: "Priya Patel",
-    role: "Owner",
-    company: "Patel & Co Accountants",
-    location: "Belgrave, Leicester",
-    rating: 5,
-    text: "We'd tried other agencies before but never seen real results. Linkedo built us a new website and within three months we were ranking on page one for our key Leicester search terms.",
-  },
-  {
-    name: "Marco Rossi",
-    role: "Director",
-    company: "Rossi's Kitchen",
-    location: "Narborough Road, Leicester",
-    rating: 5,
-    text: "The Meta Ads campaign Linkedo ran for our restaurant on Narborough Road brought in more bookings than we'd ever seen. Professional, transparent, and genuinely invested in our success.",
-  },
-]
 
 export default function LeicesterPage() {
   return (
@@ -386,10 +358,10 @@ export default function LeicesterPage() {
         </Section>
 
         {/* About + Stats */}
-        <Section eyebrow="About Linkedo in Leicester" title="A UK-Registered Digital Marketing Agency Serving Leicester Businesses">
+        <Section eyebrow="About Linkedo in Leicester" title="A London-based digital marketing agency Serving Leicester Businesses">
           <div className="max-w-4xl mx-auto text-muted-foreground mb-12 text-center">
             <p>
-              Linkedo is a UK Companies House registered digital marketing agency helping Leicester businesses generate
+              Linkedo is a London-Based Agency digital marketing agency helping Leicester businesses generate
               more leads, increase visibility, and grow revenue online. We work with B2B companies and service providers
               across Leicester and the wider Leicestershire area.
             </p>
@@ -425,11 +397,11 @@ export default function LeicesterPage() {
           </div>
         </Section>
 
-        {/* Why UK-Registered */}
-        <Section eyebrow="Why Choose Us" title="Why Work With a UK-Registered Agency">
+        {/* Why UK-based */}
+        <Section eyebrow="Why Choose Us" title="Why Work With a London-based agency">
           <p className="text-muted-foreground max-w-3xl mb-12 mx-auto text-center">
             Leicester businesses deserve a digital marketing partner that understands the local market, operates
-            transparently, and delivers measurable results. Linkedo is fully UK-registered, GDPR compliant, and
+            transparently, and delivers measurable results. Linkedo is fully UK-based, GDPR compliant, and
             committed to growing your business without lock-in contracts.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
@@ -473,7 +445,7 @@ export default function LeicesterPage() {
                 </div>
                 <div>
                   <p className="font-medium text-foreground">Registration</p>
-                  <p className="text-sm text-muted-foreground">UK Companies House Registered</p>
+                  <p className="text-sm text-muted-foreground">London-Based Agency</p>
                 </div>
               </div>
             </div>
@@ -583,38 +555,7 @@ export default function LeicesterPage() {
         </Section>
 
         {/* Testimonials */}
-        <Section eyebrow="Client Testimonials" title="What Leicester Businesses Say About Us" gradient>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            {testimonials.map((t) => (
-              <div key={t.name} className="p-6 rounded-xl bg-card/50 border border-border/50 flex flex-col">
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: t.rating }).map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                  ))}
-                </div>
-                <p className="text-sm text-muted-foreground mb-6 flex-1 italic">&ldquo;{t.text}&rdquo;</p>
-                <div>
-                  <p className="font-semibold text-foreground text-sm">{t.name}</p>
-                  <p className="text-xs text-muted-foreground">{t.role}, {t.company}</p>
-                  <p className="text-xs text-primary mt-1 flex items-center gap-1">
-                    <MapPin className="w-3 h-3" />
-                    {t.location}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="max-w-sm mx-auto text-center p-6 rounded-xl bg-card/50 border border-border/50">
-            <div className="flex justify-center gap-1 mb-2">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-              ))}
-            </div>
-            <div className="text-3xl font-bold text-primary mb-1">4.9/5</div>
-            <p className="text-sm text-muted-foreground">Based on 30+ Leicester client reviews</p>
-          </div>
-        </Section>
+        
 
         {/* FAQs */}
         <Section eyebrow="FAQs" title="Frequently Asked Questions About Our Leicester Services">

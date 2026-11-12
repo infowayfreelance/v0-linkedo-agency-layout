@@ -1,6 +1,5 @@
 import { Section } from "@/components/ui/section"
 import { StatCard } from "@/components/ui/stat-card"
-import { TestimonialCard } from "@/components/ui/testimonial-card"
 import { AnimatedButton } from "@/components/ui/animated-button"
 import { Badge } from "@/components/ui/badge"
 import { Breadcrumbs } from "@/components/ui/breadcrumbs"
@@ -41,14 +40,6 @@ const caseStudyData = {
       { value: "2.5x", label: "Lead Generation Lift" },
       { value: "45", suffix: "%", label: "Reduction in CAC" },
     ],
-    testimonial: {
-      quote:
-        "Linkedo completely transformed our organic presence. We went from being invisible to ranking on page 1 for our most important keywords. The impact on our pipeline has been tremendous.",
-      author: "Sarah Chen",
-      role: "VP of Marketing",
-      company: "TechFlow",
-      image: "/professional-woman-headshot.png",
-    },
   },
 }
 
@@ -216,11 +207,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       </Section>
 
       {/* Testimonial */}
-      <Section eyebrow="Testimonial" title="What They Said">
-        <div className="max-w-2xl mx-auto">
-          <TestimonialCard {...study.testimonial} />
-        </div>
-      </Section>
+      
 
       {/* CTA */}
       <Section>

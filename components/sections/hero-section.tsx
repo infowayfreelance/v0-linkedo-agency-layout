@@ -139,7 +139,7 @@ export function HeroSection({ onBookCall }: HeroSectionProps) {
                 </span>
                 <span className="flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block" />
-                  UK-registered agency
+                  London-based agency
                 </span>
                 <span className="hidden sm:flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block" />

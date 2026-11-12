@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
-import { Section } from "@/components/ui/section"
+import {
+  Section } from "@/components/ui/section"
 import { ServiceCard } from "@/components/ui/service-card"
 import { AnimatedButton } from "@/components/ui/animated-button"
 import { SchemaMarkup } from "@/components/seo/schema-markup"
@@ -13,7 +14,6 @@ import {
   Clock,
   Building2,
   Check,
-  Star,
   Phone,
   Mail,
   Users,
@@ -22,7 +22,7 @@ import {
 
 const title = "Digital Marketing Agency Sheffield | Linkedo"
 const description =
-  "Linkedo offers SEO, Google Ads, Meta Ads & web development in Sheffield. UK-registered, no lock-in contracts. Book a free strategy call today."
+  "Linkedo offers SEO, Google Ads, Meta Ads & web development in Sheffield. UK-based, no lock-in contracts. Book a free strategy call today."
 
 export const metadata: Metadata = {
   title,
@@ -73,7 +73,7 @@ const sheffieldServiceSchema = {
   name: "Sheffield Digital Marketing Services",
   serviceType: "Digital Marketing",
   description:
-    "UK-registered digital marketing agency serving Sheffield and South Yorkshire businesses with SEO, Google Ads, Meta Ads, and web development.",
+    "London-based digital marketing agency serving Sheffield and South Yorkshire businesses with SEO, Google Ads, Meta Ads, and web development.",
   url: "https://linkedo.co.uk/sheffield",
   provider: { "@id": "https://linkedo.co.uk/#organization" },
   areaServed: [
@@ -159,7 +159,7 @@ const faqSchema = {
 }
 
 const trustBadges = [
-  "UK Companies House Registered",
+  "London-Based Agency",
   "GDPR Compliant",
   "GBP Billing",
   "Sheffield-Based Support",
@@ -168,9 +168,7 @@ const trustBadges = [
 
 const stats = [
   { icon: Users, value: "150+", label: "Campaigns delivered across SEO, Ads & Web Development" },
-  { icon: Star, value: "4.9/5", label: "Based on 30+ verified Sheffield client reviews" },
-  { icon: MapPin, value: "Sheffield", label: "Serving businesses across all key Sheffield districts" },
-]
+  { icon: MapPin, value: "Sheffield", label: "Serving businesses across all key Sheffield districts" }]
 
 const services = [
   {
@@ -218,8 +216,8 @@ const benefits = [
   },
   {
     icon: "🔒",
-    title: "UK-Registered & GDPR Compliant",
-    text: "Linkedo is registered with UK Companies House and fully compliant with UK GDPR — giving Sheffield businesses complete peace of mind.",
+    title: "UK-based & GDPR Compliant",
+    text: "Linkedo is based in London and fully compliant with UK GDPR — giving Sheffield businesses complete peace of mind.",
   },
   {
     icon: "👥",
@@ -307,32 +305,6 @@ const processSteps = [
   },
 ]
 
-const testimonials = [
-  {
-    name: "James Hartley",
-    role: "Managing Director",
-    company: "Hartley Steel Fabrications",
-    location: "Attercliffe, Sheffield",
-    rating: 5,
-    text: "Linkedo transformed our online presence completely. Our Google rankings improved within three months and enquiries from Sheffield customers have more than doubled since we started working with them.",
-  },
-  {
-    name: "Sarah Brennan",
-    role: "Director",
-    company: "Brennan & Co Solicitors",
-    location: "Sheffield City Centre",
-    rating: 5,
-    text: "We'd tried other agencies before but Linkedo were different — transparent, knowledgeable, and genuinely invested in our growth. Our Meta Ads campaigns are now delivering the best ROI we've ever seen.",
-  },
-  {
-    name: "Dr. Priya Mehta",
-    role: "Founder",
-    company: "Meadowhall Health & Wellness Clinic",
-    location: "Meadowhall, Sheffield",
-    rating: 5,
-    text: "From website development to SEO, Linkedo handled everything professionally. They understood the Sheffield market straight away and built a strategy that actually delivered real results for our clinic.",
-  },
-]
 
 export default function SheffieldPage() {
   return (
@@ -357,7 +329,7 @@ export default function SheffieldPage() {
             </h1>
             <p className="text-lg text-muted-foreground mb-8 max-w-3xl">
               Helping Sheffield businesses grow online with expert SEO, paid ads, and high-converting websites — backed
-              by a UK-registered agency with no lock-in contracts.
+              by a London-based agency with no lock-in contracts.
             </p>
             <div className="flex flex-wrap gap-2 mb-8">
               {trustBadges.map((badge) => (
@@ -391,7 +363,7 @@ export default function SheffieldPage() {
         <Section eyebrow="About Linkedo in Sheffield" title="A Digital Marketing Agency Sheffield Businesses Can Rely On">
           <div className="max-w-4xl mx-auto text-muted-foreground mb-12 text-center">
             <p>
-              Linkedo is a UK Companies House registered digital marketing agency serving businesses across Sheffield
+              Linkedo is a London-Based Agency digital marketing agency serving businesses across Sheffield
               and South Yorkshire. We combine technical expertise with local market knowledge to deliver measurable
               results.
             </p>
@@ -427,11 +399,11 @@ export default function SheffieldPage() {
           </div>
         </Section>
 
-        {/* Why UK-Registered */}
-        <Section eyebrow="Why Choose Us" title="Why Work With a UK-Registered Agency">
+        {/* Why UK-based */}
+        <Section eyebrow="Why Choose Us" title="Why Work With a London-based agency">
           <p className="text-muted-foreground max-w-3xl mb-12 mx-auto text-center">
             Sheffield businesses deserve an agency that understands both the local market and the wider UK digital
-            landscape. Linkedo is fully UK-registered, GDPR compliant, and built to deliver accountable, results-driven
+            landscape. Linkedo is fully UK-based, GDPR compliant, and built to deliver accountable, results-driven
             marketing — with no hidden fees and no lock-in contracts.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
@@ -475,7 +447,7 @@ export default function SheffieldPage() {
                 </div>
                 <div>
                   <p className="font-medium text-foreground">Registration</p>
-                  <p className="text-sm text-muted-foreground">UK Companies House Registered</p>
+                  <p className="text-sm text-muted-foreground">London-Based Agency</p>
                 </div>
               </div>
             </div>
@@ -585,38 +557,7 @@ export default function SheffieldPage() {
         </Section>
 
         {/* Testimonials */}
-        <Section eyebrow="Client Testimonials" title="What Sheffield Businesses Say About Us" gradient>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            {testimonials.map((t) => (
-              <div key={t.name} className="p-6 rounded-xl bg-card/50 border border-border/50 flex flex-col">
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: t.rating }).map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                  ))}
-                </div>
-                <p className="text-sm text-muted-foreground mb-6 flex-1 italic">&ldquo;{t.text}&rdquo;</p>
-                <div>
-                  <p className="font-semibold text-foreground text-sm">{t.name}</p>
-                  <p className="text-xs text-muted-foreground">{t.role}, {t.company}</p>
-                  <p className="text-xs text-primary mt-1 flex items-center gap-1">
-                    <MapPin className="w-3 h-3" />
-                    {t.location}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="max-w-sm mx-auto text-center p-6 rounded-xl bg-card/50 border border-border/50">
-            <div className="flex justify-center gap-1 mb-2">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-              ))}
-            </div>
-            <div className="text-3xl font-bold text-primary mb-1">4.9/5</div>
-            <p className="text-sm text-muted-foreground">Based on 30+ verified Sheffield client reviews</p>
-          </div>
-        </Section>
+        
 
         {/* FAQs */}
         <Section eyebrow="FAQs" title="Frequently Asked Questions About Our Sheffield Services">

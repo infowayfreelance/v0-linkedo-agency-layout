@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
-import { Section } from "@/components/ui/section"
+import {
+  Section } from "@/components/ui/section"
 import { ServiceCard } from "@/components/ui/service-card"
 import { AnimatedButton } from "@/components/ui/animated-button"
 import { SchemaMarkup } from "@/components/seo/schema-markup"
@@ -13,7 +14,6 @@ import {
   Clock,
   Building2,
   Check,
-  Star,
   Phone,
   Mail,
   TrendingUp,
@@ -23,7 +23,7 @@ import {
 
 const title = "Leeds Digital Marketing Agency | Linkedo"
 const description =
-  "Linkedo is a UK-registered digital marketing agency in Leeds. SEO, Google Ads, Meta Ads & Web Development. Book a free strategy call today."
+  "Linkedo is a London-based digital marketing agency in Leeds. SEO, Google Ads, Meta Ads & Web Development. Book a free strategy call today."
 
 export const metadata: Metadata = {
   title,
@@ -74,7 +74,7 @@ const leedsServiceSchema = {
   name: "Leeds Digital Marketing Services",
   serviceType: "Digital Marketing",
   description:
-    "UK-registered digital marketing agency serving Leeds and West Yorkshire businesses with SEO, Google Ads, Meta Ads, and web development.",
+    "London-based digital marketing agency serving Leeds and West Yorkshire businesses with SEO, Google Ads, Meta Ads, and web development.",
   url: "https://linkedo.co.uk/leeds",
   provider: { "@id": "https://linkedo.co.uk/#organization" },
   areaServed: [
@@ -192,7 +192,7 @@ const services = [
 ]
 
 const trustBadges = [
-  "UK Companies House Registered",
+  "London-Based Agency",
   "GDPR Compliant",
   "GBP Billing",
   "Leeds-Based Support",
@@ -208,8 +208,8 @@ const stats = [
 const benefits = [
   {
     icon: "✅",
-    title: "UK-Registered & Accountable",
-    text: "Linkedo is registered with UK Companies House, giving Leeds businesses full confidence in who they're working with.",
+    title: "UK-based & Accountable",
+    text: "Linkedo is based in London, giving Leeds businesses full confidence in who they're working with.",
   },
   {
     icon: "📍",
@@ -289,32 +289,6 @@ const processSteps = [
   },
 ]
 
-const testimonials = [
-  {
-    name: "James Richardson",
-    role: "Managing Director",
-    company: "Richardson Legal Services",
-    location: "Leeds City Centre",
-    rating: 5,
-    text: "Linkedo transformed our online presence completely. Our Google rankings improved within weeks and enquiries have more than doubled since we started working with them.",
-  },
-  {
-    name: "Sarah Thornton",
-    role: "Marketing Manager",
-    company: "Thornton Property Group",
-    location: "Headingley, Leeds",
-    rating: 5,
-    text: "The team at Linkedo really understands the Leeds market. Their Google Ads campaigns delivered a strong ROI from the very first month with complete transparency throughout.",
-  },
-  {
-    name: "Daniel Marsden",
-    role: "Director",
-    company: "Marsden Engineering Solutions",
-    location: "Morley, Leeds",
-    rating: 5,
-    text: "Professional, reliable, and results-driven. Linkedo built our new website and handled our SEO — we've seen a significant increase in local Leeds traffic and leads.",
-  },
-]
 
 export default function LeedsPage() {
   return (
@@ -338,7 +312,7 @@ export default function LeedsPage() {
               Leeds <span className="text-gradient-primary">Digital Marketing Agency</span> — SEO, Ads &amp; Web Development
             </h1>
             <p className="text-lg text-muted-foreground mb-8 max-w-3xl">
-              Helping Leeds businesses grow online with proven digital strategies, UK-registered expertise, and zero
+              Helping Leeds businesses grow online with proven digital strategies, UK market expertise, and zero
               lock-in contracts.
             </p>
             <div className="flex flex-wrap gap-2 mb-8">
@@ -372,7 +346,7 @@ export default function LeedsPage() {
         <Section eyebrow="About Linkedo in Leeds" title="A Digital Marketing Agency Built for Leeds Businesses">
           <div className="max-w-4xl mx-auto space-y-6 text-muted-foreground mb-12">
             <p>
-              Linkedo is a UK Companies House registered digital marketing agency serving businesses across Leeds and
+              Linkedo is a London-Based Agency digital marketing agency serving businesses across Leeds and
               the wider West Yorkshire region. We specialise in SEO, Google Ads, Meta Ads, Website Development, and
               Website Security.
             </p>
@@ -412,10 +386,10 @@ export default function LeedsPage() {
           </div>
         </Section>
 
-        {/* Why UK-Registered */}
-        <Section eyebrow="Why Choose Us" title="Why Work With a UK-Registered Agency">
+        {/* Why UK-based */}
+        <Section eyebrow="Why Choose Us" title="Why Work With a London-based agency">
           <p className="text-muted-foreground max-w-3xl mb-12">
-            Leeds businesses deserve a digital marketing partner they can trust. Linkedo is fully UK-registered, GDPR
+            Leeds businesses deserve a digital marketing partner they can trust. Linkedo is fully UK-based, GDPR
             compliant, and built to deliver transparent, accountable results for businesses across Leeds and West
             Yorkshire.
           </p>
@@ -460,7 +434,7 @@ export default function LeedsPage() {
                 </div>
                 <div>
                   <p className="font-medium text-foreground">Registration</p>
-                  <p className="text-sm text-muted-foreground">UK Companies House Registered</p>
+                  <p className="text-sm text-muted-foreground">London-Based Agency</p>
                 </div>
               </div>
             </div>
@@ -565,42 +539,7 @@ export default function LeedsPage() {
         </Section>
 
         {/* Testimonials */}
-        <Section
-          eyebrow="Client Testimonials"
-          title="What Leeds Businesses Say About Us"
-          gradient
-        >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            {testimonials.map((t) => (
-              <div key={t.name} className="p-6 rounded-xl bg-card/50 border border-border/50 flex flex-col">
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: t.rating }).map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                  ))}
-                </div>
-                <p className="text-sm text-muted-foreground mb-6 flex-1 italic">&ldquo;{t.text}&rdquo;</p>
-                <div>
-                  <p className="font-semibold text-foreground text-sm">{t.name}</p>
-                  <p className="text-xs text-muted-foreground">{t.role}, {t.company}</p>
-                  <p className="text-xs text-primary mt-1 flex items-center gap-1">
-                    <MapPin className="w-3 h-3" />
-                    {t.location}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="max-w-sm mx-auto text-center p-6 rounded-xl bg-card/50 border border-border/50">
-            <div className="flex justify-center gap-1 mb-2">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-              ))}
-            </div>
-            <div className="text-3xl font-bold text-primary mb-1">4.9/5</div>
-            <p className="text-sm text-muted-foreground">Based on 30+ Leeds &amp; West Yorkshire client reviews</p>
-          </div>
-        </Section>
+        
 
         {/* FAQs */}
         <Section eyebrow="FAQs" title="Frequently Asked Questions About Our Leeds Services">

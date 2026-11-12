@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Image from "next/image"
-import { Section } from "@/components/ui/section"
+import {
+  Section } from "@/components/ui/section"
 import { ServiceCard } from "@/components/ui/service-card"
 import { AnimatedButton } from "@/components/ui/animated-button"
 import { SchemaMarkup } from "@/components/seo/schema-markup"
@@ -14,7 +15,6 @@ import {
   Clock,
   Building2,
   Check,
-  Star,
   Phone,
   Mail,
   TrendingUp,
@@ -24,7 +24,7 @@ import {
 
 const title = "Digital Marketing Agency Birmingham | Linkedo"
 const description =
-  "Linkedo offers SEO, Google Ads, Meta Ads & Web Development for Birmingham businesses. UK-registered, GDPR compliant, no lock-in contracts."
+  "Linkedo offers SEO, Google Ads, Meta Ads & Web Development for Birmingham businesses. UK-based, GDPR compliant, no lock-in contracts."
 
 export const metadata: Metadata = {
   title,
@@ -75,7 +75,7 @@ const birminghamServiceSchema = {
   name: "Birmingham Digital Marketing Services",
   serviceType: "Digital Marketing",
   description:
-    "UK-registered digital marketing agency serving Birmingham businesses with web development, SEO, Google Ads, and Meta Ads strategies that deliver measurable results.",
+    "London-based digital marketing agency serving Birmingham businesses with web development, SEO, Google Ads, and Meta Ads strategies that deliver measurable results.",
   url: "https://linkedo.co.uk/birmingham",
   provider: { "@id": "https://linkedo.co.uk/#organization" },
   areaServed: [
@@ -115,7 +115,7 @@ const faqSchema = {
       name: "Do you have an office in Birmingham?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "We are a UK-registered agency based in London with clients across Birmingham and the West Midlands. We work fully remotely, delivering the same high-quality service to Birmingham businesses as we do to our London clients.",
+        text: "We are a London-based agency serving clients remotely with clients across Birmingham and the West Midlands. We work fully remotely, delivering the same high-quality service to Birmingham businesses as we do to our London clients.",
       },
     },
     {
@@ -171,7 +171,7 @@ const faqSchema = {
       name: "Is Linkedo GDPR compliant?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. As a UK-registered company, we operate fully in line with UK GDPR requirements. Our processes for data collection, storage, and campaign tracking are compliant and we can advise Birmingham clients on best practices for their own sites.",
+        text: "Yes. As a London-based agency, we operate fully in line with UK GDPR requirements. Our processes for data collection, storage, and campaign tracking are compliant and we can advise Birmingham clients on best practices for their own sites.",
       },
     },
   ],
@@ -218,12 +218,10 @@ const services = [
 
 const stats = [
   { icon: Users, value: "50+", label: "Birmingham & West Midlands businesses served" },
-  { icon: TrendingUp, value: "3x", label: "Average ROI achieved within 6 months" },
-  { icon: Star, value: "4.9/5", label: "Client satisfaction rating" },
-]
+  { icon: TrendingUp, value: "3x", label: "Average ROI achieved within 6 months" }]
 
 const trustBadges = [
-  "UK-Registered Company",
+  "London-based agency",
   "GDPR Compliant",
   "No Lock-In Contracts",
   "Transparent Pricing",
@@ -263,29 +261,6 @@ const industries = [
   { icon: "🍽️", name: "Hospitality", description: "Social media and search marketing for Birmingham restaurants, hotels, and venues." },
 ]
 
-const testimonials = [
-  {
-    name: "James Hartley",
-    role: "Director",
-    company: "Colmore Business District",
-    rating: 5,
-    text: "Linkedo completely transformed our digital presence. Our qualified leads tripled within 5 months and we've seen a measurable increase in revenue from organic search alone. Their team understood the Birmingham market from day one.",
-  },
-  {
-    name: "Sarah Mitchell",
-    role: "Managing Director",
-    company: "Edgbaston Professional Services",
-    rating: 5,
-    text: "Exceptional results from both SEO and Google Ads. Linkedo delivered a 3x ROI within the first quarter. The team is responsive, transparent, and genuinely invested in our growth. I wouldn't hesitate to recommend them.",
-  },
-  {
-    name: "Tariq Rahman",
-    role: "Founder",
-    company: "Jewellery Quarter E-Commerce",
-    rating: 5,
-    text: "Our online store saw a 280% increase in organic traffic after working with Linkedo. They completely rebuilt our SEO strategy and the results speak for themselves. Best investment we've made in our digital marketing.",
-  },
-]
 
 const processSteps = [
   {
@@ -310,7 +285,7 @@ const faqs = [
   {
     question: "Do you have an office in Birmingham?",
     answer:
-      "We are a UK-registered agency based in London with clients across Birmingham and the West Midlands. We work fully remotely, delivering the same high-quality service to Birmingham businesses as we do to our London clients.",
+      "We are a London-based agency serving clients remotely with clients across Birmingham and the West Midlands. We work fully remotely, delivering the same high-quality service to Birmingham businesses as we do to our London clients.",
   },
   {
     question: "How long before I see results from SEO in Birmingham?",
@@ -345,16 +320,16 @@ const faqs = [
   {
     question: "Is Linkedo GDPR compliant?",
     answer:
-      "Yes. As a UK-registered company, we operate fully in line with UK GDPR requirements. Our processes for data collection, storage, and campaign tracking are compliant and we can advise Birmingham clients on best practices for their own sites.",
+      "Yes. As a London-based agency, we operate fully in line with UK GDPR requirements. Our processes for data collection, storage, and campaign tracking are compliant and we can advise Birmingham clients on best practices for their own sites.",
   },
 ]
 
 const ukBenefits = [
-  "UK-registered company with full legal accountability",
+  "London-based agency serving clients remotely across the UK",
   "Deep understanding of UK business culture and buyer behaviour",
   "GDPR-compliant processes and data handling throughout",
   "GBP billing with no currency conversion fees",
-  "Overlapping business hours for real-time communication",
+  "24/7 availability for enquiries and support",
   "No lock-in contracts — results-driven retention only",
 ]
 
@@ -381,7 +356,7 @@ export default function BirminghamPage() {
                 Birmingham&apos;s <span className="text-gradient-primary">Digital Marketing Agency</span> | Linkedo
               </h1>
               <p className="text-lg text-muted-foreground mb-4 max-w-3xl">
-                Linkedo is a UK-registered digital marketing agency helping Birmingham businesses generate more leads,
+                Linkedo is a London-based digital marketing agency helping Birmingham businesses generate more leads,
                 improve search rankings, and grow revenue through proven SEO, Google Ads, Meta Ads, and web development
                 strategies.
               </p>
@@ -467,7 +442,7 @@ export default function BirminghamPage() {
           </div>
         </Section>
 
-        {/* Why UK-Registered */}
+        {/* Why UK-based */}
         <Section>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -475,10 +450,10 @@ export default function BirminghamPage() {
                 Why Choose Linkedo
               </span>
               <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
-                Why Birmingham Businesses Choose a UK-Registered Agency
+                Why Birmingham Businesses Choose a London-based agency
               </h2>
               <p className="text-muted-foreground mb-8">
-                As a UK-registered company, we bring local accountability, cultural understanding, and proven digital
+                As a London-based agency, we bring local accountability, cultural understanding, and proven digital
                 expertise to every Birmingham client we work with. No overseas handoffs, no timezone friction — just
                 straightforward, results-driven work.
               </p>
@@ -524,7 +499,7 @@ export default function BirminghamPage() {
                   </div>
                   <div>
                     <p className="font-medium text-foreground">Working Hours</p>
-                    <p className="text-sm text-muted-foreground">Mon–Fri, 9:00–18:00 GMT/BST</p>
+                    <p className="text-sm text-muted-foreground">24 hours a day, 7 days a week</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -533,7 +508,7 @@ export default function BirminghamPage() {
                   </div>
                   <div>
                     <p className="font-medium text-foreground">Registration</p>
-                    <p className="text-sm text-muted-foreground">UK Companies House Registered</p>
+                    <p className="text-sm text-muted-foreground">London-Based Agency</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -694,40 +669,7 @@ export default function BirminghamPage() {
         </Section>
 
         {/* Testimonials */}
-        <Section
-          eyebrow="Client Results"
-          title="What Birmingham Clients Say"
-          description="Real results from real Birmingham and West Midlands businesses."
-          gradient
-        >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            {testimonials.map((testimonial) => (
-              <div key={testimonial.name} className="p-6 rounded-xl bg-card/50 border border-border/50 flex flex-col">
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: testimonial.rating }).map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                  ))}
-                </div>
-                <p className="text-sm text-muted-foreground mb-6 flex-1 italic">&ldquo;{testimonial.text}&rdquo;</p>
-                <div>
-                  <p className="font-semibold text-foreground text-sm">{testimonial.name}</p>
-                  <p className="text-xs text-muted-foreground">{testimonial.role}, {testimonial.company}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Aggregate rating */}
-          <div className="max-w-sm mx-auto text-center p-6 rounded-xl bg-card/50 border border-border/50">
-            <div className="flex justify-center gap-1 mb-2">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-              ))}
-            </div>
-            <div className="text-3xl font-bold text-primary mb-1">4.9/5</div>
-            <p className="text-sm text-muted-foreground">Based on 38 client reviews</p>
-          </div>
-        </Section>
+        
 
         {/* FAQs */}
         <Section eyebrow="FAQ" title="Common Questions from Birmingham Businesses">

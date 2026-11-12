@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
-import { Section } from "@/components/ui/section"
+import {
+  Section } from "@/components/ui/section"
 import { ServiceCard } from "@/components/ui/service-card"
 import { AnimatedButton } from "@/components/ui/animated-button"
 import { SchemaMarkup } from "@/components/seo/schema-markup"
@@ -13,7 +14,6 @@ import {
   Clock,
   Building2,
   Check,
-  Star,
   Phone,
   Mail,
   Users,
@@ -22,7 +22,7 @@ import {
 
 const title = "Glasgow Digital Marketing Agency | Linkedo"
 const description =
-  "Linkedo offers SEO, Google Ads, web development & more for Glasgow businesses. UK-registered, GDPR compliant, no lock-in contracts."
+  "Linkedo offers SEO, Google Ads, web development & more for Glasgow businesses. UK-based, GDPR compliant, no lock-in contracts."
 
 export const metadata: Metadata = {
   title,
@@ -73,7 +73,7 @@ const glasgowServiceSchema = {
   name: "Glasgow Digital Marketing Services",
   serviceType: "Digital Marketing",
   description:
-    "UK-registered digital marketing agency serving Glasgow and Central Scotland businesses with SEO, Google Ads, Meta Ads, and web development.",
+    "London-based digital marketing agency serving Glasgow and Central Scotland businesses with SEO, Google Ads, Meta Ads, and web development.",
   url: "https://linkedo.co.uk/glasgow",
   provider: { "@id": "https://linkedo.co.uk/#organization" },
   areaServed: [
@@ -159,7 +159,7 @@ const faqSchema = {
 }
 
 const trustBadges = [
-  "UK Companies House Registered",
+  "London-Based Agency",
   "GDPR Compliant",
   "GBP Billing",
   "Glasgow-Based Support",
@@ -168,9 +168,7 @@ const trustBadges = [
 
 const stats = [
   { icon: TrendingUp, value: "150+", label: "Campaigns delivered across SEO, Ads & Web projects for UK businesses" },
-  { icon: MapPin, value: "All Districts", label: "Serving Glasgow — from Merchant City to the West End and beyond" },
-  { icon: Star, value: "4.9/5", label: "Client satisfaction — based on 30+ verified Glasgow client reviews" },
-]
+  { icon: MapPin, value: "All Districts", label: "Serving Glasgow — from Merchant City to the West End and beyond" }]
 
 const services = [
   {
@@ -208,7 +206,7 @@ const services = [
 const benefits = [
   {
     icon: "🏛️",
-    title: "UK Companies House Registered",
+    title: "London-Based Agency",
     text: "You're working with a legally accountable, verified UK business — not a freelancer or offshore operation.",
   },
   {
@@ -305,32 +303,6 @@ const processSteps = [
   },
 ]
 
-const testimonials = [
-  {
-    name: "Sarah Mitchell",
-    role: "Marketing Manager",
-    company: "Clyde Health Clinic",
-    location: "Glasgow City Centre",
-    rating: 5,
-    text: "Linkedo transformed our online presence completely. Within three months our Glasgow clinic was ranking on page one for every key search term that matters to us.",
-  },
-  {
-    name: "James Donaldson",
-    role: "Director",
-    company: "Donaldson Property Group",
-    location: "Merchant City, Glasgow",
-    rating: 5,
-    text: "Their Google Ads management cut our cost per lead in half. The team genuinely understands the Glasgow market and it shows in the results every single month.",
-  },
-  {
-    name: "Fiona Campbell",
-    role: "Owner",
-    company: "Campbell Legal Services",
-    location: "Shawlands, Glasgow",
-    rating: 5,
-    text: "Professional, transparent, and results-driven. Linkedo delivered a website and SEO strategy that has consistently grown our enquiries across the Glasgow Southside area.",
-  },
-]
 
 export default function GlasgowPage() {
   return (
@@ -356,7 +328,7 @@ export default function GlasgowPage() {
             </h1>
             <p className="text-lg text-muted-foreground mb-8 max-w-3xl">
               Helping Glasgow businesses grow online with SEO, web development, Google Ads &amp; more — backed by a
-              UK-registered agency you can trust.
+              London-based agency you can trust.
             </p>
             <div className="flex flex-wrap gap-2 mb-8">
               {trustBadges.map((badge) => (
@@ -390,7 +362,7 @@ export default function GlasgowPage() {
         <Section eyebrow="About Linkedo in Glasgow" title="A Digital Marketing Agency Built for Glasgow's Growing Business Community">
           <div className="max-w-4xl mx-auto text-muted-foreground mb-12 text-center">
             <p>
-              Linkedo is a UK Companies House registered digital marketing agency serving businesses across Glasgow
+              Linkedo is a London-Based Agency digital marketing agency serving businesses across Glasgow
               and the wider Central Scotland region. We deliver SEO, Google Ads, web development, and more — tailored
               to your local audience, industry, and growth goals. No lock-in contracts, just transparent strategies
               and measurable results.
@@ -427,11 +399,11 @@ export default function GlasgowPage() {
           </div>
         </Section>
 
-        {/* Why UK-Registered */}
-        <Section eyebrow="Why Choose Us" title="Why Work With a UK-Registered Agency">
+        {/* Why UK-based */}
+        <Section eyebrow="Why Choose Us" title="Why Work With a London-based agency">
           <p className="text-muted-foreground max-w-3xl mb-12 mx-auto text-center">
             Glasgow businesses deserve an agency that understands both the local market and the legal standards
-            expected of a professional UK operation. Linkedo is fully registered, GDPR compliant, and built to serve
+            expected of a professional UK operation. Linkedo is London-based, GDPR compliant, and built to serve
             Scottish businesses with the transparency and accountability they deserve.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
@@ -475,7 +447,7 @@ export default function GlasgowPage() {
                 </div>
                 <div>
                   <p className="font-medium text-foreground">Registration</p>
-                  <p className="text-sm text-muted-foreground">UK Companies House Registered — Linkedo</p>
+                  <p className="text-sm text-muted-foreground">London-Based Agency — Linkedo</p>
                 </div>
               </div>
             </div>
@@ -585,38 +557,7 @@ export default function GlasgowPage() {
         </Section>
 
         {/* Testimonials */}
-        <Section eyebrow="Client Testimonials" title="What Glasgow Businesses Say About Us" gradient>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            {testimonials.map((t) => (
-              <div key={t.name} className="p-6 rounded-xl bg-card/50 border border-border/50 flex flex-col">
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: t.rating }).map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                  ))}
-                </div>
-                <p className="text-sm text-muted-foreground mb-6 flex-1 italic">&ldquo;{t.text}&rdquo;</p>
-                <div>
-                  <p className="font-semibold text-foreground text-sm">{t.name}</p>
-                  <p className="text-xs text-muted-foreground">{t.role}, {t.company}</p>
-                  <p className="text-xs text-primary mt-1 flex items-center gap-1">
-                    <MapPin className="w-3 h-3" />
-                    {t.location}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="max-w-sm mx-auto text-center p-6 rounded-xl bg-card/50 border border-border/50">
-            <div className="flex justify-center gap-1 mb-2">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-              ))}
-            </div>
-            <div className="text-3xl font-bold text-primary mb-1">4.9/5</div>
-            <p className="text-sm text-muted-foreground">Based on 30+ verified Glasgow client reviews</p>
-          </div>
-        </Section>
+        
 
         {/* FAQs */}
         <Section eyebrow="FAQs" title="Frequently Asked Questions About Our Glasgow Services">

@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Image from "next/image"
-import { Section } from "@/components/ui/section"
+import {
+  Section } from "@/components/ui/section"
 import { ServiceCard } from "@/components/ui/service-card"
 import { AnimatedButton } from "@/components/ui/animated-button"
 import { SchemaMarkup } from "@/components/seo/schema-markup"
@@ -14,7 +15,6 @@ import {
   Clock,
   Building2,
   Check,
-  Star,
   Phone,
   Mail,
   TrendingUp,
@@ -24,7 +24,7 @@ import {
 
 const title = "Bristol Digital Marketing Agency | Linkedo"
 const description =
-  "Linkedo offers SEO, Google Ads, Meta Ads & Web Design for Bristol businesses. UK-registered, no lock-in contracts. Book a free strategy call."
+  "Linkedo offers SEO, Google Ads, Meta Ads & Web Design for Bristol businesses. UK-based, no lock-in contracts. Book a free strategy call."
 
 export const metadata: Metadata = {
   title,
@@ -79,7 +79,7 @@ const bristolServiceSchema = {
   name: "Bristol Digital Marketing Services",
   serviceType: "Digital Marketing",
   description:
-    "UK-registered digital marketing agency serving Bristol businesses with SEO, Google Ads, Meta Ads, and web development strategies that deliver measurable results.",
+    "London-based digital marketing agency serving Bristol businesses with SEO, Google Ads, Meta Ads, and web development strategies that deliver measurable results.",
   url: "https://linkedo.co.uk/bristol",
   provider: { "@id": "https://linkedo.co.uk/#organization" },
   areaServed: [
@@ -164,7 +164,7 @@ const faqSchema = {
 }
 
 const trustBadges = [
-  "UK Companies House Registered",
+  "London-Based Agency",
   "GDPR Compliant",
   "GBP Billing",
   "Bristol-Based Support",
@@ -173,9 +173,7 @@ const trustBadges = [
 
 const stats = [
   { icon: Users, value: "150+", label: "UK clients served — trusted by B2B businesses across the UK" },
-  { icon: Star, value: "4.9/5", label: "Average client rating — based on 30+ Bristol client reviews" },
-  { icon: MapPin, value: "Bristol", label: "Focused campaigns — strategies built around the Bristol market" },
-]
+  { icon: MapPin, value: "Bristol", label: "Focused campaigns — strategies built around the Bristol market" }]
 
 const services = [
   {
@@ -213,7 +211,7 @@ const services = [
 const benefits = [
   {
     icon: "🏛",
-    title: "UK Companies House Registered",
+    title: "London-Based Agency",
     text: "Full legal accountability and business transparency you can verify.",
   },
   {
@@ -307,32 +305,6 @@ const processSteps = [
   },
 ]
 
-const testimonials = [
-  {
-    name: "James Hartley",
-    role: "Marketing Director",
-    company: "Hartley Commercial Finance",
-    location: "Temple Quarter, Bristol",
-    rating: 5,
-    text: "Linkedo transformed our online presence completely. Within three months of launching our new website and SEO campaign, our enquiries doubled. They truly understand the Bristol market.",
-  },
-  {
-    name: "Sarah Okafor",
-    role: "Managing Director",
-    company: "Okafor Legal Services",
-    location: "Clifton, Bristol",
-    rating: 5,
-    text: "We'd tried other agencies before but none delivered like Linkedo. Our Google Ads campaigns are now generating consistent, qualified leads every week at a fraction of our previous cost.",
-  },
-  {
-    name: "Daniel Marsh",
-    role: "Founder",
-    company: "Marsh & Co Property Group",
-    location: "Redcliffe, Bristol",
-    rating: 5,
-    text: "From website development to Meta Ads, Linkedo handles everything for us. Their transparency, reporting, and results speak for themselves. Highly recommended for any Bristol business.",
-  },
-]
 
 export default function BristolPage() {
   return (
@@ -358,7 +330,7 @@ export default function BristolPage() {
               </h1>
               <p className="text-lg text-muted-foreground mb-8 max-w-3xl">
                 Helping Bristol businesses get found online, generate leads, and grow — with transparent strategies, no
-                lock-in contracts, and a UK-registered team you can trust.
+                lock-in contracts, and a London-based team you can trust.
               </p>
               <div className="flex flex-wrap gap-2 mb-8">
                 {trustBadges.map((badge) => (
@@ -409,7 +381,7 @@ export default function BristolPage() {
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center max-w-5xl mx-auto mb-12">
             <div className="space-y-6 text-muted-foreground">
               <p>
-                Linkedo is a UK-registered digital marketing agency helping Bristol businesses grow online. From Temple
+                Linkedo is a London-based digital marketing agency helping Bristol businesses grow online. From Temple
                 Quarter to Clifton, we deliver SEO, Google Ads, Meta Ads, Web Development, and Website Security — all
                 tailored to the Bristol market.
               </p>
@@ -464,11 +436,11 @@ export default function BristolPage() {
           </div>
         </Section>
 
-        {/* Why UK-Registered */}
-        <Section eyebrow="Why Choose Us" title="Why Work With a UK-Registered Agency">
+        {/* Why UK-based */}
+        <Section eyebrow="Why Choose Us" title="Why Work With a London-based agency">
           <p className="text-muted-foreground max-w-3xl mb-12">
             Bristol businesses deserve an agency that understands the local market, operates with full transparency,
-            and delivers consistent results. Linkedo is UK-registered, GDPR compliant, and built around the needs of
+            and delivers consistent results. Linkedo is UK-based, GDPR compliant, and built around the needs of
             growing B2B businesses across Bristol.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
@@ -525,7 +497,7 @@ export default function BristolPage() {
                 </div>
                 <div>
                   <p className="font-medium text-foreground">Registration</p>
-                  <p className="text-sm text-muted-foreground">Registered at UK Companies House</p>
+                  <p className="text-sm text-muted-foreground">based in London</p>
                 </div>
               </div>
             </div>
@@ -662,42 +634,7 @@ export default function BristolPage() {
         </Section>
 
         {/* Testimonials */}
-        <Section
-          eyebrow="Client Testimonials"
-          title="What Bristol Businesses Say About Us"
-          gradient
-        >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            {testimonials.map((t) => (
-              <div key={t.name} className="p-6 rounded-xl bg-card/50 border border-border/50 flex flex-col">
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: t.rating }).map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                  ))}
-                </div>
-                <p className="text-sm text-muted-foreground mb-6 flex-1 italic">&ldquo;{t.text}&rdquo;</p>
-                <div>
-                  <p className="font-semibold text-foreground text-sm">{t.name}</p>
-                  <p className="text-xs text-muted-foreground">{t.role}, {t.company}</p>
-                  <p className="text-xs text-primary mt-1 flex items-center gap-1">
-                    <MapPin className="w-3 h-3" />
-                    {t.location}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="max-w-sm mx-auto text-center p-6 rounded-xl bg-card/50 border border-border/50">
-            <div className="flex justify-center gap-1 mb-2">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-              ))}
-            </div>
-            <div className="text-3xl font-bold text-primary mb-1">4.9/5</div>
-            <p className="text-sm text-muted-foreground">Based on 15+ Bristol client reviews</p>
-          </div>
-        </Section>
+        
 
         {/* FAQs */}
         <Section eyebrow="FAQs" title="Frequently Asked Questions About Our Bristol Services">

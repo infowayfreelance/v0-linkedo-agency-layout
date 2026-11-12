@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState, useRef } from "react"
-import { Check, MessageCircle, Star, ChevronDown, ChevronUp, Zap, Shield, Rocket, Globe, Clock, ArrowRight } from "lucide-react"
+import { Check, MessageCircle, ChevronDown, ChevronUp, Zap, Shield, Rocket, Globe, Clock, ArrowRight } from "lucide-react"
 
 const WHATSAPP_URL = "https://wa.me/447927969991?text=Hi%20Linkedo!%20I%27d%20like%20to%20claim%20the%20399%20SAR%20web%20design%20offer."
 const OFFER_DURATION_MS = 24 * 60 * 60 * 1000
@@ -97,9 +97,9 @@ const reasons = [
     desc: "Most agencies take 6–12 weeks. We deliver a professional, conversion-ready website in 10 business days.",
   },
   {
-    icon: Star,
-    title: "UK-Registered Agency",
-    desc: "Linkedo is a UK-registered company with a proven track record across dozens of industries.",
+    icon: Globe,
+    title: "London-based agency",
+    desc: "Linkedo is a London-based digital marketing agency serving businesses across the UK remotely.",
   },
   {
     icon: Clock,
@@ -108,26 +108,7 @@ const reasons = [
   },
 ]
 
-const testimonials = [
-  {
-    name: "Sara Al-Rashidi",
-    role: "Salon Owner",
-    rating: 5,
-    text: "I expected something basic for this price, but the result was stunning. Customers keep complimenting our website. Highly recommend Linkedo.",
-  },
-  {
-    name: "Mohammed Al-Qahtani",
-    role: "Consulting Firm",
-    rating: 5,
-    text: "Professional team, fast delivery, and zero stress. The site was live in 9 days and has already brought in new enquiries.",
-  },
-  {
-    name: "Layla Nasser",
-    role: "E-Commerce Store",
-    rating: 5,
-    text: "We had a website built before and it cost three times more. Linkedo delivered better quality and faster. Genuinely impressive.",
-  },
-]
+
 
 const faqs = [
   {
@@ -240,7 +221,7 @@ export default function OfferPage() {
           </h1>
 
           <p className="text-white/70 text-lg sm:text-xl max-w-2xl mx-auto mb-10">
-            Get a fast, mobile-ready, SEO-optimised 5-page website built by a UK-registered agency. No monthly fees. No hidden costs. Delivered in 10 days.
+            Get a fast, mobile-ready, SEO-optimised 5-page website built by a London-based agency. No monthly fees. No hidden costs. Delivered in 10 days.
           </p>
 
           {/* Price block */}
@@ -358,28 +339,7 @@ export default function OfferPage() {
         </section>
 
         {/* ── TESTIMONIALS ── */}
-        <section className="py-16 border-t border-white/10">
-          <div className="text-center mb-12">
-            <span className="text-amber-400 text-xs font-semibold uppercase tracking-widest">Client Results</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mt-3">What Our Clients Say</h2>
-          </div>
-          <div className="grid sm:grid-cols-3 gap-6">
-            {testimonials.map((t, i) => (
-              <div key={i} className="bg-white/5 border border-white/10 rounded-2xl px-6 py-7 flex flex-col">
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: t.rating }).map((_, s) => (
-                    <Star key={s} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                  ))}
-                </div>
-                <p className="text-white/70 text-sm leading-relaxed flex-1 mb-6">"{t.text}"</p>
-                <div>
-                  <p className="text-white font-semibold text-sm">{t.name}</p>
-                  <p className="text-white/40 text-xs">{t.role}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
+        
 
         {/* ── FAQs ── */}
         <section className="py-16 border-t border-white/10">
@@ -422,7 +382,7 @@ export default function OfferPage() {
               <ArrowRight className="w-5 h-5" />
             </a>
 
-            <p className="text-white/30 text-sm mt-5">UK-registered agency · 10-day delivery · Full ownership guaranteed</p>
+            <p className="text-white/30 text-sm mt-5">London-based agency · 10-day delivery · Full ownership guaranteed</p>
           </div>
         </section>
 

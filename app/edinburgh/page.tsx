@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
-import { Section } from "@/components/ui/section"
+import {
+  Section } from "@/components/ui/section"
 import { ServiceCard } from "@/components/ui/service-card"
 import { AnimatedButton } from "@/components/ui/animated-button"
 import { SchemaMarkup } from "@/components/seo/schema-markup"
@@ -13,7 +14,6 @@ import {
   Clock,
   Building2,
   Check,
-  Star,
   Phone,
   Mail,
   Users,
@@ -23,7 +23,7 @@ import {
 
 const title = "Edinburgh Digital Marketing Agency | Linkedo"
 const description =
-  "Linkedo is a UK-registered digital marketing agency in Edinburgh. SEO, Google Ads, Meta Ads & Web Development. Book a free strategy call today."
+  "Linkedo is a London-based digital marketing agency in Edinburgh. SEO, Google Ads, Meta Ads & Web Development. Book a free strategy call today."
 
 export const metadata: Metadata = {
   title,
@@ -74,7 +74,7 @@ const edinburghServiceSchema = {
   name: "Edinburgh Digital Marketing Services",
   serviceType: "Digital Marketing",
   description:
-    "UK-registered digital marketing agency serving Edinburgh and Scottish businesses with SEO, Google Ads, Meta Ads, and web development.",
+    "London-based digital marketing agency serving Edinburgh and Scottish businesses with SEO, Google Ads, Meta Ads, and web development.",
   url: "https://linkedo.co.uk/edinburgh",
   provider: { "@id": "https://linkedo.co.uk/#organization" },
   areaServed: [
@@ -160,7 +160,7 @@ const faqSchema = {
 }
 
 const trustBadges = [
-  "UK Companies House Registered",
+  "London-Based Agency",
   "GDPR Compliant",
   "GBP Billing",
   "Edinburgh-Based Support",
@@ -169,9 +169,7 @@ const trustBadges = [
 
 const stats = [
   { icon: Users, value: "50+", label: "Edinburgh & Scottish clients supported" },
-  { icon: Star, value: "4.9★", label: "Average client rating across Edinburgh projects" },
-  { icon: TrendingUp, value: "98%", label: "Client retention rate across all UK accounts" },
-]
+  { icon: TrendingUp, value: "98%", label: "Client retention rate across all UK accounts" }]
 
 const services = [
   {
@@ -209,8 +207,8 @@ const services = [
 const benefits = [
   {
     icon: "🏛",
-    title: "UK Registered",
-    text: "Fully registered at Companies House — accountable and compliant.",
+    title: "UK-based",
+    text: "London-based at Companies House — accountable and compliant.",
   },
   {
     icon: "🔒",
@@ -307,35 +305,6 @@ const processSteps = [
   },
 ]
 
-const testimonials = [
-  {
-    initials: "JM",
-    name: "James Mitchell",
-    role: "Director",
-    company: "Cairn Financial Group",
-    location: "New Town, Edinburgh",
-    rating: 5,
-    text: "Linkedo transformed our online visibility in Edinburgh. We're now ranking on page one for our most competitive keywords — the leads have been outstanding.",
-  },
-  {
-    initials: "SR",
-    name: "Sarah Reid",
-    role: "Owner",
-    company: "Royal Mile Stays",
-    location: "Old Town, Edinburgh",
-    rating: 5,
-    text: "Our direct bookings doubled after Linkedo took over our Google Ads. They really understand the Edinburgh tourism market and peak season demand.",
-  },
-  {
-    initials: "AC",
-    name: "Alistair Cairns",
-    role: "Partner",
-    company: "Advocate Legal Edinburgh",
-    location: "Leith, Edinburgh",
-    rating: 5,
-    text: "Professional, transparent, and results-driven. Our new website and SEO strategy has brought in more qualified enquiries than anything we've tried before.",
-  },
-]
 
 export default function EdinburghPage() {
   return (
@@ -391,10 +360,10 @@ export default function EdinburghPage() {
         </Section>
 
         {/* About + Stats */}
-        <Section eyebrow="About Linkedo in Edinburgh" title="A UK-Registered Agency Serving Edinburgh Businesses">
+        <Section eyebrow="About Linkedo in Edinburgh" title="A London-based agency Serving Edinburgh Businesses">
           <div className="max-w-4xl mx-auto text-muted-foreground mb-12">
             <p>
-              Linkedo is a UK Companies House registered digital marketing agency helping Edinburgh businesses grow
+              Linkedo is a London-Based Agency digital marketing agency helping Edinburgh businesses grow
               online — from the Financial District on St Andrew Square to the creative hubs of Leith and Haymarket.
               We offer transparent GBP billing, no lock-in contracts, and dedicated support built around the Scottish
               market.
@@ -431,8 +400,8 @@ export default function EdinburghPage() {
           </div>
         </Section>
 
-        {/* Why UK-Registered */}
-        <Section eyebrow="Why Choose Us" title="Why Work With a UK-Registered Agency">
+        {/* Why UK-based */}
+        <Section eyebrow="Why Choose Us" title="Why Work With a London-based agency">
           <p className="text-muted-foreground max-w-3xl mb-12">
             Edinburgh businesses deserve an agency that understands the UK market, operates transparently, and delivers
             measurable results — not vanity metrics or vague promises.
@@ -478,7 +447,7 @@ export default function EdinburghPage() {
                 </div>
                 <div>
                   <p className="font-medium text-foreground">Registration</p>
-                  <p className="text-sm text-muted-foreground">UK Companies House Registered — Linkedo</p>
+                  <p className="text-sm text-muted-foreground">London-Based Agency — Linkedo</p>
                 </div>
               </div>
             </div>
@@ -592,47 +561,7 @@ export default function EdinburghPage() {
         </Section>
 
         {/* Testimonials */}
-        <Section
-          eyebrow="Client Testimonials"
-          title="What Edinburgh Businesses Say About Us"
-          gradient
-        >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            {testimonials.map((t) => (
-              <div key={t.name} className="p-6 rounded-xl bg-card/50 border border-border/50 flex flex-col">
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: t.rating }).map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                  ))}
-                </div>
-                <p className="text-sm text-muted-foreground mb-6 flex-1 italic">&ldquo;{t.text}&rdquo;</p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-semibold text-sm shrink-0">
-                    {t.initials}
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground text-sm">{t.name}</p>
-                    <p className="text-xs text-muted-foreground">{t.role} · {t.company}</p>
-                    <p className="text-xs text-primary mt-0.5 flex items-center gap-1">
-                      <MapPin className="w-3 h-3" />
-                      {t.location}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="max-w-sm mx-auto text-center p-6 rounded-xl bg-card/50 border border-border/50">
-            <div className="flex justify-center gap-1 mb-2">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-              ))}
-            </div>
-            <div className="text-3xl font-bold text-primary mb-1">4.9/5</div>
-            <p className="text-sm text-muted-foreground">Based on 15+ Edinburgh client reviews</p>
-          </div>
-        </Section>
+        
 
         {/* FAQs */}
         <Section eyebrow="FAQs" title="Frequently Asked Questions About Our Edinburgh Services">

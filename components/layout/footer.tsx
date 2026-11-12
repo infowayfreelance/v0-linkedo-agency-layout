@@ -126,7 +126,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            ©{new Date().getFullYear()} Linkedo LTD. All rights reserved.
+            ©{new Date().getFullYear()} Linkedo. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">

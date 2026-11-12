@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
-import { Section } from "@/components/ui/section"
+import {
+  Section } from "@/components/ui/section"
 import { ServiceCard } from "@/components/ui/service-card"
 import { AnimatedButton } from "@/components/ui/animated-button"
 import { SchemaMarkup } from "@/components/seo/schema-markup"
@@ -13,7 +14,6 @@ import {
   Clock,
   Building2,
   Check,
-  Star,
   Phone,
   Mail,
   Users,
@@ -73,7 +73,7 @@ const devonServiceSchema = {
   name: "Devon Digital Marketing Services",
   serviceType: "Digital Marketing",
   description:
-    "UK-registered digital marketing agency serving Devon businesses with SEO, Google Ads, Meta Ads, and web development.",
+    "London-based digital marketing agency serving Devon businesses with SEO, Google Ads, Meta Ads, and web development.",
   url: "https://linkedo.co.uk/devon",
   provider: { "@id": "https://linkedo.co.uk/#organization" },
   areaServed: [
@@ -169,7 +169,7 @@ const faqSchema = {
 }
 
 const trustBadges = [
-  "UK Registered Company",
+  "UK-based Company",
   "GDPR Compliant",
   "No Lock-in Contracts",
   "Transparent Reporting",
@@ -178,9 +178,7 @@ const trustBadges = [
 
 const stats = [
   { icon: Users, value: "150+", label: "Businesses Supported UK-Wide" },
-  { icon: TrendingUp, value: "200%+", label: "Average Lead Increase for Clients" },
-  { icon: Star, value: "30+", label: "Verified Client Reviews" },
-]
+  { icon: TrendingUp, value: "200%+", label: "Average Lead Increase for Clients" }]
 
 const services = [
   {
@@ -304,32 +302,6 @@ const processSteps = [
   },
 ]
 
-const testimonials = [
-  {
-    name: "Independent Retailer",
-    role: "Business Owner",
-    company: "Local Retail",
-    location: "Exeter, Devon",
-    rating: 5,
-    text: "Since Linkedo took over our SEO, we've seen a real jump in local footfall and enquiries.",
-  },
-  {
-    name: "Trades Business Owner",
-    role: "Director",
-    company: "Local Trades",
-    location: "Plymouth, Devon",
-    rating: 5,
-    text: "Our Google Ads campaign finally brings in consistent, quality leads every month.",
-  },
-  {
-    name: "Hospitality Business",
-    role: "Manager",
-    company: "Local Hospitality",
-    location: "Torquay, Devon",
-    rating: 5,
-    text: "Our new website has made a noticeable difference to our online bookings.",
-  },
-]
 
 export default function DevonPage() {
   return (
@@ -387,7 +359,7 @@ export default function DevonPage() {
         </Section>
 
         {/* About + Stats */}
-        <Section eyebrow="About Digital Marketing in Devon" title="UK-Registered Digital Marketing Agency in Devon">
+        <Section eyebrow="About Digital Marketing in Devon" title="London-based digital marketing agency in Devon">
           <div className="max-w-4xl mx-auto text-muted-foreground mb-12 space-y-4 text-center">
             <p>
               Every business in Devon is fighting for the same thing — to be seen first when a local customer searches
@@ -483,7 +455,7 @@ export default function DevonPage() {
                 </div>
                 <div>
                   <p className="font-medium text-foreground">Registration</p>
-                  <p className="text-sm text-muted-foreground">UK Companies House Registered</p>
+                  <p className="text-sm text-muted-foreground">London-Based Agency</p>
                 </div>
               </div>
             </div>
@@ -593,38 +565,7 @@ export default function DevonPage() {
         </Section>
 
         {/* Testimonials */}
-        <Section eyebrow="Client Testimonials" title="What Our Clients Say About Us" gradient>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            {testimonials.map((t) => (
-              <div key={t.name} className="p-6 rounded-xl bg-card/50 border border-border/50 flex flex-col">
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: t.rating }).map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                  ))}
-                </div>
-                <p className="text-sm text-muted-foreground mb-6 flex-1 italic">&ldquo;{t.text}&rdquo;</p>
-                <div>
-                  <p className="font-semibold text-foreground text-sm">{t.name}</p>
-                  <p className="text-xs text-muted-foreground">{t.role}, {t.company}</p>
-                  <p className="text-xs text-primary mt-1 flex items-center gap-1">
-                    <MapPin className="w-3 h-3" />
-                    {t.location}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="max-w-sm mx-auto text-center p-6 rounded-xl bg-card/50 border border-border/50">
-            <div className="flex justify-center gap-1 mb-2">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-              ))}
-            </div>
-            <div className="text-3xl font-bold text-primary mb-1">4.9/5</div>
-            <p className="text-sm text-muted-foreground">Based on 30+ client reviews</p>
-          </div>
-        </Section>
+        
 
         {/* FAQs */}
         <Section eyebrow="FAQs" title="Frequently Asked Questions">
