@@ -9,7 +9,6 @@ import {
   CheckCircle2,
   MapPin,
   Clock,
-  Star,
   Phone,
 } from "lucide-react"
 
@@ -21,7 +20,6 @@ import { ProcessTimeline } from "@/components/ui/process-timeline"
 import { ContactModal } from "@/components/ui/contact-modal"
 import { AnimatedButton } from "@/components/ui/animated-button"
 import { FAQAccordion } from "@/components/ui/faq-accordion"
-import { TestimonialCard } from "@/components/ui/testimonial-card"
 import { MainShell } from "@/components/layout/main-shell"
 
 const caseStudies = [
@@ -114,32 +112,6 @@ const blogPosts = [
   },
 ]
 
-const testimonials = [
-  {
-    quote:
-      "Linkedo transformed our online presence completely. Within 4 months our qualified leads doubled and our cost per acquisition dropped significantly. Genuinely one of the best investments we've made.",
-    author: "James Richardson",
-    role: "Managing Director",
-    company: "London Finance Co.",
-    image: "/professional-man-headshot-suit.jpg",
-  },
-  {
-    quote:
-      "Professional, transparent, and results-driven. Linkedo's SEO strategy took us from page 3 to page 1 for our most competitive keywords in London. The team truly cares about your business.",
-    author: "Sarah Mitchell",
-    role: "Head of Marketing",
-    company: "London Property Group",
-    image: "/professional-woman-headshot.png",
-  },
-  {
-    quote:
-      "Their Google Ads management cut our cost per lead by 60%. The team is responsive, honest, and genuinely invested in our growth. We now rank on page one for every target keyword.",
-    author: "David Clarke",
-    role: "Partner",
-    company: "London Legal Services",
-    image: "/professional-man-headshot-suit.jpg",
-  },
-]
 
 const whyChoose = [
   {
@@ -485,32 +457,7 @@ export function HomePageContent() {
           </div>
         </Section>
 
-        <Section
-          gradient
-          eyebrow="Client Testimonials"
-          title="What Our Clients Say"
-          description="Real feedback from UK businesses that have grown their digital presence, leads, and revenue with Linkedo."
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {testimonials.map((t, i) => (
-              <motion.div
-                key={t.author}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-              >
-                <TestimonialCard {...t} />
-                <div className="flex gap-1 mt-3 ml-8 pl-6 border-l border-border/50">
-                  {Array.from({ length: 5 }).map((_, s) => (
-                    <Star key={s} className="w-3.5 h-3.5 fill-accent text-accent" />
-                  ))}
-                  <span className="text-xs text-muted-foreground ml-1">5.0</span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </Section>
+        
 
         <Section
           eyebrow="From Our Blog"

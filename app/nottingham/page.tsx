@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
-import { Section } from "@/components/ui/section"
+import {
+  Section } from "@/components/ui/section"
 import { ServiceCard } from "@/components/ui/service-card"
 import { AnimatedButton } from "@/components/ui/animated-button"
 import { SchemaMarkup } from "@/components/seo/schema-markup"
@@ -13,7 +14,6 @@ import {
   Clock,
   Building2,
   Check,
-  Star,
   Phone,
   Mail,
   Users,
@@ -22,7 +22,7 @@ import {
 
 const title = "Nottingham Digital Marketing Agency | Linkedo"
 const description =
-  "Linkedo is a UK-registered digital marketing agency helping Nottingham businesses grow with SEO, Google Ads, & more. Book a free strategy call."
+  "Linkedo is a London-based digital marketing agency helping Nottingham businesses grow with SEO, Google Ads, & more. Book a free strategy call."
 
 export const metadata: Metadata = {
   title,
@@ -73,7 +73,7 @@ const nottinghamServiceSchema = {
   name: "Nottingham Digital Marketing Services",
   serviceType: "Digital Marketing",
   description:
-    "UK-registered digital marketing agency serving Nottingham and East Midlands businesses with SEO, Google Ads, Meta Ads, and web development.",
+    "London-based digital marketing agency serving Nottingham and East Midlands businesses with SEO, Google Ads, Meta Ads, and web development.",
   url: "https://linkedo.co.uk/nottingham",
   provider: { "@id": "https://linkedo.co.uk/#organization" },
   areaServed: [
@@ -159,7 +159,7 @@ const faqSchema = {
 }
 
 const trustBadges = [
-  "UK Companies House Registered",
+  "London-Based Agency",
   "GDPR Compliant",
   "GBP Billing",
   "Nottingham-Based Support",
@@ -168,9 +168,7 @@ const trustBadges = [
 
 const stats = [
   { icon: Users, value: "150+", label: "UK businesses helped across multiple industries and sectors" },
-  { icon: Star, value: "4.9/5", label: "Client satisfaction — based on 30+ verified reviews" },
-  { icon: MapPin, value: "Nottingham", label: "Local expertise delivering national-standard results" },
-]
+  { icon: MapPin, value: "Nottingham", label: "Local expertise delivering national-standard results" }]
 
 const services = [
   {
@@ -208,8 +206,8 @@ const services = [
 const benefits = [
   {
     icon: "🏢",
-    title: "UK Companies House Registered",
-    text: "Linkedo is a fully registered UK business, giving Nottingham clients complete confidence and legal accountability.",
+    title: "London-Based Agency",
+    text: "Linkedo is a London-based UK business, giving Nottingham clients complete confidence and legal accountability.",
   },
   {
     icon: "🔓",
@@ -307,32 +305,6 @@ const processSteps = [
   },
 ]
 
-const testimonials = [
-  {
-    name: "James Hartley",
-    role: "Managing Director",
-    company: "Hartley Commercial Finance",
-    location: "Lace Market, Nottingham",
-    rating: 5,
-    text: "Linkedo transformed our online presence completely. Since working with them, our organic traffic has doubled and we're consistently generating quality leads through Google. Highly recommend to any Nottingham business serious about growth.",
-  },
-  {
-    name: "Sarah Whitmore",
-    role: "Director",
-    company: "Whitmore Property Group",
-    location: "West Bridgford, Nottingham",
-    rating: 5,
-    text: "We approached Linkedo for a full website rebuild and SEO strategy. The results have been outstanding — we're now ranking on page one for our key local search terms and our enquiries have increased significantly.",
-  },
-  {
-    name: "Daniel Okafor",
-    role: "Founder",
-    company: "Okafor Legal Services",
-    location: "Nottingham City Centre",
-    rating: 5,
-    text: "The team at Linkedo are professional, transparent, and genuinely invested in our success. Our Google Ads campaigns have delivered a consistent return on investment and we've seen real business growth since partnering with them.",
-  },
-]
 
 export default function NottinghamPage() {
   return (
@@ -388,10 +360,10 @@ export default function NottinghamPage() {
         </Section>
 
         {/* About + Stats */}
-        <Section eyebrow="About Linkedo in Nottingham" title="A UK-Registered Digital Marketing Agency Serving Nottingham Businesses">
+        <Section eyebrow="About Linkedo in Nottingham" title="A London-based digital marketing agency Serving Nottingham Businesses">
           <div className="max-w-4xl mx-auto text-muted-foreground mb-12 text-center">
             <p>
-              Linkedo is a UK Companies House registered digital marketing agency helping B2B businesses and service
+              Linkedo is a London-Based Agency digital marketing agency helping B2B businesses and service
               companies across Nottingham grow online. From the Lace Market to Nottingham Science Park, we deliver
               tailored SEO, paid advertising, and web development solutions built around your goals. We combine
               national-standard expertise with genuine local knowledge — so your Nottingham business gets the results it
@@ -429,8 +401,8 @@ export default function NottinghamPage() {
           </div>
         </Section>
 
-        {/* Why UK-Registered */}
-        <Section eyebrow="Why Choose Us" title="Why Work With a UK-Registered Agency">
+        {/* Why UK-based */}
+        <Section eyebrow="Why Choose Us" title="Why Work With a London-based agency">
           <p className="text-muted-foreground max-w-3xl mb-12 mx-auto text-center">
             Nottingham businesses deserve a digital marketing partner they can trust — one that understands the local
             market, operates transparently, and delivers consistent results without locking you into long-term
@@ -477,7 +449,7 @@ export default function NottinghamPage() {
                 </div>
                 <div>
                   <p className="font-medium text-foreground">Registration</p>
-                  <p className="text-sm text-muted-foreground">UK Companies House Registered — Linkedo</p>
+                  <p className="text-sm text-muted-foreground">London-Based Agency — Linkedo</p>
                 </div>
               </div>
             </div>
@@ -587,38 +559,7 @@ export default function NottinghamPage() {
         </Section>
 
         {/* Testimonials */}
-        <Section eyebrow="Client Testimonials" title="What Nottingham Businesses Say About Us" gradient>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            {testimonials.map((t) => (
-              <div key={t.name} className="p-6 rounded-xl bg-card/50 border border-border/50 flex flex-col">
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: t.rating }).map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                  ))}
-                </div>
-                <p className="text-sm text-muted-foreground mb-6 flex-1 italic">&ldquo;{t.text}&rdquo;</p>
-                <div>
-                  <p className="font-semibold text-foreground text-sm">{t.name}</p>
-                  <p className="text-xs text-muted-foreground">{t.role}, {t.company}</p>
-                  <p className="text-xs text-primary mt-1 flex items-center gap-1">
-                    <MapPin className="w-3 h-3" />
-                    {t.location}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="max-w-sm mx-auto text-center p-6 rounded-xl bg-card/50 border border-border/50">
-            <div className="flex justify-center gap-1 mb-2">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-              ))}
-            </div>
-            <div className="text-3xl font-bold text-primary mb-1">4.9/5</div>
-            <p className="text-sm text-muted-foreground">Based on 30+ Nottingham client reviews</p>
-          </div>
-        </Section>
+        
 
         {/* FAQs */}
         <Section eyebrow="FAQs" title="Frequently Asked Questions About Our Nottingham Services">

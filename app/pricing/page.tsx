@@ -10,7 +10,7 @@ import { Target, Users, Layers, MessageCircle, MapPin, FileSearch, PenTool, Rock
 
 const title = "Digital Marketing Pricing UK | SEO, PPC & Web Development | Linkedo"
 const description =
-  "Clear, upfront pricing for website development, SEO, Google Ads, Meta Ads, branding, and consulting from a UK-registered digital marketing agency. No hidden fees."
+  "Clear, upfront pricing for website development, SEO, Google Ads, Meta Ads, branding, and consulting from a London-based digital marketing agency. No hidden fees."
 
 export const metadata: Metadata = {
   title,
@@ -170,7 +170,7 @@ const faqs = [
   {
     question: "What currency are your prices in?",
     answer:
-      "All prices are in GBP (£). We're a UK-registered agency, so billing is straightforward with no currency conversion surprises.",
+      "All prices are in GBP (£). We're a London-based agency, so billing is straightforward with no currency conversion surprises.",
   },
   {
     question: "How do I get started?",
@@ -214,7 +214,7 @@ export default function PricingPage() {
           gradient
           eyebrow="Why Linkedo"
           title="Why Choose Linkedo?"
-          description="A UK-registered digital marketing agency built around transparency, measurable results, and no long-term lock-in."
+          description="A London-based digital marketing agency built around transparency, measurable results, and no long-term lock-in."
         >
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {whyChooseUs.map((item) => {

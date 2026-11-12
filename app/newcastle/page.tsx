@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
-import { Section } from "@/components/ui/section"
+import {
+  Section } from "@/components/ui/section"
 import { ServiceCard } from "@/components/ui/service-card"
 import { AnimatedButton } from "@/components/ui/animated-button"
 import { SchemaMarkup } from "@/components/seo/schema-markup"
@@ -13,7 +14,6 @@ import {
   Clock,
   Building2,
   Check,
-  Star,
   Phone,
   Mail,
   Users,
@@ -22,7 +22,7 @@ import {
 
 const title = "Newcastle Digital Marketing Agency | Linkedo"
 const description =
-  "Linkedo is a UK-registered digital marketing agency in Newcastle offering SEO, Google Ads, Meta Ads & web development. Get a free strategy call today."
+  "Linkedo is a London-based digital marketing agency in Newcastle offering SEO, Google Ads, Meta Ads & web development. Get a free strategy call today."
 
 export const metadata: Metadata = {
   title,
@@ -73,7 +73,7 @@ const newcastleServiceSchema = {
   name: "Newcastle Digital Marketing Services",
   serviceType: "Digital Marketing",
   description:
-    "UK-registered digital marketing agency serving Newcastle and Tyne and Wear businesses with SEO, Google Ads, Meta Ads, and web development.",
+    "London-based digital marketing agency serving Newcastle and Tyne and Wear businesses with SEO, Google Ads, Meta Ads, and web development.",
   url: "https://linkedo.co.uk/newcastle",
   provider: { "@id": "https://linkedo.co.uk/#organization" },
   areaServed: [
@@ -159,7 +159,7 @@ const faqSchema = {
 }
 
 const trustBadges = [
-  "UK Companies House Registered",
+  "London-Based Agency",
   "GDPR Compliant",
   "GBP Billing",
   "Newcastle-Based Support",
@@ -168,9 +168,7 @@ const trustBadges = [
 
 const stats = [
   { icon: Users, value: "150+", label: "Campaigns delivered across SEO, Ads & Web Projects" },
-  { icon: Star, value: "4.9/5", label: "Client satisfaction — based on 30+ Newcastle reviews" },
-  { icon: MapPin, value: "Newcastle", label: "Serving Newcastle, Gateshead & Tyne and Wear" },
-]
+  { icon: MapPin, value: "Newcastle", label: "Serving Newcastle, Gateshead & Tyne and Wear" }]
 
 const services = [
   {
@@ -208,8 +206,8 @@ const services = [
 const benefits = [
   {
     icon: "🏛️",
-    title: "UK Registered & Accountable",
-    text: "Linkedo is fully registered with UK Companies House, giving Newcastle clients complete peace of mind.",
+    title: "UK-based & Accountable",
+    text: "Linkedo is fully based in London, giving Newcastle clients complete peace of mind.",
   },
   {
     icon: "📊",
@@ -307,32 +305,6 @@ const processSteps = [
   },
 ]
 
-const testimonials = [
-  {
-    name: "James Hargreaves",
-    role: "Managing Director",
-    company: "Hargreaves Engineering Solutions",
-    location: "Newcastle City Centre",
-    rating: 5,
-    text: "Linkedo transformed our online presence completely. Our enquiries doubled within three months of launching our new SEO strategy.",
-  },
-  {
-    name: "Sarah Mitchell",
-    role: "Marketing Manager",
-    company: "Mitchell Property Group",
-    location: "Gateshead Quays",
-    rating: 5,
-    text: "Professional, transparent, and results-driven. Our Google Ads campaigns have delivered the best ROI we've ever seen.",
-  },
-  {
-    name: "David Thornton",
-    role: "Director",
-    company: "Thornton Legal Consultants",
-    location: "Jesmond, Newcastle",
-    rating: 5,
-    text: "Linkedo understood our Newcastle market instantly. Our website traffic and leads have grown consistently month on month.",
-  },
-]
 
 export default function NewcastlePage() {
   return (
@@ -387,7 +359,7 @@ export default function NewcastlePage() {
         </Section>
 
         {/* About + Stats */}
-        <Section eyebrow="About Linkedo in Newcastle" title="UK-Registered Digital Marketing Agency in Newcastle">
+        <Section eyebrow="About Linkedo in Newcastle" title="London-based digital marketing agency in Newcastle">
           <div className="max-w-4xl mx-auto text-muted-foreground mb-12 text-center">
             <p>
               Linkedo helps Newcastle B2B businesses grow online through SEO, Google Ads, Meta Ads, web development, and
@@ -426,8 +398,8 @@ export default function NewcastlePage() {
           </div>
         </Section>
 
-        {/* Why UK-Registered */}
-        <Section eyebrow="Why Choose Us" title="Why Work With a UK-Registered Agency">
+        {/* Why UK-based */}
+        <Section eyebrow="Why Choose Us" title="Why Work With a London-based agency">
           <p className="text-muted-foreground max-w-3xl mb-12 mx-auto text-center">
             Newcastle businesses deserve an agency that understands local markets, delivers transparent results, and
             operates with full UK compliance and accountability.
@@ -473,7 +445,7 @@ export default function NewcastlePage() {
                 </div>
                 <div>
                   <p className="font-medium text-foreground">Registration</p>
-                  <p className="text-sm text-muted-foreground">UK Companies House Registered</p>
+                  <p className="text-sm text-muted-foreground">London-Based Agency</p>
                 </div>
               </div>
             </div>
@@ -583,38 +555,7 @@ export default function NewcastlePage() {
         </Section>
 
         {/* Testimonials */}
-        <Section eyebrow="Client Testimonials" title="What Newcastle Businesses Say About Us" gradient>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            {testimonials.map((t) => (
-              <div key={t.name} className="p-6 rounded-xl bg-card/50 border border-border/50 flex flex-col">
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: t.rating }).map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                  ))}
-                </div>
-                <p className="text-sm text-muted-foreground mb-6 flex-1 italic">&ldquo;{t.text}&rdquo;</p>
-                <div>
-                  <p className="font-semibold text-foreground text-sm">{t.name}</p>
-                  <p className="text-xs text-muted-foreground">{t.role}, {t.company}</p>
-                  <p className="text-xs text-primary mt-1 flex items-center gap-1">
-                    <MapPin className="w-3 h-3" />
-                    {t.location}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="max-w-sm mx-auto text-center p-6 rounded-xl bg-card/50 border border-border/50">
-            <div className="flex justify-center gap-1 mb-2">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-              ))}
-            </div>
-            <div className="text-3xl font-bold text-primary mb-1">4.9/5</div>
-            <p className="text-sm text-muted-foreground">Based on 30+ Newcastle client reviews</p>
-          </div>
-        </Section>
+        
 
         {/* FAQs */}
         <Section eyebrow="FAQs" title="Frequently Asked Questions About Our Newcastle Services">
@@ -639,7 +580,7 @@ export default function NewcastlePage() {
                   you&apos;ll outrank competitors and win more clients online.
                 </p>
                 <p>
-                  Partner with a UK-registered agency that understands Newcastle, delivers transparent results, and
+                  Partner with a London-based agency that understands Newcastle, delivers transparent results, and
                   never locks you into a contract.
                 </p>
               </div>

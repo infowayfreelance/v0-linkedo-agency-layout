@@ -9,7 +9,6 @@ import {
   CheckCircle2,
   Phone,
   Mail,
-  Star,
   Compass,
   ClipboardList,
   Cog,
@@ -34,7 +33,7 @@ import { SchemaMarkup } from "@/components/seo/schema-markup"
 
 const title = "Manchester Digital Marketing Agency | Linkedo"
 const description =
-  "Linkedo is a UK-registered digital marketing agency serving Manchester. SEO, Google Ads, Meta Ads & Web Development. Book a free call."
+  "Linkedo is a London-based digital marketing agency serving Manchester. SEO, Google Ads, Meta Ads & Web Development. Book a free call."
 
 export const metadata: Metadata = {
   title,
@@ -73,7 +72,7 @@ export const metadata: Metadata = {
 }
 
 const trustBadges = [
-  "UK Companies House Registered",
+  "London-Based Agency",
   "GDPR Compliant",
   "GBP Billing",
   "Manchester-Based Support",
@@ -87,16 +86,10 @@ const aboutStats = [
     label: "Manchester & Greater Manchester businesses served",
   },
   {
-    icon: Star,
-    value: "4.9 / 5",
-    label: "Average client rating based on reviews",
-  },
-  {
     icon: ShieldCheck,
-    value: "UK-Registered",
-    label: "Companies House registered — fully accountable",
-  },
-]
+    value: "UK-based",
+    label: "London-based — fully accountable",
+  }]
 
 const services = [
   {
@@ -138,9 +131,9 @@ const services = [
 
 const benefits = [
   {
-    title: "UK-Registered & Fully Accountable",
+    title: "UK-based & Fully Accountable",
     description:
-      "Linkedo is verified on UK Companies House, giving Manchester businesses complete confidence in who they're working with.",
+      "Linkedo is verified on London base, giving Manchester businesses complete confidence in who they're working with.",
   },
   {
     title: "Manchester Market Knowledge",
@@ -263,31 +256,7 @@ const processSteps = [
   },
 ]
 
-const testimonials = [
-  {
-    quote:
-      "Linkedo transformed our online presence completely. Within four months our enquiries doubled and we're now ranking on page one for our most competitive Manchester search terms.",
-    name: "James Hartley",
-    role: "Managing Director — Pennine Engineering Solutions",
-    location: "Oldham, Greater Manchester",
-  },
-  {
-    quote:
-      "We'd tried other agencies before but Linkedo were different — transparent, knowledgeable, and genuinely focused on results. Our property listings are now generating consistent leads every week.",
-    name: "Sarah Mellor",
-    role: "Director — Castlefield Property Group",
-    location: "Castlefield, Manchester",
-  },
-  {
-    quote:
-      "The team at Linkedo understood our legal sector immediately. Our consultation bookings have increased significantly and our Google Ads are finally delivering real return on investment.",
-    name: "David Thornton",
-    role: "Senior Partner — Deansgate Legal Partners",
-    location: "Deansgate, Manchester",
-  },
-]
 
-const aggregateRating = { rating: 4.9, count: 30 }
 
 const faqs = [
   {
@@ -339,7 +308,7 @@ const manchesterServiceSchema = {
   name: "Manchester Digital Marketing Services",
   serviceType: "Digital Marketing",
   description:
-    "UK-registered digital marketing agency serving Manchester and Greater Manchester businesses with SEO, Google Ads, Meta Ads, web development, and security services.",
+    "London-based digital marketing agency serving Manchester and Greater Manchester businesses with SEO, Google Ads, Meta Ads, web development, and security services.",
   url: "https://linkedo.co.uk/manchester",
   provider: { "@id": "https://linkedo.co.uk/#organization" },
   areaServed: [
@@ -453,7 +422,7 @@ export default function ManchesterPage() {
         >
           <div className="max-w-3xl mx-auto space-y-5 text-base lg:text-lg text-muted-foreground leading-relaxed">
             <p>
-              Linkedo is a UK Companies House registered digital marketing agency working with
+              Linkedo is a London-Based Agency digital marketing agency working with
               businesses across Manchester and Greater Manchester. We deliver measurable results
               through SEO, paid advertising, web development, and website security.
             </p>
@@ -465,7 +434,7 @@ export default function ManchesterPage() {
             <p>
               Whether you&apos;re a start-up in Ancoats or an established firm in Deansgate,
               Linkedo provides transparent, no-lock-in digital marketing services tailored to your
-              growth goals and backed by real UK-registered expertise.
+              growth goals and backed by real UK market expertise.
             </p>
           </div>
 
@@ -503,8 +472,8 @@ export default function ManchesterPage() {
         {/* Why Choose Us */}
         <Section
           eyebrow="Why Choose Us"
-          title="Why Work With a UK-Registered Agency for Your Manchester Business"
-          description="Manchester businesses deserve a digital marketing partner they can trust — one that's accountable, transparent, and genuinely invested in local growth. As a UK Companies House registered agency, Linkedo brings credibility, compliance, and commercial focus to every client relationship in Greater Manchester."
+          title="Why Work With a London-based agency for Your Manchester Business"
+          description="Manchester businesses deserve a digital marketing partner they can trust — one that's accountable, transparent, and genuinely invested in local growth. As a London-Based Agency agency, Linkedo brings credibility, compliance, and commercial focus to every client relationship in Greater Manchester."
         >
           <div className="grid lg:grid-cols-3 gap-8 items-start">
             <ul className="lg:col-span-2 grid sm:grid-cols-2 gap-4">
@@ -557,7 +526,7 @@ export default function ManchesterPage() {
                   </div>
                   <div>
                     <p className="font-medium text-foreground">Registration</p>
-                    <p className="text-sm text-muted-foreground">UK Companies House Registered</p>
+                    <p className="text-sm text-muted-foreground">London-Based Agency</p>
                   </div>
                 </div>
               </div>
@@ -673,59 +642,7 @@ export default function ManchesterPage() {
         </Section>
 
         {/* Testimonials */}
-        <Section
-          eyebrow="Client Testimonials"
-          title="What Manchester Businesses Say About Us"
-          gradient
-        >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((t) => (
-              <div
-                key={t.name}
-                className="flex flex-col p-6 rounded-2xl bg-card/50 border border-border/50"
-              >
-                <div className="flex items-center gap-1 mb-4">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                  ))}
-                </div>
-                <p className="text-foreground/90 leading-relaxed mb-6 flex-1">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-                <div className="pt-4 border-t border-border/50">
-                  <p className="font-semibold text-foreground">{t.name}</p>
-                  <p className="text-sm text-muted-foreground">{t.role}</p>
-                  <p className="text-xs text-primary mt-1 flex items-center gap-1">
-                    <MapPin className="w-3 h-3" /> {t.location}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-10 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-6 text-sm text-muted-foreground">
-            <div className="flex items-center gap-2">
-              <div className="flex items-center gap-1">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                ))}
-              </div>
-              <span className="font-medium text-foreground">{aggregateRating.rating} / 5</span>
-              <span>— Based on {aggregateRating.count}+ Manchester client reviews</span>
-            </div>
-            <div className="flex flex-wrap items-center justify-center gap-2">
-              {["UK Companies House Registered", "GDPR Compliant", "GBP Billing"].map((b) => (
-                <span
-                  key={b}
-                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-card/70 border border-border/50 text-xs"
-                >
-                  <Check className="w-3 h-3 text-primary" />
-                  {b}
-                </span>
-              ))}
-            </div>
-          </div>
-        </Section>
+        
 
         {/* FAQs */}
         <Section
@@ -748,7 +665,7 @@ export default function ManchesterPage() {
             <p className="text-base lg:text-lg text-muted-foreground leading-relaxed mb-10">
               Linkedo is ready to build a results-driven digital marketing strategy tailored
               specifically to your Manchester business. No lock-in contracts, no jargon — just
-              transparent, measurable growth from a UK-registered agency you can trust.
+              transparent, measurable growth from a London-based agency you can trust.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">

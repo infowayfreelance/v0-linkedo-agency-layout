@@ -10,7 +10,7 @@ const GTM_ID = "GTM-M6SD8PZX"
 
 const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": ["Organization", "ProfessionalService"],
   "@id": "https://linkedo.co.uk/#organization",
   name: "Linkedo",
   url: "https://linkedo.co.uk",
@@ -19,9 +19,16 @@ const organizationSchema = {
     url: "https://linkedo.co.uk/favicon.png",
   },
   telephone: "+44 7927 969991",
+  openingHours: "Mo-Su 00:00-23:59",
+  openingHoursSpecification: [{
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    opens: "00:00",
+    closes: "23:59",
+  }],
   email: "info@linkedo.co.uk",
   description:
-    "Linkedo delivers premium web development, SEO optimisation, and paid advertising services that generate real leads and measurable results for B2B businesses.",
+    "Linkedo is a London-based digital marketing agency serving B2B and B2C businesses across the UK with web development, SEO, and paid advertising.",
   address: {
     "@type": "PostalAddress",
     streetAddress: "483 Green Lanes",

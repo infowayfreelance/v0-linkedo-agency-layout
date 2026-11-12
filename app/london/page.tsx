@@ -16,7 +16,6 @@ import {
   CheckCircle2,
   Phone,
   Mail,
-  Star,
   Compass,
   ClipboardList,
   Cog,
@@ -78,7 +77,7 @@ export const metadata: Metadata = {
 }
 
 const trustBadges = [
-  "UK Companies House Registered",
+  "London-Based Agency",
   "GDPR Compliant",
   "GBP Billing",
   "London-Based Support",
@@ -98,7 +97,7 @@ const aboutStats = [
   },
   {
     icon: Globe2,
-    value: "UK Registered",
+    value: "UK-based",
     label: "Accountable, compliant & local",
   },
 ]
@@ -143,8 +142,8 @@ const services = [
 
 const ukBenefits = [
   {
-    title: "UK-Registered Company",
-    description: "Full accountability under UK law and Companies House registration.",
+    title: "London-based agency",
+    description: "London-based support with remote service across the UK.",
   },
   {
     title: "GDPR-Compliant Processes",
@@ -162,7 +161,7 @@ const ukBenefits = [
   {
     title: "Real-Time Communication",
     description:
-      "Overlapping UK business hours with direct access to the team doing the work.",
+      "24/7 availability with direct access to the team.",
   },
   {
     title: "UK-Based Talent & Partners",
@@ -261,31 +260,7 @@ const processSteps = [
   },
 ]
 
-const testimonials = [
-  {
-    quote:
-      "Linkedo transformed our online presence completely. Within 4 months our qualified leads doubled and our cost per acquisition dropped significantly.",
-    name: "James Richardson",
-    role: "Managing Director, London Finance Co.",
-    location: "City of London",
-  },
-  {
-    quote:
-      "Professional, transparent, and results-driven. Linkedo's SEO strategy took us from page 3 to page 1 for our most competitive keywords in London.",
-    name: "Sarah Mitchell",
-    role: "Head of Marketing, London Property Group",
-    location: "Canary Wharf, London",
-  },
-  {
-    quote:
-      "Their Google Ads management cut our cost per lead by 60%. The team is responsive, honest, and genuinely invested in our growth.",
-    name: "David Clarke",
-    role: "Partner, London Legal Services",
-    location: "Westminster, London",
-  },
-]
 
-const aggregateRating = { rating: 4.9, count: 30 }
 
 const faqs = [
   {
@@ -311,7 +286,7 @@ const faqs = [
   {
     question: "Are you a local London agency or a remote team?",
     answer:
-      "We are a UK-registered company with a physical presence in London — fully accountable, locally available, and operating in GMT/BST business hours.",
+      "We are a London-based agency serving businesses across the UK — fully accountable, locally available, and available 24 hours a day, 7 days a week.",
   },
   {
     question: "Can you manage both SEO and Google Ads together?",
@@ -337,7 +312,7 @@ const londonServiceSchema = {
   name: "London Digital Marketing Services",
   serviceType: "Digital Marketing",
   description:
-    "UK-registered digital marketing agency serving London businesses with web development, SEO, Google Ads, and Meta Ads strategies that deliver measurable results.",
+    "London-based digital marketing agency serving London businesses with web development, SEO, Google Ads, and Meta Ads strategies that deliver measurable results.",
   url: "https://linkedo.co.uk/london",
   provider: { "@id": "https://linkedo.co.uk/#organization" },
   areaServed: [
@@ -417,7 +392,7 @@ export default function LondonPage() {
                 Results
               </h2>
               <p className="text-lg text-muted-foreground mb-4 max-w-2xl">
-                Linkedo is a UK-registered digital marketing agency serving businesses across
+                Linkedo is a London-based digital marketing agency serving businesses across
                 Greater London. We combine data-driven strategy with hands-on execution to bring
                 you measurable growth — not vanity metrics.
               </p>
@@ -508,8 +483,8 @@ export default function LondonPage() {
         {/* Why Choose Us */}
         <Section
           eyebrow="Why Choose Us"
-          title="Why Work With a UK-Registered Agency"
-          description="As a UK-registered company, we understand the unique demands of London's business landscape — and we bring the local accountability and expertise you'd expect from a trusted partner."
+          title="Why Work With a London-based agency"
+          description="As a London-based agency, we understand the unique demands of London's business landscape — and we bring the local accountability and expertise you'd expect from a trusted partner."
         >
           <div className="grid lg:grid-cols-3 gap-8 items-start">
             <ul className="lg:col-span-2 grid sm:grid-cols-2 gap-4">
@@ -554,7 +529,7 @@ export default function LondonPage() {
                   </div>
                   <div>
                     <p className="font-medium text-foreground">Registration</p>
-                    <p className="text-sm text-muted-foreground">UK Companies House Registered</p>
+                    <p className="text-sm text-muted-foreground">London-Based Agency</p>
                   </div>
                 </div>
               </div>
@@ -648,47 +623,7 @@ export default function LondonPage() {
         </Section>
 
         {/* Testimonials */}
-        <Section
-          eyebrow="Client Testimonials"
-          title="What London Businesses Say About Us"
-        >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((t) => (
-              <div
-                key={t.name}
-                className="flex flex-col p-6 rounded-2xl bg-card/50 border border-border/50"
-              >
-                <div className="flex items-center gap-1 mb-4">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                  ))}
-                </div>
-                <p className="text-foreground/90 leading-relaxed mb-6 flex-1">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-                <div className="pt-4 border-t border-border/50">
-                  <p className="font-semibold text-foreground">{t.name}</p>
-                  <p className="text-sm text-muted-foreground">{t.role}</p>
-                  <p className="text-xs text-primary mt-1 flex items-center gap-1">
-                    <MapPin className="w-3 h-3" /> {t.location}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-10 flex items-center justify-center gap-3 text-sm text-muted-foreground">
-            <div className="flex items-center gap-1">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-              ))}
-            </div>
-            <span className="font-medium text-foreground">
-              {aggregateRating.rating} / 5
-            </span>
-            <span>— Based on {aggregateRating.count}+ London client reviews</span>
-          </div>
-        </Section>
+        
 
         {/* FAQs */}
         <Section

@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
-import { Section } from "@/components/ui/section"
+import {
+  Section } from "@/components/ui/section"
 import { ServiceCard } from "@/components/ui/service-card"
 import { AnimatedButton } from "@/components/ui/animated-button"
 import { SchemaMarkup } from "@/components/seo/schema-markup"
@@ -13,7 +14,6 @@ import {
   Clock,
   Building2,
   Check,
-  Star,
   Phone,
   Mail,
   Users,
@@ -22,7 +22,7 @@ import {
 
 const title = "Midland Digital Marketing Agency | SEO & Google Ads – Linkedo"
 const description =
-  "Grow your Midlands business with expert SEO, Google Ads management & web development. UK-registered, no lock-in contracts. Get a free audit today."
+  "Grow your Midlands business with expert SEO, Google Ads management & web development. UK-based, no lock-in contracts. Get a free audit today."
 
 export const metadata: Metadata = {
   title,
@@ -73,7 +73,7 @@ const midlandServiceSchema = {
   name: "Midlands Digital Marketing Services",
   serviceType: "Digital Marketing",
   description:
-    "UK-registered digital marketing agency serving Midlands businesses with SEO, Google Ads, Meta Ads, and web development.",
+    "London-based digital marketing agency serving Midlands businesses with SEO, Google Ads, Meta Ads, and web development.",
   url: "https://linkedo.co.uk/midland",
   provider: { "@id": "https://linkedo.co.uk/#organization" },
   areaServed: [
@@ -172,7 +172,7 @@ const faqSchema = {
 }
 
 const trustBadges = [
-  "UK Registered Company",
+  "UK-based Company",
   "GDPR Compliant",
   "No Lock-in Contracts",
   "Transparent Reporting",
@@ -315,32 +315,6 @@ const processSteps = [
   },
 ]
 
-const testimonials = [
-  {
-    name: "Trades Business Owner",
-    role: "Director",
-    company: "Local Trades Business",
-    location: "West Midlands",
-    rating: 5,
-    text: "We went from page three to page one in weeks. I couldn't believe the difference it made to our phone ringing.",
-  },
-  {
-    name: "Retail Manager",
-    role: "Manager",
-    company: "East Midlands Retail",
-    location: "East Midlands",
-    rating: 5,
-    text: "Our Google Ads were burning budget before Linkedo took over. Now every pound actually brings in customers.",
-  },
-  {
-    name: "Professional Services Owner",
-    role: "Business Owner",
-    company: "Midlands Professional Services",
-    location: "Midlands",
-    rating: 5,
-    text: "First agency that's ever properly explained what they're doing and why. No jargon, just results.",
-  },
-]
 
 export default function MidlandPage() {
   return (
@@ -398,7 +372,7 @@ export default function MidlandPage() {
         </Section>
 
         {/* About + Stats */}
-        <Section eyebrow="About Online Marketing in the Midlands" title="UK-Registered Digital Marketing Agency for the Midlands">
+        <Section eyebrow="About Online Marketing in the Midlands" title="London-based digital marketing agency for the Midlands">
           <div className="max-w-4xl mx-auto text-muted-foreground mb-12 space-y-4 text-center">
             <p>
               If your business isn&apos;t showing up when Midlands customers search for what you offer, you&apos;re
@@ -496,7 +470,7 @@ export default function MidlandPage() {
                 </div>
                 <div>
                   <p className="font-medium text-foreground">Registration</p>
-                  <p className="text-sm text-muted-foreground">UK Companies House Registered</p>
+                  <p className="text-sm text-muted-foreground">London-Based Agency</p>
                 </div>
               </div>
             </div>
@@ -606,38 +580,7 @@ export default function MidlandPage() {
         </Section>
 
         {/* Testimonials */}
-        <Section eyebrow="Client Testimonials" title="What Our Clients Say About Us" gradient>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            {testimonials.map((t) => (
-              <div key={t.name} className="p-6 rounded-xl bg-card/50 border border-border/50 flex flex-col">
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: t.rating }).map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                  ))}
-                </div>
-                <p className="text-sm text-muted-foreground mb-6 flex-1 italic">&ldquo;{t.text}&rdquo;</p>
-                <div>
-                  <p className="font-semibold text-foreground text-sm">{t.name}</p>
-                  <p className="text-xs text-muted-foreground">{t.role}, {t.company}</p>
-                  <p className="text-xs text-primary mt-1 flex items-center gap-1">
-                    <MapPin className="w-3 h-3" />
-                    {t.location}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="max-w-sm mx-auto text-center p-6 rounded-xl bg-card/50 border border-border/50">
-            <div className="flex justify-center gap-1 mb-2">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-              ))}
-            </div>
-            <div className="text-3xl font-bold text-primary mb-1">4.9/5</div>
-            <p className="text-sm text-muted-foreground">Based on 30+ client reviews</p>
-          </div>
-        </Section>
+        
 
         {/* FAQs */}
         <Section eyebrow="FAQs" title="Frequently Asked Questions">

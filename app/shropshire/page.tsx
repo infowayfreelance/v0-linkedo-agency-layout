@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
-import { Section } from "@/components/ui/section"
+import {
+  Section } from "@/components/ui/section"
 import { ServiceCard } from "@/components/ui/service-card"
 import { AnimatedButton } from "@/components/ui/animated-button"
 import { SchemaMarkup } from "@/components/seo/schema-markup"
@@ -13,7 +14,6 @@ import {
   Clock,
   Building2,
   Check,
-  Star,
   Phone,
   Mail,
   Users,
@@ -73,7 +73,7 @@ const shropshireServiceSchema = {
   name: "Shropshire Digital Marketing Services",
   serviceType: "Digital Marketing",
   description:
-    "UK-registered digital marketing agency serving Shropshire businesses with SEO, Google Ads, Meta Ads, and web development.",
+    "London-based digital marketing agency serving Shropshire businesses with SEO, Google Ads, Meta Ads, and web development.",
   url: "https://linkedo.co.uk/shropshire",
   provider: { "@id": "https://linkedo.co.uk/#organization" },
   areaServed: [
@@ -169,7 +169,7 @@ const faqSchema = {
 }
 
 const trustBadges = [
-  "UK Registered Company",
+  "UK-based Company",
   "GDPR Compliant",
   "No Lock-in Contracts",
   "Transparent Reporting",
@@ -178,9 +178,7 @@ const trustBadges = [
 
 const stats = [
   { icon: Users, value: "150+", label: "Projects Delivered UK-Wide" },
-  { icon: TrendingUp, value: "200%+", label: "Average Increase in Qualified Leads" },
-  { icon: Star, value: "30+", label: "5-Star Client Reviews" },
-]
+  { icon: TrendingUp, value: "200%+", label: "Average Increase in Qualified Leads" }]
 
 const services = [
   {
@@ -305,32 +303,6 @@ const processSteps = [
   },
 ]
 
-const testimonials = [
-  {
-    name: "James Hargreaves",
-    role: "Managing Director",
-    company: "Hargreaves Engineering Solutions",
-    location: "Telford, Shropshire",
-    rating: 5,
-    text: "Linkedo transformed our online presence completely. Our enquiries doubled within three months of launching our new SEO strategy.",
-  },
-  {
-    name: "Sarah Mitchell",
-    role: "Marketing Manager",
-    company: "Mitchell Property Group",
-    location: "Shrewsbury, Shropshire",
-    rating: 5,
-    text: "Professional, transparent, and results-driven. Our Google Ads campaigns have delivered the best ROI we've ever seen.",
-  },
-  {
-    name: "David Thornton",
-    role: "Director",
-    company: "Thornton Legal Consultants",
-    location: "Oswestry, Shropshire",
-    rating: 5,
-    text: "Linkedo understood our local market instantly. Our website traffic and leads have grown consistently month on month.",
-  },
-]
 
 export default function ShropshirePage() {
   return (
@@ -388,7 +360,7 @@ export default function ShropshirePage() {
         </Section>
 
         {/* About + Stats */}
-        <Section eyebrow="About Linkedo in Shropshire" title="UK-Registered Digital Marketing Agency in Shropshire">
+        <Section eyebrow="About Linkedo in Shropshire" title="London-based digital marketing agency in Shropshire">
           <div className="max-w-4xl mx-auto text-muted-foreground mb-12 space-y-4 text-center">
             <p>
               Running a business in Shropshire means competing with companies who show up first on Google — even when
@@ -396,7 +368,7 @@ export default function ShropshirePage() {
               to the customers searching for them right now.
             </p>
             <p>
-              Linkedo is a UK-registered digital marketing agency helping businesses grow through SEO, Google Ads, Meta
+              Linkedo is a London-based digital marketing agency helping businesses grow through SEO, Google Ads, Meta
               Ads, and web development. We know Shropshire isn&apos;t London or Manchester — it needs a different
               playbook, built around local search behaviour and real community trust.
             </p>
@@ -484,7 +456,7 @@ export default function ShropshirePage() {
                 </div>
                 <div>
                   <p className="font-medium text-foreground">Registration</p>
-                  <p className="text-sm text-muted-foreground">UK Companies House Registered</p>
+                  <p className="text-sm text-muted-foreground">London-Based Agency</p>
                 </div>
               </div>
             </div>
@@ -594,38 +566,7 @@ export default function ShropshirePage() {
         </Section>
 
         {/* Testimonials */}
-        <Section eyebrow="Client Testimonials" title="What Our Clients Say About Us" gradient>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            {testimonials.map((t) => (
-              <div key={t.name} className="p-6 rounded-xl bg-card/50 border border-border/50 flex flex-col">
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: t.rating }).map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                  ))}
-                </div>
-                <p className="text-sm text-muted-foreground mb-6 flex-1 italic">&ldquo;{t.text}&rdquo;</p>
-                <div>
-                  <p className="font-semibold text-foreground text-sm">{t.name}</p>
-                  <p className="text-xs text-muted-foreground">{t.role}, {t.company}</p>
-                  <p className="text-xs text-primary mt-1 flex items-center gap-1">
-                    <MapPin className="w-3 h-3" />
-                    {t.location}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="max-w-sm mx-auto text-center p-6 rounded-xl bg-card/50 border border-border/50">
-            <div className="flex justify-center gap-1 mb-2">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-              ))}
-            </div>
-            <div className="text-3xl font-bold text-primary mb-1">4.9/5</div>
-            <p className="text-sm text-muted-foreground">Based on 30+ client reviews</p>
-          </div>
-        </Section>
+        
 
         {/* FAQs */}
         <Section eyebrow="FAQs" title="Frequently Asked Questions">
