@@ -22,9 +22,9 @@ import {
   Award,
 } from "lucide-react"
 
-const title = "Digital Marketing Agency Birmingham | Linkedo"
+const title = "Digital Marketing Agency Birmingham & West Midlands | Linkedo"
 const description =
-  "Linkedo offers SEO, Google Ads, Meta Ads & Web Development for Birmingham businesses. UK-based, GDPR compliant, no lock-in contracts."
+  "Linkedo is a digital marketing agency for Birmingham and West Midlands businesses: SEO, Google Ads, Meta Ads and web development. No lock-in contracts."
 
 export const metadata: Metadata = {
   title,
@@ -123,7 +123,7 @@ const faqSchema = {
       name: "How long before I see results from SEO in Birmingham?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "SEO is a long-term strategy. Most Birmingham clients start seeing meaningful improvements in rankings and traffic within 3–6 months, with stronger results building over 6–12 months depending on competition and the current state of their website.",
+        text: "SEO is a long-term strategy. Most Birmingham clients start seeing meaningful improvements in rankings and traffic within 3–6 months, with stronger results building over 6–12 months depending on competition and the current state of their website. If you are comparing agencies, read our guide on how to choose an SEO agency in Birmingham.",
       },
     },
     {
@@ -289,8 +289,15 @@ const faqs = [
   },
   {
     question: "How long before I see results from SEO in Birmingham?",
-    answer:
-      "SEO is a long-term strategy. Most Birmingham clients start seeing meaningful improvements in rankings and traffic within 3–6 months, with stronger results building over 6–12 months depending on competition and the current state of their website.",
+    answer: (
+      <>
+        SEO is a long-term strategy. Most Birmingham clients start seeing meaningful improvements in rankings and traffic within 3–6 months, with stronger results building over 6–12 months depending on competition and the current state of their website. If you are comparing agencies, read our guide on{" "}
+        <Link href="/blog/how-to-choose-an-seo-agency-in-birmingham" className="text-primary underline hover:text-primary/80">
+          how to choose an SEO agency in Birmingham
+        </Link>
+        .
+      </>
+    ) as unknown as string,
   },
   {
     question: "Can you run Google Ads for a Birmingham business?",
@@ -353,7 +360,7 @@ export default function BirminghamPage() {
                 <span className="text-sm font-medium text-primary uppercase tracking-wider">West Midlands, United Kingdom</span>
               </div>
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-6">
-                Birmingham&apos;s <span className="text-gradient-primary">Digital Marketing Agency</span> | Linkedo
+                Birmingham &amp; West Midlands <span className="text-gradient-primary">Digital Marketing Agency</span> | Linkedo
               </h1>
               <p className="text-lg text-muted-foreground mb-4 max-w-3xl">
                 Linkedo is a London-based digital marketing agency helping Birmingham businesses generate more leads,
@@ -450,7 +457,7 @@ export default function BirminghamPage() {
                 Why Choose Linkedo
               </span>
               <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
-                Why Birmingham Businesses Choose a London-based agency
+                Why Birmingham &amp; West Midlands Businesses Choose Linkedo
               </h2>
               <p className="text-muted-foreground mb-8">
                 As a London-based agency, we bring local accountability, cultural understanding, and proven digital
