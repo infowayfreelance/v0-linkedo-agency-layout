@@ -217,8 +217,8 @@ const services = [
 ]
 
 const stats = [
-  { icon: Users, value: "50+", label: "Birmingham & West Midlands businesses served" },
-  { icon: TrendingUp, value: "3x", label: "Average ROI achieved within 6 months" }]
+  { icon: Users, value: "24/7", label: "support, 7 days a week" },
+  { icon: TrendingUp, value: "Local", label: "Birmingham & West Midlands focus" }]
 
 const trustBadges = [
   "London-based agency",
