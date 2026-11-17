@@ -2,6 +2,10 @@ import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 
 const postMetadata: Record<string, { title: string; description: string }> = {
+  "seo-trends-2026": {
+    title: "SEO Trends 2026: A Guide for UK Small Businesses",
+    description: "Explore SEO trends 2026 for UK small businesses. Learn about AI search, local SEO, Google rankings and practical steps to improve visibility.",
+  },
   "what-is-ai-seo": {
     title: "What Is AI SEO UK Small Business Guide for 2026 | Linkedo",
     description:
@@ -19,10 +23,27 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = postMetadata[slug]
   if (!post) notFound()
 
+  const canonical = `https://linkedo.co.uk/blog/${slug}`
+  const featuredImage = "https://linkedo.co.uk/blog/seo-trends-2026-featured.webp"
   return {
     title: post?.title,
     description: post?.description,
-    alternates: { canonical: `/blog/${slug}` },
+    alternates: { canonical },
+    ...(slug === "seo-trends-2026" ? {
+      openGraph: {
+        title: post.title,
+        description: post.description,
+        url: canonical,
+        type: "article" as const,
+        images: [{ url: featuredImage, alt: "SEO Trends 2026 guide for UK small businesses showing a laptop with Google search results" }],
+      },
+      twitter: {
+        card: "summary_large_image" as const,
+        title: post.title,
+        description: post.description,
+        images: [featuredImage],
+      },
+    } : {}),
   }
 }
 
@@ -35,10 +56,12 @@ import { SchemaMarkup } from "@/components/seo/schema-markup"
 import Link from "next/link"
 import { Calendar, Clock, ArrowLeft, ArrowRight } from "lucide-react"
 import { aiSeoPost } from "@/lib/blog-posts/what-is-ai-seo"
+import { seoTrends2026Post, seoTrends2026Faqs } from "@/lib/blog-posts/seo-trends-2026"
 import { notRankingPost } from "@/lib/blog-posts/why-not-ranking-on-google-2026"
 import { renderContentBlocks } from "@/lib/blog-posts/render-blocks"
 
 const publishedPosts = {
+  "seo-trends-2026": seoTrends2026Post,
   "what-is-ai-seo": aiSeoPost,
   "why-not-ranking-on-google-2026": notRankingPost,
 } as const
@@ -75,9 +98,32 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     ],
   }
 
+  const pageSchema = slug === "seo-trends-2026"
+    ? [
+        blogPostBreadcrumbSchema,
+        {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          headline: post.title,
+          description: post.excerpt,
+          image: "https://linkedo.co.uk/blog/seo-trends-2026-featured.webp",
+          datePublished: post.date,
+          dateModified: post.date,
+          author: { "@type": "Person", name: post.author.name },
+          publisher: { "@type": "Organization", name: "Linkedo", url: "https://linkedo.co.uk" },
+          mainEntityOfPage: { "@type": "WebPage", "@id": "https://linkedo.co.uk/blog/seo-trends-2026" },
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: seoTrends2026Faqs,
+        },
+      ]
+    : blogPostBreadcrumbSchema
+
   return (
     <MainShell>
-      <SchemaMarkup schema={blogPostBreadcrumbSchema} />
+      <SchemaMarkup schema={pageSchema} />
       <div className="pt-20 pb-12 md:pt-24 md:pb-16">
         <article className="max-w-4xl mx-auto">
           <Breadcrumbs items={[{ label: "Blog", href: "/blog" }, { label: post.title }]} className="mb-6" />
