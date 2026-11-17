@@ -55,6 +55,16 @@ const blogPosts = [
     readTime: "7 min read",
     image: "/seo-analytics-dashboard.png",
   },
+  {
+    slug: "how-to-choose-an-seo-agency-in-leicester",
+    title: "How to Choose an SEO Agency in Leicester: 2026 Checklist",
+    excerpt:
+      "A practical guide to comparing SEO agencies in Leicester, with checks for local SEO, pricing, reporting, contracts and AI search.",
+    category: "SEO",
+    date: "2026-11-17",
+    readTime: "10 min read",
+    image: "/blog/choose-seo-agency-leicester-featured.webp",
+  },
 ]
 
 export default function BlogPage() {
