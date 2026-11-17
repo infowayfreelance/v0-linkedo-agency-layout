@@ -25,6 +25,7 @@ const blogBreadcrumbSchema = {
 const categories = ["All", "SEO", "Web Development", "Google Ads", "Marketing", "Case Studies", "Industry News"]
 
 const blogPosts = [
+
   {
     slug: "seo-trends-2026",
     title: "SEO Trends 2026: What UK Small Businesses Need to Know",

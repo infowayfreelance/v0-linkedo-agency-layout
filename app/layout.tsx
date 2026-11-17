@@ -28,7 +28,7 @@ const organizationSchema = {
   }],
   email: "info@linkedo.co.uk",
   description:
-    "Linkedo is a London-based digital marketing agency serving B2B and B2C businesses across the UK with web development, SEO, and paid advertising.",
+    "Linkedo is a digital marketing agency serving B2B and B2C businesses across the UK with web development, SEO, and paid advertising.",
   address: {
     "@type": "PostalAddress",
     streetAddress: "483 Green Lanes",
