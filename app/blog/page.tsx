@@ -25,15 +25,7 @@ const blogBreadcrumbSchema = {
 const categories = ["All", "SEO", "Web Development", "Google Ads", "Marketing", "Case Studies", "Industry News"]
 
 const blogPosts = [
-  {
-    slug: "seo-trends-2026",
-    title: "SEO Trends 2026: What UK Small Businesses Need to Know",
-    excerpt: "Explore SEO trends 2026 for UK small businesses. Learn about AI search, local SEO, Google rankings and practical steps to improve visibility.",
-    category: "SEO",
-    date: "2026-11-17",
-    readTime: "12 min read",
-    image: "/blog/seo-trends-2026-featured.webp",
-  },
+
   {
     slug: "what-is-ai-seo",
     title: "What Is AI SEO: A Practical Guide for UK Small Businesses in 2026",
@@ -43,6 +35,15 @@ const blogPosts = [
     readTime: "12 min read",
     image: "/blog/what-is-ai-seo/ai-seo-hero.png",
     featured: true,
+  },
+  {
+    slug: "seo-trends-2026",
+    title: "SEO Trends 2026: What UK Small Businesses Need to Know",
+    excerpt: "Explore SEO trends 2026 for UK small businesses. Learn about AI search, local SEO, Google rankings and practical steps to improve visibility.",
+    category: "SEO",
+    date: "2026-11-17",
+    readTime: "12 min read",
+    image: "/blog/seo-trends-2026-featured.webp",
   },
   {
     slug: "why-not-ranking-on-google-2026",
