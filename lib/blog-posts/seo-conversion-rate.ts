@@ -81,7 +81,7 @@ export const seoConversionRateFaqs = (() => {
 })()
 
 export const seoConversionRatePost = {
-  slug: "blog/seo-conversion-rate",
+  slug: "seo-conversion-rate",
   title: "SEO Conversion Rate: How to Turn Organic Traffic Into Leads",
   excerpt: "Learn how to calculate your SEO conversion rate, track enquiries in GA4 and turn organic traffic into more leads for your UK service or local business.",
   category: "SEO",

@@ -5,14 +5,14 @@ import { Breadcrumbs } from "@/components/ui/breadcrumbs"
 import { Chip } from "@/components/ui/chip"
 import { SchemaMarkup } from "@/components/seo/schema-markup"
 import { renderContentBlocks } from "@/lib/blog-posts/render-blocks"
-import { aeoForLeicesterPost, aeoForLeicesterFaqs } from "@/lib/blog-posts/blog/aeo-for-leicester-businesses"
+import { aeoForLeicesterPost, aeoForLeicesterFaqs } from "@/lib/blog-posts/aeo-for-leicester-businesses"
 
 const canonical = "https://linkedo.co.uk/blog/aeo-for-leicester-businesses"
 const featuredImage = "https://linkedo.co.uk/blog/aeo-leicester-featured.webp"
 
 export const metadata: Metadata = {
-  title: "**SEO title:** AEO for Leicester Businesses: How to Choose an Agency",
-  description: "**Meta description:** Learn what answer engine optimisation (AEO) means for Leicester businesses, how it works with SEO, and what to ask an AEO agency before hiring one.",
+  title: "AEO for Leicester Businesses: How to Choose an Agency",
+  description: "Learn what answer engine optimisation (AEO) means for Leicester businesses, how it works with SEO, and what to ask an AEO agency before hiring one.",
   alternates: { canonical },
   openGraph: {
     type: "article",

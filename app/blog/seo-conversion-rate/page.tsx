@@ -5,7 +5,7 @@ import { Breadcrumbs } from "@/components/ui/breadcrumbs"
 import { Chip } from "@/components/ui/chip"
 import { SchemaMarkup } from "@/components/seo/schema-markup"
 import { renderContentBlocks } from "@/lib/blog-posts/render-blocks"
-import { seoConversionRatePost, seoConversionRateFaqs } from "@/lib/blog-posts/blog/seo-conversion-rate"
+import { seoConversionRatePost, seoConversionRateFaqs } from "@/lib/blog-posts/seo-conversion-rate"
 
 const canonical = "https://linkedo.co.uk/blog/seo-conversion-rate"
 const featuredImage = "https://linkedo.co.uk/blog/seo-conversion-rate-featured.webp"

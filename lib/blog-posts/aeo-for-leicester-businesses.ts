@@ -81,9 +81,9 @@ export const aeoForLeicesterFaqs = (() => {
 })()
 
 export const aeoForLeicesterPost = {
-  slug: "blog/aeo-for-leicester-businesses",
+  slug: "aeo-for-leicester-businesses",
   title: "What Is AEO (Answer Engine Optimisation) and How to Choose an Agency in Leicester",
-  excerpt: "**Meta description:** Learn what answer engine optimisation (AEO) means for Leicester businesses, how it works with SEO, and what to ask an AEO agency before hiring one.",
+  excerpt: "Learn what answer engine optimisation (AEO) means for Leicester businesses, how it works with SEO, and what to ask an AEO agency before hiring one.",
   category: "SEO",
   date: "2026-11-19",
   readTime: "10 min read",
