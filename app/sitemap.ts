@@ -74,6 +74,7 @@ const blogSlugs: { slug: string; lastModified: string }[] = [
   { slug: "what-is-ai-seo", lastModified: "2026-09-20" },
   { slug: "why-not-ranking-on-google-2026", lastModified: "2026-10-10" },
   { slug: "how-to-choose-an-seo-agency-in-birmingham", lastModified: "2026-11-12" },
+  { slug: "how-to-choose-an-seo-agency-in-newcastle", lastModified: "2026-11-20" },
   { slug: "how-to-choose-an-seo-agency-in-leicester", lastModified: "2026-11-17" },
 ]
 
