@@ -66,6 +66,15 @@ const blogPosts = [
     image: "/seo-analytics-dashboard.png",
   },
   {
+    slug: "how-to-choose-an-seo-agency-in-newcastle",
+    title: "How to Choose an SEO Agency in Newcastle and Gateshead: A Practical UK Checklist",
+    excerpt: "A practical checklist for Newcastle and Gateshead businesses choosing an SEO agency: questions to ask, red flags, reporting, contracts and local SEO.",
+    category: "SEO",
+    date: "2026-11-20",
+    readTime: "10 min read",
+    image: "/blog/how-to-choose-seo-agency-newcastle-featured.webp",
+  },
+  {
     slug: "how-to-choose-an-seo-agency-in-leicester",
     title: "How to Choose an SEO Agency in Leicester: 2026 Checklist",
     excerpt:
