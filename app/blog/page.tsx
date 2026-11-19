@@ -75,6 +75,24 @@ const blogPosts = [
     readTime: "10 min read",
     image: "/blog/choose-seo-agency-leicester-featured.webp",
   },
+  {
+    slug: "aeo-for-leicester-businesses",
+    title: "What Is AEO (Answer Engine Optimisation) and How to Choose an Agency in Leicester",
+    excerpt: "Learn what answer engine optimisation (AEO) means for Leicester businesses, how it works with SEO, and what to ask an AEO agency before hiring one.",
+    category: "SEO",
+    date: "2026-11-19",
+    readTime: "10 min read",
+    image: "/blog/aeo-leicester-featured.webp",
+  },
+  {
+    slug: "seo-conversion-rate",
+    title: "SEO Conversion Rate: How to Turn Organic Traffic Into Leads",
+    excerpt: "Learn how to calculate your SEO conversion rate, track enquiries in GA4 and turn organic traffic into more leads for your UK service or local business.",
+    category: "SEO",
+    date: "2026-11-19",
+    readTime: "13 min read",
+    image: "/blog/seo-conversion-rate-featured.webp",
+  },
 ]
 
 export default function BlogPage() {

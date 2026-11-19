@@ -49,6 +49,18 @@ export function renderContentBlocks(blocks: ContentBlock[]) {
             {renderInline(block.text)}
           </p>
         )
+      case "ol":
+        return (
+          <ol key={index} className="list-decimal pl-6 space-y-2 text-base sm:text-lg text-muted-foreground leading-relaxed mb-6">
+            {block.items.map((item, itemIndex) => <li key={itemIndex}>{renderInline(item)}</li>)}
+          </ol>
+        )
+      case "blockquote":
+        return (
+          <blockquote key={index} className="border-l-4 border-primary/30 pl-4 italic text-base sm:text-lg text-muted-foreground leading-relaxed mb-6">
+            {renderInline(block.text)}
+          </blockquote>
+        )
       case "ul":
         return (
           <ul

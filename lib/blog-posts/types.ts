@@ -3,6 +3,8 @@ export type ContentBlock =
   | { type: "h3"; text: string }
   | { type: "p"; text: string }
   | { type: "ul"; items: string[] }
+  | { type: "ol"; items: string[] }
+  | { type: "blockquote"; text: string }
   | { type: "table"; headers: string[]; rows: string[][] }
   | { type: "source"; text: string }
   | { type: "image"; src: string; alt: string; title?: string; caption?: string }
