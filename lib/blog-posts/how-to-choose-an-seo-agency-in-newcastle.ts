@@ -66,7 +66,7 @@ export const newcastleSeoAgencyFaqs = [
     "name": "Is a remote UK SEO agency OK for a Newcastle business?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Yes. An agency does not need a physical office in Newcastle to support a local business."
+      "text": "Yes. An agency does not need a physical office in Newcastle to support a local business. What matters is its understanding of your target market, ability to research local search behaviour and quality of communication. A remote agency can work with businesses across Newcastle, Gateshead and other parts of the UK."
     }
   },
   {
@@ -74,7 +74,7 @@ export const newcastleSeoAgencyFaqs = [
     "name": "What questions should I ask before hiring an SEO agency?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Ask about its strategy, initial audit, keyword research, monthly deliverables, local SEO methods and reporting."
+      "text": "Ask about its strategy, initial audit, keyword research, monthly deliverables, local SEO methods and reporting. You should also understand who manages your account, how progress is measured and what happens when the agreement ends."
     }
   },
   {
@@ -82,7 +82,7 @@ export const newcastleSeoAgencyFaqs = [
     "name": "How long does SEO take to show results?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "There is no universal timeframe. Results depend on your website's condition, competition, content quality, technical issues and the work required."
+      "text": "There is no universal timeframe. Results depend on your website's condition, competition, content quality, technical issues and the work required. Ask the agency what it plans to address first and how it will monitor progress. Be cautious of anyone promising a fixed result by a specific date."
     }
   },
   {
@@ -90,7 +90,7 @@ export const newcastleSeoAgencyFaqs = [
     "name": "Can an agency guarantee first-page rankings?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "No responsible agency can guarantee specific Google rankings."
+      "text": "No responsible agency can guarantee specific Google rankings. Search results depend on many factors, and Google controls its own ranking systems. An agency can complete agreed work and improve your website, but it cannot guarantee a particular position."
     }
   },
   {
@@ -98,7 +98,7 @@ export const newcastleSeoAgencyFaqs = [
     "name": "Should my Newcastle business focus on local SEO or national SEO?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "It depends on your customers."
+      "text": "It depends on your customers. Businesses serving Newcastle, Gateshead and nearby areas may prioritise local SEO. Companies selling products or services throughout the UK may need national SEO. Some businesses benefit from combining both approaches."
     }
   },
   {
@@ -106,7 +106,7 @@ export const newcastleSeoAgencyFaqs = [
     "name": "Should I pay for SEO only or choose a full retainer?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "SEO-only support may suit businesses where organic search is the main priority."
+      "text": "SEO-only support may suit businesses where organic search is the main priority. A wider marketing retainer may be appropriate if you also need website development, paid advertising, branding or social media support. Choose services based on your actual requirements."
     }
   },
   {
@@ -114,7 +114,7 @@ export const newcastleSeoAgencyFaqs = [
     "name": "Who owns my Analytics, Search Console and Google Business Profile logins?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Your business should own these accounts and retain administrative control."
+      "text": "Your business should own these accounts and retain administrative control. An agency should receive the access it needs to complete its work. Use business-controlled email addresses and make sure access can be changed when the relationship ends."
     }
   }
 ]
