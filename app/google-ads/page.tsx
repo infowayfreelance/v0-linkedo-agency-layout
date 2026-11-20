@@ -37,11 +37,6 @@ const googleAdsServiceSchema = {
   },
 }
 
-const googleAdsFaqSchema = {
-  "@context": "https://schema.org", "@type": "FAQPage",
-  mainEntity: faqs.map(f => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: f.answer } })),
-}
-
 const googleAdsBreadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -168,6 +163,12 @@ const faqs = [
     "answer": "Not always. If you already get enough of the right enquiries from SEO, ads may be optional. Ads are useful when you need demand sooner, want to appear above the organic results, or are testing a new offer. We'll say so in the audit if ads are not the right first step."
   }
 ]
+
+const googleAdsFaqSchema = {
+  "@context": "https://schema.org", "@type": "FAQPage",
+  mainEntity: faqs.map(f => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: f.answer } })),
+}
+
 
 export default function GoogleAdsPage() {
   return (
