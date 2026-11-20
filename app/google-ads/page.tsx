@@ -60,7 +60,7 @@ const serviceFeatures = [
   },
   {
     iconName: "DollarSign",
-    title: "Budget Optimization",
+    title: "Budget Optimisation",
     description: "Smart bidding strategies to improve conversions within your budget.",
   },
   {
@@ -70,7 +70,7 @@ const serviceFeatures = [
   },
   {
     iconName: "MousePointer",
-    title: "Landing Page Optimization",
+    title: "Landing Page Optimisation",
     description: "Improve landing pages for better Quality Scores and conversions.",
   },
   {
@@ -89,7 +89,7 @@ const processSteps = [
   {
     iconName: "Target",
     title: "Audit & Strategy",
-    description: "Analyze your business, competitors, and develop a winning Google Ads strategy.",
+    description: "Analyse your business, competitors, and develop a winning Google Ads strategy.",
   },
   {
     iconName: "Settings",
@@ -103,7 +103,7 @@ const processSteps = [
   },
   {
     iconName: "TrendingUp",
-    title: "Optimize & Scale",
+    title: "Optimise & Scale",
     description: "Review and refine campaigns using agreed goals and conversion data.",
   },
 ]
