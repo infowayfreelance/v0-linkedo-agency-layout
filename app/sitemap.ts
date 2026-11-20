@@ -68,6 +68,7 @@ const caseStudySlugs: { slug: string; lastModified: string }[] = [
 
 // Blog slugs — list only real, unique published articles. Unknown slugs return 404.
 const blogSlugs: { slug: string; lastModified: string }[] = [
+  { slug: "seo-for-restaurants", lastModified: "2026-11-20" },
   { slug: "aeo-for-leicester-businesses", lastModified: "2026-11-19" },
   { slug: "seo-conversion-rate", lastModified: "2026-11-19" },
   { slug: "seo-trends-2026", lastModified: "2026-11-17" },
