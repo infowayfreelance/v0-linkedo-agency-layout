@@ -25,6 +25,15 @@ const blogBreadcrumbSchema = {
 const categories = ["All", "SEO", "Web Development", "Google Ads", "Marketing", "Case Studies", "Industry News"]
 
 const blogPosts = [
+  {
+    slug: "seo-for-restaurants",
+    title: "SEO for Restaurants: A Practical UK Local SEO Guide (Including Bristol)",
+    excerpt: "A practical local SEO guide for UK restaurants: Google Business Profile, menus, reviews and your website, with a Bristol worked example.",
+    category: "SEO",
+    date: "2026-11-20",
+    readTime: "9 min read",
+    image: "/blog/seo-for-restaurants-featured.webp",
+  },
 
   {
     slug: "what-is-ai-seo",
