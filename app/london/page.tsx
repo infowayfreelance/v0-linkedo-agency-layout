@@ -112,7 +112,7 @@ const services = [
   },
   {
     iconName: "Search",
-    title: "SEO Services in London",
+    title: "SEO services in London",
     description:
       "Local and national SEO strategies that help London businesses rank higher and attract the right audience.",
     href: "/london/seo",
