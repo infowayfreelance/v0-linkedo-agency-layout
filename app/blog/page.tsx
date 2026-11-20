@@ -33,6 +33,7 @@ const blogPosts = [
     date: "2026-11-20",
     readTime: "9 min read",
     image: "/blog/seo-for-restaurants-featured.webp",
+    featured: true,
   },
 
   {
@@ -43,7 +44,6 @@ const blogPosts = [
     date: "2026-09-20",
     readTime: "12 min read",
     image: "/blog/what-is-ai-seo/ai-seo-hero.png",
-    featured: true,
   },
   {
     slug: "seo-trends-2026",
