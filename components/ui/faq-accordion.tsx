@@ -40,7 +40,7 @@ export function FAQAccordion({ items, className, forceMount = false }: FAQAccord
             >
               {item.question}
             </AccordionTrigger>
-            <AccordionContent forceMount={forceMount} className="text-muted-foreground pb-5" suppressHydrationWarning>
+            <AccordionContent forceMount={forceMount ? true : undefined} className="text-muted-foreground pb-5" suppressHydrationWarning>
               {item.answer}
             </AccordionContent>
           </AccordionItem>
