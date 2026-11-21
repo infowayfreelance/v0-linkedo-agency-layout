@@ -1,20 +1,22 @@
 "use client"
 
 import { motion } from "framer-motion"
+import type { ReactNode } from "react"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { cn } from "@/lib/utils"
 
 interface FAQItem {
   question: string
-  answer: string
+  answer: ReactNode
 }
 
 interface FAQAccordionProps {
   items: FAQItem[]
   className?: string
+  forceMount?: boolean
 }
 
-export function FAQAccordion({ items, className }: FAQAccordionProps) {
+export function FAQAccordion({ items, className, forceMount = false }: FAQAccordionProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -38,7 +40,7 @@ export function FAQAccordion({ items, className }: FAQAccordionProps) {
             >
               {item.question}
             </AccordionTrigger>
-            <AccordionContent className="text-muted-foreground pb-5" suppressHydrationWarning>
+            <AccordionContent forceMount={forceMount ? true : undefined} className="text-muted-foreground pb-5" suppressHydrationWarning>
               {item.answer}
             </AccordionContent>
           </AccordionItem>
