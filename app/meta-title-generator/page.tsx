@@ -91,37 +91,105 @@ const exampleTitles = [
 ]
 
 const faqs = [
-  {
-    question: "How long should a meta title be?",
-    answer:
-      "There's no fixed character limit. Google displays titles based on rendered pixel width rather than character count, and that width also differs between desktop and mobile. Many sites find 50–60 characters a useful starting point, but treat it as guidance rather than a hard rule, and use the preview in this tool to see whether a title looks like it may be cut off.",
-  },
-  {
-    question: "Will Google use my exact title?",
-    answer:
-      "Not always. Google sometimes rewrites the displayed title — for example if it's very long, contains repeated keywords, or doesn't match the page's main heading well. Writing a clear, accurate title that matches your content makes it more likely Google will use it as written.",
-  },
-  {
-    question: "Should every title include my brand?",
-    answer:
-      "Not necessarily. Adding your brand can help with recognition, especially on a homepage or well-known page, but it isn't required on every page and can be left off when space is limited or it doesn't add value for the reader.",
-  },
-  {
-    question: "Can I improve an existing title?",
-    answer:
-      "Yes. Paste your current title into the optional Current Title field along with your keyword and page summary, and this tool will generate fresh alternatives you can compare against it, edit and copy.",
-  },
-  {
-    question: "Is a meta title the same as an H1?",
-    answer:
-      "No. The meta title is the clickable headline shown in search results and browser tabs. The H1 is the main visible heading on the page itself. They can be similar, but they serve different purposes and don't have to be worded identically.",
-  },
-  {
-    question: "Will a new title guarantee better rankings?",
-    answer:
-      "No single title can guarantee a ranking change. A clear, accurate, keyword-relevant title can support your SEO and click-through rate, but rankings depend on many other factors including content quality, site authority and competition.",
-  },
+  { question: "How long should a meta title be?", answer: "Google doesn't set a character limit. Titles are cut off in search results based on pixel width, which depends on the characters and the device, so around 50–60 characters is a useful starting point rather than a rule. Put the most important words first so the title still makes sense if it's shortened." },
+  { question: "Will Google use my exact title?", answer: "Not always. Google creates title links automatically and can use your title element, the main heading on the page, other prominent text or links pointing to the page. Clear, descriptive and unique titles that match the page are the ones most likely to be shown as written." },
+  { question: "Should every title include my brand?", answer: "Not necessarily. Your brand is useful on the homepage and key service pages, usually at the start or end of the title, separated by a pipe, dash or colon. On long titles, or where the brand adds nothing for the reader, you can leave it out." },
+  { question: "Can I improve an existing title?", answer: "Yes. Paste your current title into the Current Title field, add your main keyword and a short page summary, and the tool will suggest new versions you can compare, edit and copy." },
+  { question: "Is a meta title the same as an H1?", answer: "No. The meta title sits in the page's HTML title tag and appears in search results and browser tabs, while the H1 is the main heading visitors see on the page. They can be similar, but they don't have to match word for word." },
+  { question: "Will a new title guarantee better rankings?", answer: "No. A clearer title can help people understand your page and may encourage more clicks, but rankings depend on many other factors, including the quality of the content, how well it answers the search and the rest of your site's SEO." },
+  { question: "Why is my title cut off in Google?", answer: "Google shortens titles that are too wide to display in full, so the end is replaced with an ellipsis. Keep the main keyword and the page's purpose near the start, remove repeated words, and check the preview in this tool before you publish." },
+  { question: "Can I create titles for location pages?", answer: "Yes. Choose Location Page as the page type and add the town or city in the Location field. The tool uses it in the suggestions, so you can create a separate, unique title for each area you serve." },
+  { question: "Should my main keyword be at the start of the title?", answer: "Near the start is usually best, because it is the part least likely to be cut off and the first thing people read. Use it once, in natural wording, rather than repeating it or adding several variations." },
+  { question: "Do I need a meta description as well?", answer: <>It's worth writing one. Google may show your meta description as the snippet under your title when it describes the page well. You can create one with our free .<Link href="/meta-description-generator" className="text-primary underline underline-offset-4">Meta Description Generator</Link>.</> },
 ]
+
+const metaTitleFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://linkedo.co.uk/meta-title-generator#faq",
+  mainEntity: [
+  {
+    "@type": "Question",
+    "name": "How long should a meta title be?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Google doesn't set a character limit. Titles are cut off in search results based on pixel width, which depends on the characters and the device, so around 50–60 characters is a useful starting point rather than a rule. Put the most important words first so the title still makes sense if it's shortened."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "Will Google use my exact title?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Not always. Google creates title links automatically and can use your title element, the main heading on the page, other prominent text or links pointing to the page. Clear, descriptive and unique titles that match the page are the ones most likely to be shown as written."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "Should every title include my brand?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Not necessarily. Your brand is useful on the homepage and key service pages, usually at the start or end of the title, separated by a pipe, dash or colon. On long titles, or where the brand adds nothing for the reader, you can leave it out."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "Can I improve an existing title?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Paste your current title into the Current Title field, add your main keyword and a short page summary, and the tool will suggest new versions you can compare, edit and copy."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "Is a meta title the same as an H1?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. The meta title sits in the page's HTML title tag and appears in search results and browser tabs, while the H1 is the main heading visitors see on the page. They can be similar, but they don't have to match word for word."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "Will a new title guarantee better rankings?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. A clearer title can help people understand your page and may encourage more clicks, but rankings depend on many other factors, including the quality of the content, how well it answers the search and the rest of your site's SEO."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "Why is my title cut off in Google?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Google shortens titles that are too wide to display in full, so the end is replaced with an ellipsis. Keep the main keyword and the page's purpose near the start, remove repeated words, and check the preview in this tool before you publish."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "Can I create titles for location pages?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Choose Location Page as the page type and add the town or city in the Location field. The tool uses it in the suggestions, so you can create a separate, unique title for each area you serve."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "Should my main keyword be at the start of the title?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Near the start is usually best, because it is the part least likely to be cut off and the first thing people read. Use it once, in natural wording, rather than repeating it or adding several variations."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "Do I need a meta description as well?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It's worth writing one. Google may show your meta description as the snippet under your title when it describes the page well. You can create one with our free Meta Description Generator."
+    }
+  }
+]
+}
 
 const relatedTools = [
   {
@@ -149,18 +217,22 @@ const relatedTools = [
 const metaTitleWebApplicationSchema = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
+  "@id": "https://linkedo.co.uk/meta-title-generator#app",
   name: "Free Meta Title Generator",
   url: "https://linkedo.co.uk/meta-title-generator",
-  description:
-    "Create SEO title ideas for pages, posts and products. Compare suggestions, check title length and preview how they may appear in search results.",
+  description: "Free meta title generator: add your keyword and a short page summary, get five editable SEO title ideas, then check length and preview before you copy.",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Any",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "GBP",
-  },
-  provider: { "@id": "https://linkedo.co.uk/#organization" },
+  isAccessibleForFree: true,
+  featureList: [
+    "Five editable title ideas per request",
+    "Live title length check",
+    "Search result preview",
+    "Page types: homepage, service, location, blog post, product, category and landing page",
+    "Optional brand name, location, tone and current title"
+  ],
+  offers: { "@type": "Offer", price: "0", priceCurrency: "GBP" },
+  provider: { "@id": "https://linkedo.co.uk/#organization" }
 }
 
 const metaTitleBreadcrumbSchema = {
@@ -168,8 +240,9 @@ const metaTitleBreadcrumbSchema = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: "https://linkedo.co.uk" },
-    { "@type": "ListItem", position: 2, name: "Meta Title Generator", item: "https://linkedo.co.uk/meta-title-generator" },
-  ],
+    { "@type": "ListItem", position: 2, name: "Free Tools", item: "https://linkedo.co.uk/free-ai-tools-online" },
+    { "@type": "ListItem", position: 3, name: "Meta Title Generator", item: "https://linkedo.co.uk/meta-title-generator" }
+  ]
 }
 
 const DEFAULT_FORM: MetaTitleFormState = {
@@ -317,6 +390,7 @@ export default function MetaTitleGeneratorPage() {
     <main>
       <SchemaMarkup schema={metaTitleWebApplicationSchema} />
       <SchemaMarkup schema={metaTitleBreadcrumbSchema} />
+      <SchemaMarkup schema={metaTitleFaqSchema} />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-12 overflow-hidden">
@@ -337,7 +411,8 @@ export default function MetaTitleGeneratorPage() {
               </h1>
               <p className="text-lg text-muted-foreground">
                 Create clear SEO title ideas for your website pages, blog posts and products. Enter your main keyword
-                and a short page summary, then compare, edit and copy your preferred title.
+                and a short page summary, then compare, edit and copy your preferred title.{" "}
+                Browse our other <Link href="/free-ai-tools-online" className="text-primary underline underline-offset-4">free SEO tools</Link>.
               </p>
             </div>
 
@@ -620,6 +695,15 @@ export default function MetaTitleGeneratorPage() {
         </div>
       </Section>
 
+      <Section eyebrow="Search guidance" title="Why Google Rewrites Some Titles (and How to Reduce It)">
+        <div className="max-w-3xl mx-auto space-y-4 text-muted-foreground leading-relaxed">
+          <p>Google doesn't always show the title you wrote. It generates title links automatically, using your title element along with other sources such as the main visible heading, other headings on the page, prominent text and anchor text in links to the page. It's most likely to replace a title that is missing, very long, stuffed with keywords, repeated across many pages ("Home", "Untitled" or the same boilerplate everywhere), or one that doesn't match what the page actually says.</p>
+          <p>To make it more likely that your own title is used:</p>
+          <ul className="list-disc pl-6 space-y-2"><li>write a unique, descriptive title for every page;</li><li>keep it concise and lead with the page topic;</li><li>use your brand once, at the start or end, separated by a pipe, dash or colon;</li><li>make sure the title and the main heading describe the same thing.</li></ul>
+          <p>Source: <a href="https://developers.google.com/search/docs/appearance/title-link" target="_blank" rel="noreferrer" className="text-primary underline underline-offset-4">Google Search Central – Influencing your title links in search results</a>.</p>
+        </div>
+      </Section>
+
       {/* Meta Title Examples */}
       <Section eyebrow="Examples" title="Meta Title Examples">
         <div className="max-w-2xl mx-auto space-y-4">
@@ -635,10 +719,30 @@ export default function MetaTitleGeneratorPage() {
         </div>
       </Section>
 
-      {/* FAQ — rendered visibly, intentionally without FAQPage schema */}
+      <Section eyebrow="Examples" title="Meta Title Formulas by Page Type">
+        <div className="max-w-3xl mx-auto space-y-4 text-muted-foreground leading-relaxed">
+          <p>Choose the page type in the generator, then use these patterns as a starting point (the brand names are examples):</p>
+          <ul className="list-disc pl-6 space-y-3">
+            <li><strong>Homepage:</strong> Main service or product + who it's for | Brand. <em>Example: Bookkeeping for Small Businesses | Example Co</em></li>
+            <li><strong>Service page:</strong> Service + benefit or qualifier | Brand. <em>Example: Emergency Boiler Repair, Same-Day Visits | Example Co</em></li>
+            <li><strong>Location page:</strong> Service + town or city | Brand. <em>Example: Wedding Photographer in Leeds | Example Studio</em></li>
+            <li><strong>Blog post:</strong> The question or topic in plain words. <em>Example: How to Write a Meta Title That Gets Clicks</em></li>
+            <li><strong>Product page:</strong> Product name + key attribute | Store. <em>Example: Waterproof Hiking Boots for Women | Example Store</em></li>
+            <li><strong>Category page:</strong> Category + range or choice | Store. <em>Example: Men's Running Shoes | Example Store</em></li>
+            <li><strong>Landing page:</strong> Offer + who it's for | Brand. <em>Example: Free Website Audit for Local Businesses | Example Co</em></li>
+          </ul>
+          <p>Once your title is ready, write the snippet text under it with our free <Link href="/meta-description-generator" className="text-primary underline underline-offset-4">Meta Description Generator</Link>.</p>
+        </div>
+      </Section>
+
+      <Section eyebrow="Best Practices" title="Common Meta Title Mistakes to Avoid">
+        <div className="max-w-3xl mx-auto space-y-4 text-muted-foreground leading-relaxed"><ul className="list-disc pl-6 space-y-3"><li><strong>Same title on many pages.</strong> Each page needs its own title, or search engines and visitors can’t tell similar pages apart.</li><li><strong>Keyword stuffing.</strong> Repeating a keyword or listing variations ("SEO, SEO Agency, SEO Services, Best SEO") reads badly and is a common reason titles get rewritten.</li><li><strong>Vague labels.</strong> "Home", "Services" or "Page 1" tell a searcher nothing about the page.</li><li><strong>Claims the page can’t back up.</strong> "Best", "No.1" or "Guaranteed" without evidence can put people off and may be replaced.</li><li><strong>Important words at the end.</strong> If the title is shortened, the end is lost, so lead with the topic.</li><li><strong>Title and page don’t match.</strong> If the title promises something the content doesn’t deliver, visitors leave and Google may show different text.</li></ul><p>Want help with titles across a whole site? See our <Link href="/seo" className="text-primary underline underline-offset-4">SEO services</Link>.</p></div>
+      </Section>
+
+      {/* FAQ — all answers are server-rendered in mounted accordion content */}
       <Section eyebrow="FAQ" title="Frequently Asked Questions">
         <div className="max-w-3xl mx-auto">
-          <FAQAccordion items={faqs} />
+          <FAQAccordion items={faqs} forceMount />
         </div>
       </Section>
 

@@ -1,8 +1,8 @@
 import type { Metadata } from "next"
 
-const TITLE = "Free Meta Title Generator for SEO Titles | Linkedo"
+const TITLE = "Free Meta Title Generator: SEO Title Tag Ideas | Linkedo"
 const DESCRIPTION =
-  "Create SEO title ideas for pages, posts and products. Compare suggestions, check title length and preview how they may appear in search results."
+  "Free meta title generator: add your keyword and a short page summary, get five editable SEO title ideas, then check length and preview before you copy."
 
 export const metadata: Metadata = {
   title: TITLE,
