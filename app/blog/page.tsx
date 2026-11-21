@@ -37,6 +37,15 @@ const blogPosts = [
   },
 
   {
+    slug: "seo-for-small-businesses",
+    title: "SEO for Small Businesses: A Practical UK Guide (With Leicestershire and Newcastle Examples)",
+    excerpt: "A plain-English SEO plan for UK small businesses: Google Business Profile, service pages, content and tracking, with Leicestershire and Newcastle examples.",
+    category: "SEO",
+    date: "2026-11-21",
+    readTime: "10 min read",
+    image: "/blog/seo-for-small-businesses-featured.webp",
+  },
+  {
     slug: "what-is-ai-seo",
     title: "What Is AI SEO: A Practical Guide for UK Small Businesses in 2026",
     excerpt: "A beginner-friendly guide to improving visibility in Google and AI search tools.",

@@ -1,0 +1,65 @@
+import type { Metadata } from "next"
+
+import { MainShell } from "@/components/layout/main-shell"
+import { Breadcrumbs } from "@/components/ui/breadcrumbs"
+import { Chip } from "@/components/ui/chip"
+import { SchemaMarkup } from "@/components/seo/schema-markup"
+import { renderContentBlocks } from "@/lib/blog-posts/render-blocks"
+import { smallBusinessSeoPost, smallBusinessSeoFaqs } from "@/lib/blog-posts/seo-for-small-businesses"
+
+const canonical = "https://linkedo.co.uk/blog/seo-for-small-businesses"
+const metaTitle = "SEO for Small Businesses: A Practical UK Guide"
+const metaDescription = "A plain-English SEO plan for UK small businesses: Google Business Profile, service pages, content and tracking, with Leicestershire and Newcastle examples."
+
+export const metadata: Metadata = {
+  title: metaTitle,
+  description: metaDescription,
+  alternates: { canonical },
+  openGraph: { type: "article", url: canonical, title: metaTitle, description: metaDescription, images: [{ url: "/blog/seo-for-small-businesses-featured.webp", width: 1200, height: 630, alt: "Small business owner reviewing a local search listing on a laptop" }] },
+  twitter: { card: "summary_large_image", title: metaTitle, description: metaDescription, images: ["/blog/seo-for-small-businesses-featured.webp"] },
+}
+
+const blogPostingSchema = {
+  "@context": "https://schema.org", "@type": "BlogPosting",
+  headline: smallBusinessSeoPost.title, description: metaDescription,
+  image: "https://linkedo.co.uk/blog/seo-for-small-businesses-featured.webp",
+  datePublished: "2026-11-21", dateModified: "2026-11-21",
+  author: { "@type": "Person", name: "Junaid Mazhar" },
+  publisher: { "@type": "Organization", name: "Linkedo", url: "https://linkedo.co.uk" },
+  mainEntityOfPage: { "@type": "WebPage", "@id": canonical }, inLanguage: "en-GB",
+}
+const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: smallBusinessSeoFaqs }
+const breadcrumbSchema = {
+  "@context": "https://schema.org", "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://linkedo.co.uk" },
+    { "@type": "ListItem", position: 2, name: "Blog", item: "https://linkedo.co.uk/blog" },
+    { "@type": "ListItem", position: 3, name: smallBusinessSeoPost.title, item: canonical },
+  ],
+}
+
+export default function SmallBusinessSeoArticlePage() {
+  return (
+    <MainShell>
+      <SchemaMarkup schema={[blogPostingSchema, faqSchema, breadcrumbSchema]} />
+      <div className="pt-20 pb-12 md:pt-24 md:pb-16">
+        <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs items={[{ label: "Blog", href: "/blog" }, { label: smallBusinessSeoPost.title }]} className="mb-6" />
+          <header className="mb-8 md:mb-12">
+            <Chip variant="primary" className="mb-4">SEO</Chip>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6 text-balance leading-tight">{smallBusinessSeoPost.title}</h1>
+            <p className="text-sm text-muted-foreground">By {smallBusinessSeoPost.author.name}</p>
+          </header>
+          <div className="rounded-xl overflow-hidden mb-10 md:mb-12 border border-border bg-muted">
+            <img src={smallBusinessSeoPost.image} alt="Small business owner reviewing a local search listing on a laptop" className="w-full h-auto aspect-video object-cover" />
+          </div>
+          <div className="prose prose-invert max-w-none">{renderContentBlocks(smallBusinessSeoPost.content)}</div>
+          <div className="mt-10 rounded-xl border border-border bg-card p-6">
+            <h2 className="text-lg font-semibold text-foreground">About the author</h2>
+            <p className="mt-2 text-sm text-muted-foreground">{smallBusinessSeoPost.author.name} · {smallBusinessSeoPost.author.role}</p>
+          </div>
+        </article>
+      </div>
+    </MainShell>
+  )
+}
