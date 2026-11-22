@@ -32,7 +32,7 @@ const blogPosts = [
     category: "Google Ads",
     date: "2026-11-22",
     readTime: "9 min read",
-    image: "/blog/ppc-or-seo-first-birmingham-featured.webp",,
+    image: "/blog/ppc-or-seo-first-birmingham-featured.webp",
     featured: true
   },
 
