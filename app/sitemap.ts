@@ -70,7 +70,7 @@ const caseStudySlugs: { slug: string; lastModified: string }[] = [
 const blogSlugs: { slug: string; lastModified: string }[] = [
   { slug: "ppc-or-seo-first-birmingham", lastModified: "2026-11-22" },
   { slug: "seo-for-small-businesses", lastModified: "2026-11-21" },
-  { slug: "seo-for-restaurants", lastModified: "2026-11-20" },
+  { slug: "seo-for-restaurants", lastModified: "2026-11-23" },
   { slug: "aeo-for-leicester-businesses", lastModified: "2026-11-19" },
   { slug: "seo-conversion-rate", lastModified: "2026-11-19" },
   { slug: "seo-trends-2026", lastModified: "2026-11-17" },
