@@ -23,7 +23,7 @@ const blogPostingSchema = {
   "@context": "https://schema.org", "@type": "BlogPosting",
   headline: restaurantSeoPost.title, description: metaDescription,
   image: "https://linkedo.co.uk/blog/seo-for-restaurants-featured.webp",
-  datePublished: "2026-11-20", dateModified: "2026-11-20",
+  datePublished: "2026-11-20", dateModified: "2026-11-23",
   author: { "@type": "Person", name: "Junaid Mazhar" },
   publisher: { "@type": "Organization", name: "Linkedo", url: "https://linkedo.co.uk" },
   mainEntityOfPage: { "@type": "WebPage", "@id": canonical }, inLanguage: "en-GB",
