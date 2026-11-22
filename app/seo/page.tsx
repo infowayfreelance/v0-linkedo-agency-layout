@@ -19,65 +19,65 @@ const seoPageSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "@id": "https://linkedo.co.uk/seo#service",
-  name: "SEO Optimisation Services",
+  name: "SEO Services",
   alternateName: "Search Engine Optimisation",
   url: "https://linkedo.co.uk/seo",
-  description:
-    "Data-driven SEO strategies that improve your search rankings, drive organic traffic, and generate qualified leads for your business.",
+  description: "SEO services for UK businesses: technical fixes, on-page optimisation, local SEO, content and white-hat link building, with monthly performance reports.",
+  serviceType: "Search Engine Optimisation",
   provider: { "@id": "https://linkedo.co.uk/#organization" },
   areaServed: { "@type": "Country", name: "United Kingdom" },
-  serviceType: "Search Engine Optimisation",
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "SEO Services",
-    itemListElement: [
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Technical SEO" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "On-Page SEO" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Local SEO" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Link Building" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Keyword Research" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "SEO Analytics" } },
-    ],
+    itemListElement: ["Technical SEO", "On-Page SEO", "Local SEO", "Link Building", "Keyword Research", "SEO Analytics and Reporting", "AI Search Visibility"].map((name) => ({
+      "@type": "Offer", itemOffered: { "@type": "Service", name },
+    })),
   },
 }
+
+const faqs = [
+  {
+    "question": "How long does it take to see SEO results?",
+    "answer": "It depends on where your site starts, how competitive your market is and how quickly changes can be made. Technical fixes can be picked up as soon as Google recrawls the pages, but rankings and enquiries usually build over months rather than weeks. After the audit we give you a realistic estimate for your site instead of a fixed promise."
+  },
+  {
+    "question": "Do you guarantee first page rankings?",
+    "answer": "No. No one can guarantee a number one ranking on Google, and Google's own advice is to be wary of anyone who does. What we can promise is a clear plan, white-hat work that follows Google's guidelines, and honest monthly reporting on rankings, traffic and enquiries."
+  },
+  {
+    "question": "What's included in your monthly SEO service?",
+    "answer": "Technical SEO monitoring and fixes, on-page and content optimisation, keyword tracking, competitor checks, link building through digital PR and useful content, and a monthly performance report. The exact mix depends on what the audit shows will help your site most."
+  },
+  {
+    "question": "How do you approach link building?",
+    "answer": "We earn links by creating content and resources other sites want to reference, and through digital PR and outreach to relevant publications. We don't buy links, swap links or place keyword-stuffed guest posts, because Google's spam policies treat those as link schemes that can harm your site."
+  },
+  {
+    "question": "How much do SEO services cost?",
+    "answer": "It depends on the size of your site, the competition in your market and how much work is needed each month. You can see our starting prices on our pricing page, and we'll confirm the scope after a free audit so you know exactly what you're paying for."
+  },
+  {
+    "question": "Do you offer local SEO?",
+    "answer": "Yes. For businesses that serve customers in a town, city or region, we work on your Google Business Profile, local landing pages, consistent business details across directories, and content built around the areas you cover."
+  },
+  {
+    "question": "Can you help my business show up in AI search?",
+    "answer": "Google says there are no extra requirements to appear in AI Overviews or AI Mode beyond normal SEO best practices. So we focus on the same foundations: pages Google can crawl and index, clear answers to the questions your customers ask, accurate structured data and an up-to-date Business Profile."
+  },
+  {
+    "question": "Do you work with businesses across the UK?",
+    "answer": "Yes. We work remotely with businesses across the UK, and we have dedicated pages for many cities and regions. Tell us where your customers are and we'll build the keyword and content plan around those areas."
+  }
+]
 
 const seoFaqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "How long does it take to see SEO results?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "SEO is a long-term strategy. You can expect to see initial improvements within 3-4 months, with significant results typically appearing after 6-12 months. The timeline depends on your industry competition, current site authority, and the aggressiveness of the strategy.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Do you guarantee first page rankings?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "No ethical SEO agency can guarantee specific rankings, as Google's algorithm considers hundreds of factors outside our control. What we do guarantee is following best practices, transparent reporting, and a data-driven approach that consistently delivers measurable improvements.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What's included in your monthly SEO service?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Our monthly service includes technical SEO monitoring and fixes, content optimisation, link building outreach, keyword tracking, competitor analysis, and detailed monthly reports. We also provide ongoing consultation and strategy adjustments based on performance data.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "How do you approach link building?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "We focus on quality over quantity, building links through guest posting on relevant industry publications, digital PR campaigns, and creating linkable assets like original research and tools. We never engage in black-hat tactics that could harm your site.",
-      },
-    },
-  ],
+  "@id": "https://linkedo.co.uk/seo#faq",
+  mainEntity: faqs.map(({ question, answer }) => ({
+    "@type": "Question", name: question,
+    acceptedAnswer: { "@type": "Answer", text: answer },
+  })),
 }
 
 const seoBreadcrumbSchema = {
@@ -102,25 +102,25 @@ const seoServices = [
   {
     iconName: "Settings",
     title: "Technical SEO",
-    description: "Site speed optimization, crawlability fixes, schema markup, and Core Web Vitals improvements.",
+    description: "Site speed optimisation, crawlability fixes, schema markup and Core Web Vitals improvements.",
     href: "#",
   },
   {
     iconName: "FileText",
     title: "On-Page SEO",
-    description: "Content optimization, keyword mapping, internal linking, and meta tag optimization.",
+    description: "Content optimisation, keyword mapping, internal linking and meta tag optimisation.",
     href: "#",
   },
   {
     iconName: "MapPin",
     title: "Local SEO",
-    description: "Google Business Profile optimization, local citations, and location-based content strategy.",
+    description: "Google Business Profile optimisation, local citations and location-based content strategy.",
     href: "#",
   },
   {
     iconName: "Link",
     title: "Link Building",
-    description: "Strategic outreach, guest posting, and digital PR to build high-authority backlinks.",
+    description: "Digital PR, outreach and useful content that relevant sites want to link to. No paid or swapped links.",
     href: "#",
   },
   {
@@ -146,17 +146,17 @@ const processSteps = [
   {
     iconName: "PenTool",
     title: "Strategy Development",
-    description: "Custom SEO roadmap with prioritized actions and target keywords.",
+    description: "Custom SEO roadmap with prioritised actions and target keywords.",
   },
   {
     iconName: "Rocket",
     title: "Implementation",
-    description: "Execute technical fixes, content optimizations, and link building campaigns.",
+    description: "Carry out technical fixes, content optimisation and link building campaigns.",
   },
   {
     iconName: "TrendingUp",
-    title: "Monitor & Optimize",
-    description: "Track rankings, analyze results, and continuously refine the strategy.",
+    title: "Monitor & Optimise",
+    description: "Track rankings, analyse results and refine the strategy.",
   },
 ]
 
@@ -179,29 +179,6 @@ const caseStudies = [
   },
 ]
 
-const faqs = [
-  {
-    question: "How long does it take to see SEO results?",
-    answer:
-      "SEO is a long-term strategy. You can expect to see initial improvements within 3-4 months, with significant results typically appearing after 6-12 months. The timeline depends on your industry competition, current site authority, and the aggressiveness of the strategy.",
-  },
-  {
-    question: "Do you guarantee first page rankings?",
-    answer:
-      "No ethical SEO agency can guarantee specific rankings, as Google's algorithm considers hundreds of factors outside our control. What we do guarantee is following best practices, transparent reporting, and a data-driven approach that consistently delivers measurable improvements.",
-  },
-  {
-    question: "What's included in your monthly SEO service?",
-    answer:
-      "Our monthly service includes technical SEO monitoring and fixes, content optimization, link building outreach, keyword tracking, competitor analysis, and detailed monthly reports. We also provide ongoing consultation and strategy adjustments based on performance data.",
-  },
-  {
-    question: "How do you approach link building?",
-    answer:
-      "We focus on quality over quantity, building links through guest posting on relevant industry publications, digital PR campaigns, and creating linkable assets like original research and tools. We never engage in black-hat tactics that could harm your site.",
-  },
-]
-
 export default function SEOServicePage() {
   return (
     <div className="min-h-screen bg-background">
@@ -220,11 +197,11 @@ export default function SEOServicePage() {
               SEO Services
             </span>
             <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              Search Engine Optimization <span className="text-gradient-primary">(SEO)</span>
+              SEO Services for UK Businesses
             </h1>
             <p className="text-lg text-muted-foreground mb-8">
-              Data-driven SEO strategies that improve your search rankings, drive organic traffic, and generate
-              qualified leads for your business.
+              Linkedo helps UK businesses get found on Google and in AI search, with technical fixes, on-page optimisation,
+              local SEO and content built around what your customers actually search for.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/contact">
@@ -258,10 +235,10 @@ export default function SEOServicePage() {
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <StatCard value="300" suffix="%" label="Average Traffic Increase" />
-              <StatCard value="50" suffix="+" label="Keywords Page 1" />
-              <StatCard value="2.5x" label="Lead Generation Lift" />
-              <StatCard value="6" label="Months to Results" />
+              <StatCard value="Technical" label="Crawl, speed and schema fixes first" />
+              <StatCard value="On-page" label="Titles, content and internal links" />
+              <StatCard value="Local" label="Google Business Profile and local pages" />
+              <StatCard value="Reporting" label="Clear monthly performance reports" />
             </div>
           </motion.div>
         </div>
@@ -290,7 +267,7 @@ export default function SEOServicePage() {
       <Section
         eyebrow="What We Do"
         title="Comprehensive SEO Services"
-        description="Everything you need to dominate search results in your industry."
+        description="Everything we do to help your site earn more visibility in search."
         gradient
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -376,7 +353,7 @@ export default function SEOServicePage() {
             <div className="relative space-y-4">
               <div className="flex items-center justify-between text-sm">
                 <span className="text-muted-foreground">Organic Traffic Growth</span>
-                <span className="text-primary font-semibold">+156%</span>
+                <span className="text-primary font-semibold">Example report</span>
               </div>
               <div className="h-40 flex items-end justify-around gap-2 px-2">
                 {[30, 35, 42, 38, 55, 62, 58, 75, 82, 78, 90, 95].map((height, i) => (
@@ -416,15 +393,18 @@ export default function SEOServicePage() {
               Content Excellence
             </span>
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
-              Optimize Every Page for Maximum Impact
+              Optimise Every Page for Maximum Impact
             </h2>
             <p className="text-muted-foreground mb-6">
-              We don't just create content—we optimize it to rank higher, engage readers, and convert visitors into
-              customers.
+              We don't just create content—we optimise it to rank higher, engage readers and help visitors take the next step.
+            <p className="text-muted-foreground mt-4">
+              Try our free <Link href="/meta-title-generator" className="text-primary underline underline-offset-4">meta title generator</Link> and{" "}
+              <Link href="/meta-description-generator" className="text-primary underline underline-offset-4">meta description generator</Link>.
+            </p>
             </p>
             <ul className="space-y-3">
               {[
-                "Title and meta optimization",
+                "Title and meta optimisation",
                 "Header hierarchy improvement",
                 "Internal linking strategy",
                 "Content gap filling",
@@ -443,9 +423,48 @@ export default function SEOServicePage() {
       <Section
         eyebrow="Our Process"
         title="How We Deliver SEO Results"
-        description="A proven methodology refined over hundreds of successful campaigns."
+        description="A clear four-step process, so you always know what we're working on and why."
       >
         <ProcessTimeline steps={processSteps} />
+      </Section>
+
+      <Section eyebrow="Search fundamentals" title="How Google Decides Who Ranks">
+        <div className="max-w-4xl mx-auto space-y-5 text-base lg:text-lg text-muted-foreground leading-relaxed">
+          <p>Google ranks pages it can crawl and index, that answer the search clearly, and that people and other websites find genuinely useful. Its <a href="https://developers.google.com/search/docs/essentials" target="_blank" rel="noreferrer" className="text-primary underline underline-offset-4">Search Essentials</a> set out the technical requirements, the spam policies to avoid and the key best practices, and that's the rulebook we work to.</p>
+          <p>In practice that means three things. First, Google has to be able to find and understand your pages: no blocked sections, broken links or duplicate versions of the same page. Second, each important page needs to match what people are searching for, with a clear title, helpful content and the details a customer needs to make a decision. Third, your site needs real signals of trust, such as an accurate Google Business Profile, consistent business details and links from relevant sites. Shortcuts like buying links or publishing pages stuffed with keywords break <a href="https://developers.google.com/search/docs/essentials/spam-policies" target="_blank" rel="noreferrer" className="text-primary underline underline-offset-4">Google's spam policies</a> and can lose you rankings, so we don't use them.</p>
+        </div>
+      </Section>
+      <Section eyebrow="AI search" title="SEO for AI Search and AI Overviews">
+        <div className="max-w-4xl mx-auto space-y-5 text-base lg:text-lg text-muted-foreground leading-relaxed">
+          <p>More searches now show an AI Overview or an AI Mode answer before the usual results. Google says there are <a href="https://developers.google.com/search/docs/appearance/ai-features" target="_blank" rel="noreferrer" className="text-primary underline underline-offset-4">no extra requirements to appear in these AI features</a> beyond normal SEO best practices, and no special files or schema are needed. So the work that helps you rank also helps you get cited: pages that can be crawled and indexed, short and direct answers to the questions your customers ask, accurate structured data and an up-to-date Business Profile.</p>
+          <p>We check how your key pages show up for the questions your customers ask, tighten the answers on those pages and track the results in Search Console. Read more in our guide to <Link href="/blog/what-is-ai-seo" className="text-primary underline underline-offset-4">what AI SEO means for UK small businesses</Link>.</p>
+        </div>
+      </Section>
+      <Section eyebrow="Planning your SEO" title="What Affects the Cost of SEO">
+        <div className="max-w-4xl mx-auto space-y-5 text-base lg:text-lg text-muted-foreground leading-relaxed">
+          <p>SEO pricing depends on the work your site actually needs, not on a fixed package. The main factors are:</p>
+          <ul className="list-disc pl-6 space-y-3">
+            <li><strong>Size and condition of your site:</strong> a small brochure site with a few technical issues needs less work than a large site with hundreds of pages to fix.</li>
+            <li><strong>Competition:</strong> ranking for a national, high-competition term takes more content and authority than ranking in one town.</li>
+            <li><strong>Local or national focus:</strong> local SEO centres on your Business Profile and area pages; national SEO needs broader content and links.</li>
+            <li><strong>How much content is needed:</strong> new service pages, location pages or guides add to the monthly workload.</li>
+          </ul>
+          <p>You can see our starting prices on the <Link href="/pricing" className="text-primary underline underline-offset-4">pricing page</Link>. After a <Link href="/contact" className="text-primary underline underline-offset-4">free SEO audit</Link> we'll confirm the scope in writing, so you know what you're paying for each month.</p>
+        </div>
+      </Section>
+      <Section eyebrow="Choosing an agency" title="How to Choose an SEO Agency">
+        <div className="max-w-4xl mx-auto space-y-5 text-base lg:text-lg text-muted-foreground leading-relaxed">
+          <p>Whoever you work with, ask them to explain what they'll change on your site, why, and how they'll measure it. A good SEO audit gives you realistic estimates and the work involved, not promises. Google's own advice on <a href="https://developers.google.com/search/docs/fundamentals/do-i-need-seo" target="_blank" rel="noreferrer" className="text-primary underline underline-offset-4">hiring an SEO</a> is a useful checklist.</p>
+          <p>Red flags to watch for:</p>
+          <ul className="list-disc pl-6 space-y-3">
+            <li><strong>Guaranteed rankings.</strong> No one can guarantee a number one position on Google.</li>
+            <li><strong>Claims of a "special relationship" with Google</strong> or "priority submission".</li>
+            <li><strong>Secrecy.</strong> If an agency won't tell you what links they're building or what they're changing, walk away.</li>
+            <li><strong>Cheap bulk links.</strong> Paid links, link networks and spammy guest posts can lead to ranking losses.</li>
+            <li><strong>Reports with no business metrics.</strong> Rankings matter, but you should also see traffic and enquiries.</li>
+          </ul>
+          <p>If your site isn't showing up at all, our article on <Link href="/blog/why-not-ranking-on-google-2026" className="text-primary underline underline-offset-4">why your business is not ranking on Google</Link> covers the most common causes.</p>
+        </div>
       </Section>
 
       {/* Case Studies */}
@@ -465,7 +484,7 @@ export default function SEOServicePage() {
       {/* FAQ */}
       <Section eyebrow="FAQ" title="SEO Questions Answered">
         <div className="max-w-3xl mx-auto">
-          <FAQAccordion items={faqs} />
+          <FAQAccordion items={faqs} forceMount />
         </div>
       </Section>
 
@@ -498,6 +517,9 @@ export default function SEOServicePage() {
               { label: "View All Locations", href: "/locations" },
             ]}
           />
+          <p className="mt-4 text-sm text-muted-foreground">
+            Also see <Link href="/london/seo" className="text-primary underline underline-offset-4">SEO services in London</Link>.
+          </p>
         </div>
       </Section>
     </div>
