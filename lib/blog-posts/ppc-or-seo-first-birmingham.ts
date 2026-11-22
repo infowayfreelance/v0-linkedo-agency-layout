@@ -29,7 +29,12 @@ function parseArticle(markdown: string): ContentBlock[] {
       if (imageByHeading[heading]) blocks.push({ type: "image", ...imageByHeading[heading] })
       i++; continue
     }
-    if (line.startsWith("### ")) { blocks.push({ type: "h3", text: line.slice(4) }); i++; continue }
+    if (line.startsWith("### ")) {
+      const heading = line.slice(4)
+      blocks.push({ type: "h3", text: heading })
+      if (imageByHeading[heading]) blocks.push({ type: "image", ...imageByHeading[heading] })
+      i++; continue
+    }
     if (/^\d+\. /.test(line)) {
       const items: string[] = []
       while (i < lines.length && /^\d+\. /.test(lines[i].trim())) { items.push(lines[i].trim().replace(/^\d+\. /, "")); i++ }
