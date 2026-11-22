@@ -110,7 +110,7 @@ export const restaurantSeoPost = {
   title: "SEO for Restaurants: A Practical UK Local SEO Guide (Including Bristol)",
   excerpt: "A practical local SEO guide for UK restaurants: Google Business Profile, menus, reviews and your website, with a Bristol worked example.",
   category: "SEO",
-  date: "2026-11-20",
+  date: "2026-11-23",
   readTime: "9 min read",
   image: "/blog/seo-for-restaurants-featured.webp",
   author: { name: "Junaid Mazhar", role: "SEO Director", avatar: "/team/junaid-mazhar.webp" },
