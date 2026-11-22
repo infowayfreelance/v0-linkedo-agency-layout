@@ -179,29 +179,6 @@ const caseStudies = [
   },
 ]
 
-const faqs = [
-  {
-    question: "How long does it take to see SEO results?",
-    answer:
-      "SEO is a long-term strategy. You can expect to see initial improvements within 3-4 months, with significant results typically appearing after 6-12 months. The timeline depends on your industry competition, current site authority, and the aggressiveness of the strategy.",
-  },
-  {
-    question: "Do you guarantee first page rankings?",
-    answer:
-      "No ethical SEO agency can guarantee specific rankings, as Google's algorithm considers hundreds of factors outside our control. What we do guarantee is following best practices, transparent reporting, and a data-driven approach that consistently delivers measurable improvements.",
-  },
-  {
-    question: "What's included in your monthly SEO service?",
-    answer:
-      "Our monthly service includes technical SEO monitoring and fixes, content optimization, link building outreach, keyword tracking, competitor analysis, and detailed monthly reports. We also provide ongoing consultation and strategy adjustments based on performance data.",
-  },
-  {
-    question: "How do you approach link building?",
-    answer:
-      "We focus on quality over quantity, building links through guest posting on relevant industry publications, digital PR campaigns, and creating linkable assets like original research and tools. We never engage in black-hat tactics that could harm your site.",
-  },
-]
-
 export default function SEOServicePage() {
   return (
     <div className="min-h-screen bg-background">
