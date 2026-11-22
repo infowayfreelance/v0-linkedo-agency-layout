@@ -26,6 +26,16 @@ const categories = ["All", "SEO", "Web Development", "Google Ads", "Marketing", 
 
 const blogPosts = [
   {
+    slug: "ppc-or-seo-first-birmingham",
+    title: "PPC or SEO First? A Plain-English Guide for Birmingham Businesses",
+    excerpt: "Should a Birmingham or West Midlands business start with Google Ads or SEO? A plain-English way to decide, with questions, checks and a simple 90-day plan.",
+    category: "Google Ads",
+    date: "2026-11-22",
+    readTime: "9 min read",
+    image: "/blog/ppc-or-seo-first-birmingham-featured.webp",
+  },
+
+  {
     slug: "seo-for-restaurants",
     title: "SEO for Restaurants: A Practical UK Local SEO Guide (Including Bristol)",
     excerpt: "A practical local SEO guide for UK restaurants: Google Business Profile, menus, reviews and your website, with a Bristol worked example.",
