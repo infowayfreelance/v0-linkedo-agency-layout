@@ -33,6 +33,7 @@ const blogPosts = [
     date: "2026-11-22",
     readTime: "9 min read",
     image: "/blog/ppc-or-seo-first-birmingham-featured.webp",
+    featured: true
   },
 
   {
