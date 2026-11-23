@@ -29,7 +29,7 @@ const blogPostingSchema = {
   "@context": "https://schema.org", "@type": "BlogPosting",
   headline: ppcSeoPost.title, description: metaDescription,
   image: "https://linkedo.co.uk/blog/ppc-or-seo-first-birmingham-featured.webp",
-  datePublished: "2026-11-22", dateModified: "2026-11-22",
+  datePublished: "2026-11-22", dateModified: "2026-11-23",
   author: { "@type": "Organization", name: "Linkedo", url: "https://linkedo.co.uk/" },
   publisher: { "@type": "Organization", name: "Linkedo", url: "https://linkedo.co.uk/" },
   mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
