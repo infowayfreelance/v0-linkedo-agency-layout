@@ -26,6 +26,16 @@ const categories = ["All", "SEO", "Web Development", "Google Ads", "Marketing", 
 
 const blogPosts = [
   {
+    slug: "digital-marketing-west-midlands-small-business-guide",
+    title: "Digital Marketing in the West Midlands: A Practical Guide for Small Businesses",
+    excerpt: "A practical West Midlands digital marketing guide for small businesses: local SEO, Google Business Profile, Google Ads, social ads and what to measure.",
+    category: "Marketing",
+    date: "2026-11-23",
+    readTime: "10 min read",
+    image: "/blog/digital-marketing-west-midlands-featured.webp",
+    featured: true,
+  },
+  {
     slug: "ppc-or-seo-first-birmingham",
     title: "PPC or SEO First? A Plain-English Guide for Birmingham Businesses",
     excerpt: "Should a Birmingham or West Midlands business start with Google Ads or SEO? A plain-English way to decide, with questions, checks and a simple 90-day plan.",
