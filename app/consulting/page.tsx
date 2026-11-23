@@ -280,8 +280,63 @@ export default function ConsultingPage() {
       <Section title="What We Offer" className="mb-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service) => (
-            <ServiceCard key={service.title} {...service} />
+            <div key={service.title}>
+              <ServiceCard {...service} />
+              {service.title === "SEO Audits" && (
+                <p className="mt-3 text-sm text-muted-foreground">See our <Link className="text-primary underline" href="/seo">SEO services</Link>.</p>
+              )}
+              {service.title === "Digital Strategy" && (
+                <p className="mt-3 text-sm text-muted-foreground">Need delivery too? See <Link className="text-primary underline" href="/web-development">web development</Link>.</p>
+              )}
+            </div>
           ))}
+        </div>
+      </Section>
+
+
+      <Section className="mb-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">What a Digital Marketing Consultant Does</h2>
+          <p className="text-muted-foreground mb-6">A digital marketing consultant looks at the whole picture before recommending anything. We review how customers find your business today, which pages and channels bring enquiries, and where money or effort is being wasted. You then get clear priorities: what to fix first, what to stop doing and what to measure.</p>
+          <p className="text-muted-foreground mb-4">Typical areas we cover:</p>
+          <ul className="space-y-3 text-muted-foreground list-disc pl-6">
+            <li><strong className="text-foreground">Strategy and priorities:</strong> which channels fit your customers and budget, and in what order.</li>
+            <li><strong className="text-foreground">SEO and website review:</strong> whether Google can crawl and understand your pages, and whether each page answers what people search for. Google's <a className="text-primary underline" href="https://developers.google.com/search/docs/essentials">Search Essentials</a> set the baseline we check against.</li>
+            <li><strong className="text-foreground">Paid advertising review:</strong> targeting, ad copy, landing pages and tracking for <Link className="text-primary underline" href="/google-ads">Google Ads</Link> and <Link className="text-primary underline" href="/meta-ads">Meta Ads</Link>.</li>
+            <li><strong className="text-foreground">Tracking and reporting:</strong> knowing which activity leads to calls, forms and sales.</li>
+            <li><strong className="text-foreground">Training:</strong> so your team can run the plan after we step back.</li>
+          </ul>
+        </div>
+      </Section>
+
+      <Section className="mb-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">Consultant or Agency: Which Do You Need?</h2>
+          <p className="text-muted-foreground">Choose a <strong className="text-foreground">consultant</strong> when you want an expert second opinion, a plan your own team can deliver, or an audit before you spend more. Choose an <strong className="text-foreground">agency</strong> when you want the work done for you, such as ongoing <Link className="text-primary underline" href="/seo">SEO</Link>, advertising management or a new website. Many clients start with a short consulting engagement and then decide which parts to hand over. If you already have a team, we can work alongside them.</p>
+        </div>
+      </Section>
+
+      <Section className="mb-16">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-8">How a Consulting Engagement Works</h2>
+          <ProcessTimeline steps={consultingSteps} />
+          <p className="text-muted-foreground mt-8">We confirm the scope in writing before any work starts. Pricing depends on what you need; our starting prices are on the <Link className="text-primary underline" href="/pricing">pricing page</Link>.</p>
+        </div>
+      </Section>
+
+      <Section className="mb-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">Measure What Matters with GA4 and Search Console</h2>
+          <p className="text-muted-foreground">A plan is only useful if you can tell whether it is working. We set up <a className="text-primary underline" href="https://support.google.com/analytics/answer/9304153">Google Analytics 4</a> so it records the actions that matter to your business, such as calls, form enquiries, bookings or purchases, and check that <a className="text-primary underline" href="https://support.google.com/webmasters/answer/9128668">Google Search Console</a> is connected so you can see which searches bring people to your site. Then we agree a short list of numbers to review regularly. If your site isn't showing up at all yet, start with our guide to <Link className="text-primary underline" href="/blog/why-not-ranking-on-google-2026">why your business is not ranking on Google</Link>.</p>
+        </div>
+      </Section>
+
+      <Section className="mb-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">Digital Marketing Consultancy FAQs</h2>
+          <FAQAccordion items={consultingFaqs} forceMount />
+          <p className="text-muted-foreground mt-6">Ready to discuss your requirements? Book a <Link className="text-primary underline" href="/contact">free consultation</Link>.</p>
+          <p className="text-muted-foreground mt-3">For details of starting prices, see our <Link className="text-primary underline" href="/pricing">pricing page</Link>.</p>
         </div>
       </Section>
 
@@ -294,6 +349,7 @@ export default function ConsultingPage() {
           <AnimatedButton href="/contact" variant="primary" size="lg">
             Book a Consultation
           </AnimatedButton>
+          <p className="text-muted-foreground mt-4">Try our <Link className="text-primary underline" href="/free-ai-tools-online">free AI tools</Link> while you decide.</p>
         </div>
       </Section>
 
