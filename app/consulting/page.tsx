@@ -9,29 +9,84 @@ import { motion } from "framer-motion"
 import { SchemaMarkup } from "@/components/seo/schema-markup"
 import { Breadcrumbs } from "@/components/ui/breadcrumbs"
 import { RelatedLinks } from "@/components/ui/related-links"
+import { FAQAccordion } from "@/components/ui/faq-accordion"
+import { ProcessTimeline } from "@/components/ui/process-timeline"
+import Link from "next/link"
 
 const consultingServiceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "@id": "https://linkedo.co.uk/consulting#service",
-  name: "Digital Marketing Consulting",
+  name: "Digital Marketing Consultancy",
   url: "https://linkedo.co.uk/consulting",
   description:
-    "Strategic digital marketing consulting to help you make informed decisions, accelerate digital growth, and build winning online strategies.",
+    "Digital marketing consultancy for UK businesses: strategy, SEO and ads audits, GA4 analytics set-up and team training. Book a free consultation.",
   provider: { "@id": "https://linkedo.co.uk/#organization" },
   areaServed: { "@type": "Country", name: "United Kingdom" },
-  serviceType: "Marketing Consulting",
+  serviceType: "Digital marketing consulting",
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Consulting Services",
+    name: "Digital Marketing Consultancy",
     itemListElement: [
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Digital Strategy Development" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Digital Strategy" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "SEO Audits" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Analytics Setup & Reporting" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Analytics Setup" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Training & Workshops" } },
     ],
   },
 }
+
+const consultingFaqs = [
+  {
+    "question": "What does a digital marketing consultant do?",
+    "answer": "A digital marketing consultant reviews how your business is found and chosen online, then tells you what to prioritise. That usually means an audit of your website, SEO, paid ads and tracking, a written strategy with clear priorities, and advice or training while you or your team put it into action."
+  },
+  {
+    "question": "What is the difference between a marketing consultant and a marketing agency?",
+    "answer": "A consultant advises: they review, plan and guide, and your team does the work. An agency does the work for you, such as running ads, writing content or building pages. At Linkedo you can start with consulting only, or ask us to deliver the plan through our SEO, Google Ads, Meta Ads or web development services."
+  },
+  {
+    "question": "How much does digital marketing consulting cost?",
+    "answer": "It depends on what you need reviewed and how much support you want afterwards: a one-off audit costs less than ongoing advice. We confirm the scope in writing after the free consultation so you know what you are paying for. You can also see our starting prices on the pricing page."
+  },
+  {
+    "question": "Can you work with our in-house team?",
+    "answer": "Yes. Many businesses already have someone handling social media, email or the website. We can review what they are doing, set priorities and run workshops so they can carry the plan out, and step in only where you want extra hands."
+  },
+  {
+    "question": "Do you offer an SEO audit on its own?",
+    "answer": "Yes. An SEO audit checks technical issues, on-page content, local signals and tracking, and ends with a prioritised list of fixes. You can act on it yourself, give it to your developer or ask us to do the work."
+  },
+  {
+    "question": "Do you set up Google Analytics 4 and tracking?",
+    "answer": "Yes. We can set up Google Analytics 4, define the actions that matter to your business (calls, form enquiries, bookings or purchases) and build simple dashboards so you can see which channels bring them. We also check that Google Search Console is connected."
+  },
+  {
+    "question": "How long does it take to get a digital marketing strategy?",
+    "answer": "It depends on the size of your business and how many channels are involved. A focused review of one channel is quicker than a full strategy across SEO, ads, content and analytics. We give you a realistic timescale before you commit."
+  },
+  {
+    "question": "Do you offer training or workshops for my team?",
+    "answer": "Yes. We run practical sessions on topics such as SEO basics, Google Ads, analytics and reporting, so your team understands what the numbers mean and what to do next. Tell us what your team needs and we will shape the session around it."
+  }
+]
+
+const consultingFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://linkedo.co.uk/consulting#faq",
+  mainEntity: consultingFaqs.map(({ question, answer }) => ({
+    "@type": "Question", name: question,
+    acceptedAnswer: { "@type": "Answer", text: answer },
+  })),
+}
+
+const consultingSteps = [
+  { iconName: "MessageSquare", title: "Free consultation", description: "You tell us about your business, goals and what has and hasn't worked." },
+  { iconName: "FileSearch", title: "Review", description: "We look at your website, search visibility, ads, analytics and competitors." },
+  { iconName: "PenTool", title: "Recommendations", description: "You get a prioritised plan in writing, so you know what to do and why." },
+  { iconName: "Rocket", title: "Support", description: "We help you put the plan into action, run training for your team, or take on delivery if you ask us to." },
+]
 
 const consultingBreadcrumbSchema = {
   "@context": "https://schema.org",
@@ -47,7 +102,7 @@ const services = [
   {
     iconName: "Lightbulb",
     title: "Digital Strategy",
-    description: "Comprehensive digital marketing strategies aligned with your business goals.",
+    description: "A written digital marketing strategy built around your goals, customers and budget.",
   },
   {
     iconName: "Search",
@@ -70,6 +125,7 @@ export default function ConsultingPage() {
   return (
     <MainShell>
       <SchemaMarkup schema={consultingServiceSchema} />
+      <SchemaMarkup schema={consultingFaqSchema} />
       <SchemaMarkup schema={consultingBreadcrumbSchema} />
       <Section className="mb-16">
         <Breadcrumbs
@@ -82,10 +138,10 @@ export default function ConsultingPage() {
               Consulting Services
             </span>
             <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              Expert Digital Marketing <span className="text-gradient-primary">Guidance</span>
+              Digital Marketing Consultancy for <span className="text-gradient-primary">UK Businesses</span>
             </h1>
             <p className="text-lg text-muted-foreground mb-8">
-              Strategic consulting to help you make informed decisions and accelerate your digital growth.
+              Independent advice on where to focus your marketing budget: a review of your website, SEO, ads and tracking, a clear plan, and support while you put it into action.
             </p>
           </div>
 
@@ -114,7 +170,7 @@ export default function ConsultingPage() {
             </span>
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">Your Digital Growth Roadmap</h2>
             <p className="text-muted-foreground mb-6">
-              We analyze your current situation, identify opportunities, and create actionable strategies for growth.
+              We analyse your current situation, identify opportunities, and create actionable strategies for growth.
             </p>
             <ul className="space-y-3">
               {[
@@ -155,7 +211,7 @@ export default function ConsultingPage() {
             </span>
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">Understand Your Market Position</h2>
             <p className="text-muted-foreground mb-6">
-              We analyze your competitors' strategies to identify gaps, opportunities, and winning tactics you can
+              We analyse your competitors' strategies to identify gaps, opportunities, and winning tactics you can
               leverage.
             </p>
             <ul className="space-y-3">
@@ -201,7 +257,7 @@ export default function ConsultingPage() {
             </span>
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">Data That Drives Decisions</h2>
             <p className="text-muted-foreground mb-6">
-              We set up comprehensive tracking and analytics to measure what matters and optimize for continuous
+              We set up comprehensive tracking and analytics to measure what matters and optimise for continuous
               improvement.
             </p>
             <ul className="space-y-3">
@@ -209,7 +265,7 @@ export default function ConsultingPage() {
                 "Google Analytics 4 setup",
                 "Custom dashboard creation",
                 "KPI definition & tracking",
-                "Monthly performance reviews",
+                "Regular performance reviews",
               ].map((item, i) => (
                 <li key={i} className="flex items-center gap-3 text-foreground">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary" />
