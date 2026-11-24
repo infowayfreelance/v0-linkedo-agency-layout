@@ -13,6 +13,8 @@ import { ParticleBackground } from "@/components/ui/particle-background"
 import { FormInput } from "@/components/ui/form-input"
 import { FormSelect } from "@/components/ui/form-select"
 import { BlogOutlineResult } from "@/components/ui/blog-outline-result"
+import { FAQAccordion } from "@/components/ui/faq-accordion"
+import { SchemaMarkup } from "@/components/seo/schema-markup"
 import type { GeneratedOutline, OutlineFormState, RegenerateTarget } from "@/lib/blog-outline-generator/types"
 import {
   generateFullOutline,
@@ -81,12 +83,49 @@ const relatedTools = [
 
 const bestPractices = [
   "Start with a compelling introduction that hooks readers",
-  "Use H2 and H3 headers to organize content logically",
+  "Use H2 and H3 headings to organise content logically",
   "Include relevant keywords in your headings naturally",
   "Add actionable takeaways in each section",
   "End with a strong conclusion and call-to-action",
-  "Consider adding FAQs for featured snippet opportunities",
+  "Add a short FAQ when readers have common follow-up questions",
 ]
+
+
+const blogOutlineFaqData = [["What is a blog outline generator?","A blog outline generator turns a topic and keyword into a suggested structure for a post: a working title, the main sections (H2s), the points under each one (H3s) and notes on what to cover. You still write the post; the outline helps you decide what goes where before you start."],["How do I use the Linkedo blog outline generator?","Enter Blog Topic and Primary Keyword (both required), then add Secondary Keywords (optional). Choose Search Intent (optional) and Content Type, add Target Audience (optional), then select Desired Word Count and Tone. Click Generate Outline, read the result and edit it to fit what you know about the subject. The Tone selection is currently not used to change the generated output."],["What does the search intent option change?","It tells the generator what the reader is trying to do. Informational posts explain or teach, commercial posts help people compare options, transactional posts support someone ready to act, and navigational intent is for people looking for a specific brand or page. Auto Detect checks your topic and keywords. The selected intent appears in the SEO Overview and helps choose the suggested CTA; it does not change the outline headings."],["Which content types can I choose?","How-To Guide, Listicle, Comparison, Ultimate Guide, Case Study, Tutorial and Beginner Guide. The selected type changes the suggested title and the outline structure, so choose the format that matches what people searching for your keyword expect to see."],["Is the outline ready to publish?","No. It is a plan, not an article. The generator does not research or verify facts, so check every heading, add your own experience, examples and sources, and remove anything that does not belong. Google's guidance asks for content written for people first, whichever tools you use to produce it."],["Does the word count option guarantee a length Google prefers?","No. The word count setting changes the suggested number of main outline sections. Google says it has no preferred word count, so write as much as the topic needs to answer the reader fully, and no more."],["Is the blog outline generator free?","Yes, the tool is free to use on this page. You do not need to sign in, and the code does not set a usage limit."],["Can Linkedo write the blog posts for me?","Yes. If you'd rather hand over the writing, our team can plan and write blog content as part of our SEO services. Book a strategy call to talk through your topics and goals."]]
+const blogOutlineFaqs = blogOutlineFaqData.map((item, index) => ({
+  question: item[0],
+  answer: index === 7 ? <>Yes. If you'd rather hand over the writing, our team can plan and write blog content as part of our <Link href="/seo" className="text-primary underline underline-offset-4">SEO services</Link>. <Link href="/contact" className="text-primary underline underline-offset-4">Book a strategy call</Link> to talk through your topics and goals.</> : item[1],
+}))
+const blogOutlineFaqSchema = blogOutlineFaqData.map(([question, answer]) => ({
+  "@type": "Question", name: question,
+  acceptedAnswer: { "@type": "Answer", text: answer },
+}))
+const blogOutlineWebApplicationSchema = {
+  "@context": "https://schema.org", "@type": "WebApplication",
+  "@id": "https://linkedo.co.uk/blog-outline-generator#app",
+  name: "Free Blog Outline Generator", url: "https://linkedo.co.uk/blog-outline-generator",
+  description: "Free blog outline generator: enter a topic, keyword, search intent, content type and tone to get a structured H2/H3 outline you can edit and write from.",
+  applicationCategory: "BusinessApplication", operatingSystem: "Any", isAccessibleForFree: true,
+  featureList: [
+    "Blog Topic and Primary Keyword (required), with optional Secondary Keywords",
+    "Search Intent (optional): Auto Detect, Informational, Commercial, Transactional or Navigational",
+    "Content Type: How-To Guide, Listicle, Comparison, Ultimate Guide, Case Study, Tutorial or Beginner Guide",
+    "Optional Target Audience and Desired Word Count choices from 800 to 2,500+ words",
+    "Suggested H1, URL slug, introduction guidance and structured H2/H3/H4 outline with section guidance",
+    "Suggested reader questions, FAQ answers, internal link ideas, meta title, meta description, CTA and content enhancement ideas",
+    "Copy controls for the H1, URL slug, complete outline, meta title and meta description"
+  ],
+  offers: { "@type": "Offer", price: "0", priceCurrency: "GBP" },
+  provider: { "@id": "https://linkedo.co.uk/#organization" }
+}
+const blogOutlineBreadcrumbSchema = {
+  "@context": "https://schema.org", "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://linkedo.co.uk" },
+    { "@type": "ListItem", position: 2, name: "Free AI Tools", item: "https://linkedo.co.uk/free-ai-tools-online" },
+    { "@type": "ListItem", position: 3, name: "Blog Outline Generator", item: "https://linkedo.co.uk/blog-outline-generator" }
+  ]
+}
 
 const DEFAULT_FORM: OutlineFormState = {
   topic: "",
@@ -195,6 +234,9 @@ export default function BlogOutlineGeneratorPage() {
 
   return (
     <main>
+      <SchemaMarkup schema={blogOutlineWebApplicationSchema} />
+      <SchemaMarkup schema={{ "@context": "https://schema.org", "@type": "FAQPage", "@id": "https://linkedo.co.uk/blog-outline-generator#faq", mainEntity: blogOutlineFaqSchema }} />
+      <SchemaMarkup schema={blogOutlineBreadcrumbSchema} />
       {/* Hero Section */}
       <section className="relative pt-32 pb-12 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-background" />
@@ -213,8 +255,7 @@ export default function BlogOutlineGeneratorPage() {
                 Free Blog Outline <span className="text-gradient-primary">Generator</span>
               </h1>
               <p className="text-lg text-muted-foreground">
-                Structure your blog posts with SEO-focused outlines built around your real topic, keyword, and search
-                intent — not generic placeholders.
+                Enter a topic and keyword, choose the search intent and content type, and set your audience and desired length. The generator creates a suggested structure with headings and section guidance to help you plan your post.
               </p>
             </div>
 
@@ -238,9 +279,8 @@ export default function BlogOutlineGeneratorPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
               </div>
               <figcaption className="mt-3 text-sm text-muted-foreground">
-                <span className="font-medium text-foreground">Generate a structured outline in seconds.</span>{" "}
-                Enter a topic and keywords to get a ready-to-use outline with clear headings, subheadings, and SEO
-                guidance.
+                <span className="font-medium text-foreground">Plan the structure of your post before you write a word.</span>{" "}
+                Enter a topic and keyword, choose the search intent, content type, audience, length and tone, and get an outline with clear headings and subheadings to write from.
               </figcaption>
             </motion.figure>
           </div>
@@ -375,7 +415,7 @@ export default function BlogOutlineGeneratorPage() {
       <Section
         eyebrow="Best Practices"
         title="How to Structure Great Blog Posts"
-        description="Follow these guidelines to create content that ranks and engages."
+        description="Use these practical checks to plan a clear, useful post for your readers."
       >
         <div className="grid md:grid-cols-2 gap-8">
           <div className="space-y-4">
@@ -412,12 +452,69 @@ export default function BlogOutlineGeneratorPage() {
                 <h3 className="font-semibold text-foreground">Pro Tip</h3>
               </div>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                Use your generated outline as a starting point, then customize it based on your unique expertise and
-                audience needs. Add personal anecdotes, case studies, and data points to make your content stand out
-                from competitors.
+                Use your generated outline as a starting point, then customise it based on your own expertise and audience. Add first-hand experience, examples and sources so the post offers something readers cannot get elsewhere.
               </p>
             </div>
           </div>
+        </div>
+      </Section>
+
+      {/* How to use the generator */}
+      <Section eyebrow="Guide" title="How to Use the Blog Outline Generator">
+        <div className="max-w-3xl mx-auto space-y-4">
+          {[
+            <><strong>Add your topic and primary keyword.</strong> Use the phrase a reader would actually type, such as “how to choose an accountant for a small business”. Add secondary keywords only if they belong in the same post.</>,
+            <><strong>Choose the search intent.</strong> Leave it on Auto Detect, or pick Informational, Commercial, Transactional or Navigational if you already know what the reader wants.</>,
+            <><strong>Pick a content type.</strong> Choose How-To Guide, Listicle, Comparison, Ultimate Guide, Case Study, Tutorial or Beginner Guide.</>,
+            <><strong>Set the audience and length.</strong> Add a target audience if it helps, then choose a desired word count from 800 to 2,500+ words. The Tone field is also shown, but it does not currently change the generated result.</>,
+            <><strong>Generate, then edit.</strong> Click Generate Outline, then remove, merge or reorder sections until the plan matches what you know about the topic.</>,
+          ].map((step, index) => (
+            <div key={index} className="flex items-start gap-4">
+              <div className="w-7 h-7 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center shrink-0 text-sm font-semibold text-primary">{index + 1}</div>
+              <p className="text-muted-foreground leading-relaxed pt-0.5">{step}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section eyebrow="Planning" title="Choosing the Right Search Intent and Content Type">
+        <div className="max-w-3xl mx-auto space-y-4 text-muted-foreground leading-relaxed">
+          <p>The same keyword can need a different post depending on why someone searches for it. Before you generate an outline, search the keyword yourself and look at the pages that appear.</p>
+          <ul className="list-disc pl-6 space-y-3">
+            <li><strong>Informational</strong> (“what is…” or “how to…”): the reader wants to learn. A How-To Guide, Tutorial, Beginner Guide or Ultimate Guide may fit.</li>
+            <li><strong>Commercial</strong> (“best…”, “… vs …” or “… reviews”): the reader is comparing options. A Comparison or Listicle may be a better fit.</li>
+            <li><strong>Transactional</strong> (“hire…”, “buy…” or “… near me”): the reader is ready to act. A service or product page may serve them better than a blog post.</li>
+            <li><strong>Navigational</strong> (a brand or product name): the reader wants a specific site or page. Only write for this intent if the brand is yours.</li>
+          </ul>
+          <p>A Case Study suits a topic when you have a real project and permission to share its details. The selected intent appears in the SEO Overview and helps choose the suggested CTA; it does not change the outline headings.</p>
+        </div>
+      </Section>
+
+      <Section eyebrow="A useful check" title="What This Generator Won't Do">
+        <div className="max-w-3xl mx-auto space-y-4 text-muted-foreground leading-relaxed">
+          <p>An outline is a plan, not a finished article. This tool has clear limits:</p>
+          <ul className="list-disc pl-6 space-y-3">
+            <li>It does not check facts or find sources for you. Add your own evidence and cite it.</li>
+            <li>It cannot add your experience, opinions or examples. Those are what make a post useful and distinctive.</li>
+            <li>It does not know the other pages on your website, so choose and add internal links yourself.</li>
+            <li>It does not guarantee rankings. The word count setting changes the suggested number of main sections; it is not a target Google requires. Google says it has <Link href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content" className="text-primary underline underline-offset-4" target="_blank" rel="noopener noreferrer">no preferred word count</Link>.</li>
+            <li>The Tone selector is present in the form, but the current generator does not use it to shape the output.</li>
+            <li>Your entries are processed by the page's local generator. They are not sent to a third-party AI service or saved to a server by this tool.</li>
+          </ul>
+          <p>Google's guidance on <Link href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content" className="text-primary underline underline-offset-4" target="_blank" rel="noopener noreferrer">creating helpful, people-first content</Link> and <Link href="https://developers.google.com/search/docs/fundamentals/using-gen-ai-content" className="text-primary underline underline-offset-4" target="_blank" rel="noopener noreferrer">using generative AI content</Link> applies whichever tools you use: write for readers first and make sure the finished post adds value.</p>
+        </div>
+      </Section>
+
+      <Section eyebrow="Next steps" title="From Outline to Published Post">
+        <div className="max-w-3xl mx-auto space-y-4 text-muted-foreground leading-relaxed">
+          <ol className="list-decimal pl-6 space-y-3">
+            <li>Answer the main question early, in plain language, then use the sections to go deeper.</li>
+            <li>Write each section for the reader, not for the keyword. Use the keyword naturally where it fits.</li>
+            <li>Link to related pages on your own site where they genuinely help the reader.</li>
+            <li>Write a clear title tag and meta description with our <Link href="/meta-title-generator" className="text-primary underline underline-offset-4">Meta Title Generator</Link> and <Link href="/meta-description-generator" className="text-primary underline underline-offset-4">Meta Description Generator</Link>.</li>
+            <li>Read it through once more and cut anything that does not help the reader.</li>
+          </ol>
+          <p>If you would rather someone else handled planning and writing, see our <Link href="/seo" className="text-primary underline underline-offset-4">SEO services</Link> or browse more <Link href="/free-ai-tools-online" className="text-primary underline underline-offset-4">free SEO tools</Link>.</p>
         </div>
       </Section>
 
@@ -439,12 +536,19 @@ export default function BlogOutlineGeneratorPage() {
         </div>
       </Section>
 
+      {/* FAQs */}
+      <Section eyebrow="FAQ" title="Blog Outline Generator FAQs">
+        <div className="max-w-3xl mx-auto">
+          <FAQAccordion items={blogOutlineFaqs} forceMount />
+        </div>
+      </Section>
+
       {/* CTA Section */}
       <Section className="pb-24">
         <div className="relative p-8 md:p-12 rounded-2xl bg-card/50 border border-border/50 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Need Professional Content?</h2>
           <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-            Let our content experts create high-quality blog posts that drive traffic and conversions.
+            Prefer to hand over the writing? Our team can plan and write blog content as part of our SEO services.
           </p>
           <Link href="/seo">
             <AnimatedButton size="lg">
