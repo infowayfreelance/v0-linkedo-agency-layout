@@ -26,6 +26,16 @@ const categories = ["All", "SEO", "Web Development", "Google Ads", "Marketing", 
 
 const blogPosts = [
   {
+    slug: "ecommerce-website-design-checklist-bristol",
+    title: "Ecommerce Website Design Checklist for Bristol Businesses: What Your Online Shop Needs",
+    excerpt: "A practical checklist for Bristol businesses planning an online shop, covering platforms, product pages, checkout, mobile design, SEO and legal information.",
+    category: "Web Development",
+    date: "2026-11-24",
+    readTime: "12 min read",
+    image: "/blog/ecommerce-website-design-checklist-bristol-featured.webp",
+    featured: true,
+  },
+  {
     slug: "digital-marketing-west-midlands-small-business-guide",
     title: "Digital Marketing in the West Midlands: A Practical Guide for Small Businesses",
     excerpt: "A practical West Midlands digital marketing guide for small businesses: local SEO, Google Business Profile, Google Ads, social ads and what to measure.",
