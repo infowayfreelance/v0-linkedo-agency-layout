@@ -539,7 +539,7 @@ export default function BlogOutlineGeneratorPage() {
       {/* FAQs */}
       <Section eyebrow="FAQ" title="Blog Outline Generator FAQs">
         <div className="max-w-3xl mx-auto">
-          <FAQAccordion items={blogOutlineFaqs} forceMount />
+          <FAQAccordion items={blogOutlineFaqs} forceMount className="[&_[data-slot=accordion-content][data-state=closed]]:hidden" />
         </div>
       </Section>
 
