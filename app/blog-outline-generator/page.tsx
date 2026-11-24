@@ -104,7 +104,7 @@ const blogOutlineWebApplicationSchema = {
   "@context": "https://schema.org", "@type": "WebApplication",
   "@id": "https://linkedo.co.uk/blog-outline-generator#app",
   name: "Free Blog Outline Generator", url: "https://linkedo.co.uk/blog-outline-generator",
-  description: "Free blog outline generator: enter a topic, keyword, search intent, content type and tone to get a structured H2/H3 outline you can edit and write from.",
+  description: "Free blog outline generator: enter a topic, keyword, search intent and content type to get a structured H2/H3 outline you can edit and write from.",
   applicationCategory: "BusinessApplication", operatingSystem: "Any", isAccessibleForFree: true,
   featureList: [
     "Blog Topic and Primary Keyword (required), with optional Secondary Keywords",
