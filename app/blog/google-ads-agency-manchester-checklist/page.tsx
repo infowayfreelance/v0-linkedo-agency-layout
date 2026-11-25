@@ -25,7 +25,7 @@ const articleMarkdown = "# Hiring a Google Ads Agency in Manchester? A Practical
 const faqItems = [["1. How do I choose a Google Ads agency in Manchester?","Look for an agency that explains account ownership, conversion tracking, keyword management, location targeting, reporting and contract terms clearly. Ask who will manage your campaigns and how you will receive updates. Compare the actual service and working process rather than relying on advertising promises or badges."],["2. Should my business own its Google Ads account?","Your business should retain ownership and appropriate administrative access to its Google Ads account. An agency can use a manager account to manage campaigns without taking away your underlying account control. This also makes it easier to change providers if necessary."],["3. What should a monthly Google Ads report include?","A useful report should explain advertising expenditure, campaign activity, search terms, tracked conversions, important changes and recommended next steps. It should help you understand what happened during the reporting period and what the agency plans to review."],["4. Is a Google Partner agency better?","Not automatically. Google Partner status indicates that an organisation has met Google's programme requirements. It does not guarantee that the agency is right for your business or that its campaign management will meet your expectations. Consider the provider's approach, transparency and communication as well."],["5. How long before Google Ads shows results?","There is no single timeframe that applies to every campaign. Results depend on factors such as your market, competition, advertising budget, website, campaign setup and conversion tracking. Ask the agency how it will assess campaign activity and decide what needs improving. Be cautious of guaranteed results within a fixed period."],["6. Should I use Google Ads or Meta Ads first?","It depends on how customers discover and choose your products or services. Google Ads can be useful when people actively search for what you offer. Meta Ads may be more suitable when you need to introduce an offer or reach audiences who are not actively searching. Consider your audience, website and available resources before choosing."]]
 const faqSchema = faqItems.map(([name, answer]) => ({
   "@type": "Question",
-  name: name.replace(/^\\d+\\.\\s*/, ""),
+  name: name.replace(/^\d+\.\s*/, ""),
   acceptedAnswer: { "@type": "Answer", text: answer },
 }))
 const schemas = [
@@ -55,7 +55,7 @@ const imageByHeading: Record<string, { type: "image"; src: string; alt: string }
   "Reporting you can understand": { type: "image", src: "/blog/google-ads-agency-manchester-checklist/monthly-ads-report-meeting.webp", alt: "Business professionals reviewing a monthly Google Ads report together." },
 }
 function parseArticle(markdown: string): ContentBlock[] {
-  const lines = markdown.split("\\n")
+  const lines = markdown.split("\n")
   const blocks: ContentBlock[] = []
   let i = 0
   while (i < lines.length) {
@@ -74,15 +74,15 @@ function parseArticle(markdown: string): ContentBlock[] {
       while (i < lines.length && lines[i].trim().startsWith("- ")) { items.push(lines[i].trim().slice(2)); i++ }
       blocks.push({ type: "ul", items }); continue
     }
-    if (/^\\d+\\. /.test(line)) {
+    if (/^\d+\. /.test(line)) {
       const items: string[] = []
-      while (i < lines.length && /^\\d+\\. /.test(lines[i].trim())) { items.push(lines[i].trim().replace(/^\\d+\\. /, "")); i++ }
+      while (i < lines.length && /^\d+\. /.test(lines[i].trim())) { items.push(lines[i].trim().replace(/^\d+\. /, "")); i++ }
       blocks.push({ type: "ol", items }); continue
     }
     const paragraph = [line]; i++
     while (i < lines.length) {
       const next = lines[i].trim()
-      if (!next || next.startsWith("#") || next.startsWith("- ") || /^\\d+\\. /.test(next)) break
+      if (!next || next.startsWith("#") || next.startsWith("- ") || /^\d+\. /.test(next)) break
       paragraph.push(next); i++
     }
     blocks.push({ type: "p", text: paragraph.join(" ") })
