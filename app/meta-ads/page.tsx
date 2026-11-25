@@ -100,29 +100,108 @@ const services = [
   },
 ]
 
-const faqs = [
+const faqSchemaItems = [
+  {
+    question: "What does Meta Ads management include?",
+    answer: "Account and audience planning, campaign set-up on Facebook and Instagram, ad creative and copy, conversion tracking checks, ongoing testing and optimisation, and regular reporting. The exact scope is agreed on a strategy call before anything goes live.",
+  },
   {
     question: "What's the minimum budget for Meta Ads?",
-    answer:
-      "We recommend a minimum budget of $1,000-$2,000/month for Meta Ads to gather sufficient data and optimize effectively. However, we can discuss options based on your specific goals.",
+    answer: "There is no single right figure. The budget depends on your goal, how big your audience is and how many ads need testing before a pattern shows. We agree it with you on the call, and your ad spend is set separately from our management work.",
   },
   {
-    question: "Facebook vs Instagram - which is better?",
-    answer:
-      "It depends on your audience and objectives. We typically test both platforms and allocate budget based on performance. B2B often performs better on Facebook, while B2C and visual products excel on Instagram.",
+    question: "Facebook or Instagram: which is better for advertising?",
+    answer: "It depends on your audience and objective. We usually test both placements and move budget towards the one that performs for you. Meta's Ads Manager can run one campaign across Facebook, Instagram and other Meta placements, so you don't need separate campaigns to start.",
   },
   {
-    question: "How do you handle creative development?",
-    answer:
-      "We can work with your existing creative assets or develop new ad creatives. We'll provide guidance on best practices and continuously test different variations to find what resonates with your audience.",
+    question: "Which Meta Ads campaign objectives can you run?",
+    answer: "Meta offers objectives such as awareness, traffic, engagement, leads and sales. We choose the one that matches what you want people to do, for example fill in a lead form, call you or buy online, because the objective changes who Meta shows your ads to.",
+  },
+  {
+    question: "What are the Meta Pixel and Conversions API?",
+    answer: "The Meta Pixel is a snippet on your website that reports actions such as a form submission or a purchase back to Meta. The Conversions API sends similar events from your server. Together they help Meta learn which people take action, so we check both are set up and reporting before we judge a campaign.",
+  },
+  {
+    question: "How do you handle creative for Meta Ads?",
+    answer: "We can work with your existing images, video and copy or develop new ad creative. We test different hooks, formats and messages against each other and keep what the data supports, so the ads improve over time.",
+  },
+  {
+    question: "How long do Meta Ads take to work?",
+    answer: "Every campaign starts with a learning period while Meta gathers data on who responds. We review early results, adjust and keep testing. We can't promise a timeframe or a result, because it depends on your offer, audience, budget and website.",
+  },
+  {
+    question: "Should I use Meta Ads or Google Ads?",
+    answer: "They reach people in different moments. Google Ads catches people already searching for what you sell, while Meta Ads puts your offer in front of people who match your audience before they search. Many businesses use both, and we can manage Google Ads alongside Meta.",
+  },
+  {
+    question: "Can you build or improve the landing page my ads send people to?",
+    answer: "Yes. Ads only work if the page they lead to is clear and easy to act on. Our web development team can build or improve landing pages, and our SEO team can help the same pages bring in organic visitors too.",
+  },
+  {
+    question: "How do I get started with Linkedo's Meta Ads management?",
+    answer: "Book a strategy call. Tell us what you sell, who you want to reach and what a good result looks like for your business, and we'll outline a plan for Facebook and Instagram.",
+  },
+]
+
+const metaAdsFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://linkedo.co.uk/meta-ads#faq",
+  mainEntity: faqSchemaItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: item.answer },
+  })),
+}
+
+const faqs = [
+  {
+    question: "What does Meta Ads management include?",
+    answer: <>Account and audience planning, campaign set-up on Facebook and Instagram, ad creative and copy, conversion tracking checks, ongoing testing and optimisation, and regular reporting. The exact scope is agreed on a <Link href="/contact">strategy call</Link> before anything goes live.</>,
+  },
+  {
+    question: "What's the minimum budget for Meta Ads?",
+    answer: "There is no single right figure. The budget depends on your goal, how big your audience is and how many ads need testing before a pattern shows. We agree it with you on the call, and your ad spend is set separately from our management work.",
+  },
+  {
+    question: "Facebook or Instagram: which is better for advertising?",
+    answer: "It depends on your audience and objective. We usually test both placements and move budget towards the one that performs for you. Meta's Ads Manager can run one campaign across Facebook, Instagram and other Meta placements, so you don't need separate campaigns to start.",
+  },
+  {
+    question: "Which Meta Ads campaign objectives can you run?",
+    answer: "Meta offers objectives such as awareness, traffic, engagement, leads and sales. We choose the one that matches what you want people to do, for example fill in a lead form, call you or buy online, because the objective changes who Meta shows your ads to.",
+  },
+  {
+    question: "What are the Meta Pixel and Conversions API?",
+    answer: "The Meta Pixel is a snippet on your website that reports actions such as a form submission or a purchase back to Meta. The Conversions API sends similar events from your server. Together they help Meta learn which people take action, so we check both are set up and reporting before we judge a campaign.",
+  },
+  {
+    question: "How do you handle creative for Meta Ads?",
+    answer: "We can work with your existing images, video and copy or develop new ad creative. We test different hooks, formats and messages against each other and keep what the data supports, so the ads improve over time.",
+  },
+  {
+    question: "How long do Meta Ads take to work?",
+    answer: "Every campaign starts with a learning period while Meta gathers data on who responds. We review early results, adjust and keep testing. We can't promise a timeframe or a result, because it depends on your offer, audience, budget and website.",
+  },
+  {
+    question: "Should I use Meta Ads or Google Ads?",
+    answer: <>They reach people in different moments. Google Ads catches people already searching for what you sell, while Meta Ads puts your offer in front of people who match your audience before they search. Many businesses use both, and we can <Link href="/google-ads">manage Google Ads</Link> alongside Meta.</>,
+  },
+  {
+    question: "Can you build or improve the landing page my ads send people to?",
+    answer: <>Yes. Ads only work if the page they lead to is clear and easy to act on. Our <Link href="/web-development">web development</Link> team can build or improve landing pages, and our <Link href="/seo">SEO team</Link> can help the same pages bring in organic visitors too.</>,
+  },
+  {
+    question: "How do I get started with Linkedo's Meta Ads management?",
+    answer: <><Link href="/contact">Book a strategy call</Link>. Tell us what you sell, who you want to reach and what a good result looks like for your business, and we'll outline a plan for Facebook and Instagram.</>,
   },
 ]
 
 const stats = [
-  { label: "Average ROAS", value: "5.3x" },
-  { label: "Cost per Acquisition", value: "-52%" },
-  { label: "Engagement Rate", value: "+240%" },
-  { label: "Conversion Rate", value: "3.8%" },
+  { label: "", value: "Facebook ads" },
+  { label: "", value: "Instagram ads" },
+  { label: "", value: "Retargeting" },
+  { label: "", value: "Monthly reporting" },
 ]
 
 export default function MetaAdsPage() {
