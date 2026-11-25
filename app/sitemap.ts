@@ -68,6 +68,7 @@ const caseStudySlugs: { slug: string; lastModified: string }[] = [
 
 // Blog slugs — list only real, unique published articles. Unknown slugs return 404.
 const blogSlugs: { slug: string; lastModified: string }[] = [
+  { slug: "google-ads-agency-manchester-checklist", lastModified: "2026-11-25" },
   { slug: "ecommerce-website-design-checklist-bristol", lastModified: "2026-11-24" },
   { slug: "digital-marketing-west-midlands-small-business-guide", lastModified: "2026-11-23" },
   { slug: "ppc-or-seo-first-birmingham", lastModified: "2026-11-23" },

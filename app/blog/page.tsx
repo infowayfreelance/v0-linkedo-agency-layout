@@ -26,6 +26,16 @@ const categories = ["All", "SEO", "Web Development", "Google Ads", "Marketing", 
 
 const blogPosts = [
   {
+    slug: "google-ads-agency-manchester-checklist",
+    title: "Hiring a Google Ads Agency in Manchester? A Practical Checklist Before You Sign",
+    excerpt: "A practical checklist for Manchester businesses comparing Google Ads agencies, covering account ownership, conversion tracking, search terms, reporting and contracts.",
+    category: "Google Ads",
+    date: "2026-11-25",
+    readTime: "11 min read",
+    image: "/blog/google-ads-agency-manchester-checklist/google-ads-agency-manchester-checklist-featured.webp",
+    featured: true,
+  },
+  {
     slug: "ecommerce-website-design-checklist-bristol",
     title: "Ecommerce Website Design Checklist for Bristol Businesses: What Your Online Shop Needs",
     excerpt: "A practical checklist for Bristol businesses planning an online shop, covering platforms, product pages, checkout, mobile design, SEO and legal information.",
