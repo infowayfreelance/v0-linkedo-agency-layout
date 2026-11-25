@@ -115,17 +115,6 @@ const faqSchemaItems = [
   },
 ]
 
-const metaAdsFaqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "@id": "https://linkedo.co.uk/meta-ads#faq",
-  mainEntity: faqSchemaItems.map((item) => ({
-    "@type": "Question",
-    name: item.question,
-    acceptedAnswer: { "@type": "Answer", text: item.answer },
-  })),
-}
-
 const faqSchemaItems = [
   { question: "What does Meta Ads management include?", answer: "Account and audience planning, campaign set-up on Facebook and Instagram, ad creative and copy, conversion tracking checks, ongoing testing and optimisation, and regular reporting. The exact scope is agreed on a strategy call before anything goes live." },
   { question: "What's the minimum budget for Meta Ads?", answer: "There is no single right figure. The budget depends on your goal, how big your audience is and how many ads need testing before a pattern shows. We agree it with you on the call, and your ad spend is set separately from our management work." },
