@@ -17,71 +17,161 @@ const webDevServiceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "@id": "https://linkedo.co.uk/web-development#service",
-  name: "Web Development Services",
-  url: "https://linkedo.co.uk/web-development",
-  description:
-    "Professional web development services combining stunning design with powerful functionality to grow your business.",
-  provider: { "@id": "https://linkedo.co.uk/#organization" },
-  areaServed: { "@type": "Country", name: "United Kingdom" },
-  serviceType: "Web Development",
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Web Development Services",
-    itemListElement: [
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Custom Design" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Responsive Mobile-First Development" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Performance Optimisation" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "E-Commerce Development" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "SaaS Web Application Development" } },
-    ],
+  "name": "Web Development Services",
+  "url": "https://linkedo.co.uk/web-development",
+  "description": "Custom websites and web applications for UK businesses: discovery and planning, design and prototyping, development on Next.js, React, Vue.js, WordPress, Shopify or Webflow, testing and launch, with ongoing support.",
+  "provider": {
+    "@id": "https://linkedo.co.uk/#organization"
   },
+  "areaServed": {
+    "@type": "Country",
+    "name": "United Kingdom"
+  },
+  "serviceType": "Web Development",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Web Development Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Custom Website Design and Development"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Responsive Mobile-First Development"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Website Redesign and Migration"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "E-Commerce Development"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Web Application Development"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Website Maintenance and Support"
+        }
+      }
+    ]
+  }
 }
 
 const webDevFaqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: [
+  "@id": "https://linkedo.co.uk/web-development#faq",
+  "mainEntity": [
     {
       "@type": "Question",
-      name: "How long does it take to build a website?",
-      acceptedAnswer: {
+      "name": "How long does it take to build a website?",
+      "acceptedAnswer": {
         "@type": "Answer",
-        text: "Timeline varies based on complexity. A basic website typically takes 4-6 weeks, while complex web applications can take 3-6 months. We'll provide a detailed timeline during the discovery phase.",
-      },
+        "text": "Timeline varies based on complexity. A basic website typically takes 4-6 weeks, while complex web applications can take 3-6 months. We'll provide a detailed timeline during the discovery phase."
+      }
     },
     {
       "@type": "Question",
-      name: "What platforms do you work with?",
-      acceptedAnswer: {
+      "name": "What platforms do you work with?",
+      "acceptedAnswer": {
         "@type": "Answer",
-        text: "We work with modern frameworks including Next.js, React, and Vue.js for custom development. We also build on platforms like WordPress, Shopify, and Webflow depending on your needs.",
-      },
+        "text": "We work with modern frameworks including Next.js, React, and Vue.js for custom development. We also build on platforms like WordPress, Shopify, and Webflow depending on your needs."
+      }
     },
     {
       "@type": "Question",
-      name: "Do you provide website maintenance?",
-      acceptedAnswer: {
+      "name": "Do you provide website maintenance?",
+      "acceptedAnswer": {
         "@type": "Answer",
-        text: "Yes, we offer ongoing maintenance packages including security updates, content updates, performance monitoring, and technical support.",
-      },
+        "text": "Yes, we offer ongoing maintenance packages including security updates, content updates, performance monitoring, and technical support."
+      }
     },
     {
       "@type": "Question",
-      name: "Will my website be mobile-friendly?",
-      acceptedAnswer: {
+      "name": "Will my website be mobile-friendly?",
+      "acceptedAnswer": {
         "@type": "Answer",
-        text: "Absolutely. All our websites are built mobile-first, ensuring they look and perform perfectly on all devices from smartphones to desktop computers.",
-      },
+        "text": "Yes. Every site is built mobile-first and tested on phones, tablets and desktops before launch, so pages are easy to read and use on any screen."
+      }
     },
     {
       "@type": "Question",
-      name: "Can you redesign my existing website?",
-      acceptedAnswer: {
+      "name": "Can you redesign my existing website?",
+      "acceptedAnswer": {
         "@type": "Answer",
-        text: "Yes, we specialise in website redesigns. We'll analyse your current site, identify improvement opportunities, and create a modern, high-performing replacement.",
-      },
+        "text": "Yes, we specialise in website redesigns. We'll analyse your current site, identify improvement opportunities, and create a modern, high-performing replacement. If your site already gets search traffic, we map the old URLs and set up redirects so you keep it (see redesigns and migrations)."
+      }
     },
-  ],
+    {
+      "@type": "Question",
+      "name": "How much does a website cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the number of page templates, the platform, the integrations you need and who supplies the content. We agree the scope in the discovery stage and give you a written quote before any work starts. See our pricing page or get in touch to talk through your project."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I choose a custom build, WordPress or Shopify?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Choose WordPress or Webflow if your team mainly needs to publish pages and posts, Shopify if selling products is the main job, and a custom Next.js or React build if the site has to do something those platforms handle badly, such as a client portal or complex integrations. We'll recommend one in discovery and explain why."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will I be able to update the website myself?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Where you need to edit content, we set the site up with a content management system (WordPress, Shopify, Webflow or a headless CMS) and show your team how to update pages, posts and images."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you connect the website to my CRM, booking or payment tools?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually, yes, as long as the tool offers an API or a ready-made integration. We check each one during discovery and include it in the scope and the quote."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you build websites with SEO in mind?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Every build includes the technical basics: clean URLs, page titles and meta descriptions, heading structure, structured data, an XML sitemap and fast-loading pages. If you want ongoing search growth after launch, see our SEO services."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When can I contact Linkedo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Linkedo is open 24/7. Call +44 7927 969991, email info@linkedo.co.uk or use the contact form, and we'll come back to you about your project."
+      }
+    }
+  ]
 }
 
 const webDevBreadcrumbSchema = {
@@ -103,12 +193,12 @@ const serviceFeatures = [
   {
     iconName: "Smartphone",
     title: "Responsive & Mobile-First",
-    description: "Perfectly optimized for all devices with mobile-first development approach.",
+    description: "Built mobile-first and tested on phones, tablets and desktops.",
   },
   {
     iconName: "Zap",
     title: "Lightning Fast",
-    description: "Optimized for speed with 95+ PageSpeed scores and exceptional performance.",
+    description: "Built for fast loading and checked against Core Web Vitals before launch.",
   },
   {
     iconName: "Shield",
@@ -117,13 +207,13 @@ const serviceFeatures = [
   },
   {
     iconName: "Search",
-    title: "SEO Optimized",
+    title: "SEO-Ready Build",
     description: "Technical SEO built-in from the ground up for better search visibility.",
   },
   {
     iconName: "BarChart",
     title: "Analytics Integration",
-    description: "Comprehensive tracking setup to measure and optimize performance.",
+    description: "Comprehensive tracking setup to measure and optimise performance.",
   },
 ]
 
@@ -159,7 +249,7 @@ const caseStudies = [
   {
     title: "E-commerce Platform Redesign",
     client: "Fashion Retailer",
-    description: "300% increase in online sales with modern design and optimized checkout flow.",
+    description: "Redesign of an online store with a simpler product range and a shorter checkout flow.",
     href: "/case-studies",
     tags: ["E-commerce", "Redesign", "Shopify"],
     image: "/modern-ecommerce-website.png",
@@ -167,7 +257,7 @@ const caseStudies = [
   {
     title: "SaaS Platform Development",
     client: "Tech Startup",
-    description: "Custom web application serving 10,000+ users with enterprise features.",
+    description: "Custom web application with user accounts, role-based access and integrations.",
     href: "/case-studies",
     tags: ["SaaS", "Web App", "React"],
     image: "/modern-saas-dashboard.png",
@@ -175,31 +265,17 @@ const caseStudies = [
 ]
 
 const faqs = [
-  {
-    question: "How long does it take to build a website?",
-    answer:
-      "Timeline varies based on complexity. A basic website typically takes 4-6 weeks, while complex web applications can take 3-6 months. We'll provide a detailed timeline during the discovery phase.",
-  },
-  {
-    question: "What platforms do you work with?",
-    answer:
-      "We work with modern frameworks including Next.js, React, and Vue.js for custom development. We also build on platforms like WordPress, Shopify, and Webflow depending on your needs.",
-  },
-  {
-    question: "Do you provide website maintenance?",
-    answer:
-      "Yes, we offer ongoing maintenance packages including security updates, content updates, performance monitoring, and technical support.",
-  },
-  {
-    question: "Will my website be mobile-friendly?",
-    answer:
-      "Absolutely. All our websites are built mobile-first, ensuring they look and perform perfectly on all devices from smartphones to desktop computers.",
-  },
-  {
-    question: "Can you redesign my existing website?",
-    answer:
-      "Yes, we specialize in website redesigns. We'll analyze your current site, identify improvement opportunities, and create a modern, high-performing replacement.",
-  },
+  { question: "How long does it take to build a website?", answer: <>Timeline varies based on complexity. A basic website typically takes 4-6 weeks, while complex web applications can take 3-6 months. We'll provide a detailed timeline during the discovery phase.</> },
+  { question: "What platforms do you work with?", answer: <>We work with modern frameworks including Next.js, React, and Vue.js for custom development. We also build on platforms like WordPress, Shopify, and Webflow depending on your needs.</> },
+  { question: "Do you provide website maintenance?", answer: <>Yes, we offer ongoing maintenance packages including security updates, content updates, performance monitoring, and technical support.</> },
+  { question: "Will my website be mobile-friendly?", answer: <>Yes. Every site is built mobile-first and tested on phones, tablets and desktops before launch, so pages are easy to read and use on any screen.</> },
+  { question: "Can you redesign my existing website?", answer: <>Yes, we specialise in website redesigns. We'll analyse your current site, identify improvement opportunities, and create a modern, high-performing replacement. If your site already gets search traffic, we map the old URLs and set up redirects so you keep it (see <a href="#redesign" className="text-primary hover:underline">redesigns and migrations</a>).</> },
+  { question: "How much does a website cost?", answer: <>It depends on the number of page templates, the platform, the integrations you need and who supplies the content. We agree the scope in the discovery stage and give you a written quote before any work starts. See our <a href="/pricing" className="text-primary hover:underline">pricing</a> page or <a href="/contact" className="text-primary hover:underline">get in touch</a> to talk through your project.</> },
+  { question: "Should I choose a custom build, WordPress or Shopify?", answer: <>Choose WordPress or Webflow if your team mainly needs to publish pages and posts, Shopify if selling products is the main job, and a custom Next.js or React build if the site has to do something those platforms handle badly, such as a client portal or complex integrations. We'll recommend one in discovery and explain why.</> },
+  { question: "Will I be able to update the website myself?", answer: <>Yes. Where you need to edit content, we set the site up with a content management system (WordPress, Shopify, Webflow or a headless CMS) and show your team how to update pages, posts and images.</> },
+  { question: "Can you connect the website to my CRM, booking or payment tools?", answer: <>Usually, yes, as long as the tool offers an API or a ready-made integration. We check each one during discovery and include it in the scope and the quote.</> },
+  { question: "Do you build websites with SEO in mind?", answer: <>Yes. Every build includes the technical basics: clean URLs, page titles and meta descriptions, heading structure, structured data, an XML sitemap and fast-loading pages. If you want ongoing search growth after launch, see our <a href="/seo" className="text-primary hover:underline">SEO services</a>.</> },
+  { question: "When can I contact Linkedo?", answer: <>Linkedo is open 24/7. Call +44 7927 969991, email info@linkedo.co.uk or use the <a href="/contact" className="text-primary hover:underline">contact form</a>, and we'll come back to you about your project.</> },
 ]
 
 export default function WebDevelopmentPage() {
@@ -223,8 +299,7 @@ export default function WebDevelopmentPage() {
               Custom Websites <span className="text-gradient-primary">That Drive Results</span>
             </h1>
             <p className="text-lg text-muted-foreground mb-8">
-              Professional web development services that combine stunning design with powerful functionality to grow
-              your business.
+              We design and build custom websites and web apps for UK businesses, from discovery and design to development, testing and launch, with support after go-live.
             </p>
           </div>
 
@@ -258,15 +333,14 @@ export default function WebDevelopmentPage() {
             </span>
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">Lightning-Fast Load Times</h2>
             <p className="text-muted-foreground mb-6">
-              We optimize every aspect of your website for maximum speed and performance, ensuring visitors don't bounce
-              before your content loads.
+              We build every page to load quickly and stay stable on phones, checking the Core Web Vitals Google uses to measure real-world page experience.
             </p>
             <ul className="space-y-3">
               {[
-                "Image optimization & lazy loading",
+                "Image optimisation & lazy loading",
                 "Code splitting & minification",
                 "CDN integration",
-                "95+ PageSpeed scores",
+                "Core Web Vitals checked before launch",
               ].map((item, i) => (
                 <li key={i} className="flex items-center gap-3 text-foreground">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary" />
@@ -354,9 +428,55 @@ export default function WebDevelopmentPage() {
         </div>
       </Section>
 
+      <Section title="Custom Build, WordPress or Shopify: Which Fits Your Business?" className="mb-16">
+        <div className="max-w-4xl mx-auto space-y-5 text-muted-foreground">
+          <p>Not every business needs a fully custom website. We'll recommend the simplest option that does the job:</p>
+          <ul className="list-disc pl-6 space-y-3">
+          <li><strong>WordPress or Webflow</strong> when your team mainly needs to publish pages, services and blog posts.</li>
+          <li><strong>Shopify</strong> when selling products online is the main job of the site.</li>
+          <li><strong>A custom Next.js or React build</strong> when the site has to do something off-the-shelf platforms handle badly, such as client portals, calculators, booking rules or several integrations.</li>
+          <li><strong>A web application</strong> when users need accounts, dashboards and their own data.</li>
+          </ul>
+          <p>We explain the trade-offs (cost, speed of editing, flexibility and upkeep) during discovery, before you commit to anything.</p>
+        </div>
+      </Section>
+
+      <Section title="What We Need From You Before We Start" className="mb-16">
+        <div className="max-w-4xl mx-auto space-y-5 text-muted-foreground">
+          <p>A clear brief makes the build quicker and the quote more accurate. Before discovery, it helps to have:</p>
+          <ol className="list-decimal pl-6 space-y-3">
+          <li>Your goals: what the site must achieve (enquiries, sales, bookings, sign-ups).</li>
+          <li>A list of the pages or sections you expect, and any sites you like.</li>
+          <li>Your logo, brand colours and fonts, if you have them, or a note that you need <a href="/branding" className="text-primary hover:underline">branding</a> too.</li>
+          <li>Who will write the content and supply the images.</li>
+          <li>The tools the site must connect to (CRM, booking, payments, email marketing, analytics).</li>
+          <li>Access to your current domain, hosting and website, if you already have one.</li>
+          </ol>
+        </div>
+      </Section>
+
       {/* Process */}
       <Section eyebrow="Our Process" title="How We Work" className="mb-16">
         <ProcessTimeline steps={processSteps} />
+      </Section>
+
+      <Section id="redesign" title="Redesigns and Migrations Without Losing Search Traffic" className="mb-16">
+        <div className="max-w-4xl mx-auto space-y-5 text-muted-foreground">
+          <p>A redesign is when many sites lose rankings, usually because old URLs disappear without redirects or content quietly goes missing. On every redesign we list your existing URLs, keep or improve the pages that already bring visitors, set up 301 redirects from old to new URLs, carry over titles, meta descriptions and structured data, and test the new site before it goes live. Google's own guide to <a href="https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes" className="text-primary hover:underline" target="_blank" rel="noopener">moving a site with URL changes</a> explains why this matters. After launch we check Search Console for crawl errors and fix them.</p>
+        </div>
+      </Section>
+
+      <Section title="What We Check Before Launch" className="mb-16">
+        <div className="max-w-4xl mx-auto space-y-5 text-muted-foreground">
+          <ul className="list-disc pl-6 space-y-3">
+          <li><strong>Speed and stability:</strong> we test the <a href="https://web.dev/articles/vitals" className="text-primary hover:underline" target="_blank" rel="noopener">Core Web Vitals</a> (loading, responsiveness and layout stability) on mobile and desktop.</li>
+          <li><strong>Accessibility:</strong> we check headings, colour contrast, image alt text, form labels and keyboard use against the <a href="https://www.w3.org/WAI/standards-guidelines/wcag/" className="text-primary hover:underline" target="_blank" rel="noopener">WCAG</a> guidelines.</li>
+          <li><strong>Search basics:</strong> page titles, meta descriptions, one H1 per page, structured data, XML sitemap and a robots.txt that doesn't block important pages.</li>
+          <li><strong>Forms and tracking:</strong> every form sends where it should, and analytics and conversion tracking record correctly.</li>
+          <li><strong>Security:</strong> HTTPS everywhere, up-to-date dependencies and no exposed admin areas.</li>
+          </ul>
+          <p>Once the site is live, we can keep it updated through a maintenance plan, or help it grow through <a href="/seo" className="text-primary hover:underline">SEO</a>, <a href="/google-ads" className="text-primary hover:underline">Google Ads</a> and <a href="/meta-ads" className="text-primary hover:underline">Meta Ads</a>.</p>
+        </div>
       </Section>
 
       {/* Case Studies */}
@@ -369,9 +489,9 @@ export default function WebDevelopmentPage() {
       </Section>
 
       {/* FAQ */}
-      <Section eyebrow="FAQ" title="Frequently Asked Questions" className="mb-16">
+      <Section id="faq" eyebrow="FAQ" title="Frequently Asked Questions" className="mb-16">
         <div className="max-w-3xl mx-auto">
-          <FAQAccordion items={faqs} />
+          <FAQAccordion items={faqs} forceMount />
         </div>
       </Section>
 
@@ -382,6 +502,7 @@ export default function WebDevelopmentPage() {
           <p className="text-muted-foreground mb-6 leading-relaxed">
             Let's discuss your web development needs and create a solution that drives real business results.
           </p>
+          <p className="text-muted-foreground mb-6">Linkedo is open 24/7, so you can get in touch whenever suits you.</p>
           <AnimatedButton href="/contact" variant="primary" size="lg">
             Get a Free Quote
           </AnimatedButton>
