@@ -26,6 +26,16 @@ const categories = ["All", "SEO", "Web Development", "Google Ads", "Marketing", 
 
 const blogPosts = [
   {
+    "slug": "social-media-agency-birmingham-guide",
+    "title": "Choosing a Social Media Agency in Birmingham: Organic Social or Meta Ads?",
+    "excerpt": "Choosing a social media agency in Birmingham? Compare organic social and Meta Ads, check account ownership, ask the right questions and track enquiries.",
+    "category": "Marketing",
+    "date": "2026-11-26",
+    "readTime": "10 min read",
+    "image": "/blog/social-media-agency-birmingham-guide/social-media-agency-birmingham-featured.webp",
+    "featured": true
+  },
+  {
     slug: "google-ads-agency-manchester-checklist",
     title: "Hiring a Google Ads Agency in Manchester? A Practical Checklist Before You Sign",
     excerpt: "A practical checklist for Manchester businesses comparing Google Ads agencies, covering account ownership, conversion tracking, search terms, reporting and contracts.",
