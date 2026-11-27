@@ -26,6 +26,16 @@ const categories = ["All", "SEO", "Web Development", "Google Ads", "Marketing", 
 
 const blogPosts = [
   {
+    "slug": "meta-ads-vs-google-ads",
+    "title": "Meta Ads vs Google Ads: Which Should a UK Small Business Choose First?",
+    "excerpt": "Google Ads reaches people already searching; Meta Ads finds new buyers on Facebook and Instagram. See which to start with and how to track both.",
+    "category": "Marketing",
+    "date": "2026-11-27",
+    "readTime": "10 min read",
+    "image": "/blog/meta-ads-vs-google-ads/meta-ads-vs-google-ads-featured.webp",
+    "featured": true
+  },
+  {
     "slug": "social-media-agency-birmingham-guide",
     "title": "Choosing a Social Media Agency in Birmingham: Organic Social or Meta Ads?",
     "excerpt": "Choosing a social media agency in Birmingham? Compare organic social and Meta Ads, check account ownership, ask the right questions and track enquiries.",
