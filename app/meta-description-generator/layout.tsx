@@ -1,8 +1,8 @@
 import type { Metadata } from "next"
 
-const TITLE = "Free Meta Description Generator | Linkedo"
+const TITLE = "Free Meta Description Generator for SEO | Linkedo"
 const DESCRIPTION =
-  "Write compelling meta descriptions that boost click-through rates. Generate SEO-optimised descriptions for any page with our free AI tool."
+  "Free meta description generator: add your keyword, page type and search intent to get three descriptions with live character counts. By Linkedo."
 
 export const metadata: Metadata = {
   title: TITLE,
